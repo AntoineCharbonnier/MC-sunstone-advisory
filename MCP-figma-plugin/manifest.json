@@ -1,0 +1,7 @@
+{
+  "name": "Sunstone Build",
+  "id": "sunstone-build-temp",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"]
+}

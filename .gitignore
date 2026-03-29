@@ -1,0 +1,5 @@
+# Secrets & local config
+.claude/settings.local.json
+
+# OS
+.DS_Store
