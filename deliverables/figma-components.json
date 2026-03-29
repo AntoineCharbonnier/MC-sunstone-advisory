@@ -1,0 +1,37 @@
+{
+  "designSystemPage": "🎨 Design System",
+  "colorCollection": {
+    "id": "VariableCollectionId:8:2",
+    "variables": {
+      "navy":         "VariableID:8:3",
+      "navy-mid":     "VariableID:8:4",
+      "slate":        "VariableID:8:5",
+      "gold-print":   "VariableID:8:6",
+      "gold-digital": "VariableID:8:7",
+      "cream":        "VariableID:8:8",
+      "warm-white":   "VariableID:8:9",
+      "border-light": "VariableID:8:10",
+      "text-body":    "VariableID:8:11",
+      "text-gray":    "VariableID:8:12"
+    }
+  },
+  "textStyles": {
+    "Heading/H1":      "S:f69b6a0e7fd18d8fab56906f7dae48bbc7919864,",
+    "Heading/H2":      "S:b09820ec122b29fa04a4a89e52851df5ae936e02,",
+    "Heading/Quote":   "S:d785462b0e8fdf54572ca04d0d3d6d5a6ca9fdf0,",
+    "Body/Regular":    "S:055da457d50d32c188bd0fcf1d768427a24e1529,",
+    "Body/Small":      "S:fee1355f55f64e3de5c6c33c7176f801f85894b7,",
+    "Body/Name":       "S:7c63de7126eb8228144f585247e673fbe543fc6b,",
+    "Label/Section":   "S:1a3073cbb62a363fa64f290850b76ab555b8f3f0,",
+    "Label/Button":    "S:6bddb3d4dcb36db9100addde64a4342cff925d11,"
+  },
+  "components": {
+    "C01_SectionLabel": { "id": "11:2",  "key": "6d61a6a114b546e8af819ea4a581a0d6607f8c0e" },
+    "C02_AccentDot":    { "id": "11:4",  "key": "02d96a7689e8c4c76fd5c7a59af2ceb9db2117d6" },
+    "C03_CTAButton":    { "id": "11:6",  "key": "c1117bbee9b1234fc96648c6c371e65ba969b0ba" },
+    "C04_Divider":      { "id": "11:8",  "key": "db63c468b2c52eef9da3d3c9a25faa2bba4572e6" },
+    "C05_CardBorder":   { "id": "11:10", "key": "e9fa8b41d6e696e433d534aa8e478d4521128ac6" },
+    "C06_LogoBadge":    { "id": "11:11", "key": "c3178f8bce5e992db677a58138e5b2750924319b" },
+    "C07_VerticalBar":  { "id": "11:13", "key": "321368b122f0ab16da089d75c05a8f175c73826e" }
+  }
+}
