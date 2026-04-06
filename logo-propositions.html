@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunstone Advisory — Nouvelles Propositions de Logos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0F1A2E;
+    --navy2:  #1A2744;
+    --gold:   #C8A060;
+    --goldd:  #FFDF90;
+    --cream:  #F5F0E8;
+    --warm:   #FAFAF7;
+    --border: #E4DDD0;
+    --gray:   #7A7A7A;
+    --body:   #3A3A3A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+    padding: 72px 56px;
+  }
+
+  /* ---- HEADER ---- */
+  .page-header {
+    max-width: 960px;
+    margin: 0 auto 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    border-bottom: 1.5px solid var(--navy);
+  }
+  .ph-left {}
+  .ph-eyebrow {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .ph-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--navy);
+  }
+  .ph-right {
+    text-align: right;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    line-height: 2.2;
+  }
+
+  /* ---- INTRO NOTE ---- */
+  .intro {
+    max-width: 960px;
+    margin: 0 auto 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .intro-col {
+    padding: 28px 32px;
+    border-right: 1px solid var(--border);
+  }
+  .intro-col:last-child { border-right: none; }
+  .intro-col .ic-label {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .intro-col .ic-text {
+    font-size: 11.5px;
+    line-height: 1.8;
+    color: var(--body);
+    font-weight: 300;
+  }
+
+  /* ---- CONCEPTS ---- */
+  .concepts {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .concept-card {
+    background: white;
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+  }
+
+  .concept-info {
+    padding: 36px 30px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ci-num {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .ci-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .ci-desc {
+    font-size: 11px;
+    line-height: 1.85;
+    color: var(--gray);
+    font-weight: 300;
+    flex: 1;
+  }
+  .ci-tags {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .ci-tag {
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border: 1px solid var(--border);
+    color: var(--gray);
+  }
+
+  /* ---- VARIANTS ---- */
+  .variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .variant {
+    padding: 36px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .variant:last-child { border-right: none; }
+  .variant.v-dark  { background: var(--navy); }
+  .variant.v-mono  { background: var(--warm); }
+
+  .v-label {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #bbb;
+    align-self: flex-start;
+    position: absolute;
+    top: 16px;
+    left: 20px;
+  }
+  .v-dark .v-label { color: rgba(255,255,255,0.25); }
+  .v-mono .v-label { color: #ccc; }
+
+  .mark-large {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+  }
+
+  .lockup {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .lockup-mark {
+    flex-shrink: 0;
+  }
+  .wm {
+    display: flex;
+    flex-direction: column;
+  }
+  .wm-s {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .wm-a {
+    font-size: 7.5px;
+    font-weight: 300;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 5px;
+    line-height: 1;
+  }
+  .v-dark .wm-s  { color: white; }
+  .v-dark .wm-a  { color: var(--goldd); }
+  .v-mono .wm-s  { color: #111; }
+  .v-mono .wm-a  { color: #777; }
+
+  /* ---- DIVIDER ---- */
+  .section-divider {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 0 0 0;
+  }
+  .sd-line { flex: 1; height: 1px; background: var(--border); }
+  .sd-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #bbb;
+    padding: 0 4px;
+  }
+
+  /* ---- NOTES SECTION ---- */
+  .notes {
+    max-width: 960px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+  .note-col {
+    padding: 28px 32px;
+    border-right: 1px solid var(--border);
+  }
+  .note-col:last-child { border-right: none; }
+  .note-col .nc-label {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .note-col .nc-text {
+    font-size: 11.5px;
+    line-height: 1.85;
+    color: var(--body);
+    font-weight: 300;
+  }
+
+  /* ---- FOOTER ---- */
+  .page-footer {
+    max-width: 960px;
+    margin: 64px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pf-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pf-brand {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  .pf-sep { width: 1px; height: 12px; background: var(--border); }
+  .pf-sub {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .pf-right {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="page-header">
+  <div class="ph-left">
+    <div class="ph-eyebrow">Sunstone Advisory — Identité de Marque</div>
+    <h1 class="ph-title">Nouvelles Propositions<br>de Logo</h1>
+  </div>
+  <div class="ph-right">
+    Avril 2026<br>
+    4 directions créatives<br>
+    Web &amp; Print
+  </div>
+</header>
+
+<!-- ===================== INTRO ===================== -->
+<div class="intro">
+  <div class="intro-col">
+    <div class="ic-label">Contraintes de design</div>
+    <div class="ic-text">Toutes les propositions sont vectorielles (SVG natif) — scalables du favicon 16px jusqu'à l'impression grand format sans perte de qualité.</div>
+  </div>
+  <div class="intro-col">
+    <div class="ic-label">Palette retenue</div>
+    <div class="ic-text">Navy <strong style="color:#0F1A2E">#0F1A2E</strong> / Or print <strong style="color:#C8A060">#C8A060</strong>. Chaque concept est présenté sur fond clair, fond sombre et en monochrome.</div>
+  </div>
+  <div class="intro-col">
+    <div class="ic-label">Dualité SUN / STONE</div>
+    <div class="ic-text">Chaque marque encode visuellement la dualité fondatrice : l'or porte le <em>soleil / clarté</em>, le navy porte la <em>pierre / rigueur</em>.</div>
+  </div>
+</div>
+
+<!-- ===================== CONCEPTS ===================== -->
+<div class="concepts">
+
+  <!-- ===== CONCEPT 01 : THE HORIZON ===== -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 01</div>
+      <div class="ci-name">The Horizon</div>
+      <div class="ci-desc">
+        Une ligne de base navy (la pierre, l'ancrage, la fondation) portant un arc en or (le soleil levant, la vision, la clarté). Deux éléments seulement — lisibilité maximale à toutes les tailles. La marque la plus sobre du set.
+      </div>
+      <div class="ci-tags">
+        <span class="ci-tag">Ultra-minimaliste</span>
+        <span class="ci-tag">Intemporel</span>
+        <span class="ci-tag">Scalable</span>
+        <span class="ci-tag">Favicon-friendly</span>
+      </div>
+    </div>
+    <div class="variants">
+
+      <!-- LIGHT -->
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="90" height="58" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#C8A060" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="4" y1="50" x2="86" y2="50" stroke="#0F1A2E" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="42" height="28" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#C8A060" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="4" y1="50" x2="86" y2="50" stroke="#0F1A2E" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DARK -->
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="90" height="58" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#FFDF90" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="4" y1="50" x2="86" y2="50" stroke="white" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="42" height="28" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#FFDF90" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="4" y1="50" x2="86" y2="50" stroke="white" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MONO -->
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="90" height="58" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="4" y1="50" x2="86" y2="50" stroke="#111" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="42" height="28" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="4" y1="50" x2="86" y2="50" stroke="#111" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ===== CONCEPT 02 : THE COLUMNS ===== -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 02</div>
+      <div class="ci-name">The Columns</div>
+      <div class="ci-desc">
+        Trois colonnes verticales sur une ligne de base — la colonne centrale en or (plus haute, lumineux) encadrée de deux colonnes navy. Référence simultanée à l'architecture classique (pierre), à la data financière (barres), et à la hiérarchie (leadership centré).
+      </div>
+      <div class="ci-tags">
+        <span class="ci-tag">Architectural</span>
+        <span class="ci-tag">Finance-native</span>
+        <span class="ci-tag">Hiérarchique</span>
+        <span class="ci-tag">Premium</span>
+      </div>
+    </div>
+    <div class="variants">
+
+      <!-- LIGHT -->
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+            <rect x="33" y="14" width="14" height="56" fill="#C8A060" rx="1"/>
+            <rect x="56" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+            <line x1="4" y1="70" x2="76" y2="70" stroke="#0F1A2E" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="38" height="38" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+              <rect x="33" y="14" width="14" height="56" fill="#C8A060" rx="1"/>
+              <rect x="56" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+              <line x1="4" y1="70" x2="76" y2="70" stroke="#0F1A2E" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DARK -->
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+            <rect x="33" y="14" width="14" height="56" fill="#FFDF90" rx="1"/>
+            <rect x="56" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+            <line x1="4" y1="70" x2="76" y2="70" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="38" height="38" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+              <rect x="33" y="14" width="14" height="56" fill="#FFDF90" rx="1"/>
+              <rect x="56" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+              <line x1="4" y1="70" x2="76" y2="70" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MONO -->
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="14" height="40" fill="#444" rx="1"/>
+            <rect x="33" y="14" width="14" height="56" fill="#111" rx="1"/>
+            <rect x="56" y="30" width="14" height="40" fill="#444" rx="1"/>
+            <line x1="4" y1="70" x2="76" y2="70" stroke="#111" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="38" height="38" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="30" width="14" height="40" fill="#444" rx="1"/>
+              <rect x="33" y="14" width="14" height="56" fill="#111" rx="1"/>
+              <rect x="56" y="30" width="14" height="40" fill="#444" rx="1"/>
+              <line x1="4" y1="70" x2="76" y2="70" stroke="#111" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ===== CONCEPT 03 : THE PRISM ===== -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 03</div>
+      <div class="ci-name">The Prism</div>
+      <div class="ci-desc">
+        Un losange coupé horizontalement en deux — triangle supérieur en or (le rayon, la lumière, l'intelligence), triangle inférieur en navy (la pierre, la stabilité, le poids). Forme géologique directe : éclat de sunstone, gemme semi-précieuse. Très lisible en tampon, embossage, carte de visite.
+      </div>
+      <div class="ci-tags">
+        <span class="ci-tag">Géologique</span>
+        <span class="ci-tag">Print-first</span>
+        <span class="ci-tag">Distinctif</span>
+        <span class="ci-tag">Emblématique</span>
+      </div>
+    </div>
+    <div class="variants">
+
+      <!-- LIGHT -->
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="36,4 68,40 4,40" fill="#C8A060"/>
+            <polygon points="4,40 68,40 36,76" fill="#0F1A2E"/>
+            <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="34" height="38" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="36,4 68,40 4,40" fill="#C8A060"/>
+              <polygon points="4,40 68,40 36,76" fill="#0F1A2E"/>
+              <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DARK -->
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="36,4 68,40 4,40" fill="#FFDF90"/>
+            <polygon points="4,40 68,40 36,76" fill="rgba(255,255,255,0.12)"/>
+            <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="34" height="38" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="36,4 68,40 4,40" fill="#FFDF90"/>
+              <polygon points="4,40 68,40 36,76" fill="rgba(255,255,255,0.12)"/>
+              <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MONO -->
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="36,4 68,40 4,40" fill="#444"/>
+            <polygon points="4,40 68,40 36,76" fill="#111"/>
+            <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="34" height="38" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="36,4 68,40 4,40" fill="#444"/>
+              <polygon points="4,40 68,40 36,76" fill="#111"/>
+              <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ===== CONCEPT 04 : THE MONOGRAM ===== -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 04</div>
+      <div class="ci-name">The Monogram</div>
+      <div class="ci-desc">
+        La lettre S construite exclusivement en angles droits, comme un plan d'architecte ou un circuit. La barre horizontale centrale est en or — c'est la ligne d'horizon inscrite dans le monogramme lui-même. Proche des identités de grandes banques d'investissement, mais avec la signature lumineuse Sunstone.
+      </div>
+      <div class="ci-tags">
+        <span class="ci-tag">IB-adjacent</span>
+        <span class="ci-tag">Précis</span>
+        <span class="ci-tag">Monogramme</span>
+        <span class="ci-tag">Signature forte</span>
+      </div>
+    </div>
+    <div class="variants">
+
+      <!-- LIGHT -->
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="70" height="80" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+            <!-- Top bar -->
+            <line x1="18" y1="16" x2="52" y2="16" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            <!-- Right side top half -->
+            <line x1="52" y1="16" x2="52" y2="40" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            <!-- Middle bar (gold) -->
+            <line x1="18" y1="40" x2="52" y2="40" stroke="#C8A060" stroke-width="5" stroke-linecap="square"/>
+            <!-- Left side bottom half -->
+            <line x1="18" y1="40" x2="18" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            <!-- Bottom bar -->
+            <line x1="18" y1="64" x2="52" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="33" height="38" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="16" x2="52" y2="16" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+              <line x1="52" y1="16" x2="52" y2="40" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="52" y2="40" stroke="#C8A060" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="18" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="64" x2="52" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DARK -->
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="70" height="80" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+            <line x1="18" y1="16" x2="52" y2="16" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            <line x1="52" y1="16" x2="52" y2="40" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="52" y2="40" stroke="#FFDF90" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="18" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="64" x2="52" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="33" height="38" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="16" x2="52" y2="16" stroke="white" stroke-width="5" stroke-linecap="square"/>
+              <line x1="52" y1="16" x2="52" y2="40" stroke="white" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="52" y2="40" stroke="#FFDF90" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="18" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="64" x2="52" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MONO -->
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="70" height="80" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+            <line x1="18" y1="16" x2="52" y2="16" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            <line x1="52" y1="16" x2="52" y2="40" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="52" y2="40" stroke="#555" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="18" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="64" x2="52" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="lockup">
+          <div class="lockup-mark">
+            <svg width="33" height="38" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="16" x2="52" y2="16" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+              <line x1="52" y1="16" x2="52" y2="40" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="52" y2="40" stroke="#555" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="18" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="64" x2="52" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="wm">
+            <span class="wm-s">Sunstone</span>
+            <span class="wm-a">Advisory</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /concepts -->
+
+
+<!-- ===================== NOTES ===================== -->
+<div class="notes">
+  <div class="note-col">
+    <div class="nc-label">Comparaison avec les versions retenues</div>
+    <div class="nc-text">
+      Les logos actuels (monogramme S circulaire + soleil géométrique navy/or) sont plus illustratifs. Ces 4 nouvelles directions sont plus abstraites et épurées, dans la lignée des identités de cabinets boutique internationaux (Lazard, Ondra, PJT). Elles s'intègrent plus facilement dans un en-tête de document ou un header web minimaliste.
+    </div>
+  </div>
+  <div class="note-col">
+    <div class="nc-label">Recommandation print / web</div>
+    <div class="nc-text">
+      Pour l'embossage à chaud sur carte de visite : <strong>The Prism</strong> (masse compacte, contraste net). Pour le web et la signature email : <strong>The Horizon</strong> ou <strong>The Monogram</strong> (excellente lisibilité en petit format). Pour une présence forte sur bannière ou fond sombre : <strong>The Columns</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="page-footer">
+  <div class="pf-left">
+    <span class="pf-brand">Sunstone Advisory</span>
+    <div class="pf-sep"></div>
+    <span class="pf-sub">Propositions de marque — Confidentiel</span>
+  </div>
+  <div class="pf-right">Avril 2026</div>
+</footer>
+
+</body>
+</html>
