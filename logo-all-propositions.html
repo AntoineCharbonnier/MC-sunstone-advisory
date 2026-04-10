@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunstone Advisory — Toutes les Propositions de Logo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0F1A2E;
+    --navy2:  #1A2744;
+    --gold:   #C8A060;
+    --goldd:  #FFDF90;
+    --cream:  #F5F0E8;
+    --warm:   #FAFAF7;
+    --border: #E4DDD0;
+    --gray:   #7A7A7A;
+    --body:   #3A3A3A;
+    --charcoal: #1C1C2E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+    padding: 72px 56px;
+  }
+
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    max-width: 980px;
+    margin: 0 auto 72px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    border-bottom: 1.5px solid var(--navy);
+  }
+  .ph-eyebrow {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .ph-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 36px;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .ph-right {
+    text-align: right;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    line-height: 2.3;
+  }
+
+  /* ─── SECTION HEADER ─── */
+  .section-head {
+    max-width: 980px;
+    margin: 0 auto 36px;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .sh-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 54px;
+    color: var(--border);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .sh-info {}
+  .sh-label {
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  .sh-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--navy);
+  }
+  .section-rule {
+    max-width: 980px;
+    margin: 0 auto 48px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── SECTION SPACER ─── */
+  .section-gap {
+    height: 72px;
+  }
+
+  /* ═══════════════════════════════════════
+     A — CIRCULAR LOGOS
+  ═══════════════════════════════════════ */
+  .circ-grid {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .circ-card {
+    background: white;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+  .circ-card-header {
+    padding: 22px 26px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cc-num  { font-size: 8px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+  .cc-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 18px; margin-bottom: 7px; }
+  .cc-desc { font-size: 10.5px; color: var(--gray); line-height: 1.75; font-weight: 300; }
+
+  .circ-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+  }
+  .circ-panel {
+    padding: 30px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .circ-panel:last-child { border-right: none; }
+  .circ-panel.dark { background: var(--navy); }
+
+  .cp-label {
+    position: absolute;
+    top: 11px; left: 14px;
+    font-size: 7px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ccc;
+  }
+  .circ-panel.dark .cp-label { color: rgba(255,255,255,0.18); }
+
+  .circ-mark-lg { margin-top: 4px; }
+
+  .circ-lockup { display: flex; align-items: center; gap: 9px; }
+  .cwm-s {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .cwm-a {
+    display: block;
+    font-size: 6.5px;
+    font-weight: 300;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+  .circ-panel.dark .cwm-s { color: white; }
+  .circ-panel.dark .cwm-a { color: var(--goldd); }
+
+  /* ═══════════════════════════════════════
+     B — ABSTRACT LOGOS
+  ═══════════════════════════════════════ */
+  .concepts {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .concept-card {
+    background: white;
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+  .concept-info {
+    padding: 32px 26px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+  .ci-num  { font-size: 8px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .ci-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 20px; color: var(--navy); line-height: 1.2; margin-bottom: 14px; }
+  .ci-desc { font-size: 10.5px; line-height: 1.85; color: var(--gray); font-weight: 300; flex: 1; }
+  .ci-tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 5px; }
+  .ci-tag  { font-size: 7.5px; letter-spacing: 0.18em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--gray); }
+
+  .variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .variant {
+    padding: 30px 18px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .variant:last-child { border-right: none; }
+  .variant.v-dark { background: var(--navy); }
+  .variant.v-mono { background: var(--warm); }
+
+  .v-label {
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #bbb;
+    align-self: flex-start;
+    position: absolute;
+    top: 14px;
+    left: 18px;
+  }
+  .v-dark .v-label { color: rgba(255,255,255,0.22); }
+  .v-mono .v-label { color: #ccc; }
+
+  .mark-large {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 76px;
+  }
+
+  .lockup-abs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .lockup-mark { flex-shrink: 0; }
+  .wm-abs { display: flex; flex-direction: column; }
+  .wm-s  {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .wm-a  {
+    font-size: 7px;
+    font-weight: 300;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+    line-height: 1;
+  }
+  .v-dark .wm-s { color: white; }
+  .v-dark .wm-a { color: var(--goldd); }
+  .v-mono .wm-s { color: #111; }
+  .v-mono .wm-a { color: #888; }
+
+  /* ═══════════════════════════════════════
+     C — S MONOGRAM
+  ═══════════════════════════════════════ */
+  .s-grid {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+    background: white;
+  }
+
+  .s-card {
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+  .s-card:last-child { border-right: none; }
+
+  .sc-header {
+    padding: 18px 16px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sc-num  { font-size: 7.5px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .sc-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 14px; color: var(--navy); line-height: 1.3; }
+
+  .sc-body {
+    padding: 24px 12px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .sc-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+  }
+
+  .sc-lockup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sc-wm { display: flex; flex-direction: column; }
+  .sc-wm-main {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .sc-wm-main .gold { color: var(--gold); }
+  .sc-wm-main .dark { color: var(--charcoal); }
+  .sc-wm-sub {
+    font-size: 6px;
+    font-weight: 300;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    margin-top: 4px;
+    line-height: 1;
+  }
+
+  .sc-desc {
+    font-size: 9.5px;
+    color: var(--gray);
+    line-height: 1.7;
+    font-weight: 300;
+    text-align: center;
+    padding: 0 4px;
+  }
+
+  /* ─── NOTES ─── */
+  .notes-grid {
+    max-width: 980px;
+    margin: 32px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: white;
+    border: 1px solid var(--border);
+  }
+  .note-col {
+    padding: 22px 26px;
+    border-right: 1px solid var(--border);
+  }
+  .note-col:last-child { border-right: none; }
+  .nc-label { font-size: 7.5px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .nc-text  { font-size: 10.5px; line-height: 1.85; color: var(--body); font-weight: 300; }
+
+  /* ─── FOOTER ─── */
+  .page-footer {
+    max-width: 980px;
+    margin: 56px auto 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .pf-l { display: flex; align-items: center; gap: 10px; }
+  .pf-brand { font-size: 9px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; }
+  .pf-sep { width: 1px; height: 11px; background: var(--border); }
+  .pf-sub { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+  .pf-r   { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
+</style>
+</head>
+<body>
+
+
+<!-- ══════════════════════════════════════
+     PAGE HEADER
+══════════════════════════════════════ -->
+<header class="page-header">
+  <div>
+    <div class="ph-eyebrow">Sunstone Advisory — Identité de Marque</div>
+    <h1 class="ph-title">Toutes les Propositions<br>de Logo</h1>
+  </div>
+  <div class="ph-right">
+    Avril 2026<br>
+    3 directions / 13 concepts<br>
+    Web &amp; Print
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════
+     I — MARQUE CIRCULAIRE
+══════════════════════════════════════ -->
+<div class="section-head">
+  <div class="sh-num">I</div>
+  <div class="sh-info">
+    <div class="sh-label">Direction 01</div>
+    <div class="sh-title">Marque Solaire Circulaire</div>
+  </div>
+</div>
+<div class="section-rule"></div>
+
+<div class="circ-grid">
+
+  <!-- ── A — SOURCE ── -->
+  <div class="circ-card">
+    <div class="circ-card-header">
+      <div class="cc-num">Concept A — Source</div>
+      <div class="cc-name">5 rayons, dégradé d'or</div>
+      <div class="cc-desc">Fidèle à l'existant. 5 lignes blanches en éventail. La couronne est en dégradé or chaud → or cuivré. Marque sélectionnée pour le lockup officiel.</div>
+    </div>
+    <div class="circ-panels">
+      <div class="circ-panel">
+        <span class="cp-label">Fond clair</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cA1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F8DC8A"/>
+                <stop offset="100%" stop-color="#C8A060"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cA1)"/>
+            <line x1="60" y1="60" x2="106.8" y2="87" stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="white" stroke-width="1.6"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="13.2" y2="87" stroke="white" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cA1s" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F8DC8A"/>
+                <stop offset="100%" stop-color="#C8A060"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cA1s)"/>
+            <line x1="60" y1="60" x2="106.8" y2="87" stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="white" stroke-width="1.6"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="13.2" y2="87" stroke="white" stroke-width="1.2"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="circ-panel dark">
+        <span class="cp-label">Fond sombre</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cA2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFECB0"/>
+                <stop offset="100%" stop-color="#FFDF90"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cA2)"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="106.8" y2="87" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="rgba(255,255,255,0.7)" stroke-width="1.6"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="13.2" y2="87" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cA2s" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFECB0"/>
+                <stop offset="100%" stop-color="#FFDF90"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cA2s)"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="106.8" y2="87" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="rgba(255,255,255,0.7)" stroke-width="1.6"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="13.2" y2="87" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── B — SOLSTICE ── -->
+  <div class="circ-card">
+    <div class="circ-card-header">
+      <div class="cc-num">Concept B — Solstice</div>
+      <div class="cc-name">3 rayons larges, or plat</div>
+      <div class="cc-desc">Simplifié à 3 rayons centraux. Or uni, sans dégradé. Plus direct, plus fort en petit format et favicon. La version la plus lisible à 16–32px.</div>
+    </div>
+    <div class="circ-panels">
+      <div class="circ-panel">
+        <span class="cp-label">Fond clair</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="#C8A060"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="white" stroke-width="2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="white" stroke-width="2.5"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="white" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="#C8A060"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="white" stroke-width="2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="white" stroke-width="2.5"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="white" stroke-width="2"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="circ-panel dark">
+        <span class="cp-label">Fond sombre</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="#FFDF90"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="#FFDF90"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="87" y2="106.8" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <line x1="60" y1="60" x2="60" y2="114" stroke="rgba(255,255,255,0.75)" stroke-width="2.5"/>
+            <line x1="60" y1="60" x2="33" y2="106.8" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── C — GEMME ── -->
+  <div class="circ-card">
+    <div class="circ-card-header">
+      <div class="cc-num">Concept C — Gemme</div>
+      <div class="cc-name">7 rayons fins, taille de pierre</div>
+      <div class="cc-desc">7 lignes créant 8 facettes dans la base navy — évoque la taille d'une pierre précieuse. Dense et précieux. Excellent en grand format imprimé et embossage à froid.</div>
+    </div>
+    <div class="circ-panels">
+      <div class="circ-panel">
+        <span class="cp-label">Fond clair</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cC1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F8DC8A"/>
+                <stop offset="100%" stop-color="#C8A060"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cC1)"/>
+            <line x1="60" y1="60" x2="109.9" y2="80.7" stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="98.2"  y2="98.2"  stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="80.7"  y2="109.9" stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="39.3"  y2="109.9" stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="21.8"  y2="98.2"  stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="10.1"  y2="80.7"  stroke="white" stroke-width="0.9"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cC1s" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F8DC8A"/>
+                <stop offset="100%" stop-color="#C8A060"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cC1s)"/>
+            <line x1="60" y1="60" x2="109.9" y2="80.7" stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="98.2"  y2="98.2"  stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="80.7"  y2="109.9" stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="white" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="39.3"  y2="109.9" stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="21.8"  y2="98.2"  stroke="white" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="10.1"  y2="80.7"  stroke="white" stroke-width="0.9"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="circ-panel dark">
+        <span class="cp-label">Fond sombre</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cC2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFECB0"/>
+                <stop offset="100%" stop-color="#FFDF90"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cC2)"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="109.9" y2="80.7" stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="98.2"  y2="98.2"  stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="80.7"  y2="109.9" stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="39.3"  y2="109.9" stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="21.8"  y2="98.2"  stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="10.1"  y2="80.7"  stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cC2s" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFECB0"/>
+                <stop offset="100%" stop-color="#FFDF90"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cC2s)"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="109.9" y2="80.7" stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="98.2"  y2="98.2"  stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="80.7"  y2="109.9" stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="rgba(255,255,255,0.65)" stroke-width="1.2"/>
+            <line x1="60" y1="60" x2="39.3"  y2="109.9" stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="21.8"  y2="98.2"  stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+            <line x1="60" y1="60" x2="10.1"  y2="80.7"  stroke="rgba(255,255,255,0.5)" stroke-width="0.9"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── D — DORURE ── -->
+  <div class="circ-card">
+    <div class="circ-card-header">
+      <div class="cc-num">Concept D — Dorure</div>
+      <div class="cc-name">5 rayons d'or incrustés dans la pierre</div>
+      <div class="cc-desc">Même structure que A, mais les facettes sont en or — l'or traverse la pierre. Très efficace pour l'embossage à chaud et le papier premium.</div>
+    </div>
+    <div class="circ-panels">
+      <div class="circ-panel">
+        <span class="cp-label">Fond clair</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cD1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F8DC8A"/>
+                <stop offset="100%" stop-color="#C8A060"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cD1)"/>
+            <line x1="60" y1="60" x2="106.8" y2="87"   stroke="#C8A060" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="87"    y2="106.8" stroke="#C8A060" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="#C8A060" stroke-width="2"/>
+            <line x1="60" y1="60" x2="33"    y2="106.8" stroke="#C8A060" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="13.2"  y2="87"    stroke="#C8A060" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cD1s" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#F8DC8A"/>
+                <stop offset="100%" stop-color="#C8A060"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cD1s)"/>
+            <line x1="60" y1="60" x2="106.8" y2="87"   stroke="#C8A060" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="87"    y2="106.8" stroke="#C8A060" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="#C8A060" stroke-width="2"/>
+            <line x1="60" y1="60" x2="33"    y2="106.8" stroke="#C8A060" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="13.2"  y2="87"    stroke="#C8A060" stroke-width="1.5"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="circ-panel dark">
+        <span class="cp-label">Fond sombre</span>
+        <div class="circ-mark-lg">
+          <svg width="100" height="100" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cD2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFECB0"/>
+                <stop offset="100%" stop-color="#FFDF90"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cD2)"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="106.8" y2="87"   stroke="#FFDF90" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="87"    y2="106.8" stroke="#FFDF90" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="#FFDF90" stroke-width="2"/>
+            <line x1="60" y1="60" x2="33"    y2="106.8" stroke="#FFDF90" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="13.2"  y2="87"    stroke="#FFDF90" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="circ-lockup">
+          <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cD2s" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFECB0"/>
+                <stop offset="100%" stop-color="#FFDF90"/>
+              </linearGradient>
+            </defs>
+            <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#1A2744"/>
+            <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#cD2s)"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <line x1="60" y1="60" x2="106.8" y2="87"   stroke="#FFDF90" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="87"    y2="106.8" stroke="#FFDF90" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="60"    y2="114"   stroke="#FFDF90" stroke-width="2"/>
+            <line x1="60" y1="60" x2="33"    y2="106.8" stroke="#FFDF90" stroke-width="1.5"/>
+            <line x1="60" y1="60" x2="13.2"  y2="87"    stroke="#FFDF90" stroke-width="1.5"/>
+          </svg>
+          <div><span class="cwm-s">Sunstone</span><span class="cwm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /circ-grid -->
+
+
+<!-- ══════════════════════════════════════
+     II — IDENTITÉ ABSTRAITE
+══════════════════════════════════════ -->
+<div class="section-gap"></div>
+
+<div class="section-head">
+  <div class="sh-num">II</div>
+  <div class="sh-info">
+    <div class="sh-label">Direction 02</div>
+    <div class="sh-title">Identité Abstraite</div>
+  </div>
+</div>
+<div class="section-rule"></div>
+
+<div class="concepts">
+
+  <!-- ── 01 THE HORIZON ── -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 01</div>
+      <div class="ci-name">The Horizon</div>
+      <div class="ci-desc">Une ligne de base navy portant un arc en or. Deux éléments seulement — lisibilité maximale à toutes les tailles. La marque la plus sobre du set.</div>
+      <div class="ci-tags">
+        <span class="ci-tag">Ultra-minimaliste</span>
+        <span class="ci-tag">Intemporel</span>
+        <span class="ci-tag">Favicon-friendly</span>
+      </div>
+    </div>
+    <div class="variants">
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="90" height="58" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#C8A060" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="4" y1="50" x2="86" y2="50" stroke="#0F1A2E" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="42" height="28" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#C8A060" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="4" y1="50" x2="86" y2="50" stroke="#0F1A2E" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="90" height="58" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#FFDF90" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="4" y1="50" x2="86" y2="50" stroke="white" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="42" height="28" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#FFDF90" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="4" y1="50" x2="86" y2="50" stroke="white" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="90" height="58" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="4" y1="50" x2="86" y2="50" stroke="#111" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="42" height="28" viewBox="0 0 90 58" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 9,50 A 36,36 0 0,1 81,50" fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round"/>
+              <line x1="4" y1="50" x2="86" y2="50" stroke="#111" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 02 THE COLUMNS ── -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 02</div>
+      <div class="ci-name">The Columns</div>
+      <div class="ci-desc">Trois colonnes verticales sur une ligne de base. La colonne centrale en or (plus haute) encadrée de deux colonnes navy. Architecture classique, data financière et hiérarchie centrée.</div>
+      <div class="ci-tags">
+        <span class="ci-tag">Architectural</span>
+        <span class="ci-tag">Finance-native</span>
+        <span class="ci-tag">Premium</span>
+      </div>
+    </div>
+    <div class="variants">
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+            <rect x="33" y="14" width="14" height="56" fill="#C8A060" rx="1"/>
+            <rect x="56" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+            <line x1="4" y1="70" x2="76" y2="70" stroke="#0F1A2E" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="38" height="38" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+              <rect x="33" y="14" width="14" height="56" fill="#C8A060" rx="1"/>
+              <rect x="56" y="30" width="14" height="40" fill="#0F1A2E" rx="1"/>
+              <line x1="4" y1="70" x2="76" y2="70" stroke="#0F1A2E" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+            <rect x="33" y="14" width="14" height="56" fill="#FFDF90" rx="1"/>
+            <rect x="56" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+            <line x1="4" y1="70" x2="76" y2="70" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="38" height="38" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+              <rect x="33" y="14" width="14" height="56" fill="#FFDF90" rx="1"/>
+              <rect x="56" y="30" width="14" height="40" fill="rgba(255,255,255,0.75)" rx="1"/>
+              <line x1="4" y1="70" x2="76" y2="70" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="14" height="40" fill="#444" rx="1"/>
+            <rect x="33" y="14" width="14" height="56" fill="#111" rx="1"/>
+            <rect x="56" y="30" width="14" height="40" fill="#444" rx="1"/>
+            <line x1="4" y1="70" x2="76" y2="70" stroke="#111" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="38" height="38" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="30" width="14" height="40" fill="#444" rx="1"/>
+              <rect x="33" y="14" width="14" height="56" fill="#111" rx="1"/>
+              <rect x="56" y="30" width="14" height="40" fill="#444" rx="1"/>
+              <line x1="4" y1="70" x2="76" y2="70" stroke="#111" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 03 THE PRISM ── -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 03</div>
+      <div class="ci-name">The Prism</div>
+      <div class="ci-desc">Un losange coupé horizontalement — triangle supérieur en or (lumière), triangle inférieur en navy (pierre). Forme géologique directe : éclat de sunstone. Très lisible en tampon et embossage.</div>
+      <div class="ci-tags">
+        <span class="ci-tag">Géologique</span>
+        <span class="ci-tag">Print-first</span>
+        <span class="ci-tag">Distinctif</span>
+      </div>
+    </div>
+    <div class="variants">
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="36,4 68,40 4,40" fill="#C8A060"/>
+            <polygon points="4,40 68,40 36,76" fill="#0F1A2E"/>
+            <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="34" height="38" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="36,4 68,40 4,40" fill="#C8A060"/>
+              <polygon points="4,40 68,40 36,76" fill="#0F1A2E"/>
+              <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="36,4 68,40 4,40" fill="#FFDF90"/>
+            <polygon points="4,40 68,40 36,76" fill="rgba(255,255,255,0.12)"/>
+            <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="34" height="38" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="36,4 68,40 4,40" fill="#FFDF90"/>
+              <polygon points="4,40 68,40 36,76" fill="rgba(255,255,255,0.12)"/>
+              <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="72" height="80" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="36,4 68,40 4,40" fill="#444"/>
+            <polygon points="4,40 68,40 36,76" fill="#111"/>
+            <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="34" height="38" viewBox="0 0 72 80" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="36,4 68,40 4,40" fill="#444"/>
+              <polygon points="4,40 68,40 36,76" fill="#111"/>
+              <polygon points="36,4 68,40 36,76 4,40" fill="none" stroke="white" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 04 THE MONOGRAM (S angulaire) ── -->
+  <div class="concept-card">
+    <div class="concept-info">
+      <div class="ci-num">Concept 04</div>
+      <div class="ci-name">The Monogram</div>
+      <div class="ci-desc">La lettre S construite en angles droits, comme un plan d'architecte. La barre centrale est en or — la ligne d'horizon inscrite dans le monogramme. Proche des identités IB, avec la signature lumineuse Sunstone.</div>
+      <div class="ci-tags">
+        <span class="ci-tag">IB-adjacent</span>
+        <span class="ci-tag">Précis</span>
+        <span class="ci-tag">Signature forte</span>
+      </div>
+    </div>
+    <div class="variants">
+      <div class="variant v-light">
+        <span class="v-label">Fond clair</span>
+        <div class="mark-large">
+          <svg width="70" height="80" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+            <line x1="18" y1="16" x2="52" y2="16" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            <line x1="52" y1="16" x2="52" y2="40" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="52" y2="40" stroke="#C8A060" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="18" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="64" x2="52" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="33" height="38" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="16" x2="52" y2="16" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+              <line x1="52" y1="16" x2="52" y2="40" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="52" y2="40" stroke="#C8A060" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="18" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="64" x2="52" y2="64" stroke="#0F1A2E" stroke-width="5" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-dark">
+        <span class="v-label">Fond sombre</span>
+        <div class="mark-large">
+          <svg width="70" height="80" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+            <line x1="18" y1="16" x2="52" y2="16" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            <line x1="52" y1="16" x2="52" y2="40" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="52" y2="40" stroke="#FFDF90" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="18" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="64" x2="52" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="33" height="38" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="16" x2="52" y2="16" stroke="white" stroke-width="5" stroke-linecap="square"/>
+              <line x1="52" y1="16" x2="52" y2="40" stroke="white" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="52" y2="40" stroke="#FFDF90" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="18" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="64" x2="52" y2="64" stroke="white" stroke-width="5" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+      <div class="variant v-mono">
+        <span class="v-label">Monochrome</span>
+        <div class="mark-large">
+          <svg width="70" height="80" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+            <line x1="18" y1="16" x2="52" y2="16" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            <line x1="52" y1="16" x2="52" y2="40" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="52" y2="40" stroke="#555" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="40" x2="18" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            <line x1="18" y1="64" x2="52" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+          </svg>
+        </div>
+        <div class="lockup-abs">
+          <div class="lockup-mark">
+            <svg width="33" height="38" viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="16" x2="52" y2="16" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+              <line x1="52" y1="16" x2="52" y2="40" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="52" y2="40" stroke="#555" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="40" x2="18" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+              <line x1="18" y1="64" x2="52" y2="64" stroke="#111" stroke-width="5" stroke-linecap="square"/>
+            </svg>
+          </div>
+          <div class="wm-abs"><span class="wm-s">Sunstone</span><span class="wm-a">Advisory</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /concepts -->
+
+
+<!-- ══════════════════════════════════════
+     III — MONOGRAMME S
+══════════════════════════════════════ -->
+<div class="section-gap"></div>
+
+<div class="section-head">
+  <div class="sh-num">III</div>
+  <div class="sh-info">
+    <div class="sh-label">Direction 03</div>
+    <div class="sh-title">Monogramme S — Linéaire</div>
+  </div>
+</div>
+<div class="section-rule"></div>
+
+<div class="s-grid">
+
+  <!-- ── S ORIGINAL ── -->
+  <div class="s-card">
+    <div class="sc-header">
+      <div class="sc-num">Existant</div>
+      <div class="sc-name">S dans le cercle</div>
+    </div>
+    <div class="sc-body">
+      <div class="sc-symbol">
+        <!-- Cercle outline + barre horizontale or (exact original) -->
+        <svg width="76" height="76" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+          <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="sc-desc">Cercle outline navy + barre horizontale or — le S émerge visuellement de la division</div>
+      <div class="sc-lockup">
+        <svg width="28" height="28" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+          <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="sc-wm">
+          <div class="sc-wm-main"><span class="gold">SUN</span><span class="dark">STONE</span></div>
+          <div class="sc-wm-sub">Advisory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── V1 — CERCLE + POINTS ── -->
+  <div class="s-card">
+    <div class="sc-header">
+      <div class="sc-num">V1</div>
+      <div class="sc-name">Cercle + Points</div>
+    </div>
+    <div class="sc-body">
+      <div class="sc-symbol">
+        <!-- S bezier + cercle + 2 points or aux extrémités de la barre -->
+        <svg width="76" height="76" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#1C1C2E" stroke-width="1.6"/>
+          <path d="M 40,12 C 62,12 62,40 40,40 C 18,40 18,68 40,68" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="8" cy="40" r="4" fill="#C8A060"/>
+          <circle cx="72" cy="40" r="4" fill="#C8A060"/>
+        </svg>
+      </div>
+      <div class="sc-desc">La barre or devient deux points nodaux aux intersections du cercle</div>
+      <div class="sc-lockup">
+        <svg width="28" height="28" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#1C1C2E" stroke-width="1.6"/>
+          <path d="M 40,12 C 62,12 62,40 40,40 C 18,40 18,68 40,68" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="8" cy="40" r="4" fill="#C8A060"/>
+          <circle cx="72" cy="40" r="4" fill="#C8A060"/>
+        </svg>
+        <div class="sc-wm">
+          <div class="sc-wm-main"><span class="gold">SUN</span><span class="dark">STONE</span></div>
+          <div class="sc-wm-sub">Advisory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── V2 — S PUR ── -->
+  <div class="s-card">
+    <div class="sc-header">
+      <div class="sc-num">V2</div>
+      <div class="sc-name">S Pur</div>
+    </div>
+    <div class="sc-body">
+      <div class="sc-symbol">
+        <!-- S bezier seul + point or au noeud central -->
+        <svg width="52" height="76" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30,10 C 52,10 52,40 30,40 C 8,40 8,70 30,70" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="40" r="4.5" fill="#C8A060"/>
+        </svg>
+      </div>
+      <div class="sc-desc">S épuré sans cercle, le nœud or au pivot marque la dualité SUN / STONE</div>
+      <div class="sc-lockup">
+        <svg width="22" height="28" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30,10 C 52,10 52,40 30,40 C 8,40 8,70 30,70" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="40" r="4.5" fill="#C8A060"/>
+        </svg>
+        <div class="sc-wm">
+          <div class="sc-wm-main"><span class="gold">SUN</span><span class="dark">STONE</span></div>
+          <div class="sc-wm-sub">Advisory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── V3 — S NODES ── -->
+  <div class="s-card">
+    <div class="sc-header">
+      <div class="sc-num">V3</div>
+      <div class="sc-name">S Nodes</div>
+    </div>
+    <div class="sc-body">
+      <div class="sc-symbol">
+        <!-- S bezier + 3 points or = connect the dots -->
+        <svg width="52" height="76" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30,10 C 52,10 52,40 30,40 C 8,40 8,70 30,70" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="10" r="3.5" fill="#C8A060"/>
+          <circle cx="30" cy="40" r="3.5" fill="#C8A060"/>
+          <circle cx="30" cy="70" r="3.5" fill="#C8A060"/>
+        </svg>
+      </div>
+      <div class="sc-desc">3 nœuds or : origine, pivot, destination — la trajectoire d'un deal</div>
+      <div class="sc-lockup">
+        <svg width="22" height="28" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30,10 C 52,10 52,40 30,40 C 8,40 8,70 30,70" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="10" r="3.5" fill="#C8A060"/>
+          <circle cx="30" cy="40" r="3.5" fill="#C8A060"/>
+          <circle cx="30" cy="70" r="3.5" fill="#C8A060"/>
+        </svg>
+        <div class="sc-wm">
+          <div class="sc-wm-main"><span class="gold">SUN</span><span class="dark">STONE</span></div>
+          <div class="sc-wm-sub">Advisory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── V4 — S ORBITE ── -->
+  <div class="s-card">
+    <div class="sc-header">
+      <div class="sc-num">V4</div>
+      <div class="sc-name">S Orbite</div>
+    </div>
+    <div class="sc-body">
+      <div class="sc-symbol">
+        <!-- S bezier + petit cercle orbit en haut + point or en bas -->
+        <svg width="52" height="76" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30,16 C 52,16 52,44 30,44 C 8,44 8,72 30,72" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="14" r="5.5" fill="none" stroke="#1C1C2E" stroke-width="1.8"/>
+          <circle cx="30" cy="14" r="2.2" fill="#C8A060"/>
+          <circle cx="30" cy="72" r="3.5" fill="#C8A060"/>
+        </svg>
+      </div>
+      <div class="sc-desc">Petit cercle orbital à l'origine évoque la mise en orbite d'un projet, un départ précis</div>
+      <div class="sc-lockup">
+        <svg width="22" height="28" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 30,16 C 52,16 52,44 30,44 C 8,44 8,72 30,72" fill="none" stroke="#1C1C2E" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="30" cy="14" r="5.5" fill="none" stroke="#1C1C2E" stroke-width="1.8"/>
+          <circle cx="30" cy="14" r="2.2" fill="#C8A060"/>
+          <circle cx="30" cy="72" r="3.5" fill="#C8A060"/>
+        </svg>
+        <div class="sc-wm">
+          <div class="sc-wm-main"><span class="gold">SUN</span><span class="dark">STONE</span></div>
+          <div class="sc-wm-sub">Advisory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /s-grid -->
+
+<!-- Notes S section -->
+<div class="notes-grid">
+  <div class="note-col">
+    <div class="nc-label">Direction créative</div>
+    <div class="nc-text">Style linéaire exclusivement — outline, pas de remplissage. L'or est réservé aux points nodaux et accents. Le charcoal porte la structure. Aucun dégradé, aucun effet.</div>
+  </div>
+  <div class="note-col">
+    <div class="nc-label">Sémantique des nœuds</div>
+    <div class="nc-text">Les points or placés aux moments clés du S encodent des concepts M&A : origine (mandat), pivot (structuration), destination (closing). Lisibles comme jalons de deal.</div>
+  </div>
+  <div class="note-col">
+    <div class="nc-label">Recommandation</div>
+    <div class="nc-text"><strong>V3 Nodes</strong> — la plus conceptuellement riche et la plus scalable. <strong>V2 Pur</strong> — la plus épurée, idéale en signature email ou watermark. <strong>V4 Orbite</strong> — différenciante, mémorisable.</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="page-footer">
+  <div class="pf-l">
+    <span class="pf-brand">Sunstone Advisory</span>
+    <div class="pf-sep"></div>
+    <span class="pf-sub">Propositions de marque — Confidentiel</span>
+  </div>
+  <div class="pf-r">Avril 2026</div>
+</footer>
+
+
+</body>
+</html>
