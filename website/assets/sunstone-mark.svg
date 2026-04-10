@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Sunstone Advisory mark">
+  <title>Sunstone Advisory</title>
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8DC8A"/>
+      <stop offset="100%" stop-color="#C8A060"/>
+    </linearGradient>
+  </defs>
+  <!-- Bottom half: navy stone -->
+  <path d="M 6,60 A 54,54 0 0,0 114,60 Z" fill="#0F1A2E"/>
+  <!-- Top half: gold sun -->
+  <path d="M 6,60 A 54,54 0 0,1 114,60 Z" fill="url(#goldGrad)"/>
+  <!-- 5 white facet rays from center -->
+  <line x1="60" y1="60" x2="106.8" y2="87"   stroke="white" stroke-width="1.2"/>
+  <line x1="60" y1="60" x2="87"    y2="106.8" stroke="white" stroke-width="1.2"/>
+  <line x1="60" y1="60" x2="60"    y2="114"   stroke="white" stroke-width="1.6"/>
+  <line x1="60" y1="60" x2="33"    y2="106.8" stroke="white" stroke-width="1.2"/>
+  <line x1="60" y1="60" x2="13.2"  y2="87"    stroke="white" stroke-width="1.2"/>
+</svg>
