@@ -1,0 +1,123 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: #d8d8d8; max-width: 900px; margin: 0 auto; }
+  .cell { background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 44px 24px 28px; gap: 16px; min-height: 200px; }
+  .lbl { font-size: 9px; letter-spacing: 0.13em; color: #8a9ab5; font-family: var(--font-sans); text-transform: uppercase; text-align: center; line-height: 1.8; }
+</style>
+
+<div class="grid">
+
+  <!-- A — Version originale D, charbon + ambre -->
+  <div class="cell">
+    <svg width="220" height="64" viewBox="0 0 220 64">
+      <g transform="translate(26,32)">
+        <path d="M -12,-4.5 A 13,13 0 0,1 12,-4.5" fill="none" stroke="#1c1c1a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -12,4.5 A 13,13 0 0,0 12,4.5" fill="none" stroke="#1c1c1a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-12" y1="0" x2="12" y2="0" stroke="#c9903a" stroke-width="1.5"/>
+        <circle cx="-12" cy="-4.5" r="2.2" fill="#c9903a"/>
+        <circle cx="12" cy="4.5" r="2.2" fill="#c9903a"/>
+      </g>
+      <text x="50" y="27" font-family="var(--font-sans)" font-size="14" font-weight="500" fill="#1c1c1a" letter-spacing="3">SUNSTONE</text>
+      <text x="50" y="42" font-family="var(--font-sans)" font-size="8" font-weight="400" fill="#c9903a" letter-spacing="5">ADVISORY</text>
+    </svg>
+    <div class="lbl">A — Original S<br>charbon + ambre</div>
+  </div>
+
+  <!-- B — S avec rayons soleil autour, rappel sunburst -->
+  <div class="cell">
+    <svg width="220" height="64" viewBox="0 0 220 64">
+      <g transform="translate(26,32)">
+        <!-- Rayons courts autour du S -->
+        <line x1="0" y1="-19" x2="0" y2="-14" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="0" y1="19" x2="0" y2="14" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="19" y1="0" x2="14" y2="0" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="-19" y1="0" x2="-14" y2="0" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="13.4" y1="-13.4" x2="9.9" y2="-9.9" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="-13.4" y1="-13.4" x2="-9.9" y2="-9.9" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="13.4" y1="13.4" x2="9.9" y2="9.9" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="-13.4" y1="13.4" x2="-9.9" y2="9.9" stroke="#c9903a" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- S charbon -->
+        <path d="M -10,-3.5 A 11,11 0 0,1 10,-3.5" fill="none" stroke="#1c1c1a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -10,3.5 A 11,11 0 0,0 10,3.5" fill="none" stroke="#1c1c1a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-10" y1="0" x2="10" y2="0" stroke="#c9903a" stroke-width="1.5"/>
+        <circle cx="-10" cy="-3.5" r="2" fill="#c9903a"/>
+        <circle cx="10" cy="3.5" r="2" fill="#c9903a"/>
+      </g>
+      <text x="58" y="27" font-family="var(--font-sans)" font-size="14" font-weight="500" fill="#1c1c1a" letter-spacing="3">SUNSTONE</text>
+      <text x="58" y="42" font-family="var(--font-sans)" font-size="8" font-weight="400" fill="#c9903a" letter-spacing="5">ADVISORY</text>
+    </svg>
+    <div class="lbl">B — S + rayons soleil<br>charbon + ambre</div>
+  </div>
+
+  <!-- C — Alternative : S inscrit dans un hexagone pierre précieuse -->
+  <div class="cell">
+    <svg width="220" height="64" viewBox="0 0 220 64">
+      <g transform="translate(26,32)">
+        <!-- Hexagone évoquant pierre taillée -->
+        <polygon points="0,-18 15.6,-9 15.6,9 0,18 -15.6,9 -15.6,-9" fill="none" stroke="#1c1c1a" stroke-width="1.2"/>
+        <!-- S ambre intérieur -->
+        <path d="M -8,-3 A 9,9 0 0,1 8,-3" fill="none" stroke="#c9903a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -8,3 A 9,9 0 0,0 8,3" fill="none" stroke="#c9903a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-8" y1="0" x2="8" y2="0" stroke="#1c1c1a" stroke-width="1.2"/>
+        <circle cx="-8" cy="-3" r="1.8" fill="#1c1c1a"/>
+        <circle cx="8" cy="3" r="1.8" fill="#1c1c1a"/>
+      </g>
+      <text x="56" y="27" font-family="var(--font-sans)" font-size="14" font-weight="500" fill="#1c1c1a" letter-spacing="3">SUNSTONE</text>
+      <text x="56" y="42" font-family="var(--font-sans)" font-size="8" font-weight="400" fill="#c9903a" letter-spacing="5">ADVISORY</text>
+    </svg>
+    <div class="lbl">C — S dans hexagone<br>pierre taillée</div>
+  </div>
+
+  <!-- A grand format — symbole seul -->
+  <div class="cell">
+    <svg width="100" height="100" viewBox="0 0 100 100">
+      <g transform="translate(50,50)">
+        <path d="M -16,-6 A 18,18 0 0,1 16,-6" fill="none" stroke="#1c1c1a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M -16,6 A 18,18 0 0,0 16,6" fill="none" stroke="#1c1c1a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="-16" y1="0" x2="16" y2="0" stroke="#c9903a" stroke-width="2"/>
+        <circle cx="-16" cy="-6" r="3" fill="#c9903a"/>
+        <circle cx="16" cy="6" r="3" fill="#c9903a"/>
+      </g>
+    </svg>
+    <div class="lbl">A — symbole seul</div>
+  </div>
+
+  <!-- B grand format — symbole seul -->
+  <div class="cell">
+    <svg width="100" height="100" viewBox="0 0 100 100">
+      <g transform="translate(50,50)">
+        <line x1="0" y1="-28" x2="0" y2="-20" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="0" y1="28" x2="0" y2="20" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="28" y1="0" x2="20" y2="0" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-28" y1="0" x2="-20" y2="0" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="19.8" y1="-19.8" x2="14.1" y2="-14.1" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-19.8" y1="-19.8" x2="-14.1" y2="-14.1" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="19.8" y1="19.8" x2="14.1" y2="14.1" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-19.8" y1="19.8" x2="-14.1" y2="14.1" stroke="#c9903a" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M -14,-5 A 15,15 0 0,1 14,-5" fill="none" stroke="#1c1c1a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M -14,5 A 15,15 0 0,0 14,5" fill="none" stroke="#1c1c1a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#c9903a" stroke-width="2"/>
+        <circle cx="-14" cy="-5" r="2.8" fill="#c9903a"/>
+        <circle cx="14" cy="5" r="2.8" fill="#c9903a"/>
+      </g>
+    </svg>
+    <div class="lbl">B — symbole seul</div>
+  </div>
+
+  <!-- C grand format — symbole seul -->
+  <div class="cell">
+    <svg width="100" height="100" viewBox="0 0 100 100">
+      <g transform="translate(50,50)">
+        <polygon points="0,-28 24.2,-14 24.2,14 0,28 -24.2,14 -24.2,-14" fill="none" stroke="#1c1c1a" stroke-width="1.5"/>
+        <path d="M -12,-4.5 A 13,13 0 0,1 12,-4.5" fill="none" stroke="#c9903a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M -12,4.5 A 13,13 0 0,0 12,4.5" fill="none" stroke="#c9903a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="-12" y1="0" x2="12" y2="0" stroke="#1c1c1a" stroke-width="1.8"/>
+        <circle cx="-12" cy="-4.5" r="2.5" fill="#1c1c1a"/>
+        <circle cx="12" cy="4.5" r="2.5" fill="#1c1c1a"/>
+      </g>
+    </svg>
+    <div class="lbl">C — symbole seul</div>
+  </div>
+
+</div>

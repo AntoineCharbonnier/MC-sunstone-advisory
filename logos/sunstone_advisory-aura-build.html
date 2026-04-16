@@ -1,0 +1,286 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunstone Advisory - Brand Identity Concepts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+        
+        .font-sans-modern { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif-classic { font-family: 'Playfair Display', serif; }
+        .font-sans-neutral { font-family: 'Inter', sans-serif; }
+
+        /* Color Variables for easy reference in inline SVGs */
+        :root {
+            --stone-charcoal: #1c1917; /* Tailwind stone-900 */
+            --sun-gold: #c2a052;       /* Muted, elegant gold */
+        }
+    </style>
+</head>
+<body class="bg-[#FAFAFA] text-stone-900 font-sans-neutral antialiased min-h-screen pb-24">
+
+    <!-- Header -->
+    <header class="max-w-5xl mx-auto px-6 py-16">
+        <div class="flex items-center gap-2 mb-4 text-stone-500">
+            <iconify-icon icon="solar:folder-open-linear" class="text-xl"></iconify-icon>
+            <span class="text-sm tracking-wide uppercase">Brand Identity Presentation</span>
+        </div>
+        <h1 class="text-3xl font-medium tracking-tight text-stone-900 mb-4">Sunstone Advisory</h1>
+        <p class="text-lg text-stone-600 max-w-2xl font-light leading-relaxed">
+            Exploring concepts that balance technical excellence and human quality. The visual language combines the rigorous, reliable nature of 'Stone' (Charcoal) with the pragmatic, clear, and positive energy of the 'Sun' (Muted Gold).
+        </p>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 space-y-24">
+
+        <!-- CONCEPT 1: The Facet & Prism -->
+        <section class="space-y-8">
+            <div class="border-b border-stone-200 pb-4">
+                <h2 class="text-2xl font-medium tracking-tight text-stone-900">01. The Prismatic Structure</h2>
+                <p class="text-sm text-stone-500 mt-2 max-w-3xl">
+                    A geometric, highly structured approach. The symbol is a continuous shape representing a solid stone facet, intersected by golden lines of light. The typography is a timeless serif, instilling institutional credibility and trust, reminiscent of top-tier PE firms.
+                </p>
+            </div>
+
+            <div class="bg-white p-12 md:p-20 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-stone-100 flex flex-col items-center justify-center gap-12">
+                
+                <!-- Primary Logo (Horizontal) -->
+                <div class="flex items-center gap-6">
+                    <!-- Symbol SVG -->
+                    <svg viewBox="0 0 100 100" class="w-10 h-10 shrink-0">
+                        <!-- Stone Structure -->
+                        <polygon points="50,5 95,50 50,95 5,50" fill="none" stroke="var(--stone-charcoal)" stroke-width="3" stroke-linejoin="round"></polygon>
+                        <!-- Sun/Light Intersection -->
+                        <line x1="50" y1="5" x2="50" y2="95" stroke="var(--sun-gold)" stroke-width="2"></line>
+                        <line x1="5" y1="50" x2="95" y2="50" stroke="var(--sun-gold)" stroke-width="2"></line>
+                        <circle cx="50" cy="50" r="15" fill="none" stroke="var(--sun-gold)" stroke-width="2"></circle>
+                    </svg>
+                    
+                    <!-- Wordmark -->
+                    <div class="flex flex-col">
+                        <span class="font-serif-classic text-3xl font-medium tracking-tight text-stone-900 leading-none">SUNSTONE</span>
+                        <span class="font-sans-neutral text-xs tracking-widest text-stone-500 uppercase mt-1.5 ml-0.5">Advisory</span>
+                    </div>
+                </div>
+
+                <!-- Variations & Typography -->
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-stone-100 mt-8">
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-50 rounded-lg">
+                        <span class="text-xs text-stone-400 mb-4 uppercase tracking-widest">Symbol Only</span>
+                         <svg viewBox="0 0 100 100" class="w-12 h-12">
+                            <polygon points="50,5 95,50 50,95 5,50" fill="none" stroke="var(--stone-charcoal)" stroke-width="3" stroke-linejoin="round"></polygon>
+                            <line x1="50" y1="5" x2="50" y2="95" stroke="var(--sun-gold)" stroke-width="2"></line>
+                            <line x1="5" y1="50" x2="95" y2="50" stroke="var(--sun-gold)" stroke-width="2"></line>
+                            <circle cx="50" cy="50" r="15" fill="none" stroke="var(--sun-gold)" stroke-width="2"></circle>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-900 rounded-lg">
+                        <span class="text-xs text-stone-500 mb-4 uppercase tracking-widest">Inverse</span>
+                        <div class="flex items-center gap-4">
+                            <svg viewBox="0 0 100 100" class="w-8 h-8">
+                                <polygon points="50,5 95,50 50,95 5,50" fill="none" stroke="white" stroke-width="3" stroke-linejoin="round"></polygon>
+                                <line x1="50" y1="5" x2="50" y2="95" stroke="var(--sun-gold)" stroke-width="2"></line>
+                                <line x1="5" y1="50" x2="95" y2="50" stroke="var(--sun-gold)" stroke-width="2"></line>
+                            </svg>
+                            <span class="font-serif-classic text-xl font-medium tracking-tight text-white leading-none">SUNSTONE</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center p-6">
+                        <span class="text-xs text-stone-400 mb-2 uppercase tracking-widest">Typography</span>
+                        <span class="font-serif-classic text-xl text-stone-900 tracking-tight">Playfair Display</span>
+                        <span class="font-sans-neutral text-sm text-stone-500 mt-1">Inter (Sub-brand)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 2: The Horizon & Monolith -->
+        <section class="space-y-8">
+            <div class="border-b border-stone-200 pb-4">
+                <h2 class="text-2xl font-medium tracking-tight text-stone-900">02. The Horizon Line</h2>
+                <p class="text-sm text-stone-500 mt-2 max-w-3xl">
+                    Clean, pragmatic, and modern. The symbol illustrates a rising golden arc (Sun/Future/Clarity) perfectly balanced upon a solid, dark foundation block (Stone/Execution). The typography uses a premium sans-serif, giving it a modern, high-end advisory boutique feel.
+                </p>
+            </div>
+
+            <div class="bg-white p-12 md:p-20 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-stone-100 flex flex-col items-center justify-center gap-12">
+                
+                <!-- Primary Logo (Horizontal) -->
+                <div class="flex items-center gap-5">
+                    <!-- Symbol SVG -->
+                    <svg viewBox="0 0 100 100" class="w-11 h-11 shrink-0">
+                        <!-- Sun Arc -->
+                        <path d="M 15 65 A 35 35 0 0 1 85 65" fill="none" stroke="var(--sun-gold)" stroke-width="4" stroke-linecap="round"></path>
+                        <!-- Stone Block -->
+                        <rect x="15" y="75" width="70" height="10" fill="var(--stone-charcoal)" rx="1"></rect>
+                    </svg>
+                    
+                    <!-- Wordmark -->
+                    <div class="flex flex-col">
+                        <span class="font-sans-modern text-3xl font-medium tracking-tight text-stone-900 leading-none">SUNSTONE</span>
+                        <span class="font-sans-modern text-xs tracking-widest text-stone-500 uppercase mt-1">Advisory</span>
+                    </div>
+                </div>
+
+                <!-- Variations & Typography -->
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-stone-100 mt-8">
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-50 rounded-lg">
+                        <span class="text-xs text-stone-400 mb-4 uppercase tracking-widest">Symbol Only</span>
+                         <svg viewBox="0 0 100 100" class="w-12 h-12">
+                            <path d="M 15 65 A 35 35 0 0 1 85 65" fill="none" stroke="var(--sun-gold)" stroke-width="4" stroke-linecap="round"></path>
+                            <rect x="15" y="75" width="70" height="10" fill="var(--stone-charcoal)" rx="1"></rect>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-900 rounded-lg">
+                        <span class="text-xs text-stone-500 mb-4 uppercase tracking-widest">Monochrome</span>
+                        <div class="flex items-center gap-4">
+                            <svg viewBox="0 0 100 100" class="w-8 h-8">
+                                <path d="M 15 65 A 35 35 0 0 1 85 65" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"></path>
+                                <rect x="15" y="75" width="70" height="10" fill="white" rx="1"></rect>
+                            </svg>
+                            <span class="font-sans-modern text-xl font-medium tracking-tight text-white leading-none">SUNSTONE</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center p-6">
+                        <span class="text-xs text-stone-400 mb-2 uppercase tracking-widest">Typography</span>
+                        <span class="font-sans-modern text-xl text-stone-900 tracking-tight">Plus Jakarta Sans</span>
+                        <span class="font-sans-neutral text-sm text-stone-500 mt-1">Clean &amp; Authoritative</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 3: The Integrated Typographic Mark -->
+        <section class="space-y-8">
+            <div class="border-b border-stone-200 pb-4">
+                <h2 class="text-2xl font-medium tracking-tight text-stone-900">03. The Minimalist Integration</h2>
+                <p class="text-sm text-stone-500 mt-2 max-w-3xl">
+                    Focuses heavily on the name itself for maximum credibility, avoiding external symbols. The letter 'O' in Sunstone is modified—a golden circle representing the sun, grounded by a subtle underline or structural crop representing the stone. Extremely corporate, scalable, and sophisticated.
+                </p>
+            </div>
+
+            <div class="bg-white p-12 md:p-20 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-stone-100 flex flex-col items-center justify-center gap-12">
+                
+                <!-- Primary Logo (Horizontal) -->
+                <div class="flex items-end gap-3">
+                    <div class="flex items-center">
+                        <span class="font-sans-neutral text-4xl font-medium tracking-tight text-stone-900">SUNST</span>
+                        <!-- Custom 'O' representing Sun & Stone -->
+                        <div class="relative w-7 h-9 mx-0.5 flex flex-col justify-center">
+                            <svg viewBox="0 0 100 100" class="w-full h-full absolute inset-0">
+                                <!-- The Sun -->
+                                <circle cx="50" cy="45" r="30" fill="none" stroke="var(--sun-gold)" stroke-width="12"></circle>
+                                <!-- The Stone Base (cropping the circle slightly) -->
+                                <rect x="10" y="80" width="80" height="12" fill="var(--stone-charcoal)"></rect>
+                            </svg>
+                        </div>
+                        <span class="font-sans-neutral text-4xl font-medium tracking-tight text-stone-900">NE</span>
+                    </div>
+                    <span class="font-sans-neutral text-sm font-medium tracking-normal text-stone-400 pb-1">Advisory</span>
+                </div>
+
+                <!-- Variations & Typography -->
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-stone-100 mt-8">
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-50 rounded-lg">
+                        <span class="text-xs text-stone-400 mb-4 uppercase tracking-widest">Icon / Monogram</span>
+                         <svg viewBox="0 0 100 100" class="w-12 h-12">
+                            <circle cx="50" cy="45" r="30" fill="none" stroke="var(--sun-gold)" stroke-width="12"></circle>
+                            <rect x="10" y="80" width="80" height="12" fill="var(--stone-charcoal)"></rect>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-900 rounded-lg">
+                        <span class="text-xs text-stone-500 mb-4 uppercase tracking-widest">Letterhead Size</span>
+                        <div class="flex items-end gap-2 scale-75">
+                            <div class="flex items-center">
+                                <span class="font-sans-neutral text-2xl font-medium tracking-tight text-white">SUNST</span>
+                                <div class="relative w-4 h-6 mx-0.5 flex flex-col justify-center">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full absolute inset-0">
+                                        <circle cx="50" cy="45" r="30" fill="none" stroke="var(--sun-gold)" stroke-width="12"></circle>
+                                        <rect x="10" y="80" width="80" height="12" fill="white"></rect>
+                                    </svg>
+                                </div>
+                                <span class="font-sans-neutral text-2xl font-medium tracking-tight text-white">NE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center p-6">
+                        <span class="text-xs text-stone-400 mb-2 uppercase tracking-widest">Typography</span>
+                        <span class="font-sans-neutral text-xl text-stone-900 tracking-tight">Inter</span>
+                        <span class="font-sans-neutral text-sm text-stone-500 mt-1">Minimal &amp; Timeless</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT 4: The Interlocking Monogram -->
+        <section class="space-y-8">
+            <div class="border-b border-stone-200 pb-4">
+                <h2 class="text-2xl font-medium tracking-tight text-stone-900">04. The Interlocking Monogram</h2>
+                <p class="text-sm text-stone-500 mt-2 max-w-3xl">
+                    A minimalist corporate emblem built on two interlocking S-shaped curves forming a compact square icon. Rendered as a flat vector without gradients, it balances a deep charcoal with muted gold. The stacked layout, elegant serif typography, and widely spaced small caps establish a premium, timeless, and institutional identity—reminiscent of top-tier private equity or law firms.
+                </p>
+            </div>
+
+            <div class="bg-white p-12 md:p-20 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-stone-100 flex flex-col items-center justify-center gap-12">
+                
+                <!-- Primary Logo (Stacked) -->
+                <div class="flex flex-col items-center gap-8">
+                    <!-- Symbol SVG (Interlocking Geometric S-Shapes) -->
+                    <svg viewBox="0 0 100 100" class="w-16 h-16 shrink-0">
+                        <!-- Top-Left 'S' Hook (Sun Gold) -->
+                        <path d="M 65 20 L 20 20 L 20 65 L 55 65 L 55 40" fill="none" stroke="var(--sun-gold)" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"></path>
+                        <!-- Bottom-Right 'S' Hook (Stone Charcoal) -->
+                        <path d="M 35 80 L 80 80 L 80 35 L 45 35 L 45 60" fill="none" stroke="var(--stone-charcoal)" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"></path>
+                    </svg>
+                    
+                    <!-- Wordmark -->
+                    <div class="flex flex-col items-center text-center">
+                        <span class="font-serif-classic text-4xl font-medium tracking-tight text-stone-900 leading-none">SUNSTONE</span>
+                        <span class="font-sans-neutral text-[10px] tracking-[0.35em] text-stone-500 uppercase mt-4 ml-1">Advisory</span>
+                    </div>
+                </div>
+
+                <!-- Variations & Typography -->
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-stone-100 mt-8">
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-50 rounded-lg group hover:bg-stone-100 transition-colors duration-300">
+                        <span class="text-xs text-stone-400 mb-4 uppercase tracking-widest">Symbol Only</span>
+                         <svg viewBox="0 0 100 100" class="w-12 h-12 transform group-hover:scale-105 transition-transform duration-300">
+                            <path d="M 65 20 L 20 20 L 20 65 L 55 65 L 55 40" fill="none" stroke="var(--sun-gold)" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"></path>
+                            <path d="M 35 80 L 80 80 L 80 35 L 45 35 L 45 60" fill="none" stroke="var(--stone-charcoal)" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-6 bg-stone-900 rounded-lg group hover:bg-stone-800 transition-colors duration-300">
+                        <span class="text-xs text-stone-500 mb-4 uppercase tracking-widest">Dark Mode</span>
+                        <div class="flex flex-col items-center gap-3 transform group-hover:scale-105 transition-transform duration-300">
+                            <svg viewBox="0 0 100 100" class="w-8 h-8">
+                                <path d="M 65 20 L 20 20 L 20 65 L 55 65 L 55 40" fill="none" stroke="var(--sun-gold)" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"></path>
+                                <path d="M 35 80 L 80 80 L 80 35 L 45 35 L 45 60" fill="none" stroke="white" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"></path>
+                            </svg>
+                            <span class="font-serif-classic text-xl font-medium tracking-tight text-white leading-none">SUNSTONE</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center p-6 bg-white border border-stone-50 rounded-lg hover:shadow-md transition-shadow duration-300">
+                        <span class="text-xs text-stone-400 mb-2 uppercase tracking-widest">Typography</span>
+                        <span class="font-serif-classic text-xl text-stone-900 tracking-tight">Playfair Display</span>
+                        <span class="font-sans-neutral text-sm text-stone-500 mt-1">Institutional &amp; Premium</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-5xl mx-auto px-6 py-12 mt-12 border-t border-stone-200">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
+            <span class="font-light">© 2023 Sunstone Advisory. Brand Identity Presentation.</span>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-var(--sun-gold) bg-[#c2a052]"></span>
+                <span class="uppercase tracking-widest text-[10px] font-medium">Confidential Draft</span>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>

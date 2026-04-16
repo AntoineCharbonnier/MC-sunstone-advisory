@@ -1,0 +1,162 @@
+
+<style>
+  .logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #e8e8e8; max-width: 800px; margin: 0 auto; }
+  .logo-cell { background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 32px; gap: 20px; min-height: 220px; }
+  .logo-cell.dark { background: #1a2640; }
+  .logo-label { font-size: 11px; letter-spacing: 0.1em; color: #8a9ab5; font-family: var(--font-sans); text-transform: uppercase; }
+  .logo-label.light { color: #4a5a72; }
+</style>
+
+<div class="logo-grid">
+
+  <!-- A: Sunburst géométrique + wordmark -->
+  <div class="logo-cell">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <!-- Sunburst géométrique minimaliste -->
+      <g transform="translate(28,28)">
+        <!-- Rayons fins -->
+        <line x1="0" y1="-18" x2="0" y2="-11" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="0" y1="18" x2="0" y2="11" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="18" y1="0" x2="11" y2="0" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-18" y1="0" x2="-11" y2="0" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="12.7" y1="-12.7" x2="7.8" y2="-7.8" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-12.7" y1="-12.7" x2="-7.8" y2="-7.8" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="12.7" y1="12.7" x2="7.8" y2="7.8" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-12.7" y1="12.7" x2="-7.8" y2="7.8" stroke="#b8962e" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Centre cercle -->
+        <circle cx="0" cy="0" r="7" fill="none" stroke="#1a2640" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="3" fill="#1a2640"/>
+      </g>
+      <!-- Wordmark -->
+      <text x="58" y="22" font-family="Georgia, serif" font-size="15" font-weight="400" fill="#b8962e" letter-spacing="3">SUN</text>
+      <text x="100" y="22" font-family="Georgia, serif" font-size="15" font-weight="400" fill="#1a2640" letter-spacing="3">STONE</text>
+      <text x="58" y="38" font-family="var(--font-sans)" font-size="8.5" fill="#8a9ab5" letter-spacing="3.5">ADVISORY</text>
+    </svg>
+    <div class="logo-label light">A — Sunburst + serif</div>
+  </div>
+
+  <!-- A dark version -->
+  <div class="logo-cell dark">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <g transform="translate(28,28)">
+        <line x1="0" y1="-18" x2="0" y2="-11" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="0" y1="18" x2="0" y2="11" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="18" y1="0" x2="11" y2="0" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-18" y1="0" x2="-11" y2="0" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="12.7" y1="-12.7" x2="7.8" y2="-7.8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-12.7" y1="-12.7" x2="-7.8" y2="-7.8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="12.7" y1="12.7" x2="7.8" y2="7.8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="-12.7" y1="12.7" x2="-7.8" y2="7.8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="0" cy="0" r="7" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+        <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+      </g>
+      <text x="58" y="22" font-family="Georgia, serif" font-size="15" font-weight="400" fill="#c9a84c" letter-spacing="3">SUN</text>
+      <text x="100" y="22" font-family="Georgia, serif" font-size="15" font-weight="400" fill="#ffffff" letter-spacing="3">STONE</text>
+      <text x="58" y="38" font-family="var(--font-sans)" font-size="8.5" fill="#6a7e9a" letter-spacing="3.5">ADVISORY</text>
+    </svg>
+    <div class="logo-label">A — fond sombre</div>
+  </div>
+
+  <!-- B: Losange / gemme + wordmark sans-serif -->
+  <div class="logo-cell">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <!-- Losange géométrique — évoque la pierre précieuse -->
+      <g transform="translate(28,28)">
+        <polygon points="0,-16 14,0 0,16 -14,0" fill="none" stroke="#1a2640" stroke-width="1.2"/>
+        <polygon points="0,-9 8,0 0,9 -8,0" fill="#b8962e" stroke="none"/>
+        <!-- Lignes de facette -->
+        <line x1="-14" y1="0" x2="0" y2="-16" stroke="#1a2640" stroke-width="0.5"/>
+        <line x1="14" y1="0" x2="0" y2="-16" stroke="#1a2640" stroke-width="0.5"/>
+      </g>
+      <text x="58" y="24" font-family="var(--font-sans)" font-size="14" font-weight="500" fill="#1a2640" letter-spacing="4">SUNSTONE</text>
+      <text x="58" y="39" font-family="var(--font-sans)" font-size="8" fill="#b8962e" letter-spacing="5">ADVISORY</text>
+    </svg>
+    <div class="logo-label light">B — Gemme + sans-serif</div>
+  </div>
+
+  <!-- B dark -->
+  <div class="logo-cell dark">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <g transform="translate(28,28)">
+        <polygon points="0,-16 14,0 0,16 -14,0" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+        <polygon points="0,-9 8,0 0,9 -8,0" fill="#c9a84c" stroke="none"/>
+        <line x1="-14" y1="0" x2="0" y2="-16" stroke="#ffffff" stroke-width="0.5"/>
+        <line x1="14" y1="0" x2="0" y2="-16" stroke="#ffffff" stroke-width="0.5"/>
+      </g>
+      <text x="58" y="24" font-family="var(--font-sans)" font-size="14" font-weight="500" fill="#ffffff" letter-spacing="4">SUNSTONE</text>
+      <text x="58" y="39" font-family="var(--font-sans)" font-size="8" fill="#c9a84c" letter-spacing="5">ADVISORY</text>
+    </svg>
+    <div class="logo-label">B — fond sombre</div>
+  </div>
+
+  <!-- C: Cercle solaire avec pierre inscrite -->
+  <div class="logo-cell">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <g transform="translate(28,28)">
+        <!-- Cercle extérieur fin = soleil -->
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#b8962e" stroke-width="0.8"/>
+        <!-- Arc intérieur partiel -->
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#1a2640" stroke-width="1"/>
+        <!-- Carré inscrit = pierre -->
+        <rect x="-7" y="-7" width="14" height="14" fill="#1a2640" stroke="none"/>
+        <!-- Point doré centre -->
+        <circle cx="0" cy="0" r="2.5" fill="#b8962e"/>
+      </g>
+      <text x="58" y="22" font-family="Georgia, serif" font-size="14" font-weight="400" fill="#1a2640" letter-spacing="2.5">SUNSTONE</text>
+      <text x="58" y="38" font-family="var(--font-sans)" font-size="8" fill="#b8962e" letter-spacing="4.5">ADVISORY</text>
+    </svg>
+    <div class="logo-label light">C — Cercle + carré inscrit</div>
+  </div>
+
+  <!-- C dark -->
+  <div class="logo-cell dark">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <g transform="translate(28,28)">
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#c9a84c" stroke-width="0.8"/>
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#ffffff" stroke-width="1"/>
+        <rect x="-7" y="-7" width="14" height="14" fill="#ffffff" stroke="none"/>
+        <circle cx="0" cy="0" r="2.5" fill="#c9a84c"/>
+      </g>
+      <text x="58" y="22" font-family="Georgia, serif" font-size="14" font-weight="400" fill="#ffffff" letter-spacing="2.5">SUNSTONE</text>
+      <text x="58" y="38" font-family="var(--font-sans)" font-size="8" fill="#c9a84c" letter-spacing="4.5">ADVISORY</text>
+    </svg>
+    <div class="logo-label">C — fond sombre</div>
+  </div>
+
+  <!-- D: Monogramme S stylisé + wordmark horizontal compact -->
+  <div class="logo-cell">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <!-- S géométrique construit sur grille -->
+      <g transform="translate(28,28)">
+        <!-- Deux demi-cercles opposés formant S -->
+        <path d="M -10,-2 A 10,10 0 0,1 10,-2" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -10,2 A 10,10 0 0,0 10,2" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <!-- Trait horizontal doré au milieu -->
+        <line x1="-10" y1="0" x2="10" y2="0" stroke="#b8962e" stroke-width="1.5"/>
+        <!-- Petits terminaux -->
+        <circle cx="-10" cy="-2" r="2" fill="#b8962e"/>
+        <circle cx="10" cy="2" r="2" fill="#b8962e"/>
+      </g>
+      <text x="58" y="24" font-family="var(--font-sans)" font-size="13" font-weight="500" fill="#1a2640" letter-spacing="3">SUNSTONE</text>
+      <text x="58" y="39" font-family="var(--font-sans)" font-size="8" fill="#8a9ab5" letter-spacing="4.5">ADVISORY</text>
+    </svg>
+    <div class="logo-label light">D — Monogramme S</div>
+  </div>
+
+  <!-- D dark -->
+  <div class="logo-cell dark">
+    <svg width="220" height="56" viewBox="0 0 220 56">
+      <g transform="translate(28,28)">
+        <path d="M -10,-2 A 10,10 0 0,1 10,-2" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -10,2 A 10,10 0 0,0 10,2" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-10" y1="0" x2="10" y2="0" stroke="#c9a84c" stroke-width="1.5"/>
+        <circle cx="-10" cy="-2" r="2" fill="#c9a84c"/>
+        <circle cx="10" cy="2" r="2" fill="#c9a84c"/>
+      </g>
+      <text x="58" y="24" font-family="var(--font-sans)" font-size="13" font-weight="500" fill="#ffffff" letter-spacing="3">SUNSTONE</text>
+      <text x="58" y="39" font-family="var(--font-sans)" font-size="8" fill="#6a7e9a" letter-spacing="4.5">ADVISORY</text>
+    </svg>
+    <div class="logo-label">D — fond sombre</div>
+  </div>
+
+</div>

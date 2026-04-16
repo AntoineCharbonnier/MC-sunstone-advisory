@@ -143,6 +143,61 @@
       content: attr(data-user) "\0040" attr(data-domain);
     }
 
+    /* ─── Hidden links ─────────────────────────────────── */
+    .hidden-links {
+      width: 100%;
+      max-width: 560px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s ease, opacity 0.4s ease;
+    }
+
+    .hidden-links.visible {
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    .hidden-links__inner {
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid var(--border-light);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 28px 32px;
+    }
+
+    .hl-section__label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-print);
+      margin-bottom: 10px;
+    }
+
+    .hl-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .hl-list a {
+      font-size: 12px;
+      color: var(--text-body);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      word-break: break-word;
+    }
+
+    .hl-list a:hover {
+      color: var(--gold-print);
+      border-color: var(--border-light);
+    }
+
     /* ─── Footer ────────────────────────────────────────── */
     footer {
       position: fixed;
@@ -208,7 +263,7 @@
 </head>
 <body>
 
-  <div class="logo" aria-label="Sunstone Advisory">
+  <div class="logo" id="logo-trigger" aria-label="Sunstone Advisory" style="cursor:default;user-select:none;">
     <span class="logo__sun">Sun</span><span class="logo__stone">stone Advisory</span>
   </div>
 
@@ -226,9 +281,92 @@
          data-domain="sunstoneadvisory.fr"
          aria-label="Email Marine at sunstone advisory"></a>
     </div>
+
+    <div class="hidden-links" id="hidden-links" aria-hidden="true">
+      <div class="hidden-links__inner">
+
+        <div class="hl-section">
+          <span class="hl-section__label">Founder</span>
+          <ul class="hl-list">
+            <li><a href="../founder/marine-charbonnier.md">marine-charbonnier</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Logos</span>
+          <ul class="hl-list">
+            <li><a href="../logos/logo-propositions.html">logo-propositions</a></li>
+            <li><a href="../logos/logo-propositions-v2.html">logo-propositions-v2</a></li>
+            <li><a href="../logos/logo-circulaire.html">logo-circulaire</a></li>
+            <li><a href="../logos/logo-all-propositions.html">logo-all-propositions</a></li>
+            <li><a href="../logos/logo-cercle-barre-variants.html">logo-cercle-barre-variants</a></li>
+            <li><a href="../logos/logo-monogramme-S-exact.html">logo-monogramme-S-exact</a></li>
+            <li><a href="../logos/logo-inspirations-v3.html">logo-inspirations-v3</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Logos Recraft</span>
+          <ul class="hl-list">
+            <li><a href="../logos-recraft/concept-split-circle.html">concept-split-circle</a></li>
+            <li><a href="../logos-recraft/concept-s-form.html">concept-s-form</a></li>
+            <li><a href="../logos-recraft/concept-gem-horizon.html">concept-gem-horizon</a></li>
+            <li><a href="../logos-recraft/concept-s-circle-stone.html">concept-s-circle-stone</a></li>
+            <li><a href="../logos-recraft/concept-circle-line-dots.html">concept-circle-line-dots</a></li>
+            <li><a href="../logos-recraft/concept-square-s-arch.html">concept-square-s-arch</a></li>
+            <li><a href="../logos-recraft/concept-square-s-v2-refined.html">concept-square-s-v2-refined</a></li>
+            <li><a href="../logos-recraft/prompt-generation.html">prompt-generation</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Wording Review</span>
+          <ul class="hl-list">
+            <li><a href="../wording-review/README.md">README</a></li>
+            <li><a href="../wording-review/diff-mockup-vs-v7.md">diff-mockup-vs-v7</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Strategy</span>
+          <ul class="hl-list">
+            <li><a href="../strategy/arbitrages.md">arbitrages</a></li>
+            <li><a href="../strategy/competitive-landscape.md">competitive-landscape</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
   </main>
 
   <footer>Paris · Sunstone Advisory</footer>
+
+  <script>
+    (function () {
+      const CLICKS_REQUIRED = 7;
+      const RESET_DELAY     = 1500; // ms — réinitialise si on arrête de cliquer
+
+      let count   = 0;
+      let timer   = null;
+      const logo  = document.getElementById('logo-trigger');
+      const panel = document.getElementById('hidden-links');
+
+      logo.addEventListener('click', function () {
+        clearTimeout(timer);
+        count++;
+
+        if (count >= CLICKS_REQUIRED) {
+          count = 0;
+          const isVisible = panel.classList.toggle('visible');
+          panel.setAttribute('aria-hidden', String(!isVisible));
+          return;
+        }
+
+        // Réinitialise le compteur si on s'arrête trop longtemps
+        timer = setTimeout(() => { count = 0; }, RESET_DELAY);
+      });
+    })();
+  </script>
 
 </body>
 </html>
