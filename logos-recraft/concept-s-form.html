@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunstone — Concept B: S-Form</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F5F4F0; font-family: 'Georgia', serif; padding: 60px 40px; }
+  h1 { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h2 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #aaa; margin-bottom: 60px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 60px 80px; align-items: flex-start; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #999; }
+  .dark-bg { background: #1B2D4F; padding: 32px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 60px 0; }
+  .section-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #bbb; margin-bottom: 40px; }
+</style>
+</head>
+<body>
+<h1>Sunstone Advisory — Logomark Explorations</h1>
+<h2>Concept B · S-Form · Geometric Lettermark</h2>
+
+<div class="grid">
+
+  <!-- V1: Two C-curves forming S — upper gold, lower navy -->
+  <div class="item">
+    <svg width="100" height="120" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Upper bowl: gold, sun — right-opening C -->
+      <path d="M 40,10 C 70,10 70,50 40,50" fill="none" stroke="#C9A44A" stroke-width="11" stroke-linecap="round"/>
+      <!-- Lower bowl: navy, stone — left-opening C -->
+      <path d="M 40,50 C 10,50 10,90 40,90" fill="none" stroke="#1B2D4F" stroke-width="11" stroke-linecap="round"/>
+    </svg>
+    <span class="label">V1 · Two strokes S</span>
+  </div>
+
+  <!-- V2: S with sun terminal circle -->
+  <div class="item">
+    <svg width="100" height="120" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Upper bowl gold -->
+      <path d="M 40,10 C 68,10 68,50 40,50" fill="none" stroke="#C9A44A" stroke-width="9" stroke-linecap="butt"/>
+      <!-- Lower bowl navy -->
+      <path d="M 40,50 C 12,50 12,90 40,90" fill="none" stroke="#1B2D4F" stroke-width="9" stroke-linecap="butt"/>
+      <!-- Sun circle at top -->
+      <circle cx="40" cy="10" r="7" fill="#C9A44A"/>
+      <!-- Stone facet at bottom -->
+      <polygon points="40,83 47,90 40,97 33,90" fill="#1B2D4F"/>
+    </svg>
+    <span class="label">V2 · Sun/Stone terminals</span>
+  </div>
+
+  <!-- V3: Filled S shape from paths -->
+  <div class="item">
+    <svg width="100" height="120" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Gold upper half of S: a filled crescent/bowl shape -->
+      <path d="
+        M 20,30
+        C 20,5 60,5 60,30
+        C 60,50 40,50 40,50
+        C 40,50 20,50 20,30 Z
+      " fill="#C9A44A"/>
+      <!-- Navy lower half of S -->
+      <path d="
+        M 60,70
+        C 60,95 20,95 20,70
+        C 20,50 40,50 40,50
+        C 40,50 60,50 60,70 Z
+      " fill="#1B2D4F"/>
+    </svg>
+    <span class="label">V3 · Filled S bowls</span>
+  </div>
+
+  <!-- V4: Stacked crescents (S as two crescents) -->
+  <div class="item">
+    <svg width="100" height="120" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Upper crescent gold (left-pointing) -->
+      <path d="M 20,30 A 20,20 0 1,1 60,30 A 20,20 0 0,0 20,30 Z" fill="#C9A44A"/>
+      <!-- Lower crescent navy (right-pointing) -->
+      <path d="M 60,70 A 20,20 0 1,1 20,70 A 20,20 0 0,0 60,70 Z" fill="#1B2D4F"/>
+    </svg>
+    <span class="label">V4 · Stacked crescents</span>
+  </div>
+
+  <!-- V5: Geometric angular S (stone aesthetic) with gold accents -->
+  <div class="item">
+    <svg width="100" height="120" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Angular S: made of rectangles/diagonals -->
+      <!-- Upper block -->
+      <rect x="18" y="8" width="44" height="16" rx="0" fill="#C9A44A"/>
+      <!-- Middle bar (diagonal) -->
+      <polygon points="18,24 62,24 62,38 18,52" fill="#C9A44A" opacity="0.6"/>
+      <!-- Waist -->
+      <rect x="18" y="46" width="44" height="8" rx="0" fill="#1B2D4F" opacity="0.4"/>
+      <!-- Lower S fill -->
+      <polygon points="18,54 62,68 62,84 18,84" fill="#1B2D4F"/>
+      <!-- Bottom bar -->
+      <rect x="18" y="76" width="44" height="16" rx="0" fill="#1B2D4F"/>
+      <!-- Gold accent line -->
+      <line x1="18" y1="54" x2="62" y2="54" stroke="#C9A44A" stroke-width="2"/>
+    </svg>
+    <span class="label">V5 · Angular / stone</span>
+  </div>
+
+  <!-- V6: Minimal S — single continuous stroke, dual color -->
+  <div class="item">
+    <svg width="100" height="120" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="s-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C9A44A"/>
+          <stop offset="50%" stop-color="#C9A44A"/>
+          <stop offset="50%" stop-color="#1B2D4F"/>
+          <stop offset="100%" stop-color="#1B2D4F"/>
+        </linearGradient>
+      </defs>
+      <path d="
+        M 58,18
+        C 58,6 22,6 22,22
+        C 22,36 58,38 58,52
+        C 58,66 22,66 22,80
+        C 22,94 58,94 58,82
+      "
+        fill="none"
+        stroke="url(#s-grad)"
+        stroke-width="10"
+        stroke-linecap="round"
+      />
+    </svg>
+    <span class="label">V6 · Gradient stroke S</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section-title">On dark background</p>
+
+<div class="grid">
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="70" height="84" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 40,10 C 70,10 70,50 40,50" fill="none" stroke="#C9A44A" stroke-width="11" stroke-linecap="round"/>
+        <path d="M 40,50 C 10,50 10,90 40,90" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="11" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="label">V1 · on navy</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="70" height="84" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M 20,30 C 20,5 60,5 60,30
+          C 60,50 40,50 40,50
+          C 40,50 20,50 20,30 Z
+        " fill="#C9A44A"/>
+        <path d="
+          M 60,70 C 60,95 20,95 20,70
+          C 20,50 40,50 40,50
+          C 40,50 60,50 60,70 Z
+        " fill="rgba(255,255,255,0.18)"/>
+      </svg>
+    </div>
+    <span class="label">V3 · on navy</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="70" height="84" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M 58,18 C 58,6 22,6 22,22
+          C 22,36 58,38 58,52
+          C 58,66 22,66 22,80
+          C 22,94 58,94 58,82
+        "
+          fill="none"
+          stroke="#C9A44A"
+          stroke-width="10"
+          stroke-linecap="round"
+        />
+      </svg>
+    </div>
+    <span class="label">V6 · gold on navy</span>
+  </div>
+
+</div>
+
+</body>
+</html>

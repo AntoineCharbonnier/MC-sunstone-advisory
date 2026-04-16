@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunstone — Variations S+Circle+Stone</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F5F4F0; font-family: 'Georgia', serif; padding: 60px 40px; }
+  h1 { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h2 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #aaa; margin-bottom: 60px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 70px 90px; align-items: flex-end; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #999; text-align: center; max-width: 120px; }
+  .dark-bg { background: #1B2D4F; padding: 36px; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+  .mid-bg { background: #2a2a2a; padding: 36px; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 70px 0; }
+  .section-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #bbb; margin-bottom: 40px; }
+</style>
+</head>
+<body>
+<h1>Sunstone Advisory — Logomark Variations</h1>
+<h2>Base · S-Ribbon through Circle + Stone Fragments</h2>
+
+<div class="grid">
+
+  <!-- V1: Référence fidèle — bande S épaisse, fragments angulaires -->
+  <div class="item">
+    <svg width="110" height="140" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v1-clip">
+          <circle cx="55" cy="50" r="44"/>
+        </clipPath>
+      </defs>
+      <!-- Cercle or -->
+      <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+      <!-- Rayons soleil (discrets) -->
+      <line x1="55" y1="6" x2="55" y2="0" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+      <line x1="72" y1="10" x2="76" y2="5" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="85" y1="22" x2="90" y2="18" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="91" y1="40" x2="97" y2="39" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Bande S navy — épaisse -->
+      <path d="M 22,4 C 75,4 30,96 83,96"
+        fill="none" stroke="#1B2D4F" stroke-width="22"
+        clip-path="url(#v1-clip)" stroke-linecap="butt"/>
+      <!-- Fragments de pierre en bas -->
+      <polygon points="40,100 50,92 60,100 55,110 45,110" fill="#1B1E28"/>
+      <polygon points="28,108 40,100 45,112 35,118" fill="#22263A"/>
+      <polygon points="60,100 72,106 68,117 55,112" fill="#1B1E28"/>
+      <polygon points="44,112 54,110 56,120 46,122" fill="#151820"/>
+      <!-- Éclats petits -->
+      <polygon points="30,118 36,115 34,122" fill="#1B1E28"/>
+      <polygon points="65,115 70,120 62,122" fill="#22263A"/>
+    </svg>
+    <span class="label">V1 · Référence</span>
+  </div>
+
+  <!-- V2: Bande S fine — plus élégant/premium -->
+  <div class="item">
+    <svg width="110" height="140" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v2-clip">
+          <circle cx="55" cy="50" r="44"/>
+        </clipPath>
+      </defs>
+      <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+      <!-- Rayons soleil -->
+      <line x1="55" y1="6" x2="55" y2="1" stroke="#C9A44A" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="73" y1="11" x2="77" y2="6" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="86" y1="24" x2="91" y2="20" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Bande S fine -->
+      <path d="M 26,4 C 75,4 32,96 81,96"
+        fill="none" stroke="#1B2D4F" stroke-width="13"
+        clip-path="url(#v2-clip)" stroke-linecap="butt"/>
+      <!-- Fragments de pierre -->
+      <polygon points="42,100 52,93 62,100 57,110 47,110" fill="#1B1E28"/>
+      <polygon points="30,107 42,100 47,112 37,117" fill="#22263A"/>
+      <polygon points="62,100 72,104 69,116 57,112" fill="#1B1E28"/>
+      <polygon points="46,111 56,109 57,120 47,122" fill="#151820"/>
+      <polygon points="32,117 38,114 36,122" fill="#1B1E28"/>
+      <polygon points="65,114 71,118 63,121" fill="#22263A"/>
+    </svg>
+    <span class="label">V2 · Bande fine</span>
+  </div>
+
+  <!-- V3: Bande très épaisse — bold, massif -->
+  <div class="item">
+    <svg width="110" height="140" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v3-clip">
+          <circle cx="55" cy="50" r="44"/>
+        </clipPath>
+      </defs>
+      <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+      <path d="M 20,2 C 78,2 28,98 86,98"
+        fill="none" stroke="#1B2D4F" stroke-width="32"
+        clip-path="url(#v3-clip)" stroke-linecap="butt"/>
+      <!-- Fragments massifs -->
+      <polygon points="36,98 55,88 74,98 68,114 42,114" fill="#1B1E28"/>
+      <polygon points="24,112 38,100 44,115 32,122" fill="#22263A"/>
+      <polygon points="66,100 78,108 74,120 60,116" fill="#1B1E28"/>
+      <polygon points="40,114 60,112 58,124 42,126" fill="#151820"/>
+    </svg>
+    <span class="label">V3 · Bold / massif</span>
+  </div>
+
+  <!-- V4: Sans fragments — pur cercle + S -->
+  <div class="item">
+    <svg width="110" height="110" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v4-clip">
+          <circle cx="55" cy="55" r="48"/>
+        </clipPath>
+      </defs>
+      <circle cx="55" cy="55" r="48" fill="#C9A44A"/>
+      <path d="M 22,8 C 82,8 28,102 88,102"
+        fill="none" stroke="#1B2D4F" stroke-width="20"
+        clip-path="url(#v4-clip)" stroke-linecap="butt"/>
+    </svg>
+    <span class="label">V4 · Sans fragments<br>S pur</span>
+  </div>
+
+  <!-- V5: S inversé (bande droite-gauche) -->
+  <div class="item">
+    <svg width="110" height="140" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v5-clip">
+          <circle cx="55" cy="50" r="44"/>
+        </clipPath>
+      </defs>
+      <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+      <!-- Rayons côté gauche -->
+      <line x1="55" y1="6" x2="55" y2="1" stroke="#C9A44A" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="37" y1="11" x2="33" y2="6" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="24" y1="24" x2="19" y2="20" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- S inversé (miroir) -->
+      <path d="M 88,4 C 35,4 78,96 25,96"
+        fill="none" stroke="#1B2D4F" stroke-width="22"
+        clip-path="url(#v5-clip)" stroke-linecap="butt"/>
+      <!-- Fragments -->
+      <polygon points="40,100 50,92 60,100 55,110 45,110" fill="#1B1E28"/>
+      <polygon points="28,108 40,100 45,112 35,118" fill="#22263A"/>
+      <polygon points="60,100 72,106 68,117 55,112" fill="#1B1E28"/>
+      <polygon points="44,112 54,110 56,120 46,122" fill="#151820"/>
+      <polygon points="30,118 36,115 34,122" fill="#1B1E28"/>
+      <polygon points="65,115 70,120 62,122" fill="#22263A"/>
+    </svg>
+    <span class="label">V5 · S inversé</span>
+  </div>
+
+  <!-- V6: Cercle contour + S plein (inversé tonalité) -->
+  <div class="item">
+    <svg width="110" height="140" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v6-clip">
+          <circle cx="55" cy="50" r="44"/>
+        </clipPath>
+      </defs>
+      <!-- Fond navy -->
+      <circle cx="55" cy="50" r="44" fill="#1B2D4F"/>
+      <!-- Bande S or -->
+      <path d="M 22,4 C 75,4 30,96 83,96"
+        fill="none" stroke="#C9A44A" stroke-width="22"
+        clip-path="url(#v6-clip)" stroke-linecap="butt"/>
+      <!-- Rayons gold -->
+      <line x1="55" y1="6" x2="55" y2="0" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+      <line x1="72" y1="10" x2="76" y2="5" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="85" y1="22" x2="90" y2="18" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Fragments navy sur fond clair -->
+      <polygon points="40,100 50,92 60,100 55,110 45,110" fill="#1B2D4F"/>
+      <polygon points="28,108 40,100 45,112 35,118" fill="#22334F"/>
+      <polygon points="60,100 72,106 68,117 55,112" fill="#1B2D4F"/>
+      <polygon points="44,112 54,110 56,120 46,122" fill="#14213A"/>
+      <polygon points="30,118 36,115 34,122" fill="#1B2D4F"/>
+      <polygon points="65,115 70,120 62,122" fill="#22334F"/>
+    </svg>
+    <span class="label">V6 · Inversé navy/or</span>
+  </div>
+
+  <!-- V7: Fragments géométriques stylisés (hexagone) -->
+  <div class="item">
+    <svg width="110" height="145" viewBox="0 0 110 145" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v7-clip">
+          <circle cx="55" cy="50" r="44"/>
+        </clipPath>
+      </defs>
+      <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+      <line x1="55" y1="6" x2="55" y2="0" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+      <line x1="72" y1="10" x2="77" y2="5" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="86" y1="23" x2="91" y2="19" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 22,4 C 75,4 30,96 83,96"
+        fill="none" stroke="#1B2D4F" stroke-width="22"
+        clip-path="url(#v7-clip)" stroke-linecap="butt"/>
+      <!-- Fragments hexagonaux réguliers (facettes de gemme) -->
+      <polygon points="55,95 67,102 67,115 55,122 43,115 43,102" fill="#1B1E28"/>
+      <polygon points="43,102 31,109 31,120 43,122" fill="#22263A"/>
+      <polygon points="67,102 79,109 77,120 67,116" fill="#1B1E28"/>
+      <!-- Petits éclats -->
+      <polygon points="33,121 40,118 38,128 32,127" fill="#151820"/>
+      <polygon points="72,118 78,122 74,129 68,126" fill="#22263A"/>
+    </svg>
+    <span class="label">V7 · Fragments<br>hexagonaux</span>
+  </div>
+
+  <!-- V8: Bande S + anneau extérieur (sceau) -->
+  <div class="item">
+    <svg width="120" height="150" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v8-clip">
+          <circle cx="60" cy="55" r="42"/>
+        </clipPath>
+      </defs>
+      <!-- Anneau extérieur navy -->
+      <circle cx="60" cy="55" r="50" fill="none" stroke="#1B2D4F" stroke-width="2"/>
+      <!-- Cercle or -->
+      <circle cx="60" cy="55" r="42" fill="#C9A44A"/>
+      <!-- Bande S -->
+      <path d="M 27,10 C 83,10 35,100 91,100"
+        fill="none" stroke="#1B2D4F" stroke-width="20"
+        clip-path="url(#v8-clip)" stroke-linecap="butt"/>
+      <!-- Fragments -->
+      <polygon points="45,103 60,96 75,103 69,115 51,115" fill="#1B1E28"/>
+      <polygon points="33,112 46,104 51,117 39,124" fill="#22263A"/>
+      <polygon points="69,104 81,111 77,122 65,117" fill="#1B1E28"/>
+      <polygon points="49,115 65,113 63,125 51,127" fill="#151820"/>
+    </svg>
+    <span class="label">V8 · Anneau sceau</span>
+  </div>
+
+  <!-- V9: Minimal — bande S très fine, fragments réduits -->
+  <div class="item">
+    <svg width="100" height="130" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="v9-clip">
+          <circle cx="50" cy="46" r="40"/>
+        </clipPath>
+      </defs>
+      <circle cx="50" cy="46" r="40" fill="#C9A44A"/>
+      <!-- Rayons très fins -->
+      <line x1="50" y1="6" x2="50" y2="1" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="66" y1="10" x2="69" y2="6" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="78" y1="21" x2="82" y2="18" stroke="#C9A44A" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- Bande S très fine -->
+      <path d="M 22,4 C 68,4 28,88 74,88"
+        fill="none" stroke="#1B2D4F" stroke-width="9"
+        clip-path="url(#v9-clip)" stroke-linecap="butt"/>
+      <!-- Fragments minimalistes -->
+      <polygon points="38,90 50,84 62,90 57,100 43,100" fill="#1B1E28"/>
+      <polygon points="30,98 38,91 42,101 34,106" fill="#22263A"/>
+      <polygon points="58,91 66,97 63,106 54,102" fill="#1B1E28"/>
+    </svg>
+    <span class="label">V9 · Minimal / fin</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section-title">Déclinaisons fond sombre</p>
+
+<div class="grid">
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="88" height="112" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="d1-clip"><circle cx="55" cy="50" r="44"/></clipPath>
+        </defs>
+        <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+        <line x1="55" y1="6" x2="55" y2="0" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="72" y1="10" x2="76" y2="5" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="85" y1="22" x2="90" y2="18" stroke="#C9A44A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M 22,4 C 75,4 30,96 83,96" fill="none" stroke="#1B2D4F" stroke-width="22" clip-path="url(#d1-clip)" stroke-linecap="butt"/>
+        <polygon points="40,100 50,92 60,100 55,110 45,110" fill="#0e1420"/>
+        <polygon points="28,108 40,100 45,112 35,118" fill="#141a28"/>
+        <polygon points="60,100 72,106 68,117 55,112" fill="#0e1420"/>
+        <polygon points="44,112 54,110 56,120 46,122" fill="#0a1018"/>
+        <polygon points="30,118 36,115 34,122" fill="#0e1420"/>
+        <polygon points="65,115 70,120 62,122" fill="#141a28"/>
+      </svg>
+    </div>
+    <span class="label">V1 · navy bg</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="88" height="112" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="d2-clip"><circle cx="55" cy="50" r="44"/></clipPath>
+        </defs>
+        <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+        <path d="M 26,4 C 75,4 32,96 81,96" fill="none" stroke="#1B2D4F" stroke-width="13" clip-path="url(#d2-clip)" stroke-linecap="butt"/>
+        <polygon points="42,100 52,93 62,100 57,110 47,110" fill="#0e1420"/>
+        <polygon points="30,107 42,100 47,112 37,117" fill="#141a28"/>
+        <polygon points="62,100 72,104 69,116 57,112" fill="#0e1420"/>
+        <polygon points="46,111 56,109 57,120 47,122" fill="#0a1018"/>
+      </svg>
+    </div>
+    <span class="label">V2 fin · navy bg</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="88" height="88" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="d4-clip"><circle cx="55" cy="55" r="48"/></clipPath>
+        </defs>
+        <circle cx="55" cy="55" r="48" fill="#C9A44A"/>
+        <path d="M 22,8 C 82,8 28,102 88,102" fill="none" stroke="#1B2D4F" stroke-width="20" clip-path="url(#d4-clip)" stroke-linecap="butt"/>
+      </svg>
+    </div>
+    <span class="label">V4 pur · navy bg</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="88" height="88" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="d8-clip"><circle cx="55" cy="55" r="42"/></clipPath>
+        </defs>
+        <circle cx="55" cy="55" r="50" fill="none" stroke="rgba(201,164,74,0.35)" stroke-width="1.5"/>
+        <circle cx="55" cy="55" r="42" fill="#C9A44A"/>
+        <path d="M 22,10 C 82,10 28,100 88,100" fill="none" stroke="#1B2D4F" stroke-width="20" clip-path="url(#d8-clip)" stroke-linecap="butt"/>
+      </svg>
+    </div>
+    <span class="label">V8 sceau · navy bg</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section-title">Monochrome</p>
+
+<div class="grid">
+
+  <!-- Mono noir -->
+  <div class="item">
+    <svg width="88" height="112" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="m1-clip"><circle cx="55" cy="50" r="44"/></clipPath>
+      </defs>
+      <circle cx="55" cy="50" r="44" fill="#1a1a1a"/>
+      <path d="M 22,4 C 75,4 30,96 83,96" fill="none" stroke="#ffffff" stroke-width="22" clip-path="url(#m1-clip)" stroke-linecap="butt"/>
+      <polygon points="40,100 50,92 60,100 55,110 45,110" fill="#111"/>
+      <polygon points="28,108 40,100 45,112 35,118" fill="#1a1a1a"/>
+      <polygon points="60,100 72,106 68,117 55,112" fill="#111"/>
+      <polygon points="44,112 54,110 56,120 46,122" fill="#0d0d0d"/>
+    </svg>
+    <span class="label">Mono noir</span>
+  </div>
+
+  <!-- Mono or seul -->
+  <div class="item">
+    <svg width="88" height="112" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="m2-clip"><circle cx="55" cy="50" r="44"/></clipPath>
+      </defs>
+      <circle cx="55" cy="50" r="44" fill="#C9A44A"/>
+      <path d="M 22,4 C 75,4 30,96 83,96" fill="none" stroke="#ffffff" stroke-width="22" clip-path="url(#m2-clip)" stroke-linecap="butt"/>
+      <polygon points="40,100 50,92 60,100 55,110 45,110" fill="#8a6e28"/>
+      <polygon points="28,108 40,100 45,112 35,118" fill="#9a7a30"/>
+      <polygon points="60,100 72,106 68,117 55,112" fill="#8a6e28"/>
+      <polygon points="44,112 54,110 56,120 46,122" fill="#7a6020"/>
+    </svg>
+    <span class="label">Mono or</span>
+  </div>
+
+  <!-- Outline only -->
+  <div class="item">
+    <svg width="88" height="112" viewBox="0 0 110 140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="m3-clip"><circle cx="55" cy="50" r="44"/></clipPath>
+        <mask id="m3-band">
+          <rect width="110" height="140" fill="black"/>
+          <path d="M 22,4 C 75,4 30,96 83,96" fill="none" stroke="white" stroke-width="22" stroke-linecap="butt"/>
+        </mask>
+      </defs>
+      <circle cx="55" cy="50" r="44" fill="none" stroke="#1B2D4F" stroke-width="1.5"/>
+      <circle cx="55" cy="50" r="44" fill="#1B2D4F" clip-path="url(#m3-clip)" mask="url(#m3-band)"/>
+      <polygon points="40,100 50,92 60,100 55,110 45,110" fill="none" stroke="#1B2D4F" stroke-width="1.2"/>
+      <polygon points="28,108 40,100 45,112 35,118" fill="none" stroke="#1B2D4F" stroke-width="1"/>
+      <polygon points="60,100 72,106 68,117 55,112" fill="none" stroke="#1B2D4F" stroke-width="1"/>
+    </svg>
+    <span class="label">Outline / linework</span>
+  </div>
+
+</div>
+
+</body>
+</html>

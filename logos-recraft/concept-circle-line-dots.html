@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunstone — Variations Circle+Line+Dots</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F7F6F2; font-family: 'Montserrat', sans-serif; padding: 60px 48px; }
+
+  .page-title { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+  .page-sub   { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #bbb; margin-bottom: 64px; }
+
+  /* ---- grilles ---- */
+  .grid-marks { display: flex; flex-wrap: wrap; gap: 56px 72px; align-items: flex-end; margin-bottom: 80px; }
+  .grid-logos { display: flex; flex-wrap: wrap; gap: 56px 72px; align-items: flex-end; }
+
+  .item { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .label {
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #aaa; text-align: center; max-width: 120px; line-height: 1.6;
+  }
+
+  /* ---- fonds sombres ---- */
+  .bg-navy  { background: #1B2D4F; padding: 28px; display: inline-flex; }
+  .bg-dark  { background: #161616; padding: 28px; display: inline-flex; }
+  .bg-warm  { background: #F0EBE0; padding: 28px; display: inline-flex; }
+
+  hr { border: none; border-top: 1px solid #e0ddd8; margin: 72px 0 48px; }
+  .section { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c0bdb8; margin-bottom: 44px; }
+</style>
+</head>
+<body>
+
+<p class="page-title">Sunstone Advisory — Logomark Variations</p>
+<p class="page-sub">Base · Cercle + Ligne + Points · Sun / Stone</p>
+
+<!-- ══════════════════════════════════════
+     MARKS SEULS — 80px
+══════════════════════════════════════ -->
+<div class="grid-marks">
+
+  <!-- M1 : Référence fidèle -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#1a1a1a" stroke-width="1.3"/>
+      <!-- Point gauche (stone / dark) -->
+      <circle cx="9" cy="20" r="2.4" fill="#1a1a1a"/>
+      <!-- Point droit (sun / or) -->
+      <circle cx="31" cy="20" r="2.4" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M1 · Référence</span>
+  </div>
+
+  <!-- M2 : Points sur le cercle (intersections) -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#1a1a1a" stroke-width="1.3"/>
+      <!-- Points exactement sur le cercle -->
+      <circle cx="6" cy="20" r="2.8" fill="#1a1a1a"/>
+      <circle cx="34" cy="20" r="2.8" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M2 · Points sur cercle</span>
+  </div>
+
+  <!-- M3 : Points extérieurs -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="2" y1="20" x2="38" y2="20" stroke="#1a1a1a" stroke-width="1.3"/>
+      <!-- Points à l'extérieur du cercle -->
+      <circle cx="2" cy="20" r="2.5" fill="#1a1a1a"/>
+      <circle cx="38" cy="20" r="2.5" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M3 · Points extérieurs</span>
+  </div>
+
+  <!-- M4 : Ligne décalée vers le haut (horizon au 1/3) -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <!-- Corde décalée — soleil occupe 2/3 supérieurs -->
+      <line x1="8.5" y1="14" x2="31.5" y2="14" stroke="#1a1a1a" stroke-width="1.3"/>
+      <circle cx="9" cy="14" r="2.2" fill="#1a1a1a"/>
+      <circle cx="31" cy="14" r="2.2" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M4 · Ligne décalée</span>
+  </div>
+
+  <!-- M5 : Trois points (soleil / horizon / pierre) -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#1a1a1a" stroke-width="1.3"/>
+      <circle cx="6"  cy="20" r="2.2" fill="#1a1a1a"/>
+      <circle cx="20" cy="20" r="2.2" fill="#1a1a1a" opacity="0.35"/>
+      <circle cx="34" cy="20" r="2.2" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M5 · Trois points</span>
+  </div>
+
+  <!-- M6 : Arc au lieu de ligne droite -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <!-- Arc légèrement courbé vers le bas -->
+      <path d="M 6,20 Q 20,24 34,20" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <circle cx="6"  cy="20" r="2.4" fill="#1a1a1a"/>
+      <circle cx="34" cy="20" r="2.4" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M6 · Arc courbé</span>
+  </div>
+
+  <!-- M7 : Croix (ligne horiz + vert) -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="6"  y1="20" x2="34" y2="20" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="20" y1="6"  x2="20" y2="34" stroke="#C9A44A" stroke-width="1.3" opacity="0.5"/>
+      <circle cx="6"  cy="20" r="2.2" fill="#1a1a1a"/>
+      <circle cx="34" cy="20" r="2.2" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M7 · Croix + points</span>
+  </div>
+
+  <!-- M8 : Double cercle (anneau) -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <circle cx="20" cy="20" r="9"  fill="none" stroke="#1a1a1a" stroke-width="0.7" opacity="0.35"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#1a1a1a" stroke-width="1.3"/>
+      <circle cx="6"  cy="20" r="2.4" fill="#1a1a1a"/>
+      <circle cx="34" cy="20" r="2.4" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M8 · Double cercle</span>
+  </div>
+
+  <!-- M9 : Cercle épais, stroke lourd -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="13" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+      <line x1="7" y1="20" x2="33" y2="20" stroke="#1a1a1a" stroke-width="1.4"/>
+      <circle cx="9"  cy="20" r="2.5" fill="#1a1a1a"/>
+      <circle cx="31" cy="20" r="2.5" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M9 · Cercle épais</span>
+  </div>
+
+  <!-- M10 : Point soleil en haut (levant) -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#1a1a1a" stroke-width="1.3"/>
+      <!-- Pierre en bas du cercle -->
+      <circle cx="20" cy="34" r="2.4" fill="#1a1a1a"/>
+      <!-- Soleil en haut du cercle -->
+      <circle cx="20" cy="6"  r="2.4" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M10 · Axe vertical</span>
+  </div>
+
+  <!-- M11 : Navy/gold remplis -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="m11-top"><rect x="0" y="0" width="40" height="20"/></clipPath>
+        <clipPath id="m11-bot"><rect x="0" y="20" width="40" height="20"/></clipPath>
+      </defs>
+      <!-- Moitié supérieure or -->
+      <circle cx="20" cy="20" r="14" fill="#C9A44A" clip-path="url(#m11-top)"/>
+      <!-- Moitié inférieure navy -->
+      <circle cx="20" cy="20" r="14" fill="#1B2D4F" clip-path="url(#m11-bot)"/>
+      <!-- Ligne séparatrice -->
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#F7F6F2" stroke-width="1.3"/>
+      <circle cx="6"  cy="20" r="2.3" fill="#F7F6F2"/>
+      <circle cx="34" cy="20" r="2.3" fill="#F7F6F2"/>
+    </svg>
+    <span class="label">M11 · Demi-cercles remplis</span>
+  </div>
+
+  <!-- M12 : Ligne angulaire (diagonal) -->
+  <div class="item">
+    <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <!-- Diagonale à 30° — corde -->
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="8" y1="27" x2="32" y2="13" stroke="#1a1a1a" stroke-width="1.3"/>
+      <circle cx="8"  cy="27" r="2.4" fill="#1a1a1a"/>
+      <circle cx="32" cy="13" r="2.4" fill="#C9A44A"/>
+    </svg>
+    <span class="label">M12 · Ligne oblique</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section">Logo complet — Mark + Wordmark</p>
+
+<!-- ══════════════════════════════════════
+     LOGOS COMPLETS
+══════════════════════════════════════ -->
+<div class="grid-logos">
+
+  <!-- L1 : Référence -->
+  <div class="item">
+    <svg width="320" height="44" viewBox="0 0 320 44" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mark -->
+      <circle cx="22" cy="22" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.4"/>
+      <line x1="8" y1="22" x2="36" y2="22" stroke="#1a1a1a" stroke-width="1.4"/>
+      <circle cx="11" cy="22" r="2.5" fill="#1a1a1a"/>
+      <circle cx="33" cy="22" r="2.5" fill="#C9A44A"/>
+      <!-- Wordmark -->
+      <text x="52" y="27"
+        font-family="'Montserrat', sans-serif"
+        font-weight="400"
+        font-size="14"
+        letter-spacing="3"
+        fill="#1a1a1a">
+        <tspan fill="#C9A44A">SUN</tspan>STONE ADVISORY
+      </text>
+    </svg>
+    <span class="label">L1 · Référence</span>
+  </div>
+
+  <!-- L2 : Mark plus grand, texte sous le mark -->
+  <div class="item">
+    <svg width="180" height="80" viewBox="0 0 180 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="90" cy="26" r="17" fill="none" stroke="#1a1a1a" stroke-width="1.4"/>
+      <line x1="73" y1="26" x2="107" y2="26" stroke="#1a1a1a" stroke-width="1.4"/>
+      <circle cx="76" cy="26" r="2.6" fill="#1a1a1a"/>
+      <circle cx="104" cy="26" r="2.6" fill="#C9A44A"/>
+      <text x="90" y="58"
+        font-family="'Montserrat', sans-serif"
+        font-weight="300"
+        font-size="10"
+        letter-spacing="5"
+        text-anchor="middle"
+        fill="#1a1a1a">SUNSTONE</text>
+      <text x="90" y="72"
+        font-family="'Montserrat', sans-serif"
+        font-weight="300"
+        font-size="7"
+        letter-spacing="4"
+        text-anchor="middle"
+        fill="#C9A44A">ADVISORY</text>
+    </svg>
+    <span class="label">L2 · Empilé centré</span>
+  </div>
+
+  <!-- L3 : Mark inversé navy, wordmark allégé -->
+  <div class="item">
+    <svg width="300" height="44" viewBox="0 0 300 44" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="14" fill="none" stroke="#1B2D4F" stroke-width="1.4"/>
+      <line x1="8" y1="22" x2="36" y2="22" stroke="#1B2D4F" stroke-width="1.4"/>
+      <circle cx="11" cy="22" r="2.5" fill="#C9A44A"/>
+      <circle cx="33" cy="22" r="2.5" fill="#1B2D4F"/>
+      <text x="50" y="27"
+        font-family="'Montserrat', sans-serif"
+        font-weight="300"
+        font-size="13.5"
+        letter-spacing="3.5"
+        fill="#1B2D4F">
+        <tspan fill="#C9A44A">SUN</tspan>STONE ADVISORY
+      </text>
+    </svg>
+    <span class="label">L3 · Palette navy</span>
+  </div>
+
+  <!-- L4 : Mark ligne décalée -->
+  <div class="item">
+    <svg width="320" height="44" viewBox="0 0 320 44" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.4"/>
+      <line x1="9.5" y1="16" x2="34.5" y2="16" stroke="#1a1a1a" stroke-width="1.4"/>
+      <circle cx="10" cy="16" r="2.3" fill="#1a1a1a"/>
+      <circle cx="34" cy="16" r="2.3" fill="#C9A44A"/>
+      <text x="52" y="27"
+        font-family="'Montserrat', sans-serif"
+        font-weight="400"
+        font-size="14"
+        letter-spacing="3"
+        fill="#1a1a1a">
+        <tspan fill="#C9A44A">SUN</tspan>STONE ADVISORY
+      </text>
+    </svg>
+    <span class="label">L4 · Ligne décalée + wordmark</span>
+  </div>
+
+  <!-- L5 : Compact, mark petit, texte plus léger -->
+  <div class="item">
+    <svg width="280" height="36" viewBox="0 0 280 36" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="11" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+      <line x1="7" y1="18" x2="29" y2="18" stroke="#1a1a1a" stroke-width="1.2"/>
+      <circle cx="9"  cy="18" r="2" fill="#1a1a1a"/>
+      <circle cx="27" cy="18" r="2" fill="#C9A44A"/>
+      <text x="42" y="22.5"
+        font-family="'Montserrat', sans-serif"
+        font-weight="300"
+        font-size="11.5"
+        letter-spacing="4"
+        fill="#1a1a1a">
+        <tspan fill="#C9A44A">SUN</tspan>STONE ADVISORY
+      </text>
+    </svg>
+    <span class="label">L5 · Version compacte</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section">Sur fonds sombres</p>
+
+<div class="grid-logos">
+
+  <!-- Dark L1 -->
+  <div class="item">
+    <div class="bg-navy">
+      <svg width="300" height="44" viewBox="0 0 320 44" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="22" r="14" fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.9"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#ffffff" stroke-width="1.4" opacity="0.9"/>
+        <circle cx="11" cy="22" r="2.5" fill="rgba(255,255,255,0.8)"/>
+        <circle cx="33" cy="22" r="2.5" fill="#C9A44A"/>
+        <text x="52" y="27"
+          font-family="'Montserrat', sans-serif"
+          font-weight="300"
+          font-size="14"
+          letter-spacing="3"
+          fill="#ffffff">
+          <tspan fill="#C9A44A">SUN</tspan>STONE ADVISORY
+        </text>
+      </svg>
+    </div>
+    <span class="label">L1 · fond navy</span>
+  </div>
+
+  <!-- Dark — mark seul -->
+  <div class="item">
+    <div class="bg-navy">
+      <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="14" fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.85"/>
+        <line x1="6" y1="20" x2="34" y2="20" stroke="#ffffff" stroke-width="1.4" opacity="0.85"/>
+        <circle cx="9"  cy="20" r="2.4" fill="rgba(255,255,255,0.7)"/>
+        <circle cx="31" cy="20" r="2.4" fill="#C9A44A"/>
+      </svg>
+    </div>
+    <span class="label">M1 · fond navy</span>
+  </div>
+
+  <!-- Dark — M11 rempli -->
+  <div class="item">
+    <div class="bg-dark">
+      <svg width="80" height="80" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="d11-top"><rect x="0" y="0" width="40" height="20"/></clipPath>
+          <clipPath id="d11-bot"><rect x="0" y="20" width="40" height="20"/></clipPath>
+        </defs>
+        <circle cx="20" cy="20" r="14" fill="#C9A44A" clip-path="url(#d11-top)"/>
+        <circle cx="20" cy="20" r="14" fill="rgba(255,255,255,0.12)" clip-path="url(#d11-bot)"/>
+        <line x1="6" y1="20" x2="34" y2="20" stroke="#161616" stroke-width="1.3"/>
+        <circle cx="6"  cy="20" r="2.3" fill="#161616"/>
+        <circle cx="34" cy="20" r="2.3" fill="#161616"/>
+      </svg>
+    </div>
+    <span class="label">M11 · fond sombre</span>
+  </div>
+
+  <!-- Dark empilé -->
+  <div class="item">
+    <div class="bg-navy">
+      <svg width="160" height="80" viewBox="0 0 180 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="90" cy="26" r="17" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.4"/>
+        <line x1="73" y1="26" x2="107" y2="26" stroke="rgba(255,255,255,0.8)" stroke-width="1.4"/>
+        <circle cx="76" cy="26" r="2.6" fill="rgba(255,255,255,0.6)"/>
+        <circle cx="104" cy="26" r="2.6" fill="#C9A44A"/>
+        <text x="90" y="58"
+          font-family="'Montserrat', sans-serif"
+          font-weight="300"
+          font-size="10"
+          letter-spacing="5"
+          text-anchor="middle"
+          fill="#ffffff">SUNSTONE</text>
+        <text x="90" y="72"
+          font-family="'Montserrat', sans-serif"
+          font-weight="300"
+          font-size="7"
+          letter-spacing="4"
+          text-anchor="middle"
+          fill="#C9A44A">ADVISORY</text>
+      </svg>
+    </div>
+    <span class="label">L2 · fond navy</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section">Monochrome</p>
+
+<div class="grid-logos">
+
+  <div class="item">
+    <svg width="88" height="88" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#1a1a1a" stroke-width="1.4"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#1a1a1a" stroke-width="1.4"/>
+      <circle cx="9"  cy="20" r="2.4" fill="#1a1a1a"/>
+      <circle cx="31" cy="20" r="2.4" fill="#1a1a1a"/>
+    </svg>
+    <span class="label">Mono noir</span>
+  </div>
+
+  <div class="item">
+    <svg width="88" height="88" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="14" fill="none" stroke="#C9A44A" stroke-width="1.4"/>
+      <line x1="6" y1="20" x2="34" y2="20" stroke="#C9A44A" stroke-width="1.4"/>
+      <circle cx="9"  cy="20" r="2.4" fill="#C9A44A"/>
+      <circle cx="31" cy="20" r="2.4" fill="#C9A44A"/>
+    </svg>
+    <span class="label">Mono or</span>
+  </div>
+
+  <div class="item">
+    <div class="bg-navy">
+      <svg width="88" height="88" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="14" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+        <line x1="6" y1="20" x2="34" y2="20" stroke="#ffffff" stroke-width="1.4"/>
+        <circle cx="9"  cy="20" r="2.4" fill="#ffffff"/>
+        <circle cx="31" cy="20" r="2.4" fill="#ffffff"/>
+      </svg>
+    </div>
+    <span class="label">Mono blanc / navy</span>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunstone — Concept A: Split Circle</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F5F4F0; font-family: 'Georgia', serif; padding: 60px 40px; }
+  h1 { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h2 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #aaa; margin-bottom: 60px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 60px 80px; align-items: flex-start; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #999; }
+  .dark-bg { background: #1B2D4F; padding: 32px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 60px 0; }
+  .section-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #bbb; margin-bottom: 40px; }
+</style>
+</head>
+<body>
+<h1>Sunstone Advisory — Logomark Explorations</h1>
+<h2>Concept A · Split Circle · Sun / Stone Duality</h2>
+
+<div class="grid">
+
+  <!-- V1: Clean diagonal split -->
+  <div class="item">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="c1-upper">
+          <polygon points="50,50 100,0 100,100 0,100 50,50"/>
+        </clipPath>
+        <clipPath id="c1-lower">
+          <polygon points="50,50 0,0 100,0 0,100 50,50"/>
+        </clipPath>
+      </defs>
+      <!-- Stone half (lower-left) -->
+      <circle cx="50" cy="50" r="46" fill="#1B2D4F"/>
+      <!-- Sun half (upper-right) -->
+      <circle cx="50" cy="50" r="46" fill="#C9A44A" clip-path="url(#c1-lower)"/>
+    </svg>
+    <span class="label">V1 · Diagonal split</span>
+  </div>
+
+  <!-- V2: Diagonal split with gap -->
+  <div class="item">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="c2-gold">
+          <polygon points="52,48 0,0 100,0 100,100 48,52"/>
+        </clipPath>
+        <clipPath id="c2-navy">
+          <polygon points="52,48 100,100 0,100 0,0 48,52"/>
+        </clipPath>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="#1B2D4F" clip-path="url(#c2-navy)"/>
+      <circle cx="50" cy="50" r="46" fill="#C9A44A" clip-path="url(#c2-gold)"/>
+      <!-- White gap line -->
+      <line x1="4" y1="4" x2="96" y2="96" stroke="#F5F4F0" stroke-width="2.5"/>
+    </svg>
+    <span class="label">V2 · Gap line</span>
+  </div>
+
+  <!-- V3: Horizontal split (sun above, stone below) -->
+  <div class="item">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stone lower half -->
+      <path d="M 4,50 A 46,46 0 0,0 96,50 Z" fill="#1B2D4F"/>
+      <!-- Sun upper half -->
+      <path d="M 4,50 A 46,46 0 0,1 96,50 Z" fill="#C9A44A"/>
+      <!-- Thin separator -->
+      <line x1="4" y1="50" x2="96" y2="50" stroke="#F5F4F0" stroke-width="1.5"/>
+    </svg>
+    <span class="label">V3 · Horizontal split</span>
+  </div>
+
+  <!-- V4: Ring split diagonally -->
+  <div class="item">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="c4-gold">
+          <polygon points="50,50 0,0 100,0 100,100 50,50"/>
+        </clipPath>
+        <clipPath id="c4-navy">
+          <polygon points="50,50 0,0 0,100 100,100 50,50"/>
+        </clipPath>
+        <mask id="ring-mask">
+          <circle cx="50" cy="50" r="46" fill="white"/>
+          <circle cx="50" cy="50" r="33" fill="black"/>
+        </mask>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="#1B2D4F" clip-path="url(#c4-navy)" mask="url(#ring-mask)"/>
+      <circle cx="50" cy="50" r="46" fill="#C9A44A" clip-path="url(#c4-gold)" mask="url(#ring-mask)"/>
+    </svg>
+    <span class="label">V4 · Split ring</span>
+  </div>
+
+  <!-- V5: Sun dot in navy circle -->
+  <div class="item">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stone full circle -->
+      <circle cx="50" cy="50" r="46" fill="#1B2D4F"/>
+      <!-- Sun inner circle, offset upper-right -->
+      <circle cx="62" cy="38" r="20" fill="#C9A44A"/>
+      <!-- Thin ring -->
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#C9A44A" stroke-width="1.2"/>
+    </svg>
+    <span class="label">V5 · Sun inside stone</span>
+  </div>
+
+  <!-- V6: Crescent / eclipse -->
+  <div class="item">
+    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <mask id="crescent-mask">
+          <rect width="100" height="100" fill="white"/>
+          <circle cx="64" cy="36" r="34" fill="black"/>
+        </mask>
+      </defs>
+      <!-- Gold full circle -->
+      <circle cx="50" cy="50" r="46" fill="#C9A44A"/>
+      <!-- Navy crescent (eclipsed part) -->
+      <circle cx="50" cy="50" r="46" fill="#1B2D4F" mask="url(#crescent-mask)"/>
+    </svg>
+    <span class="label">V6 · Eclipse / crescent</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section-title">On dark background</p>
+
+<div class="grid">
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="d1-gold">
+            <polygon points="50,50 0,0 100,0 100,100 50,50"/>
+          </clipPath>
+          <clipPath id="d1-light">
+            <polygon points="50,50 0,0 0,100 100,100 50,50"/>
+          </clipPath>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="#F5F4F0" clip-path="url(#d1-light)" opacity="0.12"/>
+        <circle cx="50" cy="50" r="46" fill="#C9A44A" clip-path="url(#d1-gold)"/>
+        <line x1="4" y1="4" x2="96" y2="96" stroke="#1B2D4F" stroke-width="2"/>
+      </svg>
+    </div>
+    <span class="label">V2 · on navy</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="ring-mask-d">
+            <circle cx="50" cy="50" r="46" fill="white"/>
+            <circle cx="50" cy="50" r="33" fill="black"/>
+          </mask>
+          <clipPath id="d4-gold">
+            <polygon points="50,50 0,0 100,0 100,100 50,50"/>
+          </clipPath>
+          <clipPath id="d4-light">
+            <polygon points="50,50 0,0 0,100 100,100 50,50"/>
+          </clipPath>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="rgba(255,255,255,0.08)" clip-path="url(#d4-light)" mask="url(#ring-mask-d)"/>
+        <circle cx="50" cy="50" r="46" fill="#C9A44A" clip-path="url(#d4-gold)" mask="url(#ring-mask-d)"/>
+      </svg>
+    </div>
+    <span class="label">V4 · split ring on navy</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <mask id="crescent-d">
+            <rect width="100" height="100" fill="white"/>
+            <circle cx="64" cy="36" r="34" fill="black"/>
+          </mask>
+        </defs>
+        <circle cx="50" cy="50" r="46" fill="#C9A44A"/>
+        <circle cx="50" cy="50" r="46" fill="rgba(255,255,255,0.08)" mask="url(#crescent-d)"/>
+      </svg>
+    </div>
+    <span class="label">V6 · eclipse on navy</span>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunstone — S Soleil Pierre — Propositions raffinées</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F5F3EE; font-family: 'Montserrat', sans-serif; padding: 64px 52px; }
+
+  .page-title { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+  .page-sub   { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #bbb; margin-bottom: 72px; }
+
+  .grid { display: flex; flex-wrap: wrap; gap: 64px 80px; align-items: flex-end; margin-bottom: 80px; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .label {
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #aaa; text-align: center; max-width: 140px; line-height: 1.8;
+  }
+
+  .bg-navy  { background: #1B2D4F; padding: 36px; display: inline-flex; }
+  .bg-black { background: #111111; padding: 36px; display: inline-flex; }
+  .bg-stone { background: #2A2826; padding: 36px; display: inline-flex; }
+
+  hr { border: none; border-top: 1px solid #e0dcd5; margin: 72px 0 52px; }
+  .section { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c0bbb4; margin-bottom: 48px; }
+
+  .prompt-box {
+    background: #fff;
+    border: 1px solid #e0dbd4;
+    border-radius: 2px;
+    padding: 32px 36px;
+    margin-bottom: 72px;
+    max-width: 820px;
+  }
+  .prompt-box h3 {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #B8922A; margin-bottom: 16px;
+  }
+  .prompt-box p {
+    font-size: 12px; line-height: 1.85; color: #444;
+    font-family: 'Montserrat', sans-serif; font-weight: 300;
+  }
+  .prompt-box .prompt-text {
+    margin-top: 20px;
+    padding: 20px;
+    background: #F9F7F3;
+    border-left: 2px solid #B8922A;
+    font-size: 11.5px;
+    line-height: 1.9;
+    color: #333;
+    font-style: italic;
+  }
+  .prompt-box .negative {
+    margin-top: 14px;
+    font-size: 10.5px;
+    color: #999;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<p class="page-title">Sunstone Advisory — Analyse & Propositions</p>
+<p class="page-sub">Mark · S Soleil + Pierre · Déconstruction + Variations raffinées</p>
+
+<!-- ══════════════════════════════════════
+     PROMPT IA
+══════════════════════════════════════ -->
+<div class="prompt-box">
+  <h3>Prompt — Image Generative AI</h3>
+  <p>
+    Analyse structurelle du mark : <strong>trois formes géométriques plates</strong> sur fond blanc,
+    formant implicitement un <strong>S</strong> entre un soleil (haut-droite) et une pierre (bas-centre).
+    Pas de dégradé, pas d'ombre, pas de contour. Flat vector, clean edges.
+  </p>
+  <div class="prompt-text">
+    Minimalist flat vector logomark on a white background. A perfect square composition.
+    Three geometric shapes, hard edges, no stroke, no shadow, no gradient.<br><br>
+
+    Shape 1 — top-right corner: a solid golden-tan quarter-circle wedge (color #B8922A),
+    flush against the top and right edges of the square. Represents the sun.<br><br>
+
+    Shape 2 — dark near-black mass (color #1C1A18), composed of two opposing convex arcs
+    that together form a negative-space letter S. The upper arc occupies the upper-left area,
+    curving convexly toward the lower-right. The lower arc occupies the lower-right area,
+    curving convexly toward the upper-left. Between these two arcs, a white S-shaped negative
+    space flows diagonally from top-right to bottom-left.<br><br>
+
+    Shape 3 — bottom-center: a solid near-black filled semicircle (dome shape, flat edge at top,
+    curved edge pointing downward), centered horizontally, sitting at the very base of the
+    composition. Slightly protruding below the square. Represents the stone / rock arch.<br><br>
+
+    The golden quarter-circle (sun) and the black semicircle arch (stone) are visually
+    connected by the S-shaped negative space flowing between them.
+    Style: Swiss modernist, corporate identity, premium financial advisory brand.
+    Colors: off-white background #F5F3EE, near-black #1C1A18, warm gold #B8922A.
+  </div>
+  <p class="negative">
+    <strong>Negative prompt :</strong> gradient, shadow, glow, stroke, outline, texture, 3D, photorealistic,
+    complex illustration, serif letterform, decorative, ornate, busy, multiple colors, blue, green, red.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════
+     PROPOSITIONS RAFFINÉES
+══════════════════════════════════════ -->
+<p class="section">Propositions — Mark seul</p>
+<div class="grid">
+
+  <!-- P1 : Proportions optimisées — S plus lisible, gold équilibré -->
+  <div class="item">
+    <svg width="110" height="128" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+      <!-- Arc haut-gauche : secteur circulaire, centre (0,0) r=48 -->
+      <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1C1A18"/>
+      <!-- Soleil or : quart cercle coin haut-droit, centre (80,0) r=32 -->
+      <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A"/>
+      <!-- Arc bas-droit : secteur circulaire, centre (80,80) r=48 -->
+      <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1C1A18"/>
+      <!-- Pierre : demi-cercle en bas, plat en haut, dôme vers le bas -->
+      <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#1C1A18"/>
+    </svg>
+    <span class="label">P1 · Proportions équilibrées<br>référence optimisée</span>
+  </div>
+
+  <!-- P2 : S plus large, gold grand, stone petite — "Sun advisory" -->
+  <div class="item">
+    <svg width="110" height="128" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,0 L 40,0 A 40,40 0 0,0 0,40 Z" fill="#1C1A18"/>
+      <path d="M 40,0 A 40,40 0 0,1 80,40 L 80,0 Z" fill="#B8922A"/>
+      <path d="M 80,80 L 40,80 A 40,40 0 0,0 80,40 Z" fill="#1C1A18"/>
+      <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#1C1A18"/>
+    </svg>
+    <span class="label">P2 · S symétrique<br>gold = stone</span>
+  </div>
+
+  <!-- P3 : Arche gold (stone = soleil levant) -->
+  <div class="item">
+    <svg width="110" height="128" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1C1A18"/>
+      <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A"/>
+      <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1C1A18"/>
+      <!-- Pierre or : soleil levant en bas -->
+      <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#B8922A"/>
+    </svg>
+    <span class="label">P3 · Pierre or<br>soleil levant bas</span>
+  </div>
+
+  <!-- P4 : S diagonal renforcé — un seul arc (lecture S plus forte) -->
+  <div class="item">
+    <svg width="110" height="128" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grand arc unique traversant le carré (diag haut-gauche → bas-droit) -->
+      <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1C1A18"/>
+      <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A"/>
+      <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1C1A18"/>
+      <!-- Arche plus basse, plus fine -->
+      <path d="M 24,80 A 16,16 0 0,1 56,80 Z" fill="#1C1A18"/>
+      <!-- Séparateur blanc très fin entre carré et arche -->
+      <line x1="0" y1="80" x2="80" y2="80" stroke="#F5F3EE" stroke-width="3"/>
+      <!-- Arche redessinée sous le trait -->
+      <path d="M 24,83 A 16,16 0 0,1 56,83 Z" fill="#1C1A18"/>
+    </svg>
+    <span class="label">P4 · Arche détachée<br>respiration bas</span>
+  </div>
+
+  <!-- P5 : Navy (palette officielle Sunstone) -->
+  <div class="item">
+    <svg width="110" height="128" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1B2D4F"/>
+      <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#C9A44A"/>
+      <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1B2D4F"/>
+      <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#C9A44A"/>
+    </svg>
+    <span class="label">P5 · Navy + or<br>palette Sunstone</span>
+  </div>
+
+  <!-- P6 : Inscrit dans un cercle -->
+  <div class="item">
+    <svg width="110" height="110" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="p6-circle">
+          <circle cx="44" cy="44" r="42"/>
+        </clipPath>
+      </defs>
+      <circle cx="44" cy="44" r="42" fill="#F5F3EE"/>
+      <path d="M 2,2 L 48,2 A 46,46 0 0,0 2,48 Z" fill="#1C1A18" clip-path="url(#p6-circle)"/>
+      <path d="M 48,2 A 30,30 0 0,1 78,32 L 86,2 Z" fill="#B8922A" clip-path="url(#p6-circle)"/>
+      <path d="M 86,86 L 38,86 A 48,48 0 0,0 86,38 Z" fill="#1C1A18" clip-path="url(#p6-circle)"/>
+      <path d="M 26,86 A 18,18 0 0,1 62,86 Z" fill="#1C1A18" clip-path="url(#p6-circle)"/>
+      <circle cx="44" cy="44" r="42" fill="none" stroke="#1C1A18" stroke-width="0.8"/>
+    </svg>
+    <span class="label">P6 · Inscrit cercle</span>
+  </div>
+
+  <!-- P7 : Mark + filet de cadre autour du carré -->
+  <div class="item">
+    <svg width="116" height="134" viewBox="0 0 86 98" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cadre fin -->
+      <rect x="1" y="1" width="84" height="84" fill="none" stroke="#1C1A18" stroke-width="0.8"/>
+      <!-- Mark intérieur (légèrement indenté) -->
+      <path d="M 2,2 L 49,2 A 47,47 0 0,0 2,49 Z" fill="#1C1A18"/>
+      <path d="M 49,2 A 33,33 0 0,1 84,35 L 84,2 Z" fill="#B8922A"/>
+      <path d="M 84,84 L 33,84 A 51,51 0 0,0 84,33 Z" fill="#1C1A18"/>
+      <path d="M 22,86 A 20,20 0 0,1 64,86 Z" fill="#1C1A18"/>
+    </svg>
+    <span class="label">P7 · Cadre contour</span>
+  </div>
+
+  <!-- P8 : Gold dominant — fond or, S sombre -->
+  <div class="item">
+    <svg width="110" height="128" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+      <!-- Fond or -->
+      <rect x="0" y="0" width="80" height="80" fill="#B8922A"/>
+      <!-- S sombre (secteurs inversés = white space devient gold) -->
+      <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#F5F3EE"/>
+      <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#F5F3EE"/>
+      <!-- Le quart or reste gold (invisible) mais on dessine un quart sombre -->
+      <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#1C1A18"/>
+      <!-- Pierre sombre en bas -->
+      <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#1C1A18"/>
+    </svg>
+    <span class="label">P8 · Fond or<br>S négatif</span>
+  </div>
+
+  <!-- P9 : Coins arrondis, version premium -->
+  <div class="item">
+    <svg width="110" height="128" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="p9-rnd">
+          <rect x="0" y="0" width="80" height="80" rx="10" ry="10"/>
+        </clipPath>
+      </defs>
+      <rect x="0" y="0" width="80" height="80" rx="10" fill="#F5F3EE"/>
+      <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1C1A18" clip-path="url(#p9-rnd)"/>
+      <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A" clip-path="url(#p9-rnd)"/>
+      <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1C1A18" clip-path="url(#p9-rnd)"/>
+      <!-- Pierre sous le carré arrondi -->
+      <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#1C1A18"/>
+    </svg>
+    <span class="label">P9 · Coins arrondis</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section">Logo complet — Mark + Wordmark</p>
+
+<div class="grid">
+
+  <!-- Full L1 : empilé, proportions référence P1 -->
+  <div class="item">
+    <svg width="190" height="230" viewBox="0 0 190 230" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(55,0)">
+        <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1C1A18"/>
+        <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A"/>
+        <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1C1A18"/>
+        <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#1C1A18"/>
+      </g>
+      <text x="95" y="138"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-weight="500" font-size="30" letter-spacing="1"
+        text-anchor="middle" fill="#1C1A18">Sunstone</text>
+      <text x="95" y="162"
+        font-family="'Montserrat', sans-serif"
+        font-weight="300" font-size="9.5" letter-spacing="5.5"
+        text-anchor="middle" fill="#B8922A">ADVISORY</text>
+    </svg>
+    <span class="label">L1 · Empilé centré</span>
+  </div>
+
+  <!-- Full L2 : navy + or, arche or -->
+  <div class="item">
+    <svg width="190" height="230" viewBox="0 0 190 230" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(55,0)">
+        <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1B2D4F"/>
+        <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#C9A44A"/>
+        <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1B2D4F"/>
+        <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#C9A44A"/>
+      </g>
+      <text x="95" y="138"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-weight="500" font-size="30" letter-spacing="1"
+        text-anchor="middle" fill="#1B2D4F">Sunstone</text>
+      <text x="95" y="162"
+        font-family="'Montserrat', sans-serif"
+        font-weight="300" font-size="9.5" letter-spacing="5.5"
+        text-anchor="middle" fill="#C9A44A">ADVISORY</text>
+    </svg>
+    <span class="label">L2 · Navy + or<br>arche or</span>
+  </div>
+
+  <!-- Full L3 : horizontal compact -->
+  <div class="item">
+    <svg width="340" height="100" viewBox="0 0 340 100" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(0,4) scale(0.9)">
+        <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1C1A18"/>
+        <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A"/>
+        <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1C1A18"/>
+        <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#1C1A18"/>
+      </g>
+      <text x="98" y="42"
+        font-family="'Cormorant Garamond', Georgia, serif"
+        font-weight="500" font-size="28" letter-spacing="1"
+        fill="#1C1A18">Sunstone</text>
+      <text x="100" y="63"
+        font-family="'Montserrat', sans-serif"
+        font-weight="300" font-size="9" letter-spacing="5"
+        fill="#B8922A">ADVISORY</text>
+    </svg>
+    <span class="label">L3 · Horizontal</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section">Fonds sombres</p>
+
+<div class="grid">
+
+  <div class="item">
+    <div class="bg-black">
+      <svg width="96" height="112" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="rgba(255,255,255,0.88)"/>
+        <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A"/>
+        <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="rgba(255,255,255,0.88)"/>
+        <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="rgba(255,255,255,0.88)"/>
+      </svg>
+    </div>
+    <span class="label">P1 · fond noir</span>
+  </div>
+
+  <div class="item">
+    <div class="bg-navy">
+      <svg width="96" height="112" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="rgba(255,255,255,0.15)"/>
+        <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#C9A44A"/>
+        <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="rgba(255,255,255,0.15)"/>
+        <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#C9A44A"/>
+      </svg>
+    </div>
+    <span class="label">P5 · fond navy</span>
+  </div>
+
+  <div class="item">
+    <div class="bg-navy">
+      <svg width="170" height="206" viewBox="0 0 190 230" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(55,0)">
+          <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="rgba(255,255,255,0.12)"/>
+          <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#C9A44A"/>
+          <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="rgba(255,255,255,0.12)"/>
+          <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#C9A44A"/>
+        </g>
+        <text x="95" y="138"
+          font-family="'Cormorant Garamond', Georgia, serif"
+          font-weight="400" font-size="30" letter-spacing="1"
+          text-anchor="middle" fill="#ffffff">Sunstone</text>
+        <text x="95" y="162"
+          font-family="'Montserrat', sans-serif"
+          font-weight="300" font-size="9.5" letter-spacing="5.5"
+          text-anchor="middle" fill="#C9A44A">ADVISORY</text>
+      </svg>
+    </div>
+    <span class="label">L2 · fond navy</span>
+  </div>
+
+  <div class="item">
+    <div class="bg-stone">
+      <svg width="96" height="112" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="rgba(255,255,255,0.82)"/>
+        <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#C9A44A"/>
+        <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="rgba(255,255,255,0.82)"/>
+        <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="rgba(255,255,255,0.82)"/>
+      </svg>
+    </div>
+    <span class="label">P1 · fond stone</span>
+  </div>
+
+</div>
+
+</body>
+</html>

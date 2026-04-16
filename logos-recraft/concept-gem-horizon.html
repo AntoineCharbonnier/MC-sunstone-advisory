@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunstone — Concept C: Gem & Horizon</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F5F4F0; font-family: 'Georgia', serif; padding: 60px 40px; }
+  h1 { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h2 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #aaa; margin-bottom: 60px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 60px 80px; align-items: flex-start; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #999; }
+  .dark-bg { background: #1B2D4F; padding: 32px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 60px 0; }
+  .section-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #bbb; margin-bottom: 40px; }
+</style>
+</head>
+<body>
+<h1>Sunstone Advisory — Logomark Explorations</h1>
+<h2>Concept C · Gem Crystal & Rising Sun</h2>
+
+<div class="grid">
+
+  <!-- V1: Sunstone crystal (gem facets) — hexagonal cut stone with inner glow -->
+  <div class="item">
+    <svg width="100" height="110" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Gem outline — diamond cut shape -->
+      <polygon points="50,8 82,30 82,75 50,100 18,75 18,30" fill="#1B2D4F"/>
+      <!-- Inner facet top (gold — sunlight) -->
+      <polygon points="50,8 82,30 50,38 18,30" fill="#C9A44A"/>
+      <!-- Inner facet right -->
+      <polygon points="82,30 82,75 50,55 50,38" fill="#C9A44A" opacity="0.55"/>
+      <!-- Inner facet left -->
+      <polygon points="18,30 50,38 50,55 18,75" fill="#C9A44A" opacity="0.3"/>
+      <!-- Inner center facet (stone core) -->
+      <polygon points="50,38 82,75 50,100 18,75 50,55" fill="#1B2D4F" opacity="0.7"/>
+    </svg>
+    <span class="label">V1 · Sunstone crystal</span>
+  </div>
+
+  <!-- V2: Sun rising from stone (horizon mark) -->
+  <div class="item">
+    <svg width="110" height="90" viewBox="0 0 110 90" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stone base — angular horizon -->
+      <polygon points="5,90 20,55 40,65 55,48 70,62 90,50 105,90" fill="#1B2D4F"/>
+      <!-- Sun semicircle rising above horizon -->
+      <path d="M 19,55 A 36,36 0 0,1 91,55 Z" fill="#C9A44A"/>
+      <!-- Sun rays (subtle) -->
+      <line x1="55" y1="19" x2="55" y2="8" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+      <line x1="85" y1="30" x2="92" y2="22" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+      <line x1="25" y1="30" x2="18" y2="22" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="label">V2 · Sun over stone horizon</span>
+  </div>
+
+  <!-- V3: Clean sun-over-line (minimal) -->
+  <div class="item">
+    <svg width="100" height="90" viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+      <!-- Horizontal stone line -->
+      <rect x="5" y="60" width="90" height="5" rx="1" fill="#1B2D4F"/>
+      <!-- Thicker base block -->
+      <rect x="5" y="65" width="90" height="18" rx="1" fill="#1B2D4F"/>
+      <!-- Sun arc rising -->
+      <path d="M 15,60 A 35,35 0 0,1 85,60 Z" fill="#C9A44A"/>
+    </svg>
+    <span class="label">V3 · Minimal sun/base</span>
+  </div>
+
+  <!-- V4: Orbiting gem (sunstone on orbit ring) -->
+  <div class="item">
+    <svg width="110" height="110" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Orbit ring (stone circle / ellipse) -->
+      <circle cx="55" cy="55" r="40" fill="none" stroke="#1B2D4F" stroke-width="2"/>
+      <!-- Gold arc — sun segment of orbit -->
+      <path d="M 15,55 A 40,40 0 0,1 95,55" fill="none" stroke="#C9A44A" stroke-width="4" stroke-linecap="round"/>
+      <!-- Sun dot at apex -->
+      <circle cx="55" cy="15" r="8" fill="#C9A44A"/>
+      <!-- Stone facet at bottom -->
+      <polygon points="55,95 63,103 55,108 47,103" fill="#1B2D4F"/>
+    </svg>
+    <span class="label">V4 · Orbit mark</span>
+  </div>
+
+  <!-- V5: Diamond/lozenge — stone base, sun point -->
+  <div class="item">
+    <svg width="90" height="110" viewBox="0 0 90 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Diamond base (stone) -->
+      <polygon points="45,100 85,55 45,10 5,55" fill="#1B2D4F"/>
+      <!-- Gold upper triangle (sun face) -->
+      <polygon points="45,10 85,55 45,55" fill="#C9A44A"/>
+      <!-- Gold inner glow -->
+      <polygon points="45,10 85,55 45,55" fill="#C9A44A" opacity="0.3" transform="scale(0.5) translate(45,10)"/>
+      <!-- Center point -->
+      <circle cx="45" cy="55" r="4" fill="#F5F4F0"/>
+    </svg>
+    <span class="label">V5 · Diamond / lozenge</span>
+  </div>
+
+  <!-- V6: Sunstone gem — rounded top, flat bottom, internal sun -->
+  <div class="item">
+    <svg width="90" height="110" viewBox="0 0 90 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stone shield shape -->
+      <path d="M 45,105 C 45,105 5,85 5,50 L 5,15 Q 5,8 12,8 L 78,8 Q 85,8 85,15 L 85,50 C 85,85 45,105 45,105 Z" fill="#1B2D4F"/>
+      <!-- Gold inner sun -->
+      <circle cx="45" cy="42" r="22" fill="#C9A44A"/>
+      <!-- Stone inner facet lines -->
+      <line x1="45" y1="20" x2="45" y2="64" stroke="#1B2D4F" stroke-width="1" opacity="0.4"/>
+      <line x1="23" y1="42" x2="67" y2="42" stroke="#1B2D4F" stroke-width="1" opacity="0.4"/>
+      <line x1="29" y1="26" x2="61" y2="58" stroke="#1B2D4F" stroke-width="1" opacity="0.2"/>
+      <line x1="61" y1="26" x2="29" y2="58" stroke="#1B2D4F" stroke-width="1" opacity="0.2"/>
+    </svg>
+    <span class="label">V6 · Shield + sun</span>
+  </div>
+
+</div>
+
+<hr>
+<p class="section-title">On dark background</p>
+
+<div class="grid">
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="80" height="88" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="50,8 82,30 82,75 50,100 18,75 18,30" fill="rgba(255,255,255,0.06)" stroke="#C9A44A" stroke-width="1"/>
+        <polygon points="50,8 82,30 50,38 18,30" fill="#C9A44A"/>
+        <polygon points="82,30 82,75 50,55 50,38" fill="#C9A44A" opacity="0.45"/>
+        <polygon points="18,30 50,38 50,55 18,75" fill="#C9A44A" opacity="0.2"/>
+      </svg>
+    </div>
+    <span class="label">V1 · on navy</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="88" height="72" viewBox="0 0 110 90" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="5,90 20,55 40,65 55,48 70,62 90,50 105,90" fill="rgba(255,255,255,0.1)"/>
+        <path d="M 19,55 A 36,36 0 0,1 91,55 Z" fill="#C9A44A"/>
+        <line x1="55" y1="19" x2="55" y2="8" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="85" y1="30" x2="92" y2="22" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+        <line x1="25" y1="30" x2="18" y2="22" stroke="#C9A44A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="label">V2 · on navy</span>
+  </div>
+
+  <div class="item">
+    <div class="dark-bg">
+      <svg width="80" height="88" viewBox="0 0 90 110" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 45,105 C 45,105 5,85 5,50 L 5,15 Q 5,8 12,8 L 78,8 Q 85,8 85,15 L 85,50 C 85,85 45,105 45,105 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(201,164,74,0.4)" stroke-width="1"/>
+        <circle cx="45" cy="42" r="22" fill="#C9A44A"/>
+      </svg>
+    </div>
+    <span class="label">V6 · on navy</span>
+  </div>
+
+</div>
+
+</body>
+</html>
