@@ -1,0 +1,9 @@
+AuthType Basic
+AuthName "Sunstone Advisory"
+AuthUserFile %{DOCUMENT_ROOT}/.htpasswd
+Require valid-user
+
+# Protect .htpasswd from direct web access
+<Files ".htpasswd">
+    Require all denied
+</Files>
