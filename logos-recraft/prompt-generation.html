@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunstone — Prompts IA Génératifs</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #F5F3EE; font-family: 'Montserrat', sans-serif; padding: 64px 52px; max-width: 1100px; }
+
+  .page-title { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #999; margin-bottom: 6px; }
+  .page-sub   { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #bbb; margin-bottom: 64px; }
+
+  hr { border: none; border-top: 1px solid #e0dcd5; margin: 64px 0 48px; }
+  .section { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #c0bbb4; margin-bottom: 40px; }
+
+  /* ---- REFERENCE ---- */
+  .ref-row { display: flex; gap: 60px; align-items: flex-start; margin-bottom: 72px; }
+  .ref-mark { flex-shrink: 0; }
+  .ref-analysis { flex: 1; }
+  .ref-analysis h3 { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #B8922A; margin-bottom: 20px; }
+  .anatomy { display: flex; flex-direction: column; gap: 14px; }
+  .anatomy-item { display: flex; gap: 16px; align-items: flex-start; }
+  .anatomy-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+  .anatomy-text { font-size: 11.5px; line-height: 1.7; color: #555; font-weight: 300; }
+  .anatomy-text strong { font-weight: 500; color: #333; }
+
+  /* ---- PROMPTS ---- */
+  .prompt-cards { display: flex; flex-direction: column; gap: 36px; }
+  .prompt-card {
+    background: #fff;
+    border: 1px solid #e4dfd8;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .prompt-card-header {
+    padding: 18px 28px;
+    background: #F9F7F3;
+    border-bottom: 1px solid #e4dfd8;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .prompt-card-tag {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #fff; background: #1C1A18; padding: 4px 10px; border-radius: 2px;
+  }
+  .prompt-card-tag.gold { background: #B8922A; }
+  .prompt-card-tag.navy { background: #1B2D4F; }
+  .prompt-card-title { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #888; }
+  .prompt-card-note { font-size: 10.5px; color: #aaa; margin-left: auto; font-style: italic; }
+  .prompt-card-body { padding: 28px; }
+  .prompt-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    line-height: 2;
+    color: #2a2a2a;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .prompt-negative {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: #FFF8F5;
+    border-left: 2px solid #e8b89a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: #888;
+    line-height: 1.8;
+  }
+  .prompt-negative span { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: #ccc; display: block; margin-bottom: 6px; }
+  .note-box {
+    margin-top: 20px;
+    padding: 16px 20px;
+    background: #F0EFEA;
+    border-left: 2px solid #B8922A;
+    font-size: 11px;
+    line-height: 1.8;
+    color: #666;
+  }
+  .note-box strong { color: #B8922A; font-weight: 500; }
+
+  /* ---- COPY BUTTON ---- */
+  .copy-btn {
+    display: inline-block; margin-top: 16px;
+    font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: #B8922A; border: 1px solid #B8922A; padding: 6px 14px;
+    cursor: pointer; background: none; font-family: 'Montserrat', sans-serif;
+    transition: all 0.15s;
+  }
+  .copy-btn:hover { background: #B8922A; color: #fff; }
+</style>
+</head>
+<body>
+
+<p class="page-title">Sunstone Advisory — Prompts IA Génératifs</p>
+<p class="page-sub">Déconstruction structurelle + 4 formulations optimisées</p>
+
+<!-- ══════════════════════════════════════
+     RÉFÉRENCE ANNOTÉE
+══════════════════════════════════════ -->
+<p class="section">Anatomie du mark de référence</p>
+
+<div class="ref-row">
+  <div class="ref-mark">
+    <!-- Reconstruction SVG haute fidélité -->
+    <svg width="180" height="208" viewBox="0 0 80 92" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+      <!-- ÉLÉMENT 1 : Secteur sombre haut-gauche -->
+      <path d="M 0,0 L 48,0 A 48,48 0 0,0 0,48 Z" fill="#1C1A18"/>
+      <!-- ÉLÉMENT 2 : Quart soleil or haut-droit -->
+      <path d="M 48,0 A 32,32 0 0,1 80,32 L 80,0 Z" fill="#B8922A"/>
+      <!-- ÉLÉMENT 3 : Secteur sombre bas-droit -->
+      <path d="M 80,80 L 32,80 A 48,48 0 0,0 80,32 Z" fill="#1C1A18"/>
+      <!-- ÉLÉMENT 4 : Arche pierre en bas -->
+      <path d="M 20,80 A 20,20 0 0,1 60,80 Z" fill="#1C1A18"/>
+      <!-- Annotations -->
+      <text x="56" y="12" font-family="Montserrat,sans-serif" font-size="5.5" fill="#B8922A" font-weight="500">SUN</text>
+      <text x="6" y="28" font-family="Montserrat,sans-serif" font-size="5" fill="rgba(255,255,255,0.5)">S haut</text>
+      <text x="50" y="68" font-family="Montserrat,sans-serif" font-size="5" fill="rgba(255,255,255,0.5)">S bas</text>
+      <text x="29" y="89" font-family="Montserrat,sans-serif" font-size="5.5" fill="#B8922A" font-weight="500">STONE</text>
+    </svg>
+  </div>
+
+  <div class="ref-analysis">
+    <h3>Lecture structurelle</h3>
+    <div class="anatomy">
+      <div class="anatomy-item">
+        <div class="anatomy-dot" style="background:#B8922A;"></div>
+        <div class="anatomy-text">
+          <strong>Quart de cercle or — haut-droit :</strong> coin supérieur-droit du carré, rayon ~40% de la largeur,
+          flush contre les deux bords. Représente le <strong>soleil</strong>. Forme : triangle courbe, apex au coin.
+        </div>
+      </div>
+      <div class="anatomy-item">
+        <div class="anatomy-dot" style="background:#1C1A18;"></div>
+        <div class="anatomy-text">
+          <strong>Secteur sombre haut-gauche :</strong> quart de cercle (rayon ~60% de la largeur), centré sur le coin
+          supérieur-gauche (0,0). Forme la moitié haute du S. Son arc convexe pointe vers le bas-droit.
+        </div>
+      </div>
+      <div class="anatomy-item">
+        <div class="anatomy-dot" style="background:#1C1A18;"></div>
+        <div class="anatomy-text">
+          <strong>Secteur sombre bas-droit :</strong> quart de cercle identique, centré sur le coin inférieur-droit.
+          Forme la moitié basse du S. Son arc convexe pointe vers le haut-gauche.
+        </div>
+      </div>
+      <div class="anatomy-item">
+        <div class="anatomy-dot" style="background:#fff; border: 1px solid #ccc;"></div>
+        <div class="anatomy-text">
+          <strong>S négatif (espace blanc) :</strong> corridor en forme de S entre les deux secteurs sombres.
+          Flux diagonal du haut-droit vers le bas-gauche. C'est le <em>liant visuel</em> entre Sun et Stone.
+        </div>
+      </div>
+      <div class="anatomy-item">
+        <div class="anatomy-dot" style="background:#1C1A18;"></div>
+        <div class="anatomy-text">
+          <strong>Demi-cercle pierre — bas :</strong> dôme sombre centré horizontalement, bord plat en haut, courbe
+          vers le bas. Rayon ~25% de la largeur. Ancre visuelle. Représente la <strong>pierre</strong>.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     4 FORMULATIONS DE PROMPT
+══════════════════════════════════════ -->
+<p class="section">4 formulations de prompt — du plus analogique au plus précis</p>
+
+<div class="prompt-cards">
+
+  <!-- PROMPT 1 : Analogie Yin-Yang (meilleur point d'entrée pour IA) -->
+  <div class="prompt-card">
+    <div class="prompt-card-header">
+      <span class="prompt-card-tag gold">Recommandé</span>
+      <span class="prompt-card-title">Prompt A — Analogie Yin-Yang + corrections</span>
+      <span class="prompt-card-note">Midjourney, DALL·E 3, Recraft</span>
+    </div>
+    <div class="prompt-card-body">
+      <div class="prompt-text">Flat vector logomark. A square composition inspired by a simplified yin-yang structure, but rectangular and asymmetric.
+
+The square is divided by an S-shaped negative space (white/cream corridor) that flows diagonally from the upper-right to the lower-left.
+
+Left of the S: a solid near-black (#1C1A18) convex wedge shape occupying the upper-left area.
+Right of the S: a solid near-black (#1C1A18) convex wedge shape occupying the lower-right area.
+
+Top-right corner: a solid warm gold (#B8922A) quarter-circle wedge, flush against the top and right edges of the square. This is the SUN.
+
+Bottom center (slightly below the square): a solid near-black filled semicircle, flat edge on top, dome curving downward. This is the STONE / arch.
+
+Completely flat. No gradient, no shadow, no outline stroke, no texture.
+Off-white background (#F5F3EE). Corporate identity style.</div>
+      <div class="note-box">
+        <strong>Pourquoi ça marche mieux :</strong> les IA connaissent le yin-yang. En partant de cette base et en
+        ajoutant "mais carré + asymétrique + couleur gold dans un coin", l'IA a une ancre visuelle forte.
+      </div>
+      <div class="prompt-negative">
+        <span>Negative prompt</span>
+        gradient, glow, shadow, bevel, 3D effect, outline stroke, serif letter, decorative, ornate,
+        texture, photorealistic, complex, letterform, typography, circle shape, round logo
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT 2 : Spatial précis (pour Recraft.ai spécifiquement) -->
+  <div class="prompt-card">
+    <div class="prompt-card-header">
+      <span class="prompt-card-tag navy">Recraft.ai</span>
+      <span class="prompt-card-title">Prompt B — Description spatiale pure</span>
+      <span class="prompt-card-note">Optimisé pour Recraft / Adobe Firefly Vector</span>
+    </div>
+    <div class="prompt-card-body">
+      <div class="prompt-text">Minimalist vector brand mark. Square format. Four flat geometric shapes, no stroke, no gradient.
+
+SHAPE 1 — upper-left: a filled dark charcoal (#1C1A18) quarter-circle pie slice, center anchored at the top-left corner of the square, radius equal to 60% of the square width. The curved edge faces the lower-right interior of the square.
+
+SHAPE 2 — upper-right: a filled warm gold (#B8922A) quarter-circle pie slice, center anchored at the top-right corner of the square, radius equal to 40% of the square width. The curved edge faces the lower-left interior.
+
+SHAPE 3 — lower-right: a filled dark charcoal (#1C1A18) quarter-circle pie slice, center anchored at the bottom-right corner, radius equal to 60% of the square width. The curved edge faces the upper-left interior.
+
+SHAPE 4 — bottom-center: a filled dark charcoal (#1C1A18) solid semicircle, horizontally centered below the square's bottom edge, radius 25% of square width, flat edge on top, dome pointing downward.
+
+The three charcoal shapes and one gold shape leave a white S-curved negative space flowing diagonally through the center of the square from upper-right to lower-left.</div>
+      <div class="prompt-negative">
+        <span>Negative prompt</span>
+        gradient, texture, shadow, glow, stroke, outline, border, rounded corners, circle, oval, text, letter S,
+        3D, realistic, complex shapes, more than 4 shapes, color other than gold and near-black
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT 3 : Story-first (pour DALL·E 3 qui répond bien au récit) -->
+  <div class="prompt-card">
+    <div class="prompt-card-header">
+      <span class="prompt-card-tag">DALL·E 3</span>
+      <span class="prompt-card-title">Prompt C — Narratif symbolique</span>
+      <span class="prompt-card-note">Optimisé DALL·E 3 / Ideogram</span>
+    </div>
+    <div class="prompt-card-body">
+      <div class="prompt-text">A corporate logomark for a financial advisory firm called Sunstone.
+
+The mark is a square icon made of three flat geometric elements:
+
+1. A golden tan quarter-circle in the top-right corner of the square — symbolizing the SUN rising.
+
+2. Two large dark charcoal quarter-circle shapes: one anchored in the top-left corner, one anchored in the bottom-right corner. Together they form the body of the letter S, with white space between them creating the S curve.
+
+3. A small dark charcoal semicircle arch at the bottom center, like a half-moon or stone arch — symbolizing STONE and stability.
+
+The visual reading: a golden sun (top-right) connected by an S-shaped white ribbon to a stone arch (bottom) — SUN + S-curve + STONE = SUNSTONE.
+
+Flat design, Swiss modernist style, premium finance branding.
+Colors: near-black #1C1A18, warm gold #B8922A, off-white background.</div>
+      <div class="prompt-negative">
+        <span>Negative prompt</span>
+        gradient, shadow, 3D, outline, texture, letterform, decorative elements, blue, complex background
+      </div>
+    </div>
+  </div>
+
+  <!-- PROMPT 4 : Ultra-court (pour Midjourney --v6) -->
+  <div class="prompt-card">
+    <div class="prompt-card-header">
+      <span class="prompt-card-tag">Ultra-court</span>
+      <span class="prompt-card-title">Prompt D — Version condensée</span>
+      <span class="prompt-card-note">Midjourney v6 · à utiliser avec --style raw --no gradient shadow</span>
+    </div>
+    <div class="prompt-card-body">
+      <div class="prompt-text">Square flat vector logo icon. Dark charcoal and warm gold. Yin-yang-inspired S-curve division in a square, white S-shaped negative space between two dark quarter-circle masses. Gold quarter-circle sun accent in top-right corner. Small dark semicircle stone arch at bottom center. Swiss modernist, premium finance. --style raw --ar 1:1 --no gradient texture shadow outline 3D</div>
+      <div class="note-box">
+        <strong>Usage :</strong> coller directement dans Midjourney. Le <code>--no</code> final est la liste des éléments à exclure.
+        Ajouter <code>--seed 42</code> pour reproductibilité.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+<p class="section">Paramètres techniques recommandés</p>
+
+<div style="display:flex; gap:40px; flex-wrap:wrap;">
+  <div style="background:#fff; border:1px solid #e4dfd8; padding:28px 32px; min-width:240px;">
+    <p style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#B8922A;margin-bottom:16px;">Recraft.ai</p>
+    <p style="font-size:11px;line-height:1.9;color:#555;font-weight:300;">
+      Style : <strong>Vector illustration</strong><br>
+      Substyle : <strong>Brand identity</strong><br>
+      Couleurs : fixer #1C1A18 + #B8922A<br>
+      Ratio : <strong>1:1</strong><br>
+      Iterations : générer 4, sélectionner, refine
+    </p>
+  </div>
+  <div style="background:#fff; border:1px solid #e4dfd8; padding:28px 32px; min-width:240px;">
+    <p style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#B8922A;margin-bottom:16px;">Midjourney v6</p>
+    <p style="font-size:11px;line-height:1.9;color:#555;font-weight:300;">
+      Flags : <strong>--style raw</strong><br>
+      Ratio : <strong>--ar 1:1</strong><br>
+      Qualité : <strong>--q 2</strong><br>
+      Négatif : <strong>--no</strong> gradient shadow outline 3D<br>
+      Seed : fixer pour variantes cohérentes
+    </p>
+  </div>
+  <div style="background:#fff; border:1px solid #e4dfd8; padding:28px 32px; min-width:240px;">
+    <p style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#B8922A;margin-bottom:16px;">DALL·E 3 / GPT</p>
+    <p style="font-size:11px;line-height:1.9;color:#555;font-weight:300;">
+      Préfixer avec : <strong>"Do not add text."</strong><br>
+      Ajouter : <strong>"Exactly 4 shapes total."</strong><br>
+      Si raté : <strong>"Simplify further."</strong><br>
+      Demander : <strong>"Top-down flat view."</strong>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

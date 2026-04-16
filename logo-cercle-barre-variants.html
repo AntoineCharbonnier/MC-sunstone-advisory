@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunstone — Cercle + Barre — Raffinements</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f2ec;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 960px; margin: 0 auto; padding: 80px 48px 100px; }
+
+  .page-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    color: #bbb;
+    text-transform: uppercase;
+    margin-bottom: 72px;
+  }
+
+  .variants { display: flex; flex-direction: column; gap: 2px; }
+
+  .variant {
+    background: #fff;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    min-height: 160px;
+  }
+
+  .variant.tinted { background: #faf8f3; }
+
+  /* Left: label column */
+  .v-label-col {
+    width: 180px;
+    flex-shrink: 0;
+    border-right: 1px solid #f0ede6;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .v-id {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.22em;
+    color: #ccc;
+    text-transform: uppercase;
+  }
+
+  .v-name {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #1c1c1a;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  /* Center: logos at 3 sizes */
+  .v-logos {
+    flex: 1;
+    padding: 36px 44px;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .logo-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .logo-unit.with-wm {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .size-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 7.5px;
+    letter-spacing: 0.14em;
+    color: #ddd;
+    text-transform: uppercase;
+    align-self: flex-end;
+    margin-bottom: 2px;
+  }
+
+  /* Right: note column */
+  .v-note {
+    width: 200px;
+    flex-shrink: 0;
+    border-left: 1px solid #f0ede6;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .note-title {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: #1c1c1a;
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+  }
+
+  .note-body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 9px;
+    color: #aaa;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+
+  /* Wordmark */
+  .wm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .wm-name {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    color: #1a2744;
+    line-height: 1;
+  }
+
+  .wm-name .sun { color: #c9903a; }
+
+  .wm-adv {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 8.5px;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    color: #aaa;
+    text-transform: uppercase;
+  }
+
+  /* Divider */
+  .section-gap { height: 48px; }
+
+  /* Dark background test */
+  .variant.dark {
+    background: #1a2744;
+  }
+
+  .variant.dark .v-label-col {
+    border-right-color: rgba(255,255,255,0.08);
+  }
+  .variant.dark .v-note {
+    border-left-color: rgba(255,255,255,0.08);
+  }
+  .variant.dark .v-id { color: rgba(255,255,255,0.25); }
+  .variant.dark .v-name { color: rgba(255,255,255,0.7); }
+  .variant.dark .note-title { color: rgba(255,255,255,0.6); }
+  .variant.dark .note-body { color: rgba(255,255,255,0.3); }
+  .variant.dark .wm-name { color: #fff; }
+  .variant.dark .wm-adv { color: rgba(255,255,255,0.35); }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-label">Sunstone Advisory — Raffinements cercle + barre — Avril 2026</div>
+
+  <div class="variants">
+
+    <!-- V1 — ORIGINAL EXACT -->
+    <div class="variant">
+      <div class="v-label-col">
+        <div class="v-id">V1</div>
+        <div class="v-name">Original exact</div>
+      </div>
+      <div class="v-logos">
+        <!-- Small 32px -->
+        <div class="logo-unit">
+          <div class="size-label">32px</div>
+          <svg width="32" height="32" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- Medium 56px -->
+        <div class="logo-unit">
+          <div class="size-label">56px</div>
+          <svg width="56" height="56" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- With wordmark -->
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="48" height="48" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Référence de base</div>
+        <div class="note-body">Cercle plein navy + barre gold ras du cercle. Simple, équilibré. Point de départ pour tous les raffinements.</div>
+      </div>
+    </div>
+
+    <!-- V2 — BARRE DÉBORDANTE -->
+    <div class="variant tinted">
+      <div class="v-label-col">
+        <div class="v-id">V2</div>
+        <div class="v-name">Barre débordante</div>
+      </div>
+      <div class="v-logos">
+        <div class="logo-unit">
+          <div class="size-label">32px</div>
+          <svg width="32" height="32" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="1" y1="40" x2="79" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit">
+          <div class="size-label">56px</div>
+          <svg width="56" height="56" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="1" y1="40" x2="79" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="48" height="48" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="1" y1="40" x2="79" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Barre traversante</div>
+        <div class="note-body">La barre dépasse le cercle de chaque côté (~8px). Énergie différente — la ligne traverse, elle ne se soumet pas au cercle. Rappelle le signe égal ou la règle.</div>
+      </div>
+    </div>
+
+    <!-- V3 — CERCLE OUVERT -->
+    <div class="variant">
+      <div class="v-label-col">
+        <div class="v-id">V3</div>
+        <div class="v-name">Cercle ouvert</div>
+      </div>
+      <div class="v-logos">
+        <div class="logo-unit">
+          <div class="size-label">32px</div>
+          <svg width="32" height="32" viewBox="0 0 80 80">
+            <!-- Ouvertures aux intersections barre/cercle -->
+            <path d="M 8.5,37 A 32,32 0 0,1 71.5,37" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 71.5,43 A 32,32 0 0,1 8.5,43" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit">
+          <div class="size-label">56px</div>
+          <svg width="56" height="56" viewBox="0 0 80 80">
+            <path d="M 8.5,37 A 32,32 0 0,1 71.5,37" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 71.5,43 A 32,32 0 0,1 8.5,43" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="48" height="48" viewBox="0 0 80 80">
+            <path d="M 8.5,37 A 32,32 0 0,1 71.5,37" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 71.5,43 A 32,32 0 0,1 8.5,43" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Ouvertures aux croisements</div>
+        <div class="note-body">De petites ouvertures là où la barre coupe le cercle. Le S devient plus lisible : deux demi-cercles distincts, séparés par la ligne. Lecture plus dynamique.</div>
+      </div>
+    </div>
+
+    <!-- V4 — OVALE -->
+    <div class="variant tinted">
+      <div class="v-label-col">
+        <div class="v-id">V4</div>
+        <div class="v-name">Ovale</div>
+      </div>
+      <div class="v-logos">
+        <div class="logo-unit">
+          <div class="size-label">32px</div>
+          <svg width="32" height="32" viewBox="0 0 88 80">
+            <ellipse cx="44" cy="40" rx="36" ry="27" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit">
+          <div class="size-label">56px</div>
+          <svg width="56" height="50" viewBox="0 0 88 80">
+            <ellipse cx="44" cy="40" rx="36" ry="27" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="52" height="46" viewBox="0 0 88 80">
+            <ellipse cx="44" cy="40" rx="36" ry="27" fill="none" stroke="#1A2744" stroke-width="2.2"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Forme ovale / ellipse</div>
+        <div class="note-body">Ovale horizontal (rx &gt; ry). La forme est plus allongée, légèrement plus raffinée. S'aligne mieux visuellement avec la largeur du wordmark.</div>
+      </div>
+    </div>
+
+    <!-- V5 — OVALE OUVERT -->
+    <div class="variant">
+      <div class="v-label-col">
+        <div class="v-id">V5</div>
+        <div class="v-name">Ovale ouvert</div>
+      </div>
+      <div class="v-logos">
+        <div class="logo-unit">
+          <div class="size-label">32px</div>
+          <svg width="32" height="29" viewBox="0 0 88 80">
+            <!-- Ovale brisé aux intersections -->
+            <path d="M 9,37 A 36,27 0 0,1 79,37" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 79,43 A 36,27 0 0,1 9,43" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit">
+          <div class="size-label">56px</div>
+          <svg width="56" height="50" viewBox="0 0 88 80">
+            <path d="M 9,37 A 36,27 0 0,1 79,37" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 79,43 A 36,27 0 0,1 9,43" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="52" height="46" viewBox="0 0 88 80">
+            <path d="M 9,37 A 36,27 0 0,1 79,37" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 79,43 A 36,27 0 0,1 9,43" fill="none" stroke="#1A2744" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Combinaison ovale + ouvertures</div>
+        <div class="note-body">Ovale avec ouvertures aux croisements. La lecture en S est plus nette encore. Le symbole respire davantage — deux demi-ovales liés par la barre.</div>
+      </div>
+    </div>
+
+    <!-- V6 — TRAIT FIN -->
+    <div class="variant tinted">
+      <div class="v-label-col">
+        <div class="v-id">V6</div>
+        <div class="v-name">Trait ultra-fin</div>
+      </div>
+      <div class="v-logos">
+        <div class="logo-unit">
+          <div class="size-label">32px</div>
+          <svg width="32" height="32" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="1.2"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit">
+          <div class="size-label">56px</div>
+          <svg width="56" height="56" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="1.2"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="48" height="48" viewBox="0 0 80 80">
+            <circle cx="40" cy="40" r="32" fill="none" stroke="#1A2744" stroke-width="1.2"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Trait léger, premium</div>
+        <div class="note-body">Cercle 1.2px, barre 1.8px. Très aérien, luxe discret. Fonctionne particulièrement bien en grand format — carte de visite, papier à en-tête.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TEST FOND SOMBRE -->
+  <div class="section-gap"></div>
+  <div style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:9px; letter-spacing:0.22em; color:#bbb; text-transform:uppercase; margin-bottom:2px;">Test fond sombre — V3 &amp; V5</div>
+  <div style="height:2px;"></div>
+
+  <div class="variants">
+    <div class="variant dark">
+      <div class="v-label-col">
+        <div class="v-id">V3</div>
+        <div class="v-name">Cercle ouvert<br>fond navy</div>
+      </div>
+      <div class="v-logos">
+        <div class="logo-unit">
+          <svg width="56" height="56" viewBox="0 0 80 80">
+            <path d="M 8.5,37 A 32,32 0 0,1 71.5,37" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 71.5,43 A 32,32 0 0,1 8.5,43" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="48" height="48" viewBox="0 0 80 80">
+            <path d="M 8.5,37 A 32,32 0 0,1 71.5,37" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 71.5,43 A 32,32 0 0,1 8.5,43" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="72" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Inversion fond sombre</div>
+        <div class="note-body">Cercle en blanc sur navy. La barre gold reste identique — elle tient les deux fonds parfaitement.</div>
+      </div>
+    </div>
+
+    <div class="variant dark" style="background:#111110;">
+      <div class="v-label-col">
+        <div class="v-id">V5</div>
+        <div class="v-name">Ovale ouvert<br>fond noir</div>
+      </div>
+      <div class="v-logos">
+        <div class="logo-unit">
+          <svg width="56" height="50" viewBox="0 0 88 80">
+            <path d="M 9,37 A 36,27 0 0,1 79,37" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 79,43 A 36,27 0 0,1 9,43" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-unit with-wm" style="margin-left:20px;">
+          <svg width="52" height="46" viewBox="0 0 88 80">
+            <path d="M 9,37 A 36,27 0 0,1 79,37" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M 79,43 A 36,27 0 0,1 9,43" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8" y1="40" x2="80" y2="40" stroke="#C8A060" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="wm">
+            <div class="wm-name"><span class="sun">SUN</span>STONE</div>
+            <div class="wm-adv">Advisory</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-note">
+        <div class="note-title">Fond noir total</div>
+        <div class="note-body">La barre gold devient plus lumineuse sur noir. L'ovale ouvert fonctionne bien — chaque demi-arc est distinct et lisible.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
