@@ -1,0 +1,216 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .section-title { font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.14em; color: #8a9ab5; text-transform: uppercase; padding: 20px 16px 8px; background: #f5f5f3; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: #e0e0e0; max-width: 900px; margin: 0 auto; }
+  .cell { background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 16px 20px; gap: 12px; min-height: 160px; }
+  .cell.dk { background: #1a2640; }
+  .cell.dk2 { background: #0f1a2a; }
+  .cell.gr { background: #f7f5f0; }
+  .lbl { font-size: 9px; letter-spacing: 0.1em; color: #8a9ab5; font-family: var(--font-sans); text-transform: uppercase; text-align: center; }
+  .lbl.w { color: #5a6a82; }
+  .divider { grid-column: 1 / -1; background: #f5f5f3; padding: 12px 16px; font-family: var(--font-sans); font-size: 10px; letter-spacing: 0.14em; color: #8a9ab5; text-transform: uppercase; }
+</style>
+
+<div style="max-width:900px; margin:0 auto;">
+
+<div style="background:#f5f5f3; padding:14px 16px; font-family:var(--font-sans); font-size:10px; letter-spacing:0.14em; color:#5a6a82; text-transform:uppercase;">
+  Original D — variations couleurs et épaisseurs
+</div>
+
+<div class="grid">
+
+  <!-- 1. Original — or + bleu nuit, traits fins -->
+  <div class="cell">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -11,-4 A 12,12 0 0,1 11,-4" fill="none" stroke="#1a2640" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M -11,4 A 12,12 0 0,0 11,4" fill="none" stroke="#1a2640" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="-11" y1="0" x2="11" y2="0" stroke="#b8962e" stroke-width="1.2"/>
+        <circle cx="-11" cy="-4" r="1.8" fill="#b8962e"/>
+        <circle cx="11" cy="4" r="1.8" fill="#b8962e"/>
+      </g>
+      <text x="46" y="24" font-family="var(--font-sans)" font-size="12" font-weight="500" fill="#1a2640" letter-spacing="2.5">SUNSTONE</text>
+      <text x="46" y="38" font-family="var(--font-sans)" font-size="7.5" fill="#b8962e" letter-spacing="4">ADVISORY</text>
+    </svg>
+    <div class="lbl w">Or + bleu nuit — fin</div>
+  </div>
+
+  <!-- 2. Or + bleu nuit, traits épais -->
+  <div class="cell">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -11,-4 A 12,12 0 0,1 11,-4" fill="none" stroke="#1a2640" stroke-width="3" stroke-linecap="round"/>
+        <path d="M -11,4 A 12,12 0 0,0 11,4" fill="none" stroke="#1a2640" stroke-width="3" stroke-linecap="round"/>
+        <line x1="-11" y1="0" x2="11" y2="0" stroke="#b8962e" stroke-width="2"/>
+        <circle cx="-11" cy="-4" r="3" fill="#b8962e"/>
+        <circle cx="11" cy="4" r="3" fill="#b8962e"/>
+      </g>
+      <text x="46" y="24" font-family="var(--font-sans)" font-size="12" font-weight="500" fill="#1a2640" letter-spacing="2.5">SUNSTONE</text>
+      <text x="46" y="38" font-family="var(--font-sans)" font-size="7.5" fill="#b8962e" letter-spacing="4">ADVISORY</text>
+    </svg>
+    <div class="lbl w">Or + bleu nuit — épais</div>
+  </div>
+
+  <!-- 3. Tout bleu nuit, terminaux or subtils -->
+  <div class="cell">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -11,-4 A 12,12 0 0,1 11,-4" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -11,4 A 12,12 0 0,0 11,4" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-11" y1="0" x2="11" y2="0" stroke="#1a2640" stroke-width="1.2"/>
+        <circle cx="-11" cy="-4" r="2" fill="#b8962e"/>
+        <circle cx="11" cy="4" r="2" fill="#b8962e"/>
+      </g>
+      <text x="46" y="24" font-family="var(--font-sans)" font-size="12" font-weight="500" fill="#1a2640" letter-spacing="2.5">SUNSTONE</text>
+      <text x="46" y="38" font-family="var(--font-sans)" font-size="7.5" fill="#8a9ab5" letter-spacing="4">ADVISORY</text>
+    </svg>
+    <div class="lbl w">Tout bleu — terminaux or</div>
+  </div>
+
+  <!-- 4. Gris anthracite + or chaud -->
+  <div class="cell gr">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -11,-4 A 12,12 0 0,1 11,-4" fill="none" stroke="#2c2c2a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -11,4 A 12,12 0 0,0 11,4" fill="none" stroke="#2c2c2a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-11" y1="0" x2="11" y2="0" stroke="#c9903a" stroke-width="1.5"/>
+        <circle cx="-11" cy="-4" r="2" fill="#c9903a"/>
+        <circle cx="11" cy="4" r="2" fill="#c9903a"/>
+      </g>
+      <text x="46" y="24" font-family="var(--font-sans)" font-size="12" font-weight="500" fill="#2c2c2a" letter-spacing="2.5">SUNSTONE</text>
+      <text x="46" y="38" font-family="var(--font-sans)" font-size="7.5" fill="#c9903a" letter-spacing="4">ADVISORY</text>
+    </svg>
+    <div class="lbl w">Anthracite + or chaud</div>
+  </div>
+
+  <!-- 5. Fond sombre — or vif -->
+  <div class="cell dk">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -11,-4 A 12,12 0 0,1 11,-4" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -11,4 A 12,12 0 0,0 11,4" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-11" y1="0" x2="11" y2="0" stroke="#c9a84c" stroke-width="1.5"/>
+        <circle cx="-11" cy="-4" r="2" fill="#c9a84c"/>
+        <circle cx="11" cy="4" r="2" fill="#c9a84c"/>
+      </g>
+      <text x="46" y="24" font-family="var(--font-sans)" font-size="12" font-weight="500" fill="#ffffff" letter-spacing="2.5">SUNSTONE</text>
+      <text x="46" y="38" font-family="var(--font-sans)" font-size="7.5" fill="#c9a84c" letter-spacing="4">ADVISORY</text>
+    </svg>
+    <div class="lbl">Fond sombre — blanc + or</div>
+  </div>
+
+  <!-- 6. Fond sombre — tout or -->
+  <div class="cell dk">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -11,-4 A 12,12 0 0,1 11,-4" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -11,4 A 12,12 0 0,0 11,4" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-11" y1="0" x2="11" y2="0" stroke="#c9a84c" stroke-width="1.2"/>
+        <circle cx="-11" cy="-4" r="2" fill="#ffffff"/>
+        <circle cx="11" cy="4" r="2" fill="#ffffff"/>
+      </g>
+      <text x="46" y="24" font-family="var(--font-sans)" font-size="12" font-weight="500" fill="#c9a84c" letter-spacing="2.5">SUNSTONE</text>
+      <text x="46" y="38" font-family="var(--font-sans)" font-size="7.5" fill="#6a7e9a" letter-spacing="4">ADVISORY</text>
+    </svg>
+    <div class="lbl">Fond sombre — tout or</div>
+  </div>
+
+  <!-- 7. Traits très fins, minimaliste -->
+  <div class="cell">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -12,-4.5 A 13,13 0 0,1 12,-4.5" fill="none" stroke="#1a2640" stroke-width="1" stroke-linecap="round"/>
+        <path d="M -12,4.5 A 13,13 0 0,0 12,4.5" fill="none" stroke="#1a2640" stroke-width="1" stroke-linecap="round"/>
+        <line x1="-12" y1="0" x2="12" y2="0" stroke="#b8962e" stroke-width="0.8"/>
+        <circle cx="-12" cy="-4.5" r="1.4" fill="#b8962e"/>
+        <circle cx="12" cy="4.5" r="1.4" fill="#b8962e"/>
+      </g>
+      <text x="46" y="24" font-family="var(--font-sans)" font-size="12" font-weight="400" fill="#1a2640" letter-spacing="3">SUNSTONE</text>
+      <text x="46" y="38" font-family="var(--font-sans)" font-size="7.5" fill="#b8962e" letter-spacing="4.5">ADVISORY</text>
+    </svg>
+    <div class="lbl w">Très fin — maximal air</div>
+  </div>
+
+  <!-- 8. Serif wordmark -->
+  <div class="cell">
+    <svg width="180" height="58" viewBox="0 0 180 58">
+      <g transform="translate(24,29)">
+        <path d="M -11,-4 A 12,12 0 0,1 11,-4" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -11,4 A 12,12 0 0,0 11,4" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-11" y1="0" x2="11" y2="0" stroke="#b8962e" stroke-width="1.5"/>
+        <circle cx="-11" cy="-4" r="2" fill="#b8962e"/>
+        <circle cx="11" cy="4" r="2" fill="#b8962e"/>
+      </g>
+      <text x="46" y="25" font-family="Georgia, serif" font-size="13" font-weight="400" fill="#1a2640" letter-spacing="2">SUNSTONE</text>
+      <text x="46" y="39" font-family="var(--font-sans)" font-size="7.5" fill="#b8962e" letter-spacing="4">ADVISORY</text>
+    </svg>
+    <div class="lbl w">Symbole + serif wordmark</div>
+  </div>
+
+</div>
+
+<div style="background:#f5f5f3; padding:14px 16px; margin-top:2px; font-family:var(--font-sans); font-size:10px; letter-spacing:0.14em; color:#5a6a82; text-transform:uppercase;">
+  Symbole seul — comparaison épaisseurs
+</div>
+
+<div class="grid">
+
+  <!-- Symbole fin -->
+  <div class="cell">
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <g transform="translate(40,40)">
+        <path d="M -14,-5 A 15,15 0 0,1 14,-5" fill="none" stroke="#1a2640" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M -14,5 A 15,15 0 0,0 14,5" fill="none" stroke="#1a2640" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#b8962e" stroke-width="1"/>
+        <circle cx="-14" cy="-5" r="1.8" fill="#b8962e"/>
+        <circle cx="14" cy="5" r="1.8" fill="#b8962e"/>
+      </g>
+    </svg>
+    <div class="lbl w">Trait 1.2px</div>
+  </div>
+
+  <!-- Symbole medium -->
+  <div class="cell">
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <g transform="translate(40,40)">
+        <path d="M -14,-5 A 15,15 0 0,1 14,-5" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <path d="M -14,5 A 15,15 0 0,0 14,5" fill="none" stroke="#1a2640" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#b8962e" stroke-width="1.5"/>
+        <circle cx="-14" cy="-5" r="2.2" fill="#b8962e"/>
+        <circle cx="14" cy="5" r="2.2" fill="#b8962e"/>
+      </g>
+    </svg>
+    <div class="lbl w">Trait 2px</div>
+  </div>
+
+  <!-- Symbole épais -->
+  <div class="cell">
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <g transform="translate(40,40)">
+        <path d="M -14,-5 A 15,15 0 0,1 14,-5" fill="none" stroke="#1a2640" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M -14,5 A 15,15 0 0,0 14,5" fill="none" stroke="#1a2640" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#b8962e" stroke-width="2.2"/>
+        <circle cx="-14" cy="-5" r="3.2" fill="#b8962e"/>
+        <circle cx="14" cy="5" r="3.2" fill="#b8962e"/>
+      </g>
+    </svg>
+    <div class="lbl w">Trait 3.5px</div>
+  </div>
+
+  <!-- Symbole très épais -->
+  <div class="cell">
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <g transform="translate(40,40)">
+        <path d="M -14,-5 A 15,15 0 0,1 14,-5" fill="none" stroke="#1a2640" stroke-width="5" stroke-linecap="round"/>
+        <path d="M -14,5 A 15,15 0 0,0 14,5" fill="none" stroke="#1a2640" stroke-width="5" stroke-linecap="round"/>
+        <line x1="-14" y1="0" x2="14" y2="0" stroke="#b8962e" stroke-width="3"/>
+        <circle cx="-14" cy="-5" r="4" fill="#b8962e"/>
+        <circle cx="14" cy="5" r="4" fill="#b8962e"/>
+      </g>
+    </svg>
+    <div class="lbl w">Trait 5px</div>
+  </div>
+
+</div>
+</div>

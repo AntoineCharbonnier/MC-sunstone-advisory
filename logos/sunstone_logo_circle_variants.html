@@ -1,0 +1,141 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.wrap { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 1px; background: #e0e0e0; }
+.tag { background: #f4f4f0; padding: 10px 48px; font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.18em; color: #999; text-transform: uppercase; }
+.row { background: #fff; padding: 44px 48px; display: flex; align-items: center; gap: 40px; }
+.row.bg { background: #fafaf8; }
+.sym { flex-shrink: 0; width: 68px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.sym-label { font-size: 9px; letter-spacing: 0.1em; color: #bbb; font-family: var(--font-sans); text-align: center; line-height: 1.5; }
+.wm { font-family: 'Helvetica Neue', Arial, sans-serif; display: flex; flex-direction: column; gap: 4px; }
+.wm-line { font-size: 20px; font-weight: 500; letter-spacing: 0.2em; color: #1c1c1a; line-height: 1; }
+.wm-line .g { color: #c9903a; }
+.wm-adv { font-size: 8.5px; font-weight: 400; letter-spacing: 0.3em; color: #bbb; margin-top: 4px; }
+</style>
+
+<div class="wrap">
+
+<div class="tag">A — Arc de cercle ouvert en haut et en bas : suggère le cercle sans l'enfermer</div>
+<div class="row">
+  <div class="sym">
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <path d="M 12,20 A 20,20 0 0,1 48,20" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M 12,40 A 20,20 0 0,0 48,40" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="12" cy="20" r="3" fill="#c9903a"/>
+      <circle cx="48" cy="40" r="3" fill="#c9903a"/>
+    </svg>
+    <div class="sym-label">S ouvert</div>
+  </div>
+  <div class="wm">
+    <div class="wm-line"><span class="g">SUN</span>STONE</div>
+    <div class="wm-adv">ADVISORY</div>
+  </div>
+</div>
+
+<div class="tag">B — Cercle ouvert à 270° : presque fermé, laisse respirer, point gold à l'ouverture</div>
+<div class="row bg">
+  <div class="sym">
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <path d="M 30,8 A 22,22 0 1,1 8,30" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M 12,24 A 16,16 0 0,1 48,24" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M 12,36 A 16,16 0 0,0 48,36" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="30" cy="8" r="3" fill="#c9903a"/>
+    </svg>
+    <div class="sym-label">cercle 270° + S</div>
+  </div>
+  <div class="wm">
+    <div class="wm-line"><span class="g">SUN</span>STONE</div>
+    <div class="wm-adv">ADVISORY</div>
+  </div>
+</div>
+
+<div class="tag">C — Ovale horizontal : plus élégant qu'un cercle, S à l'intérieur, proportions allongées</div>
+<div class="row">
+  <div class="sym">
+    <svg width="72" height="52" viewBox="0 0 72 52">
+      <ellipse cx="36" cy="26" rx="30" ry="20" fill="none" stroke="#1c1c1a" stroke-width="1.6"/>
+      <path d="M 18,20 A 20,12 0 0,1 54,20" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M 18,32 A 20,12 0 0,0 54,32" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="18" cy="20" r="2.8" fill="#c9903a"/>
+      <circle cx="54" cy="32" r="2.8" fill="#c9903a"/>
+    </svg>
+    <div class="sym-label">ovale + S</div>
+  </div>
+  <div class="wm">
+    <div class="wm-line"><span class="g">SUN</span>STONE</div>
+    <div class="wm-adv">ADVISORY</div>
+  </div>
+</div>
+
+<div class="tag">D — Cercle fin + S avec arc supérieur gold : SUN en haut, STONE en bas</div>
+<div class="row bg">
+  <div class="sym">
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="24" fill="none" stroke="#1c1c1a" stroke-width="1.2"/>
+      <path d="M 16,24 A 16,16 0 0,1 44,24" fill="none" stroke="#c9903a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 16,36 A 16,16 0 0,0 44,36" fill="none" stroke="#1c1c1a" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="16" cy="24" r="2.8" fill="#c9903a"/>
+      <circle cx="44" cy="36" r="2.8" fill="#c9903a"/>
+    </svg>
+    <div class="sym-label">cercle fin + S bicolore</div>
+  </div>
+  <div class="wm">
+    <div class="wm-line"><span class="g">SUN</span>STONE</div>
+    <div class="wm-adv">ADVISORY</div>
+  </div>
+</div>
+
+<div class="tag">E — S dans cercle, arcs plus prononcés, S très lisible, terminaux gold plus gros</div>
+<div class="row">
+  <div class="sym">
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="24" fill="none" stroke="#1c1c1a" stroke-width="1.4"/>
+      <path d="M 15,22 A 18,18 0 0,1 45,22" fill="none" stroke="#1c1c1a" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M 15,38 A 18,18 0 0,0 45,38" fill="none" stroke="#1c1c1a" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="15" cy="22" r="3.5" fill="#c9903a"/>
+      <circle cx="45" cy="38" r="3.5" fill="#c9903a"/>
+    </svg>
+    <div class="sym-label">S prononcé + gros points</div>
+  </div>
+  <div class="wm">
+    <div class="wm-line"><span class="g">SUN</span>STONE</div>
+    <div class="wm-adv">ADVISORY</div>
+  </div>
+</div>
+
+<div class="tag">F — Cercle ouvert à 320° avec S intérieur : cercle presque fermé, ouverture en haut à droite</div>
+<div class="row bg">
+  <div class="sym">
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <path d="M 42,8.5 A 24,24 0 1,0 52,38" fill="none" stroke="#1c1c1a" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M 15,22 A 17,17 0 0,1 45,22" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M 15,38 A 17,17 0 0,0 45,38" fill="none" stroke="#1c1c1a" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="42" cy="8.5" r="3" fill="#c9903a"/>
+      <circle cx="52" cy="38" r="3" fill="#c9903a"/>
+    </svg>
+    <div class="sym-label">cercle ouvert + S</div>
+  </div>
+  <div class="wm">
+    <div class="wm-line"><span class="g">SUN</span>STONE</div>
+    <div class="wm-adv">ADVISORY</div>
+  </div>
+</div>
+
+<div class="tag">G — S seul, sans cercle, arcs plus amples et plus ronds, terminaux gold, plus de matière</div>
+<div class="row">
+  <div class="sym">
+    <svg width="60" height="60" viewBox="0 0 60 60">
+      <path d="M 12,20 A 22,22 0 0,1 48,20" fill="none" stroke="#1c1c1a" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M 12,40 A 22,22 0 0,0 48,40" fill="none" stroke="#1c1c1a" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="12" cy="20" r="4" fill="#c9903a"/>
+      <circle cx="48" cy="40" r="4" fill="#c9903a"/>
+    </svg>
+    <div class="sym-label">S ample sans cercle</div>
+  </div>
+  <div class="wm">
+    <div class="wm-line"><span class="g">SUN</span>STONE</div>
+    <div class="wm-adv">ADVISORY</div>
+  </div>
+</div>
+
+</div>
