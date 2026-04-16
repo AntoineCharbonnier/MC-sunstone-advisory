@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — Coming Soon</title>
+  <meta name="description" content="Sunstone Advisory — Independent M&A advisory. Advisory for high-stakes transactions.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:         #0F1A2E;
+      --navy-mid:     #1A2744;
+      --gold-print:   #C8A060;
+      --gold-digital: #FFDF90;
+      --cream:        #F5F0E8;
+      --warm-white:   #FAFAF7;
+      --border-light: #E4DDD0;
+      --text-body:    #3A3A3A;
+      --text-gray:    #7A7A7A;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--navy);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding: 48px 32px;
+    }
+
+    /* ─── Logo ─────────────────────────────────────────── */
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 72px;
+    }
+
+    .logo__sun {
+      color: var(--gold-print);
+    }
+
+    .logo__stone {
+      color: var(--navy);
+    }
+
+    /* ─── Main ──────────────────────────────────────────── */
+    .main {
+      text-align: center;
+      max-width: 560px;
+    }
+
+    /* Gold horizontal rule */
+    .main::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background-color: var(--gold-print);
+      margin: 0 auto 40px;
+    }
+
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-print);
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 24px;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-gray);
+      max-width: 420px;
+      margin: 0 auto 48px;
+    }
+
+    /* ─── Contact ───────────────────────────────────────── */
+    .contact {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact__label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+
+    .contact__link {
+      font-size: 13px;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .contact__link:hover {
+      color: var(--gold-print);
+      border-color: var(--gold-print);
+    }
+
+    /* Email assembled via CSS — never plain text in source */
+    .contact__link::before {
+      content: attr(data-user) "\0040" attr(data-domain);
+    }
+
+    /* ─── Footer ────────────────────────────────────────── */
+    footer {
+      position: fixed;
+      bottom: 32px;
+      font-size: 11px;
+      color: var(--border-light);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Responsive ────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .logo {
+        margin-bottom: 56px;
+      }
+
+      .main::before {
+        margin-bottom: 32px;
+      }
+
+      footer {
+        position: static;
+        margin-top: 64px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo" aria-label="Sunstone Advisory">
+    <span class="logo__sun">Sun</span><span class="logo__stone">stone Advisory</span>
+  </div>
+
+  <main class="main">
+    <p class="label">Independent Advisory</p>
+    <h1>Advisory for high-stakes transactions — M&A, exits, fundraising and ownership transitions.</h1>
+    <p class="subtitle">Our website is on its way. In the meantime, we are available to discuss your project.</p>
+
+    <div class="contact">
+      <span class="contact__label">Get in touch</span>
+      <!-- href entity-encoded, text assembled by CSS — not readable by scrapers -->
+      <a class="contact__link"
+         href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#105;&#110;&#101;&#64;&#115;&#117;&#110;&#115;&#116;&#111;&#110;&#101;&#97;&#100;&#118;&#105;&#115;&#111;&#114;&#121;&#46;&#102;&#114;"
+         data-user="marine"
+         data-domain="sunstoneadvisory.fr"
+         aria-label="Email Marine at sunstone advisory"></a>
+    </div>
+  </main>
+
+  <footer>Paris · Sunstone Advisory</footer>
+
+</body>
+</html>
