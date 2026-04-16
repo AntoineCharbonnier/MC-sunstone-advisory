@@ -1,1 +1,9 @@
-# Auth temporairement désactivée — en attente du chemin absolu serveur
+AuthType Basic
+AuthName "Sunstone Advisory"
+AuthUserFile /home/sunstob/www/.htpasswd
+Require valid-user
+
+# Protect .htpasswd from direct web access
+<Files ".htpasswd">
+    Require all denied
+</Files>
