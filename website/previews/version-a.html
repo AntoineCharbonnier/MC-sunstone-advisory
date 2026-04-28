@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — Independent M&A Advisory</title>
+  <meta name="description" content="Advisory for high-stakes transactions — M&A, exits, fundraising and ownership transitions. Independent advisory based in Paris.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       VARIABLES
+    ============================================================ */
+    :root {
+      --warm-white: #FAFAF7;
+      --cream: #F5F0E8;
+      --cream-soft: #F0E6D6;
+      --navy: #0F1A2E;
+      --navy-deep: #0A0F1E;
+      --navy-mid: #1A2744;
+      --gold-print: #C2A052;
+      --gold-digital: #FFDF90;
+      --text-body: #3A3A3A;
+      --text-gray: #7A7A7A;
+      --border: #E4DDD0;
+      --border-gold-faint: rgba(200, 160, 96, 0.12);
+      --ease: cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 14px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-body);
+      background-color: var(--warm-white);
+      overflow-x: hidden;
+    }
+
+    /* Noise texture grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+    }
+
+    img, svg { display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+
+    h1 {
+      font-size: clamp(52px, 8vw, 96px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+    }
+
+    /* ============================================================
+       REVEAL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
+    }
+
+    .nav.scrolled-sun {
+      background: rgba(250, 250, 247, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 12px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav.on-stone {
+      background: rgba(10, 15, 30, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 12px 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Logo wordmark */
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .wordmark svg .wm-square {
+      transition: fill 0.4s;
+    }
+
+    .wm-text {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      transition: color 0.4s;
+    }
+
+    .wm-sun { font-weight: 500; }
+    .wm-stone { font-weight: 400; }
+    .wm-advisory {
+      font-weight: 300;
+      color: var(--text-gray);
+      transition: color 0.4s;
+    }
+
+    .nav.on-stone .wm-text { color: var(--cream); }
+    .nav.on-stone .wm-advisory { color: rgba(245, 240, 232, 0.55); }
+    .nav.on-stone .wm-square { fill: var(--warm-white) !important; }
+    .nav.on-stone .wm-triangle { fill: var(--gold-digital) !important; }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+    .nav.on-stone .nav-links a { color: rgba(245, 240, 232, 0.6); }
+    .nav.on-stone .nav-links a:hover { color: var(--cream); }
+
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      background: var(--navy);
+      color: var(--cream) !important;
+      border: 1px solid var(--navy);
+      transition: background 0.3s, color 0.3s, border-color 0.3s !important;
+    }
+
+    .nav-cta:hover {
+      background: transparent;
+      color: var(--navy) !important;
+    }
+
+    .nav.on-stone .nav-cta {
+      background: transparent;
+      color: var(--gold-digital) !important;
+      border-color: var(--gold-digital);
+    }
+
+    .nav.on-stone .nav-cta:hover {
+      background: var(--gold-digital);
+      color: var(--navy) !important;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--navy);
+      transition: transform 0.35s var(--ease), opacity 0.35s, background 0.35s;
+      transform-origin: center;
+    }
+
+    .nav.on-stone .hamburger span { background: var(--cream); }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 105;
+      background: var(--navy-deep);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(-16px);
+      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+      pointer-events: none;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover { color: var(--gold-digital); }
+
+    .mobile-menu .mobile-cta {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 32px;
+      border: 1px solid var(--gold-digital);
+      color: var(--gold-digital);
+      margin-top: 16px;
+    }
+
+    /* ============================================================
+       SECTION LAYOUT
+    ============================================================ */
+    section {
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 48px;
+    }
+
+    .stone-bg { background-color: var(--navy-deep); }
+
+    /* ============================================================
+       SECTION LABEL
+    ============================================================ */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-print);
+      margin-bottom: 28px;
+    }
+
+    .stone-bg .section-label { color: var(--gold-digital); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      background-color: var(--warm-white);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Vertical decorative lines */
+    #hero::before,
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+      opacity: 0.4;
+    }
+    #hero::before { left: 15%; }
+    #hero::after { right: 15%; }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-print);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 0.2s forwards;
+    }
+
+    .hero-title {
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .hero-title .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* Word-by-word stagger animation */
+    .hero-title .word:nth-child(1) { animation: wordUp 0.7s var(--ease) 0.4s forwards; }
+    .hero-title .word:nth-child(2) { animation: wordUp 0.7s var(--ease) 0.52s forwards; }
+    .hero-title .word:nth-child(3) { animation: wordUp 0.7s var(--ease) 0.64s forwards; }
+    .hero-title .word:nth-child(4) { animation: wordUp 0.7s var(--ease) 0.76s forwards; }
+    .hero-title .word:nth-child(5) { animation: wordUp 0.7s var(--ease) 0.88s forwards; }
+
+    .hero-subtitle {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-gray);
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 1.0s forwards;
+    }
+
+    .hero-cta {
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 1.15s forwards;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      background: var(--navy);
+      color: var(--cream);
+      border: 1px solid var(--navy);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--navy);
+    }
+
+    .btn-outline-gold {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--gold-digital);
+      border: 1px solid var(--gold-digital);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--gold-digital);
+      color: var(--navy);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s var(--ease) 1.5s forwards;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--gold-print));
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    .scroll-chevron {
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid var(--gold-print);
+      border-bottom: 1px solid var(--gold-print);
+      transform: rotate(45deg);
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes wordUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(4px); }
+    }
+
+    /* ============================================================
+       APPROACH — STONE / SUN
+    ============================================================ */
+    #approach .section-inner {
+      padding: 120px 48px;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
+      align-items: center;
+    }
+
+    .approach-separator {
+      background: var(--border-gold-faint);
+      height: 120px;
+      align-self: center;
+    }
+
+    .approach-col {
+      padding: 60px 64px;
+    }
+
+    .approach-col:first-child { padding-left: 0; }
+    .approach-col:last-child { padding-right: 0; }
+
+    .approach-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .approach-col--stone .approach-label { color: #FAFAF7; }
+    .approach-col--sun .approach-label { color: var(--gold-digital); }
+
+    .approach-desc {
+      font-size: 13px;
+      color: rgba(245, 240, 232, 0.55);
+      letter-spacing: 0.02em;
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services .section-inner { padding: 120px 48px; }
+
+    .services-header {
+      margin-bottom: 64px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 40px;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(15, 26, 46, 0.08);
+      border-color: var(--border-gold-faint);
+    }
+
+    .service-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--gold-print);
+      margin-bottom: 20px;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .service-subtitle {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      margin-bottom: 24px;
+    }
+
+    .service-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 24px;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-gray);
+      line-height: 1.5;
+    }
+
+    .service-list li::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 1px;
+      background: var(--gold-print);
+      margin-top: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       WHY SUNSTONE
+    ============================================================ */
+    #why {
+      background-color: var(--cream);
+    }
+
+    #why .section-inner { padding: 120px 48px; }
+
+    .why-header { margin-bottom: 64px; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 80px;
+    }
+
+    .why-item {}
+
+    .why-line {
+      width: 32px;
+      height: 1.5px;
+      background: var(--gold-print);
+      margin-bottom: 20px;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.6s var(--ease);
+    }
+
+    .why-item.visible .why-line { transform: scaleX(1); }
+
+    .why-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 10px;
+      letter-spacing: 0.01em;
+    }
+
+    .why-body {
+      font-size: 13px;
+      color: var(--text-gray);
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       STATS + ABOUT
+    ============================================================ */
+    #about .section-inner { padding: 120px 48px; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-bottom: 96px;
+    }
+
+    .stat-item {
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    .stat-item:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 5vw, 72px);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-col-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-print);
+      margin-bottom: 16px;
+    }
+
+    .about-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 300;
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+
+    .about-bio {
+      font-size: 14px;
+      color: var(--text-body);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .about-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      color: var(--text-gray);
+    }
+
+    /* About glyph SVG */
+    .about-glyph {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact .section-inner {
+      padding: 120px 48px;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    /* Stronger grain on contact */
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+
+    #contact .section-inner { position: relative; z-index: 1; }
+
+    .contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+
+    .contact-body {
+      font-size: 15px;
+      color: rgba(245, 240, 232, 0.65);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .contact-location {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.4);
+      margin-bottom: 48px;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--navy-deep);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-right {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(245, 240, 232, 0.3);
+    }
+
+    /* Footer wordmark adjustments */
+    footer .wordmark .wm-text { color: var(--cream); }
+    footer .wordmark .wm-advisory { color: rgba(245, 240, 232, 0.45); }
+
+    /* ============================================================
+       RESPONSIVE — 1024px
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .approach-col {
+        padding: 40px 40px;
+      }
+
+      .why-grid {
+        gap: 40px 48px;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVE — 768px
+    ============================================================ */
+    @media (max-width: 768px) {
+      .section-inner { padding: 80px 24px; }
+
+      .nav { padding: 16px 24px; }
+      .nav.scrolled-sun { padding: 12px 24px; }
+      .nav.on-stone { padding: 12px 24px; }
+
+      .nav-links { display: none; }
+
+      .hamburger { display: flex; }
+
+      #hero::before,
+      #hero::after { display: none; }
+
+      .hero-inner { padding: 0 24px; }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .approach-separator { display: none; }
+
+      .approach-col {
+        padding: 40px 0;
+        border-bottom: 1px solid var(--border-gold-faint);
+      }
+
+      .approach-col:last-child { border-bottom: none; }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .stat-item {
+        padding: 32px 0;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat-item:last-child { border-bottom: none; }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-glyph { justify-content: flex-start; }
+
+      #contact .section-inner { padding: 80px 24px; text-align: left; }
+
+      .footer-inner { padding: 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="mainNav" aria-label="Main navigation">
+    <a href="#hero" class="wordmark" aria-label="Sunstone Advisory — Home">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <polygon class="wm-square" points="18,2 2,2 2,26 26,26 26,18" fill="#0F1A2E"/>
+        <polygon class="wm-triangle" points="18,2 26,2 26,18" fill="#C2A052"/>
+      </svg>
+      <span class="wm-text">
+        <span class="wm-sun">Sun</span><span class="wm-stone">stone</span> <span class="wm-advisory">Advisory</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Section links">
+      <a href="#approach">Approach</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="#approach" class="mobile-link">Approach</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#contact" class="mobile-cta mobile-link">Get in touch</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <p class="hero-label">Independent Advisory · Paris</p>
+
+      <h1 class="hero-title" id="hero-title" aria-label="Advisory for high-stakes transactions">
+        <span class="word">Advisory</span>&#32;<span class="word">for</span>&#32;<span class="word">high-stakes</span>&#32;<span class="word">transactions</span>
+      </h1>
+
+      <p class="hero-subtitle">M&amp;A, exits, fundraising and ownership transitions.</p>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Discuss your project</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <div class="scroll-chevron"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       APPROACH — STONE / SUN
+  ============================================================ -->
+  <section id="approach" class="stone-bg" aria-labelledby="approach-title">
+    <div class="section-inner">
+      <div class="approach-grid">
+        <div class="approach-col approach-col--stone reveal">
+          <div class="approach-label">STONE</div>
+          <p class="approach-desc">Rigorous. Structured. Reliable.</p>
+        </div>
+
+        <div class="approach-separator" aria-hidden="true"></div>
+
+        <div class="approach-col approach-col--sun reveal reveal-delay-1">
+          <div class="approach-label">SUN</div>
+          <p class="approach-desc">Clear. Pragmatic. Easy to work with.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="section-inner">
+      <header class="services-header reveal">
+        <p class="section-label">What we do</p>
+        <h2 id="services-title">Three disciplines. One integrated approach.</h2>
+      </header>
+
+      <div class="services-grid">
+        <!-- Card 01 -->
+        <article class="service-card reveal reveal-delay-1">
+          <p class="service-number">01</p>
+          <h3 class="service-title">M&amp;A Advisory</h3>
+          <p class="service-subtitle">Buy &amp; Sell</p>
+          <div class="service-divider" aria-hidden="true"></div>
+          <ul class="service-list">
+            <li>Process preparation and management</li>
+            <li>Due diligence oversight and review</li>
+            <li>Valuation, structuring and financing</li>
+            <li>Negotiation and documentation</li>
+            <li>Closing</li>
+          </ul>
+        </article>
+
+        <!-- Card 02 -->
+        <article class="service-card reveal reveal-delay-2">
+          <p class="service-number">02</p>
+          <h3 class="service-title">Portfolio Work</h3>
+          <p class="service-subtitle">Exit Support</p>
+          <div class="service-divider" aria-hidden="true"></div>
+          <ul class="service-list">
+            <li>Value creation execution</li>
+            <li>Add-on acquisitions</li>
+            <li>Investor and board interactions</li>
+            <li>Financing &amp; refinancing</li>
+            <li>Equity story and business plan refinement</li>
+            <li>Exit preparation and process</li>
+          </ul>
+        </article>
+
+        <!-- Card 03 -->
+        <article class="service-card reveal reveal-delay-3">
+          <p class="service-number">03</p>
+          <h3 class="service-title">Fundraising Advisory</h3>
+          <p class="service-subtitle">Capital &amp; Growth</p>
+          <div class="service-divider" aria-hidden="true"></div>
+          <ul class="service-list">
+            <li>Process drive and execution</li>
+            <li>Equity story and materials development</li>
+            <li>Q&amp;A preparation and management</li>
+            <li>Investor follow-up and tracking</li>
+            <li>Term sheet and documentation support</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY SUNSTONE
+  ============================================================ -->
+  <section id="why" aria-labelledby="why-title">
+    <div class="section-inner">
+      <header class="why-header reveal">
+        <p class="section-label">Why Sunstone</p>
+        <h2 id="why-title">What makes the difference.</h2>
+      </header>
+
+      <div class="why-grid">
+        <div class="why-item reveal reveal-delay-1">
+          <div class="why-line" aria-hidden="true"></div>
+          <p class="why-label">Experienced partner</p>
+          <p class="why-body">20+ transactions closed across M&A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings, fundraisings.</p>
+        </div>
+
+        <div class="why-item reveal reveal-delay-2">
+          <div class="why-line" aria-hidden="true"></div>
+          <p class="why-label">A critical sounding board</p>
+          <p class="why-body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions, sharpen investment cases, to help clients take well-informed decisions, whether assessing an opportunity or preparing for investor scrutiny.</p>
+        </div>
+
+        <div class="why-item reveal reveal-delay-1">
+          <div class="why-line" aria-hidden="true"></div>
+          <p class="why-label">Hands-on approach</p>
+          <p class="why-body">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate is handled directly with no layers or dilution.</p>
+        </div>
+
+        <div class="why-item reveal reveal-delay-2">
+          <div class="why-line" aria-hidden="true"></div>
+          <p class="why-label">Alignment</p>
+          <p class="why-body">No conflicts of interest, no proprietary products to push, no cross-selling agendas — independent and fully aligned with your objectives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATS + ABOUT
+  ============================================================ -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="section-inner">
+
+      <!-- Stats -->
+      <div class="stats-row" aria-label="Key figures">
+        <div class="stat-item reveal">
+          <div class="stat-value" data-target="20" data-suffix="+">20+</div>
+          <p class="stat-label">Transactions closed</p>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-value" data-target="100" data-suffix="+">100+</div>
+          <p class="stat-label">Opportunities assessed</p>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-value" data-target="2" data-suffix="">2</div>
+          <p class="stat-label">Sides of the table</p>
+        </div>
+      </div>
+
+      <!-- Founder bio -->
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <p class="about-col-label">The founder</p>
+          <h2 class="about-name" id="about-title">Marine Charbonnier</h2>
+
+          <p class="about-bio">Marine has been working across investment banking and private equity since 2017 — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle within their European Buyout fund.</p>
+
+          <p class="about-bio">Sunstone Advisory is built on her experience, and the conviction that the best transaction support comes from not only understanding how processes work, but also how investors really think.</p>
+
+          <div class="about-badges" aria-label="Career credentials">
+            <span class="badge">Carlyle</span>
+            <span class="badge">Deutsche Bank</span>
+            <span class="badge">Paris Dauphine</span>
+          </div>
+        </div>
+
+        <div class="about-glyph reveal reveal-delay-2" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Large STONE square with cut corner -->
+            <polygon points="80,8 8,8 8,112 112,112 112,80" fill="#0F1A2E" opacity="0.08"/>
+            <!-- Larger border version -->
+            <polygon points="80,8 8,8 8,112 112,112 112,80" fill="none" stroke="#0F1A2E" stroke-width="1.5" opacity="0.15"/>
+            <!-- SUN triangle -->
+            <polygon points="80,8 112,8 112,80" fill="#C2A052" opacity="0.35"/>
+            <!-- Inner square smaller -->
+            <polygon points="68,22 22,22 22,98 98,98 98,68" fill="none" stroke="#C2A052" stroke-width="0.75" opacity="0.2"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section id="contact" class="stone-bg" aria-labelledby="contact-title">
+    <div class="section-inner">
+      <p class="section-label reveal">Get in touch</p>
+      <h2 class="contact-title reveal reveal-delay-1" id="contact-title">Let's discuss your project.</h2>
+
+      <p class="contact-body reveal reveal-delay-2">Whether you are considering a sale, acquisition, or fundraising process, we are available for a first confidential conversation — in French or English.</p>
+
+      <p class="contact-location reveal reveal-delay-3">Based in Paris, France. Working globally.</p>
+
+      <div class="reveal reveal-delay-3">
+        <a href="mailto:marine@sunstoneadvisory.fr" class="btn-outline-gold">marine@sunstoneadvisory.fr</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#hero" class="wordmark" aria-label="Sunstone Advisory">
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <polygon points="18,2 2,2 2,26 26,26 26,18" fill="#FAFAF7"/>
+          <polygon points="18,2 26,2 26,18" fill="#FFDF90"/>
+        </svg>
+        <span class="wm-text">
+          <span class="wm-sun">Sun</span><span class="wm-stone">stone</span> <span class="wm-advisory">Advisory</span>
+        </span>
+      </a>
+      <p class="footer-right">Paris · Independent M&amp;A Advisory</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Navigation scroll behaviour ─────────────────────────── */
+    const nav = document.getElementById('mainNav');
+    const stoneSections = document.querySelectorAll('.stone-bg');
+
+    let isOnStone = false;
+    let isScrolled = false;
+
+    function updateNav() {
+      // Scrolled state (> 60px)
+      const scrolled = window.scrollY > 60;
+      if (scrolled !== isScrolled) {
+        isScrolled = scrolled;
+        if (scrolled) {
+          nav.classList.add('scrolled-sun');
+        } else {
+          nav.classList.remove('scrolled-sun');
+        }
+      }
+    }
+
+    // IntersectionObserver for stone sections
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          isOnStone = true;
+          nav.classList.add('on-stone');
+          nav.classList.remove('scrolled-sun');
+        } else {
+          // Only remove if no other stone sections visible
+          const anyStoneVisible = Array.from(stoneSections).some(el => {
+            const rect = el.getBoundingClientRect();
+            return rect.top < 80 && rect.bottom > 80;
+          });
+          if (!anyStoneVisible) {
+            isOnStone = false;
+            nav.classList.remove('on-stone');
+          }
+        }
+      });
+    }, { threshold: 0, rootMargin: '-64px 0px 0px 0px' });
+
+    stoneSections.forEach(s => navObserver.observe(s));
+    window.addEventListener('scroll', updateNav, { passive: true });
+
+    /* ── Reveal on scroll ────────────────────────────────────── */
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── Count-up animation ──────────────────────────────────── */
+    function animateCount(el) {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1200;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease out
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(eased * target);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const valueEl = entry.target.querySelector('.stat-value[data-target]');
+          if (valueEl) animateCount(valueEl);
+          statsObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-item').forEach(el => statsObs.observe(el));
+
+    /* ── Mobile hamburger ────────────────────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    function openMenu() {
+      menuOpen = true;
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuOpen = false;
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      if (menuOpen) closeMenu(); else openMenu();
+    });
+
+    // Close on link click
+    mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menuOpen) closeMenu();
+    });
+
+    /* ── Initial nav state ───────────────────────────────────── */
+    updateNav();
+
+  })();
+  </script>
+
+  <!-- ── Version Switcher ─────────────────────────────────────── -->
+  <div id="vsw">
+    <span class="vsw-label">Version</span>
+    <a href="version-a.html" class="vsw-link">A</a>
+    <a href="version-b.html" class="vsw-link">B</a>
+    <a href="version-c.html" class="vsw-link">C</a>
+  </div>
+  <style>
+    #vsw {
+      position: fixed; bottom: 24px; right: 24px; z-index: 99999;
+      display: flex; align-items: center;
+      background: rgba(10,15,30,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(200,160,96,0.22);
+      font-family: 'Inter', -apple-system, sans-serif;
+    }
+    .vsw-label {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(250,250,247,0.3); padding: 0 12px;
+    }
+    .vsw-link {
+      display: inline-block; padding: 10px 15px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+      text-decoration: none; color: rgba(250,250,247,0.45);
+      border-left: 1px solid rgba(200,160,96,0.15);
+      transition: color 0.2s, background 0.2s;
+    }
+    .vsw-link:hover { color: #FFDF90; background: rgba(200,160,96,0.08); }
+    .vsw-link.vsw-active { color: #C2A052; background: rgba(200,160,96,0.13); }
+  </style>
+  <script>
+    (function(){
+      var p = window.location.pathname.split('/').pop() || 'version-a.html';
+      document.querySelectorAll('.vsw-link').forEach(function(l){
+        if(l.getAttribute('href') === p) l.classList.add('vsw-active');
+      });
+    })();
+  </script>
+
+</body>
+</html>
