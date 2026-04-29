@@ -11,6 +11,7 @@
   <style>
     :root {
       --warm-white: #FAFAF7;
+      --white: #FFFFFF;
       --cream: #F5F0E8;
       --navy: #0F1A2E;
       --navy-deep: #0A0F1E;
@@ -29,10 +30,9 @@
       color: var(--text-body); background: var(--warm-white);
       line-height: 1.8; overflow-x: hidden;
     }
-    /* Body noise */
     body::before {
       content: ''; position: fixed; inset: 0; z-index: 999;
-      pointer-events: none; opacity: 0.032;
+      pointer-events: none; opacity: 0.028;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 280px 280px;
     }
@@ -48,10 +48,10 @@
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
     .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
-    /* NAV */
+    /* ── NAV ─────────────────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 22px 56px; height: auto;
+      padding: 22px 56px;
       display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid transparent;
       transition: padding .4s var(--ease), background .4s var(--ease),
@@ -62,7 +62,7 @@
       padding: 13px 56px; border-bottom-color: rgba(200,160,96,.1);
     }
     nav.scrolled:not(.on-stone) {
-      background: rgba(250,250,247,.93); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: rgba(255,255,255,.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       padding: 13px 56px; border-bottom-color: var(--border);
     }
     .wordmark { display: flex; align-items: center; gap: 10px; }
@@ -94,7 +94,7 @@
     nav.on-stone .nav-links a { color: rgba(250,250,247,.65); }
     nav.on-stone .nav-links a::after { background: var(--gold-digital); }
     nav.on-stone .nav-links a:hover { color: rgba(250,250,247,1); }
-    nav:not(.on-stone) .nav-links a { color: rgba(15,26,46,.6); }
+    nav:not(.on-stone) .nav-links a { color: rgba(15,26,46,.55); }
     nav:not(.on-stone) .nav-links a::after { background: var(--gold-print); }
     nav:not(.on-stone) .nav-links a:hover { color: var(--navy); }
     .nav-links a:hover::after { width: 100%; }
@@ -104,7 +104,7 @@
     }
     nav.on-stone .nav-cta { border-color: rgba(255,223,144,.3); color: var(--gold-digital); }
     nav.on-stone .nav-cta:hover { background: var(--gold-digital); color: var(--navy-deep); border-color: var(--gold-digital); }
-    nav:not(.on-stone) .nav-cta { border-color: var(--border); color: var(--navy); }
+    nav:not(.on-stone) .nav-cta { border-color: rgba(15,26,46,.2); color: var(--navy); }
     nav:not(.on-stone) .nav-cta:hover { background: var(--navy); color: var(--warm-white); border-color: var(--navy); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 110; }
     .hamburger span { display: block; width: 22px; height: 1.5px; transition: transform .35s var(--ease), opacity .35s, background .35s; transform-origin: center; }
@@ -124,7 +124,7 @@
     .mob-menu a:hover { color: var(--gold-digital); }
     .mob-close { position: absolute; top: 24px; right: 24px; background: none; border: none; cursor: pointer; color: rgba(250,250,247,.45); font-size: 28px; line-height: 1; }
 
-    /* Layout helpers */
+    /* Layout */
     .wrap { max-width: 1100px; margin: 0 auto; }
     section { position: relative; }
     .stone-bg { background: var(--navy-deep); }
@@ -133,21 +133,19 @@
       letter-spacing: .22em; text-transform: uppercase; margin-bottom: 22px; display: block;
     }
     .stone-bg .slabel { color: var(--gold-digital); }
-    .light-bg .slabel, .cream-bg .slabel { color: var(--gold-print); }
+    .light-bg .slabel, .cream-bg .slabel, .white-bg .slabel { color: var(--gold-print); }
 
-    /* HERO */
+    /* ── HERO (dark, radial gradient de B) ──────────────────── */
     .hero {
       min-height: 100dvh; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
       background: radial-gradient(ellipse 130% 90% at 35% 65%, rgba(26,39,68,.75) 0%, transparent 60%),
                   linear-gradient(160deg, #0A0F1E 0%, #0F1A2E 52%, #0A0F1E 100%);
     }
-    /* Dense grain on hero */
     .hero::before {
       content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: .07;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.76' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     }
-    /* Geometric deco */
     .hero-geo {
       position: absolute; bottom: -120px; right: -80px;
       width: 520px; height: 520px; pointer-events: none; z-index: 1;
@@ -160,7 +158,6 @@
       content: ''; position: absolute; inset: 64px;
       border: 1px solid rgba(200,160,96,.05); transform: rotate(18deg);
     }
-    /* Diagonal light ray */
     .hero-ray {
       position: absolute; top: -200px; left: 63%;
       width: 1px; height: 130%; pointer-events: none; z-index: 1;
@@ -171,14 +168,12 @@
     .hero-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: .24em; text-transform: uppercase; color: var(--gold-digital); margin-bottom: 18px; opacity: 0; animation: fadUp .8s var(--ease) .2s forwards; }
     .hero-rule { width: 48px; height: 1px; background: var(--gold-print); margin: 0 auto 26px; opacity: 0; animation: fadUp .8s var(--ease) .35s forwards; }
     .hero-title { color: var(--warm-white); margin-bottom: 24px; }
-
     @keyframes wClip {
       from { clip-path: inset(0 0 100% 0); transform: translateY(16px); opacity: 0; }
       to   { clip-path: inset(0 0 0% 0);   transform: translateY(0);    opacity: 1; }
     }
     .hw { display: inline-block; animation: wClip .76s cubic-bezier(.33,1,.68,1) both; }
     .hw + .hw { margin-left: .22em; }
-
     .hero-sub { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 300; color: rgba(245,240,232,.46); letter-spacing: .04em; margin-bottom: 52px; opacity: 0; animation: fadUp .8s var(--ease) 1.1s forwards; }
     .hero-cta-btn {
       display: inline-block; font-size: 10px; font-weight: 400; letter-spacing: .2em;
@@ -196,47 +191,45 @@
     .si-lbl { font-size: 8px; letter-spacing: .28em; text-transform: uppercase; color: rgba(250,250,247,.28); }
     .si-line { width: 1px; height: 44px; background: linear-gradient(180deg, rgba(250,250,247,.3), var(--gold-print)); animation: sPulse 2.2s ease-in-out infinite; }
     .si-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold-print); opacity: .5; animation: sBounce 2.2s ease-in-out infinite; }
-
     @keyframes fadUp { to { opacity: 1; transform: translateY(0); } }
     @keyframes fadIn { to { opacity: 1; } }
     @keyframes sPulse { 0%,100%{opacity:.3} 50%{opacity:.9} }
     @keyframes sBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
 
-    /* APPROACH (dark, continuity with hero) */
+    /* ── APPROACH (sur fond blanc — rupture lumineuse après hero) */
     .approach {
-      background: #0F1A2E; padding: 116px 56px; position: relative;
+      background: var(--white); padding: 116px 56px; position: relative;
     }
-    .approach::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .04;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    }
-    .appr-grid { display: grid; grid-template-columns: 1fr 1fr; position: relative; z-index: 1; }
+    .approach-head { margin-bottom: 64px; }
+    .approach-head .slabel { color: var(--gold-print); }
+    .approach-head h2 { color: var(--navy); margin-top: 4px; font-size: clamp(22px, 3vw, 32px); font-weight: 300; letter-spacing: .01em; }
+    .appr-grid { display: grid; grid-template-columns: 1fr 1fr; position: relative; }
     .appr-col { padding: 40px 56px; position: relative; overflow: hidden; }
-    .appr-col:first-child { padding-left: 0; border-right: 1px solid rgba(255,255,255,.06); }
+    .appr-col:first-child { padding-left: 0; border-right: 1px solid var(--border); }
     .appr-col:last-child { padding-right: 0; }
     .appr-col::before {
       content: attr(data-n); position: absolute; bottom: -20px; right: 16px;
       font-family: 'Cormorant Garamond', serif; font-size: 140px; font-weight: 300; line-height: 1;
-      color: rgba(255,255,255,.025); pointer-events: none; user-select: none;
+      color: rgba(15,26,46,.035); pointer-events: none; user-select: none;
     }
     .appr-col:last-child::before { right: auto; left: 16px; }
-    .appr-col-lbl { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 20px; }
-    .appr-col:first-child .appr-col-lbl { color: rgba(245,240,232,.45); }
-    .appr-col:last-child .appr-col-lbl { color: var(--gold-digital); }
+    .appr-col-lbl { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 20px; display: block; }
+    .appr-col:first-child .appr-col-lbl { color: rgba(15,26,46,.38); }
+    .appr-col:last-child .appr-col-lbl { color: var(--gold-print); }
     .appr-word { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(44px, 6vw, 72px); line-height: 1.05; margin-bottom: 20px; display: block; }
-    .appr-col:first-child .appr-word { color: var(--warm-white); }
-    .appr-col:last-child .appr-word { color: var(--gold-digital); }
-    .appr-col p { font-size: 15px; line-height: 1.8; color: rgba(245,240,232,.58); }
+    .appr-col:first-child .appr-word { color: var(--navy); }
+    .appr-col:last-child .appr-word { color: var(--gold-print); }
+    .appr-col p { font-size: 15px; line-height: 1.82; color: var(--text-gray); }
 
-    /* SERVICES (white, strong contrast after dark) */
-    .services { background: #FFFFFF; padding: 128px 56px; }
+    /* ── SERVICES ───────────────────────────────────────────── */
+    .services { background: var(--warm-white); padding: 128px 56px; }
     .svc-head { margin-bottom: 72px; }
     .svc-head h2 { color: var(--navy); margin-top: 4px; }
     .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-    .svc-card { background: #fff; border: 1px solid var(--border); padding: 44px 36px; position: relative; overflow: hidden; transition: transform .4s var(--ease), box-shadow .4s var(--ease); cursor: default; }
+    .svc-card { background: var(--white); border: 1px solid var(--border); padding: 44px 36px; position: relative; overflow: hidden; transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .35s; cursor: default; }
     .svc-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--gold-print); transform: scaleY(0); transform-origin: bottom; transition: transform .45s var(--ease); }
     .svc-card:hover::before { transform: scaleY(1); }
-    .svc-card:hover { transform: translateY(-7px); box-shadow: 0 28px 60px rgba(15,26,46,.09); }
+    .svc-card:hover { transform: translateY(-7px); box-shadow: 0 28px 60px rgba(15,26,46,.08); border-color: rgba(194,160,82,.22); }
     .svc-bg-n { position: absolute; top: 16px; right: 20px; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 52px; line-height: 1; color: var(--navy); opacity: .07; pointer-events: none; user-select: none; }
     .svc-num { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: .18em; color: var(--gold-print); margin-bottom: 24px; }
     .svc-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color: var(--navy); margin-bottom: 6px; line-height: 1.2; }
@@ -245,7 +238,7 @@
     .svc-list li { font-size: 13px; line-height: 1.9; color: var(--text-gray); display: flex; gap: 10px; align-items: baseline; }
     .svc-list li::before { content: "—"; color: var(--gold-print); flex-shrink: 0; font-size: 11px; }
 
-    /* WHY */
+    /* ── WHY ────────────────────────────────────────────────── */
     .why { background: var(--cream); padding: 128px 56px; }
     .why-head { margin-bottom: 72px; }
     .why-head h2 { color: var(--navy); margin-top: 4px; }
@@ -258,8 +251,8 @@
     .why-lbl { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: var(--navy); letter-spacing: .03em; margin-bottom: 12px; }
     .why-body { font-size: 13.5px; line-height: 1.85; color: var(--text-gray); }
 
-    /* STATS + ABOUT */
-    .stats-about { background: var(--warm-white); padding: 120px 56px; }
+    /* ── STATS + ABOUT ──────────────────────────────────────── */
+    .stats-about { background: var(--white); padding: 120px 56px; }
     .stats-row { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--border); margin-bottom: 104px; }
     .stat-item { padding: 60px 40px; text-align: center; border-right: 1px solid var(--border); }
     .stat-item:last-child { border-right: none; }
@@ -274,9 +267,9 @@
     .badge { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; padding: 6px 16px; border: 1px solid var(--border); color: var(--text-gray); transition: border-color .25s, color .25s; }
     .badge:hover { border-color: var(--gold-print); color: var(--navy); }
     .about-right { display: flex; align-items: center; justify-content: center; }
-    .about-glyph { opacity: .08; }
+    .about-glyph { opacity: .07; }
 
-    /* CONTACT (returns to dark) */
+    /* ── CONTACT (dark, bookend avec le hero) ───────────────── */
     .contact { background: var(--navy-deep); padding: 148px 56px; text-align: center; position: relative; overflow: hidden; }
     .contact::before {
       content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .06;
@@ -287,7 +280,6 @@
       width: 420px; height: 420px; pointer-events: none;
       border: 1px solid rgba(200,160,96,.05); transform: rotate(-8deg);
     }
-    /* Glyph bg decoration */
     .contact-glyph-bg {
       position: absolute; bottom: -60px; right: -40px;
       width: 320px; height: 320px; pointer-events: none; z-index: 0; opacity: .04;
@@ -297,14 +289,14 @@
     .contact p { font-size: 15px; line-height: 1.85; color: rgba(245,240,232,.5); margin-bottom: 48px; max-width: 480px; margin-left: auto; margin-right: auto; }
     .contact-loc { font-size: 10px !important; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(245,240,232,.3) !important; margin-bottom: 56px !important; }
     .cta-gold {
-      display: inline-block; text-decoration: none; font-size: 10px; font-weight: 400;
+      display: inline-block; font-size: 10px; font-weight: 400;
       letter-spacing: .2em; text-transform: uppercase; padding: 16px 44px;
       border: 1px solid var(--gold-print); color: var(--gold-digital);
       transition: all .3s var(--ease);
     }
     .cta-gold:hover { background: var(--gold-digital); color: var(--navy-deep); border-color: var(--gold-digital); transform: translateY(-2px); }
 
-    /* FOOTER */
+    /* ── FOOTER ─────────────────────────────────────────────── */
     footer { background: var(--navy-deep); border-top: 1px solid rgba(200,160,96,.14); padding: 40px 56px; display: flex; align-items: center; justify-content: space-between; }
     .foot-tag { font-size: 11px; letter-spacing: .1em; color: rgba(250,250,247,.25); }
     .foot-legal { font-size: 11px; color: rgba(250,250,247,.2); }
@@ -313,7 +305,7 @@
     footer .wm-stone { color: rgba(250,250,247,.6); }
     footer .wm-adv { color: rgba(250,250,247,.4); }
 
-    /* RESPONSIVE */
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 767px) {
       nav { padding: 0 20px; height: 64px; }
       .nav-links, .nav-cta { display: none; }
@@ -324,7 +316,7 @@
       .approach { padding: 72px 24px; }
       .appr-grid { grid-template-columns: 1fr; }
       .appr-col { padding: 32px 0; }
-      .appr-col:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .appr-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
       .services { padding: 80px 24px; }
       .svc-grid { grid-template-columns: 1fr; gap: 16px; }
       .why { padding: 80px 24px; }
@@ -343,6 +335,10 @@
     @media (max-width: 1023px) and (min-width: 768px) {
       .svc-grid { grid-template-columns: 1fr 1fr; }
       .about-right { display: none; }
+      .approach { padding: 88px 40px; }
+      .appr-col { padding: 32px 36px; }
+      .appr-col:first-child { padding-left: 0; }
+      .appr-col:last-child { padding-right: 0; }
     }
   </style>
 </head>
@@ -377,6 +373,7 @@
     <a href="mailto:marine@sunstoneadvisory.fr" class="ml">Contact</a>
   </div>
 
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
   <section class="hero stone-bg" id="hero" aria-labelledby="hero-h">
     <div class="hero-geo" aria-hidden="true"></div>
     <div class="hero-ray" aria-hidden="true"></div>
@@ -400,16 +397,21 @@
     </div>
   </section>
 
-  <section class="approach stone-bg" id="approach" aria-labelledby="appr-h">
+  <!-- ── APPROACH (blanc — rupture lumineuse) ─────────────────── -->
+  <section class="approach white-bg" id="approach" aria-labelledby="appr-h">
     <div class="wrap">
+      <header class="approach-head reveal">
+        <span class="slabel">Our approach</span>
+        <h2 id="appr-h">Two forces.<br>One practice.</h2>
+      </header>
       <div class="appr-grid">
-        <div class="appr-col reveal" data-n="01">
-          <p class="appr-col-lbl">Stone</p>
-          <span class="appr-word" id="appr-h">Rigour &amp;<br>structure</span>
+        <div class="appr-col reveal d1" data-n="01">
+          <span class="appr-col-lbl">Stone</span>
+          <span class="appr-word">Rigour &amp;<br>structure</span>
           <p>Every engagement is built on precision — rigorous analysis, airtight process management, and a relentless focus on the details that determine outcomes.</p>
         </div>
         <div class="appr-col reveal d2" data-n="02">
-          <p class="appr-col-lbl">Sun</p>
+          <span class="appr-col-lbl">Sun</span>
           <span class="appr-word">Clarity &amp;<br>decisiveness</span>
           <p>Complex transactions need clear thinking under pressure. We help clients cut through noise, understand the real levers, and move with conviction.</p>
         </div>
@@ -417,6 +419,7 @@
     </div>
   </section>
 
+  <!-- ── SERVICES ──────────────────────────────────────────────── -->
   <section class="services light-bg" id="services" aria-labelledby="svc-h">
     <div class="wrap">
       <div class="svc-head reveal">
@@ -468,6 +471,7 @@
     </div>
   </section>
 
+  <!-- ── WHY ───────────────────────────────────────────────────── -->
   <section class="why cream-bg" id="why" aria-labelledby="why-h">
     <div class="wrap">
       <div class="why-head reveal">
@@ -499,7 +503,8 @@
     </div>
   </section>
 
-  <section class="stats-about light-bg" id="about" aria-labelledby="about-h">
+  <!-- ── ABOUT + STATS ─────────────────────────────────────────── -->
+  <section class="stats-about white-bg" id="about" aria-labelledby="about-h">
     <div class="wrap">
       <div class="stats-row reveal" aria-label="Key metrics">
         <div class="stat-item">
@@ -541,6 +546,7 @@
     </div>
   </section>
 
+  <!-- ── CONTACT ───────────────────────────────────────────────── -->
   <section class="contact stone-bg" id="contact" aria-labelledby="contact-h">
     <svg class="contact-glyph-bg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
       <polygon points="80,8 8,8 8,112 112,112 112,80" fill="none" stroke="rgba(200,160,96,1)" stroke-width="1.5"/>
@@ -555,6 +561,7 @@
     </div>
   </section>
 
+  <!-- ── FOOTER ────────────────────────────────────────────────── -->
   <footer>
     <a href="#hero" class="wordmark" aria-label="Sunstone Advisory home">
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true">
@@ -608,6 +615,7 @@
     hbg.addEventListener('click', openM);
     mobClose.addEventListener('click', closeM);
     mob.querySelectorAll('.ml').forEach(l => l.addEventListener('click', closeM));
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeM(); });
   })();
   </script>
 
@@ -619,7 +627,7 @@
     .vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}
     .vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}
   </style>
-  <script>(function(){var p=window.location.pathname.split('/').pop()||'version-b-v2.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'version-c-v1.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
 
 </body>
 </html>
