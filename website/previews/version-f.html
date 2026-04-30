@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — Version F · Bierstadt</title>
+  <meta name="description" content="Sunstone Advisory — Independent M&A advisory, exits, fundraising and ownership transitions. Paris-based, founder-led.">
+  <style>
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 14px; }
+    body {
+      font-family: 'Bierstadt', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      color: #3A3A3A;
+      background: #FAFAF7;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ============================================
+       CSS VARIABLES
+    ============================================ */
+    :root {
+      --warm-white: #FAFAF7;
+      --cream: #F5F0E8;
+      --navy: #0F1A2E;
+      --navy-deep: #0A0F1E;
+      --navy-mid: #1A2744;
+      --gold-print: #C2A052;
+      --gold-digital: #FFDF90;
+      --text-body: #3A3A3A;
+      --text-gray: #7A7A7A;
+      --border: #E4DDD0;
+      --border-gold-faint: rgba(200,160,96,0.12);
+      --ease: cubic-bezier(0.33, 1, 0.68, 1);
+      --font: 'Bierstadt', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+    ============================================ */
+    h1 {
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: clamp(58px, 9vw, 112px);
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: var(--warm-white);
+    }
+    h2 {
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: clamp(26px, 3.8vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+    }
+    h3 {
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: 19px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease), border-color 0.4s var(--ease);
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled.on-stone {
+      background: rgba(10, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-color: rgba(200,160,96,0.08);
+    }
+    nav.scrolled:not(.on-stone) {
+      background: rgba(250, 250, 247, 0.92);
+      backdrop-filter: blur(12px);
+      border-color: var(--border);
+    }
+
+    /* Wordmark */
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .wm-text {
+      font-family: var(--font);
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+    nav.on-stone .wm-text { color: rgba(250,250,247,0.5); }
+    nav:not(.on-stone) .wm-text { color: rgba(15,26,46,0.5); }
+    nav.on-stone .wm-sun { color: var(--gold-digital); }
+    nav:not(.on-stone) .wm-sun { color: var(--gold-print); }
+    nav.on-stone .wm-stone { color: rgba(250,250,247,0.7); }
+    nav:not(.on-stone) .wm-stone { color: rgba(15,26,46,0.7); }
+    nav.on-stone .wm-advisory { color: rgba(250,250,247,0.45); }
+    nav:not(.on-stone) .wm-advisory { color: rgba(15,26,46,0.45); }
+
+    /* Nav logo SVG */
+    .logo-sq-light { display: none; }
+    .logo-sq-dark { display: block; }
+    nav:not(.on-stone) .logo-sq-light { display: block; }
+    nav:not(.on-stone) .logo-sq-dark { display: none; }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav.on-stone .nav-links a { color: rgba(250,250,247,0.65); }
+    nav.on-stone .nav-links a:hover { color: var(--gold-digital); }
+    nav:not(.on-stone) .nav-links a { color: rgba(15,26,46,0.6); }
+    nav:not(.on-stone) .nav-links a:hover { color: var(--navy); }
+
+    /* Nav CTA */
+    .nav-cta {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border: 1px solid;
+      transition: all 0.25s var(--ease);
+    }
+    nav.on-stone .nav-cta {
+      border-color: var(--border-gold-faint);
+      color: var(--gold-digital);
+    }
+    nav.on-stone .nav-cta:hover {
+      background: var(--gold-digital);
+      color: var(--navy-deep);
+      border-color: var(--gold-digital);
+    }
+    nav:not(.on-stone) .nav-cta {
+      border-color: var(--border);
+      color: var(--navy);
+    }
+    nav:not(.on-stone) .nav-cta:hover {
+      background: var(--navy);
+      color: var(--warm-white);
+      border-color: var(--navy);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      transition: all 0.3s;
+    }
+    nav.on-stone .hamburger span { background: rgba(250,250,247,0.7); }
+    nav:not(.on-stone) .hamburger span { background: var(--navy); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--navy-deep);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu a {
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: 26px;
+      letter-spacing: 0.04em;
+      color: rgba(250,250,247,0.8);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold-digital); }
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(250,250,247,0.5);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      background: linear-gradient(165deg, #0A0F1E 0%, #0F1A2E 55%, #1A2744 100%);
+      min-height: 100dvh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .hero::after {
+      content: "";
+      position: absolute; bottom: -60px; right: -40px;
+      width: 300px; height: 300px;
+      border: 1px solid rgba(200,160,96,0.08);
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
+    .hero-diag {
+      position: absolute; inset: 0; pointer-events: none; z-index: 1;
+      overflow: hidden;
+    }
+    .hero-diag::before {
+      content: "";
+      position: absolute;
+      top: -200px; left: 60%;
+      width: 1px; height: 120%;
+      background: linear-gradient(180deg, transparent, rgba(200,160,96,0.05) 40%, transparent);
+      transform: rotate(18deg);
+    }
+    .hero-diag::after {
+      content: "";
+      position: absolute;
+      top: -200px; left: 72%;
+      width: 1px; height: 120%;
+      background: linear-gradient(180deg, transparent, rgba(200,160,96,0.04) 40%, transparent);
+      transform: rotate(18deg);
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 120px 48px 80px;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .hero-label {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold-digital);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 0.2s forwards;
+    }
+    .hero-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold-print);
+      margin: 0 auto 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 0.35s forwards;
+    }
+    .hero-title {
+      margin-bottom: 28px;
+    }
+    .hero-title .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: wordIn 0.7s var(--ease) forwards;
+    }
+    .hero-title .word:not(:last-child)::after { content: "\00a0"; }
+    .hero-subtitle {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: rgba(245,240,232,0.45);
+      margin-bottom: 52px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 1.1s forwards;
+    }
+    .hero-cta {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      border: 1px solid var(--gold-print);
+      color: var(--gold-digital);
+      transition: all 0.3s var(--ease);
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 1.25s forwards;
+    }
+    .hero-cta:hover {
+      background: var(--gold-digital);
+      color: var(--navy-deep);
+      border-color: var(--gold-digital);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease) 1.5s forwards;
+    }
+    .scroll-indicator span {
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, rgba(250,250,247,0.4), var(--gold-print));
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    .scroll-indicator svg {
+      color: rgba(200,160,96,0.6);
+      animation: bounce 2s ease-in-out infinite 0.5s;
+    }
+
+    /* ============================================
+       KEYFRAMES
+    ============================================ */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes wordIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    /* ============================================
+       REVEAL SYSTEM
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* ============================================
+       SECTION LAYOUT HELPERS
+    ============================================ */
+    .section-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .stone-bg .section-label { color: var(--gold-digital); }
+    .light-bg .section-label, .cream-bg .section-label { color: var(--gold-print); }
+
+    /* ============================================
+       APPROACH SECTION
+    ============================================ */
+    .approach {
+      background: #0F1A2E;
+      padding: 100px 48px;
+      position: relative;
+    }
+    .approach::before {
+      content: "";
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .approach-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .approach-col {
+      padding: 40px 48px;
+    }
+    .approach-col:first-child {
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .approach-col-label {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 9px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .approach-col:first-child .approach-col-label { color: rgba(245,240,232,0.5); }
+    .approach-col:last-child .approach-col-label { color: var(--gold-digital); }
+    .approach-col h3 {
+      font-family: var(--font);
+      font-weight: 200;
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .approach-col:first-child h3 { color: var(--warm-white); }
+    .approach-col:last-child h3 { color: var(--gold-digital); }
+    .approach-col p {
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.55);
+    }
+
+    /* ============================================
+       SERVICES SECTION
+    ============================================ */
+    .services {
+      background: var(--warm-white);
+      padding: 120px 48px;
+    }
+    .services-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .services-head {
+      margin-bottom: 64px;
+    }
+    .services-head h2 { color: var(--navy); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(15,26,46,0.08);
+    }
+    .service-num {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--gold-print);
+      letter-spacing: 0.14em;
+      margin-bottom: 24px;
+    }
+    .service-title {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .service-subtitle {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      margin-bottom: 28px;
+    }
+    .service-list {
+      list-style: none;
+    }
+    .service-list li {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--text-gray);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .service-list li::before {
+      content: "—";
+      color: var(--gold-print);
+      flex-shrink: 0;
+      font-size: 10px;
+    }
+
+    /* ============================================
+       WHY SUNSTONE
+    ============================================ */
+    .why {
+      background: var(--cream);
+      padding: 120px 48px;
+    }
+    .why-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .why-head {
+      margin-bottom: 72px;
+    }
+    .why-head h2 { color: var(--navy); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .why-item {
+      padding: 40px 48px 40px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .why-item:nth-child(even) {
+      padding-left: 48px;
+      border-left: 1px solid var(--border);
+    }
+    .why-item:nth-child(3), .why-item:nth-child(4) { border-bottom: none; }
+    .why-bar {
+      width: 28px;
+      height: 2px;
+      background: var(--gold-print);
+      margin-bottom: 20px;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.6s var(--ease);
+    }
+    .why-item.visible .why-bar { transform: scaleX(1); }
+    .why-item-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+    .why-item p {
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--text-gray);
+    }
+
+    /* ============================================
+       STATS + ABOUT
+    ============================================ */
+    .stats-about {
+      background: var(--warm-white);
+      padding: 120px 48px;
+    }
+    .stats-about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-bottom: 100px;
+    }
+    .stat-item {
+      padding: 48px 40px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font);
+      font-weight: 200;
+      font-size: clamp(52px, 7vw, 80px);
+      line-height: 1;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      display: block;
+    }
+    .stat-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      margin-top: 10px;
+      display: block;
+    }
+    .stat-num .sup {
+      font-size: 0.45em;
+      vertical-align: super;
+      color: var(--gold-print);
+    }
+
+    /* About split */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-left .section-label { color: var(--gold-print); }
+    .about-left h2 {
+      color: var(--navy);
+      margin-bottom: 28px;
+    }
+    .about-left p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+    }
+    .about-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .badge {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      color: var(--text-gray);
+    }
+    .about-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-glyph {
+      opacity: 0.07;
+    }
+
+    /* ============================================
+       CONTACT
+    ============================================ */
+    .contact {
+      background: var(--navy-deep);
+      padding: 140px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: "";
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    .contact::after {
+      content: "";
+      position: absolute; top: -80px; left: -60px;
+      width: 400px; height: 400px;
+      border: 1px solid rgba(200,160,96,0.05);
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+    .contact-inner {
+      position: relative; z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .contact h2 {
+      color: var(--warm-white);
+      margin-bottom: 20px;
+    }
+    .contact p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 48px;
+    }
+    .contact-cta {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border: 1px solid var(--gold-print);
+      color: var(--gold-digital);
+      transition: all 0.3s var(--ease);
+    }
+    .contact-cta:hover {
+      background: var(--gold-digital);
+      color: var(--navy-deep);
+      border-color: var(--gold-digital);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--navy-deep);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-tagline {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(250,250,247,0.25);
+    }
+    .footer-legal {
+      font-size: 10px;
+      color: rgba(250,250,247,0.2);
+    }
+    footer .wordmark .wm-text { color: rgba(250,250,247,0.45); }
+    footer .wordmark .wm-sun { color: var(--gold-digital); }
+    footer .wordmark .wm-stone { color: rgba(250,250,247,0.6); }
+    footer .wordmark .wm-advisory { color: rgba(250,250,247,0.4); }
+
+    /* ============================================
+       MOBILE
+    ============================================ */
+    @media (max-width: 767px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      h1 { font-size: clamp(44px, 12vw, 72px); }
+
+      .hero-inner { padding: 100px 24px 80px; }
+      .hero-subtitle { font-size: 13px; }
+
+      .approach { padding: 72px 24px; }
+      .approach-inner { grid-template-columns: 1fr; }
+      .approach-col { padding: 32px 0; }
+      .approach-col:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+      .services { padding: 80px 24px; }
+      .services-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      .why { padding: 80px 24px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-item { padding: 32px 0; border-left: none !important; }
+      .why-item:nth-child(3) { border-bottom: 1px solid var(--border) !important; }
+      .why-item:nth-child(4) { border-bottom: none; }
+
+      .stats-about { padding: 80px 24px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-right { display: none; }
+
+      .contact { padding: 100px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+    }
+
+    @media (max-width: 1023px) and (min-width: 768px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:last-child { grid-column: span 2; max-width: 50%; }
+      .about-right { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="on-stone" id="main-nav" aria-label="Main navigation">
+    <a href="#hero" class="wordmark" aria-label="Sunstone Advisory home">
+      <svg class="logo-sq-dark" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <polygon points="18,2 2,2 2,26 26,26 26,18" fill="#FAFAF7"/>
+        <polygon points="18,2 26,2 26,18" fill="#C2A052"/>
+      </svg>
+      <svg class="logo-sq-light" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <polygon points="18,2 2,2 2,26 26,26 26,18" fill="#0F1A2E"/>
+        <polygon points="18,2 26,2 26,18" fill="#C2A052"/>
+      </svg>
+      <span class="wm-text">
+        <span class="wm-sun">Sun</span><span class="wm-stone">stone</span> <span class="wm-advisory">Advisory</span>
+      </span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="mailto:marine@sunstoneadvisory.fr" class="nav-cta">Contact</a>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+    <a href="#approach" class="mobile-link">Approach</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="mailto:marine@sunstoneadvisory.fr" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero stone-bg" id="hero" aria-labelledby="hero-heading">
+    <div class="hero-diag" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-label">Independent Advisory · Paris</p>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <h1 class="hero-title" id="hero-heading" aria-label="Advisory for high-stakes transactions">
+        <span class="word" style="animation-delay:0.5s">Advisory</span>
+        <span class="word" style="animation-delay:0.65s">for</span>
+        <span class="word" style="animation-delay:0.78s">high&#8209;stakes</span>
+        <br aria-hidden="true">
+        <span class="word" style="animation-delay:0.91s">transactions</span>
+      </h1>
+      <p class="hero-subtitle">M&amp;A, exits, fundraising and ownership transitions.</p>
+      <a href="mailto:marine@sunstoneadvisory.fr" class="hero-cta">Discuss your project</a>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span></span>
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+        <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach stone-bg" id="approach" aria-labelledby="approach-stone-heading">
+    <div class="approach-inner">
+      <div class="approach-col reveal">
+        <p class="approach-col-label">Stone</p>
+        <h3 id="approach-stone-heading">Rigour &amp;<br>structure</h3>
+        <p>Every engagement is built on precision — rigorous analysis, airtight process management, and a relentless focus on the details that determine outcomes. We bring the discipline of institutional finance to every mandate, regardless of size.</p>
+      </div>
+      <div class="approach-col reveal reveal-d2">
+        <p class="approach-col-label">Sun</p>
+        <h3>Clarity &amp;<br>decisiveness</h3>
+        <p>Complex transactions need clear thinking under pressure. We help clients cut through noise, understand the real levers, and move with conviction. The best decisions come from seeing both sides of the table — and we have.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services light-bg" id="services" aria-labelledby="services-heading">
+    <div class="services-inner">
+      <div class="services-head reveal">
+        <p class="section-label">What we do</p>
+        <h2 id="services-heading">Three disciplines.<br>One integrated approach.</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card reveal reveal-d1">
+          <p class="service-num">01</p>
+          <h3 class="service-title">M&amp;A Advisory</h3>
+          <p class="service-subtitle">Buy &amp; Sell</p>
+          <ul class="service-list" aria-label="M&A Advisory services">
+            <li>Process preparation</li>
+            <li>Due diligence</li>
+            <li>Valuation &amp; structuring</li>
+            <li>Negotiation</li>
+            <li>Closing</li>
+          </ul>
+        </article>
+        <article class="service-card reveal reveal-d2">
+          <p class="service-num">02</p>
+          <h3 class="service-title">Portfolio Work</h3>
+          <p class="service-subtitle">Exit Support</p>
+          <ul class="service-list" aria-label="Portfolio Work services">
+            <li>Value creation</li>
+            <li>Add-on acquisitions</li>
+            <li>Investor interactions</li>
+            <li>Financing</li>
+            <li>Equity story &amp; exit preparation</li>
+          </ul>
+        </article>
+        <article class="service-card reveal reveal-d3">
+          <p class="service-num">03</p>
+          <h3 class="service-title">Fundraising Advisory</h3>
+          <p class="service-subtitle">Capital &amp; Growth</p>
+          <ul class="service-list" aria-label="Fundraising Advisory services">
+            <li>Process execution</li>
+            <li>Equity story materials</li>
+            <li>Q&amp;A preparation</li>
+            <li>Investor follow-up</li>
+            <li>Term sheet support</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SUNSTONE -->
+  <section class="why cream-bg" id="why" aria-labelledby="why-heading">
+    <div class="why-inner">
+      <div class="why-head reveal">
+        <p class="section-label">Why Sunstone</p>
+        <h2 id="why-heading">What sets the work apart.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-bar" aria-hidden="true"></div>
+          <p class="why-item-label">Experienced partner</p>
+          <p>20+ transactions closed across M&amp;A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings, fundraisings.</p>
+        </div>
+        <div class="why-item reveal reveal-d1">
+          <div class="why-bar" aria-hidden="true"></div>
+          <p class="why-item-label">A critical sounding board</p>
+          <p>Beyond process and deliverables, we challenge analysis, pressure-test assumptions, sharpen investment cases, to help clients take well-informed decisions.</p>
+        </div>
+        <div class="why-item reveal reveal-d2">
+          <div class="why-bar" aria-hidden="true"></div>
+          <p class="why-item-label">Hands-on approach</p>
+          <p>Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate is handled directly with no layers or dilution.</p>
+        </div>
+        <div class="why-item reveal reveal-d3">
+          <div class="why-bar" aria-hidden="true"></div>
+          <p class="why-item-label">Alignment</p>
+          <p>No conflicts of interest, no proprietary products to push, no cross-selling agendas — independent and fully aligned with your objectives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS + ABOUT -->
+  <section class="stats-about light-bg" id="about" aria-labelledby="about-heading">
+    <div class="stats-about-inner">
+      <div class="stats-row reveal" aria-label="Key metrics">
+        <div class="stat-item">
+          <span class="stat-num" data-target="20" data-suffix="+">0</span>
+          <span class="stat-label">Transactions closed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="100" data-suffix="+">0</span>
+          <span class="stat-label">Opportunities assessed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="2" data-suffix="">0</span>
+          <span class="stat-label">Sides of the table</span>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <p class="section-label">The founder</p>
+          <h2 id="about-heading">Marine Charbonnier</h2>
+          <p>Marine has been working across investment banking and private equity since 2017 — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle within their European Buyout fund.</p>
+          <p>Sunstone Advisory is built on her experience, and the conviction that the best transaction support comes from not only understanding how processes work, but also how investors really think.</p>
+          <div class="about-badges" aria-label="Background">
+            <span class="badge">Carlyle</span>
+            <span class="badge">Deutsche Bank</span>
+            <span class="badge">Paris Dauphine</span>
+          </div>
+        </div>
+        <div class="about-right reveal reveal-d2" aria-hidden="true">
+          <svg class="about-glyph" width="260" height="260" viewBox="0 0 260 260" fill="none">
+            <polygon points="170,20 20,20 20,240 240,240 240,170" fill="none" stroke="#0F1A2E" stroke-width="2"/>
+            <polygon points="170,20 240,20 240,170" fill="none" stroke="#C2A052" stroke-width="1.5"/>
+            <line x1="20" y1="20" x2="240" y2="240" stroke="#0F1A2E" stroke-width="0.5" stroke-dasharray="4 6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact stone-bg" id="contact" aria-labelledby="contact-heading">
+    <div class="contact-inner">
+      <p class="section-label reveal">Get in touch</p>
+      <h2 class="reveal reveal-d1" id="contact-heading">Ready to talk through<br>a transaction?</h2>
+      <p class="reveal reveal-d2">We work with founders, executives and investors on complex, high-stakes situations. Every conversation starts in confidence.</p>
+      <a href="mailto:marine@sunstoneadvisory.fr" class="contact-cta reveal reveal-d3">Discuss your project</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#hero" class="wordmark" aria-label="Sunstone Advisory home">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <polygon points="18,2 2,2 2,26 26,26 26,18" fill="#FAFAF7"/>
+        <polygon points="18,2 26,2 26,18" fill="#C2A052"/>
+      </svg>
+      <span class="wm-text">
+        <span class="wm-sun">Sun</span><span class="wm-stone">stone</span> <span class="wm-advisory">Advisory</span>
+      </span>
+    </a>
+    <p class="footer-tagline">Advisory for high-stakes transactions</p>
+    <p class="footer-legal">&copy; 2025 Sunstone Advisory</p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const nav = document.getElementById('main-nav');
+      const stoneSections = document.querySelectorAll('.stone-bg');
+
+      const navObserver = new IntersectionObserver((entries) => {
+        const allVisible = Array.from(stoneSections).some(el => {
+          const rect = el.getBoundingClientRect();
+          return rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.5;
+        });
+        if (allVisible) {
+          nav.classList.add('on-stone');
+        } else {
+          nav.classList.remove('on-stone');
+        }
+      }, { threshold: [0, 0.3, 0.5, 1] });
+
+      stoneSections.forEach(s => navObserver.observe(s));
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+        const isOnStone = Array.from(stoneSections).some(el => {
+          const rect = el.getBoundingClientRect();
+          return rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.5;
+        });
+        if (isOnStone) {
+          nav.classList.add('on-stone');
+        } else {
+          nav.classList.remove('on-stone');
+        }
+      }, { passive: true });
+
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(el => revealObs.observe(el));
+
+      const statNums = document.querySelectorAll('.stat-num[data-target]');
+      const countObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1200;
+          const start = performance.now();
+          const tick = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          countObs.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      statNums.forEach(el => countObs.observe(el));
+
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileClose = document.getElementById('mobile-menu-close');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      const openMenu = () => {
+        mobileMenu.classList.add('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      };
+      const closeMenu = () => {
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+
+      hamburgerBtn.addEventListener('click', openMenu);
+      mobileClose.addEventListener('click', closeMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    })();
+  </script>
+
+  <!-- Version Switcher -->
+  <div id="vsw">
+    <span class="vsw-label">Version</span>
+    <a href="version-a-v2.html" class="vsw-link">A</a>
+    <a href="version-b-v2.html" class="vsw-link">B</a>
+    <a href="version-c-v1.html" class="vsw-link">C</a>
+    <a href="version-d-v1.html" class="vsw-link">D</a>
+    <a href="version-c-anim.html" class="vsw-link">D✦</a>
+    <a href="version-e.html" class="vsw-link">E</a>
+    <a href="version-f.html" class="vsw-link">F</a>
+  </div>
+  <style>
+    #vsw {
+      position: fixed; bottom: 24px; right: 24px; z-index: 99999;
+      display: flex; align-items: center;
+      background: rgba(10,15,30,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(200,160,96,0.22);
+      font-family: 'Bierstadt', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    .vsw-label {
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(250,250,247,0.3); padding: 0 12px;
+    }
+    .vsw-link {
+      display: inline-block; padding: 10px 15px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+      text-decoration: none; color: rgba(250,250,247,0.45);
+      border-left: 1px solid rgba(200,160,96,0.15);
+      transition: color 0.2s, background 0.2s;
+    }
+    .vsw-link:hover { color: #FFDF90; background: rgba(200,160,96,0.08); }
+    .vsw-link.vsw-active { color: #C2A052; background: rgba(200,160,96,0.13); }
+  </style>
+  <script>
+    (function(){
+      var p = window.location.pathname.split('/').pop() || 'version-f.html';
+      document.querySelectorAll('.vsw-link').forEach(function(l){
+        if(l.getAttribute('href') === p) l.classList.add('vsw-active');
+      });
+    })();
+  </script>
+</body>
+</html>
