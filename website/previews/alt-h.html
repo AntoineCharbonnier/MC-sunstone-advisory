@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — M&A, Fundraising & Transaction Advisory</title>
+  <meta name="description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris, working globally.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FAFAF7;
+      --text: #1C1917;
+      --text-secondary: #6B6560;
+      --gold: #C2A052;
+      --gold-faint: rgba(194, 160, 82, 0.3);
+      --gold-lighter: rgba(194, 160, 82, 0.12);
+      --memo-bg: #F0EBE3;
+      --rule: rgba(194, 160, 82, 0.3);
+      --max-width: 800px;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 32px;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-contact {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-contact:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ─── MAIN DOCUMENT ─── */
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ─── MEMO HEADER BLOCK ─── */
+
+    .memo-header {
+      background: var(--memo-bg);
+      border: 1px solid rgba(194, 160, 82, 0.2);
+      padding: 40px 48px;
+      margin-bottom: 56px;
+    }
+
+    .memo-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .memo-fields {
+      border-top: 1px solid var(--rule);
+    }
+
+    .memo-field {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      align-items: baseline;
+      border-bottom: 1px solid var(--rule);
+      padding: 10px 0;
+      gap: 24px;
+    }
+
+    .memo-field-key {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .memo-field-value {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    /* ─── SECTION STRUCTURE ─── */
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .section-body p {
+      margin-bottom: 1.1em;
+      color: var(--text);
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── SERVICE SECTIONS ─── */
+
+    .mandate-item {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .mandate-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .mandate-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .mandate-title {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: clamp(16px, 1.6vw, 19px);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── CREDENTIALS ─── */
+
+    .credentials-block {
+      margin-bottom: 28px;
+    }
+
+    .credentials-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .credentials-stat {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: var(--memo-bg);
+      border-left: 2px solid var(--gold);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .credentials-stat strong {
+      color: var(--text);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* ─── DIFFERENTIATORS ─── */
+
+    .differentiator-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 18px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .differentiator-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .diff-num {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      padding-top: 4px;
+    }
+
+    .diff-content p.diff-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* ─── NEXT STEPS ─── */
+
+    .next-steps-body {
+      padding: 32px 40px;
+      background: var(--memo-bg);
+      border: 1px solid rgba(194, 160, 82, 0.2);
+    }
+
+    .next-steps-body p {
+      margin-bottom: 1em;
+    }
+
+    .next-steps-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-link {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ─── FOOTER ─── */
+
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 28px 32px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-disclaimer {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      opacity: 0.65;
+      max-width: 600px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .footer-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      opacity: 0.5;
+    }
+
+    /* ─── RESPONSIVE ─── */
+
+    @media (max-width: 600px) {
+      main {
+        padding: 40px 20px 64px;
+      }
+
+      .memo-header {
+        padding: 28px 24px;
+      }
+
+      nav {
+        padding: 0 20px;
+      }
+
+      .memo-field {
+        grid-template-columns: 68px 1fr;
+        gap: 16px;
+      }
+
+      .next-steps-body {
+        padding: 24px 24px;
+      }
+
+      footer {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Sun<span>stone</span> Advisory</a>
+      <a href="mailto:marine@sunstoneadvisory.fr" class="nav-contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- DOCUMENT BODY -->
+  <main>
+
+    <!-- MEMO HEADER BLOCK -->
+    <div class="memo-header">
+      <div class="memo-title">Memorandum</div>
+      <div class="memo-fields">
+        <div class="memo-field">
+          <span class="memo-field-key">To:</span>
+          <span class="memo-field-value">Transaction Stakeholders</span>
+        </div>
+        <div class="memo-field">
+          <span class="memo-field-key">From:</span>
+          <span class="memo-field-value">Sunstone Advisory</span>
+        </div>
+        <div class="memo-field">
+          <span class="memo-field-key">Date:</span>
+          <span class="memo-field-value">2024</span>
+        </div>
+        <div class="memo-field">
+          <span class="memo-field-key">Re:</span>
+          <span class="memo-field-value">Independent M&A Advisory — Engagement Overview</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="executive-summary">
+      <div class="section-label">Executive Summary</div>
+      <div class="section-body">
+        <p>Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses and investors in situations where ownership, leadership and capital intersect. Our mandate covers M&A advisory, portfolio and exit work, and fundraising advisory — high-stakes processes where the quality of the advice matters as much as the quality of the execution.</p>
+        <p>We bring the perspective of an investor: not just understanding how processes work, but how the other side of the table actually thinks, negotiates and decides.</p>
+      </div>
+    </section>
+
+    <!-- BACKGROUND -->
+    <section id="background">
+      <div class="section-label">Background</div>
+      <div class="section-body">
+        <p>Complex transactions — whether a sale process, a fundraising round or an ownership transition — require an advisor who has genuinely sat on both sides of the table. Most advisors have spent their careers in investment banking or in private equity, not both. The distinction matters.</p>
+        <p>A banker understands process mechanics, documentation and execution timelines. An investor understands how opportunities are assessed, how assumptions are stress-tested, and how value creation narratives are evaluated by those writing the cheques. Bringing these two perspectives into a single mandate reduces the friction that derails otherwise sound transactions.</p>
+        <p>Sunstone Advisory was founded on the conviction that independent advisory — without the conflicts of a large institution — is the most effective form of transactional support.</p>
+      </div>
+    </section>
+
+    <!-- OUR MANDATE APPROACH -->
+    <section id="mandate-approach">
+      <div class="section-label">Our Mandate Approach</div>
+      <div class="section-body">
+
+        <div class="mandate-item">
+          <div class="mandate-number">I.</div>
+          <div class="mandate-title">M&A Advisory — Buy &amp; Sell</div>
+          <p>We manage the full transactional cycle — from process preparation through closing. This includes process management, due diligence oversight, valuation and structuring, financing advisory, negotiation and documentation. Whether on the buy side or the sell side, our involvement is direct and continuous: we act as a counterpart to management throughout, not a peripheral voice.</p>
+        </div>
+
+        <div class="mandate-item">
+          <div class="mandate-number">II.</div>
+          <div class="mandate-title">Portfolio Work &amp; Exit Support</div>
+          <p>Between acquisition and exit, value is created — or lost — through a series of operational, financial and strategic decisions. We work alongside portfolio companies and their investors on value creation execution, add-on acquisitions, board and investor interactions, refinancing, and equity story development. When the time comes to exit, we prepare the process, refine the narrative and manage the execution.</p>
+        </div>
+
+        <div class="mandate-item">
+          <div class="mandate-number">III.</div>
+          <div class="mandate-title">Fundraising Advisory</div>
+          <p>A fundraising process is as demanding as any M&A transaction — and the quality of preparation is what separates a clean close from a protracted one. We drive the full process: equity story construction, investor materials, Q&A preparation, investor follow-up and tracking, term sheet negotiation and documentation. We manage the process so that management can stay focused on running the business.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OUR CREDENTIALS -->
+    <section id="credentials">
+      <div class="section-label">Our Credentials</div>
+      <div class="section-body">
+
+        <div class="credentials-block">
+          <div class="credentials-sub">Founder</div>
+          <p>Marine Charbonnier, founder of Sunstone Advisory, brings a decade of investment banking and private equity experience to every mandate.</p>
+        </div>
+
+        <div class="credentials-block">
+          <div class="credentials-sub">Prior Positions</div>
+          <p>Marine began her career at Deutsche Bank in Investment Banking, where she structured and executed transactions across M&A and financing. She subsequently joined The Carlyle Group's European Buyout fund as an Associate, where she assessed, negotiated, owned and sold companies as a principal investor. The combination of these two disciplines — deal execution and investor judgment — is the foundation of Sunstone Advisory.</p>
+        </div>
+
+        <div class="credentials-block">
+          <div class="credentials-sub">Education</div>
+          <p>Marine holds a degree from Université Paris Dauphine.</p>
+        </div>
+
+        <div class="credentials-block">
+          <div class="credentials-sub">Transaction Experience</div>
+          <p>Over the course of her career, Marine has assessed more than a hundred opportunities across sectors and transaction types — large-cap flagship investments, mid-market acquisitions, disposals, add-ons, financings and fundraisings. More than twenty have been closed.</p>
+        </div>
+
+        <div class="credentials-stat">
+          <strong>20+</strong> transactions closed &nbsp;·&nbsp; <strong>100+</strong> opportunities assessed &nbsp;·&nbsp; <strong>15+</strong> years of combined IB and PE experience
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY SUNSTONE -->
+    <section id="why-sunstone">
+      <div class="section-label">Key Differentiators</div>
+      <div class="section-body">
+
+        <div class="differentiator-item">
+          <span class="diff-num">1.</span>
+          <div class="diff-content">
+            <p class="diff-title">An investor's perspective built into the process.</p>
+            <p>We challenge analysis, pressure-test assumptions and sharpen investment cases — not as an afterthought, but as a core part of how we run a mandate. Having evaluated and owned companies as a principal investor means we understand not just what buyers and investors want to see, but how they actually decide.</p>
+          </div>
+        </div>
+
+        <div class="differentiator-item">
+          <span class="diff-num">2.</span>
+          <div class="diff-content">
+            <p class="diff-title">Hands-on, not hands-off.</p>
+            <p>We are not a firm that produces deliverables and steps back. We structure, negotiate and decide alongside you. Every mandate is handled directly — no junior layers, no dilution of seniority. The partner you engage is the partner who does the work.</p>
+          </div>
+        </div>
+
+        <div class="differentiator-item">
+          <span class="diff-num">3.</span>
+          <div class="diff-content">
+            <p class="diff-title">Fully independent. Fully aligned.</p>
+            <p>As an independent advisory firm, we have no proprietary products to push, no financing mandates to protect, no cross-selling agenda. Our interests are aligned entirely with yours. The advice we give reflects what we believe is right for your transaction — nothing else.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section id="next-steps">
+      <div class="section-label">Next Steps</div>
+      <div class="next-steps-body">
+        <p>We welcome the opportunity to discuss your transaction in confidence. Our approach begins with a candid assessment of the situation — no obligation, no prepared pitch. A transaction of this nature is best explored in conversation.</p>
+        <p>To arrange an introductory call, please contact Marine Charbonnier directly:</p>
+        <p><a href="mailto:marine@sunstoneadvisory.fr" class="contact-link">marine@sunstoneadvisory.fr</a></p>
+        <p>Sunstone Advisory is based in Paris and works with clients across Europe and internationally, in French and English.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Sun<span>stone</span> Advisory</div>
+      <div class="footer-disclaimer">This document is intended for the exclusive use of the addressee and is not to be reproduced, distributed or disclosed to any third party without the prior written consent of Sunstone Advisory.</div>
+      <div class="footer-meta">Paris, France &nbsp;·&nbsp; © 2024</div>
+    </div>
+  </footer>
+
+  <!-- VERSION SWITCHER (bottom-right) -->
+  <div id="vsw"><span class="vsw-l">Version</span><a href="version-a-v2.html" class="vsw-a">A</a><a href="version-b-v2.html" class="vsw-a">B</a><a href="version-c-v1.html" class="vsw-a">C</a><a href="version-d-v1.html" class="vsw-a">D</a><a href="version-c-anim.html" class="vsw-a">D✦</a><a href="version-e.html" class="vsw-a">E</a><a href="version-f.html" class="vsw-a">F</a><a href="version-g.html" class="vsw-a">G</a><a href="version-h.html" class="vsw-a">H</a><a href="version-i.html" class="vsw-a">I</a><a href="version-j.html" class="vsw-a">J</a><a href="version-k.html" class="vsw-a">K</a><a href="version-l.html" class="vsw-a">L</a><a href="version-m.html" class="vsw-a">M</a><a href="version-n.html" class="vsw-a">N</a></div>
+  <style>#vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:inherit;}.vsw-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}.vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}.vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}.vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'alt-h.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- STRUCTURE SWITCHER (bottom-left) -->
+  <div id="altsw"><span class="altsw-l">Structure</span><a href="alt-a.html" class="altsw-a">a</a><a href="alt-b.html" class="altsw-a">b</a><a href="alt-c.html" class="altsw-a">c</a><a href="alt-d.html" class="altsw-a">d</a><a href="alt-e.html" class="altsw-a">e</a><a href="alt-f.html" class="altsw-a">f</a><a href="alt-g.html" class="altsw-a">g</a><a href="alt-h.html" class="altsw-a">h</a><a href="alt-i.html" class="altsw-a">i</a><a href="alt-j.html" class="altsw-a">j</a></div>
+  <style>#altsw{position:fixed;bottom:24px;left:24px;z-index:99999;display:flex;align-items:center;background:rgba(194,160,82,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(194,160,82,.25);font-family:inherit;}.altsw-l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(194,160,82,.65);padding:0 12px;}.altsw-a{display:inline-block;padding:10px 12px;font-size:10px;letter-spacing:.08em;text-decoration:none;color:rgba(194,160,82,.5);border-left:1px solid rgba(194,160,82,.15);transition:color .2s,background .2s;}.altsw-a:hover{color:#C2A052;background:rgba(194,160,82,.1);}.altsw-a.on{color:#C2A052;background:rgba(194,160,82,.15);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop();document.querySelectorAll('.altsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+</body>
+</html>

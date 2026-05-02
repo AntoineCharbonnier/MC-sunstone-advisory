@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — M&A, Fundraising &amp; Transaction Advisory</title>
+  <meta name="description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris, working globally.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ─── Tokens ─── */
+    :root {
+      --navy:        #0A0F1E;
+      --cream:       #FAFAF7;
+      --gold:        #C2A052;
+      --gold-light:  #FFDF90;
+      --text-dark:   #1C1917;
+      --border-split: 1px solid rgba(194,160,82,.2);
+      --font-serif:  'Fraunces', Georgia, serif;
+      --font-sans:   'Space Grotesk', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: transparent;
+      transition: background .3s, border-bottom .3s;
+    }
+    nav.scrolled {
+      background: rgba(10,15,30,.96);
+      border-bottom: 1px solid rgba(194,160,82,.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-logo .stone { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(250,250,247,.55);
+      padding: 8px 20px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links .sep {
+      color: rgba(194,160,82,.3);
+      font-size: 11px;
+      padding: 0 2px;
+      pointer-events: none;
+    }
+    .nav-cta {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--cream);
+      background: transparent;
+      border: 1px solid rgba(194,160,82,.4);
+      padding: 9px 20px;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .nav-cta:hover {
+      background: rgba(194,160,82,.12);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: rgba(250,250,247,.7);
+      transition: all .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile nav drawer */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(10,15,30,.97);
+      border-bottom: 1px solid rgba(194,160,82,.15);
+      padding: 24px 40px 32px;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(250,250,247,.6);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(194,160,82,.08);
+      transition: color .2s;
+    }
+    .nav-mobile a:last-child { border-bottom: none; margin-top: 12px; color: var(--gold); }
+    .nav-mobile a:hover { color: var(--gold-light); }
+
+    /* ─── SPLIT SECTIONS ─── */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      border-top: var(--border-split);
+    }
+    .half {
+      padding: 100px 72px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .half--dark {
+      background: var(--navy);
+      color: var(--cream);
+      border-right: var(--border-split);
+    }
+    .half--light {
+      background: var(--cream);
+      color: var(--text-dark);
+    }
+
+    /* Labels */
+    .half-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .half--dark .half-label { color: rgba(194,160,82,.6); }
+    .half--light .half-label { color: rgba(194,160,82,.7); }
+    .half-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      opacity: .7;
+    }
+
+    /* Dark half headings — Fraunces italic */
+    .half--dark h1,
+    .half--dark h2,
+    .half--dark h3 {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--cream);
+    }
+    /* Light half headings — Space Grotesk */
+    .half--light h1,
+    .half--light h2,
+    .half--light h3 {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text-dark);
+    }
+
+    .h-hero { font-size: clamp(36px, 4.5vw, 64px); }
+    .h-section { font-size: clamp(28px, 3vw, 46px); margin-bottom: 32px; }
+
+    .half--dark .gold-word { color: var(--gold); }
+    .half--light .gold-word { color: var(--gold); }
+
+    /* Body text */
+    .half--dark p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(250,250,247,.65);
+      max-width: 420px;
+    }
+    .half--light p {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(28,25,23,.65);
+      max-width: 420px;
+    }
+
+    /* Divider line */
+    .h-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      opacity: .4;
+      margin: 32px 0;
+    }
+
+    /* Service list — em-dash style */
+    .service-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+    .service-list li {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.9;
+      padding-left: 20px;
+      position: relative;
+    }
+    .service-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 11px;
+    }
+    .half--dark .service-list li { color: rgba(250,250,247,.55); }
+    .half--light .service-list li { color: rgba(28,25,23,.55); }
+
+    /* Hero specific */
+    #hero.split-section { min-height: 100vh; padding-top: 0; }
+    #hero .half { padding-top: 140px; padding-bottom: 100px; justify-content: flex-end; }
+
+    .hero-tagline {
+      font-size: clamp(36px, 4.5vw, 64px);
+      max-width: 500px;
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 13px !important;
+      letter-spacing: .04em;
+      opacity: .6 !important;
+      max-width: 340px !important;
+    }
+
+    /* Hero vertical bridge text */
+    .hero-connector {
+      position: absolute;
+      bottom: 48px;
+      right: -1px; /* sits on the border */
+      transform: translateX(50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-connector span {
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: .5;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+    .hero-connector::before,
+    .hero-connector::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 32px;
+      background: var(--gold);
+      opacity: .25;
+    }
+
+    /* ─── FULL-WIDTH SECTIONS ─── */
+    .full-section {
+      width: 100%;
+    }
+
+    /* Bio section */
+    #bio {
+      background: var(--navy);
+      padding: 100px 72px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .bio-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(194,160,82,.6);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .bio-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+    }
+    .bio-bridge {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(24px, 2.2vw, 34px);
+      line-height: 1.3;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+    .bio-bridge .gold-em { color: var(--gold); }
+    .bio-name {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: .05em;
+      color: var(--cream);
+      margin-bottom: 20px;
+    }
+    .bio-para {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(250,250,247,.6);
+      margin-bottom: 16px;
+    }
+    .bio-para-small {
+      font-size: 12px !important;
+      color: rgba(250,250,247,.4) !important;
+    }
+    .bio-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .bio-badge {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(250,250,247,.4);
+      border: 1px solid rgba(250,250,247,.12);
+      padding: 5px 12px;
+    }
+    .bio-quote-col {
+      border-left: 2px solid rgba(194,160,82,.3);
+      padding-left: 40px;
+    }
+    .bio-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.9;
+      color: rgba(250,250,247,.7);
+    }
+    .bio-quote-attr {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .1em;
+      color: rgba(194,160,82,.5);
+      margin-top: 32px;
+      text-transform: uppercase;
+    }
+
+    /* Stats section */
+    #stats {
+      background: var(--navy);
+      border-top: 1px solid rgba(194,160,82,.08);
+      padding: 80px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 32px 48px;
+      border-right: 1px solid rgba(194,160,82,.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(48px, 5vw, 72px);
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(250,250,247,.4);
+      margin-top: 12px;
+      display: block;
+    }
+
+    /* Contact section */
+    #contact {
+      background: var(--cream);
+      border-top: var(--border-split);
+      padding: 100px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .contact-left h2 {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(40px, 4vw, 60px);
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .contact-left p {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(28,25,23,.5);
+      line-height: 1.7;
+    }
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .contact-btn {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--cream);
+      background: var(--navy);
+      padding: 14px 32px;
+      transition: background .2s, color .2s;
+    }
+    .contact-btn:hover { background: #1a2744; }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .contact-links a {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(28,25,23,.4);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .contact-links a:hover { color: var(--gold); }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(194,160,82,.08);
+      padding: 28px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(250,250,247,.35);
+    }
+    .footer-logo .stone { color: rgba(194,160,82,.5); }
+    .footer-copy {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .08em;
+      color: rgba(250,250,247,.2);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .split-section {
+        display: block;
+        min-height: unset;
+      }
+      .half {
+        padding: 80px 28px 64px;
+        min-height: 80vh;
+        justify-content: flex-start;
+      }
+      #hero .half { padding-top: 100px; min-height: 70vh; justify-content: flex-end; }
+
+      .hero-connector { display: none; }
+
+      #bio {
+        grid-template-columns: 1fr;
+        padding: 72px 28px;
+        gap: 48px;
+      }
+      .bio-quote-col { padding-left: 24px; }
+
+      #stats {
+        flex-direction: column;
+        padding: 64px 28px;
+        gap: 0;
+      }
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(194,160,82,.1);
+        padding: 32px 0;
+        width: 100%;
+      }
+      .stat-item:last-child { border-bottom: none; }
+
+      #contact {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 72px 28px;
+        gap: 40px;
+      }
+      .contact-right { align-items: flex-start; }
+      .contact-links { align-items: flex-start; }
+
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px 28px;
+        text-align: center;
+      }
+
+      #hero .half--dark .h-hero,
+      #hero .half--light .h-hero {
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .half { padding: 100px 40px 72px; }
+      #bio { padding: 80px 40px; gap: 48px; }
+      #stats { padding: 72px 40px; }
+      #contact { padding: 80px 40px; }
+      footer { padding: 24px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav id="main-nav">
+    <a href="#" class="nav-logo">Sun<span class="stone">stone</span> Advisory</a>
+    <ul class="nav-links">
+      <li><a href="#buy-side">Buy Side</a></li>
+      <li><span class="sep">|</span></li>
+      <li><a href="#sell-side">Sell Side</a></li>
+      <li><span class="sep">|</span></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:marine@sunstoneadvisory.fr" class="nav-cta">Get in touch</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#buy-side">Buy Side</a>
+    <a href="#sell-side">Sell Side</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:marine@sunstoneadvisory.fr">Get in touch</a>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section class="split-section" id="hero">
+    <div class="half half--dark" id="buy-side">
+      <p class="half-label">The Buy Side</p>
+      <h1 class="hero-tagline h-hero">The analytical<br><em>mandate.</em></h1>
+      <p class="hero-sub">Rigorous structuring. Deal logic. The Carlyle years — assessing, negotiating, owning.</p>
+      <div class="hero-connector">
+        <span>Sun · Stone</span>
+      </div>
+    </div>
+    <div class="half half--light" id="sell-side">
+      <p class="half-label">The Sell Side</p>
+      <h1 class="hero-tagline h-hero">The relational<br>outcome.</h1>
+      <p class="hero-sub">Founder accompaniment. Exit preparation. The relationships that close deals.</p>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2 — M&A + Portfolio ─── -->
+  <section class="split-section" id="services-1">
+    <div class="half half--dark">
+      <p class="half-label">M&amp;A Advisory</p>
+      <h2 class="h-section">Structuring the<br><em>deal.</em></h2>
+      <p>Buy-side and sell-side mandates handled with the rigour of a PE investor. Valuation, negotiation, documentation — managed end to end. The Carlyle angle: understanding what the counterpart is really thinking.</p>
+      <div class="h-divider"></div>
+      <ul class="service-list">
+        <li>Process preparation and management</li>
+        <li>Due diligence oversight and review</li>
+        <li>Valuation, structuring and financing</li>
+        <li>Negotiation and documentation</li>
+        <li>Closing</li>
+      </ul>
+    </div>
+    <div class="half half--light">
+      <p class="half-label">Portfolio &amp; Exit Support</p>
+      <h2 class="h-section">Preparing the<br>exit.</h2>
+      <p>For founders and investors who need a partner embedded in their team — not a distant advisor. Value creation, add-on acquisitions, equity story refinement, and exit process management built around the outcome that matters to you.</p>
+      <div class="h-divider"></div>
+      <ul class="service-list">
+        <li>Value creation execution</li>
+        <li>Add-on acquisitions</li>
+        <li>Investor and board interactions</li>
+        <li>Financing &amp; refinancing</li>
+        <li>Equity story and BP refinement</li>
+        <li>Exit preparation and process</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3 — Fundraising ─── -->
+  <section class="split-section" id="services-2">
+    <div class="half half--dark">
+      <p class="half-label">Fundraising Advisory</p>
+      <h2 class="h-section">The IB<br><em>discipline.</em></h2>
+      <p>Structuring the equity story, driving the process, managing investor follow-up — with the rigour of Deutsche Bank deal execution. A fundraising that positions you correctly from the first meeting to the term sheet.</p>
+      <div class="h-divider"></div>
+      <ul class="service-list">
+        <li>Process drive and execution</li>
+        <li>Equity story and materials</li>
+        <li>Q&amp;A preparation and management</li>
+        <li>Investor follow-up and tracking</li>
+        <li>Term sheet and documentation</li>
+      </ul>
+    </div>
+    <div class="half half--light">
+      <p class="half-label">Why it matters</p>
+      <h2 class="h-section">Your capital.<br>Your terms.</h2>
+      <p>Founders raising capital are negotiating with investors who do this every day. Sunstone Advisory puts the same expertise on your side — the perspective of someone who has been in the investor's seat, reading hundreds of equity stories and deciding which ones get funded.</p>
+      <div class="h-divider"></div>
+      <p style="margin-top: 0; font-size: 13px;">No conflicts of interest. No proprietary products. No cross-selling agendas — fully aligned with your objectives.</p>
+    </div>
+  </section>
+
+  <!-- ─── BIO — FULL WIDTH ─── -->
+  <section class="full-section" id="bio">
+    <div>
+      <div class="bio-label">The Founder</div>
+      <div class="bio-bridge">Marine has been on <span class="gold-em">both sides</span><br>of every table.</div>
+      <div class="bio-name">Marine Charbonnier</div>
+      <p class="bio-para">A decade in investment banking and private equity — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle's European Buyout fund. Over a hundred opportunities assessed and 20+ closed.</p>
+      <p class="bio-para bio-para-small">Sunstone Advisory is built on that experience, and the conviction that the best transaction support comes from understanding not only how processes work, but how investors really think.</p>
+      <div class="bio-badges">
+        <span class="bio-badge">Deutsche Bank</span>
+        <span class="bio-badge">Carlyle</span>
+        <span class="bio-badge">Dauphine</span>
+      </div>
+    </div>
+    <div class="bio-quote-col">
+      <blockquote class="bio-quote">
+        Rigorous in execution.<br>
+        Pragmatic in approach.<br>
+        Easy to work with.
+      </blockquote>
+      <p class="bio-quote-attr">Sunstone Advisory · Paris, France</p>
+    </div>
+  </section>
+
+  <!-- ─── STATS — FULL WIDTH ─── -->
+  <section class="full-section" id="stats">
+    <div class="stat-item">
+      <span class="stat-num">20+</span>
+      <span class="stat-label">Transactions closed</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">100+</span>
+      <span class="stat-label">Opportunities assessed</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Service lines</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Sides of the table</span>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT — FULL WIDTH ─── -->
+  <section class="full-section" id="contact">
+    <div class="contact-left">
+      <h2>Let's talk.</h2>
+      <p>Based in Paris, France. Working globally.<br>Reachable in French and English.</p>
+    </div>
+    <div class="contact-right">
+      <a href="mailto:marine@sunstoneadvisory.fr" class="contact-btn">Get in touch</a>
+      <div class="contact-links">
+        <a href="mailto:marine@sunstoneadvisory.fr">marine@sunstoneadvisory.fr</a>
+        <a href="https://linkedin.com/in/marinecharbonnier" target="_blank" rel="noopener">linkedin.com/in/marinecharbonnier</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <span class="footer-logo">Sun<span class="stone">stone</span> Advisory</span>
+    <span class="footer-copy">Paris, France &nbsp;·&nbsp; &copy; 2026</span>
+  </footer>
+
+  <!-- ─── VERSION SWITCHER (bottom-right) ─── -->
+  <div id="vsw"><span class="vsw-l">Version</span><a href="version-a-v2.html" class="vsw-a">A</a><a href="version-b-v2.html" class="vsw-a">B</a><a href="version-c-v1.html" class="vsw-a">C</a><a href="version-d-v1.html" class="vsw-a">D</a><a href="version-c-anim.html" class="vsw-a">D✦</a><a href="version-e.html" class="vsw-a">E</a><a href="version-f.html" class="vsw-a">F</a><a href="version-g.html" class="vsw-a">G</a><a href="version-h.html" class="vsw-a">H</a><a href="version-h.html" class="vsw-a">I</a><a href="version-j.html" class="vsw-a">J</a><a href="version-k.html" class="vsw-a">K</a><a href="version-l.html" class="vsw-a">L</a><a href="version-m.html" class="vsw-a">M</a><a href="version-n.html" class="vsw-a">N</a></div>
+  <style>#vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:inherit;}.vsw-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}.vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}.vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}.vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'alt-g.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- ─── STRUCTURE SWITCHER (bottom-left) ─── -->
+  <div id="altsw"><span class="altsw-l">Structure</span><a href="alt-a.html" class="altsw-a">a</a><a href="alt-b.html" class="altsw-a">b</a><a href="alt-c.html" class="altsw-a">c</a><a href="alt-d.html" class="altsw-a">d</a><a href="alt-e.html" class="altsw-a">e</a><a href="alt-f.html" class="altsw-a">f</a><a href="alt-g.html" class="altsw-a">g</a><a href="alt-h.html" class="altsw-a">h</a><a href="alt-i.html" class="altsw-a">i</a><a href="alt-j.html" class="altsw-a">j</a></div>
+  <style>#altsw{position:fixed;bottom:24px;left:24px;z-index:99999;display:flex;align-items:center;background:rgba(194,160,82,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(194,160,82,.25);font-family:inherit;}.altsw-l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(194,160,82,.65);padding:0 12px;}.altsw-a{display:inline-block;padding:10px 12px;font-size:10px;letter-spacing:.08em;text-decoration:none;color:rgba(194,160,82,.5);border-left:1px solid rgba(194,160,82,.15);transition:color .2s,background .2s;}.altsw-a:hover{color:#C2A052;background:rgba(194,160,82,.1);}.altsw-a.on{color:#C2A052;background:rgba(194,160,82,.15);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop();document.querySelectorAll('.altsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- ─── JS ─── -->
+  <script>
+    (function() {
+      /* Nav scroll state */
+      const nav = document.getElementById('main-nav');
+      const onScroll = function() {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* Hamburger */
+      const btn = document.getElementById('hamburger');
+      const drawer = document.getElementById('nav-mobile');
+      btn.addEventListener('click', function() {
+        const open = drawer.classList.toggle('open');
+        btn.classList.toggle('open', open);
+      });
+
+      /* Close mobile nav on link click */
+      drawer.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          drawer.classList.remove('open');
+          btn.classList.remove('open');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

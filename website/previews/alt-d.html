@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — M&A, Fundraising &amp; Transaction Advisory</title>
+  <meta name="description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris, working globally.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #0A0F1E;
+      --bg-section:  #0F1A2E;
+      --text:        #FAFAF7;
+      --gold:        #C2A052;
+      --gold-bright: #FFDF90;
+      --text-muted:  rgba(250,250,247,.5);
+      --text-dim:    rgba(250,250,247,.3);
+      --divider:     rgba(194,160,82,.15);
+      --border:      rgba(194,160,82,.2);
+      --nav-h:       64px;
+
+      --num-size:    clamp(72px, 14vw, 160px);
+      --label-size:  clamp(10px, 1vw, 13px);
+      --body-size:   clamp(15px, 1.1vw, 17px);
+      --h2-size:     clamp(28px, 3.5vw, 48px);
+      --h3-size:     clamp(20px, 2vw, 28px);
+      --section-pad: clamp(72px, 8vw, 120px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: var(--body-size);
+      font-weight: 300;
+      line-height: 1.75;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Nav ──────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(20px, 5vw, 64px);
+      background: transparent;
+      transition: background .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(10,15,30,.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-color: var(--divider);
+    }
+
+    .nav__logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav__logo span { color: var(--gold); }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: clamp(24px, 3vw, 48px);
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: color .2s;
+    }
+
+    .nav__links a:hover { color: var(--text); }
+
+    .nav__cta {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 9px 20px;
+      transition: background .2s, color .2s;
+    }
+
+    .nav__cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    /* Hamburger */
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .nav__burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: transform .3s, opacity .3s;
+    }
+
+    .nav__burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile nav overlay */
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(10,15,30,.97);
+      backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .nav__mobile.open { display: flex; }
+
+    .nav__mobile a {
+      font-size: clamp(22px, 5vw, 32px);
+      font-weight: 300;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+      transition: color .2s;
+    }
+
+    .nav__mobile a:hover { color: var(--gold); }
+
+    /* ─── Hero — Numbers Lead ──────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 40px) clamp(20px, 5vw, 64px) clamp(60px, 8vw, 100px);
+    }
+
+    .hero__label {
+      font-size: var(--label-size);
+      font-weight: 400;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+
+    .hero__numbers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    /* Vertical dividers between columns */
+    .hero__numbers .num-col:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 1px;
+      height: 100%;
+      background: var(--divider);
+    }
+
+    .num-col {
+      position: relative;
+      padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 56px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .num-col:first-child { padding-left: 0; }
+
+    .num-col__figure {
+      font-size: var(--num-size);
+      font-weight: 700;
+      line-height: .9;
+      color: var(--text);
+      letter-spacing: -.04em;
+    }
+
+    /* The "+" sign in gold */
+    .num-col__figure .plus { color: var(--gold); }
+
+    .num-col__label {
+      font-size: var(--label-size);
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .hero__tagline {
+      margin-top: clamp(56px, 7vw, 96px);
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: .01em;
+      max-width: 640px;
+      padding-left: 0;
+      border-top: 1px solid var(--divider);
+      padding-top: clamp(28px, 3vw, 40px);
+    }
+
+    .hero__tagline em {
+      font-style: normal;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ─── Section Base ─────────────────────────────────────────────────── */
+    section {
+      padding: var(--section-pad) clamp(20px, 5vw, 64px);
+      border-top: 1px solid var(--divider);
+    }
+
+    .section__label {
+      font-size: var(--label-size);
+      font-weight: 400;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: clamp(40px, 5vw, 64px);
+    }
+
+    /* ─── Transition Bridge ────────────────────────────────────────────── */
+    #bridge {
+      background: var(--bg-section);
+      padding: clamp(56px, 7vw, 96px) clamp(20px, 5vw, 64px);
+      border-top: 1px solid var(--divider);
+    }
+
+    .bridge__inner {
+      max-width: 760px;
+    }
+
+    .bridge__intro {
+      font-size: clamp(13px, 1.2vw, 15px);
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .bridge__text {
+      font-size: clamp(20px, 2.5vw, 30px);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .bridge__text strong {
+      font-weight: 700;
+      color: var(--gold-bright);
+    }
+
+    /* ─── Services ─────────────────────────────────────────────────────── */
+    #services { background: var(--bg); }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--divider);
+    }
+
+    .service-card {
+      background: var(--bg);
+      padding: clamp(28px, 3.5vw, 48px) clamp(24px, 3vw, 40px);
+    }
+
+    .service-card__number {
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--divider);
+      /* very subtle ghost number */
+      color: rgba(194,160,82,.12);
+      letter-spacing: -.04em;
+      margin-bottom: 24px;
+    }
+
+    /* Override: primary service gets gold ghost */
+    .service-card--primary .service-card__number {
+      color: rgba(194,160,82,.22);
+    }
+
+    .service-card__title {
+      font-size: clamp(11px, 1vw, 13px);
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .service-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .service-card__list li {
+      font-size: clamp(13px, 1vw, 15px);
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--text-muted);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .service-card__list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    /* ─── Why Sunstone ─────────────────────────────────────────────────── */
+    #why { background: var(--bg-section); }
+
+    .why__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--divider);
+    }
+
+    .why-card {
+      background: var(--bg-section);
+      padding: clamp(28px, 3.5vw, 48px) clamp(24px, 3vw, 40px);
+    }
+
+    /* Featured card — first one carries the 20+ fact */
+    .why-card--featured {
+      background: rgba(194,160,82,.06);
+    }
+
+    .why-card__title {
+      font-size: clamp(13px, 1.1vw, 15px);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .why-card__body {
+      font-size: clamp(13px, 1vw, 15px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    .why-card__stat {
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -.04em;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .why-card__stat .plus { color: var(--gold); }
+
+    /* ─── Founder ──────────────────────────────────────────────────────── */
+    #founder { background: var(--bg); }
+
+    .founder__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
+    }
+
+    .founder__eyebrow {
+      font-size: var(--label-size);
+      font-weight: 400;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    .founder__name {
+      font-size: clamp(20px, 2.2vw, 28px);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: .04em;
+      margin-bottom: 24px;
+    }
+
+    .founder__bio {
+      font-size: clamp(14px, 1.1vw, 16px);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .founder__bio + .founder__bio {
+      font-size: clamp(12px, .9vw, 14px);
+    }
+
+    .founder__badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .founder__badge {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border: 1px solid rgba(250,250,247,.1);
+      padding: 6px 14px;
+    }
+
+    /* Right column — pull quote */
+    .founder__quote-wrap {
+      padding-left: clamp(24px, 3vw, 40px);
+      border-left: 2px solid var(--gold);
+      margin-top: 8px;
+    }
+
+    .founder__quote-label {
+      font-size: var(--label-size);
+      font-weight: 400;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .founder__quote {
+      font-size: clamp(22px, 2.8vw, 36px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--text);
+    }
+
+    .founder__quote span {
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* ─── Contact ──────────────────────────────────────────────────────── */
+    #contact {
+      background: var(--bg-section);
+      border-top: 1px solid var(--divider);
+      padding: var(--section-pad) clamp(20px, 5vw, 64px);
+    }
+
+    .contact__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact__left {}
+
+    .contact__headline {
+      font-size: clamp(32px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .contact__sub {
+      font-size: clamp(13px, 1vw, 15px);
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 400px;
+    }
+
+    .contact__right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    .contact__cta {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 14px 32px;
+      transition: background .2s, color .2s;
+    }
+
+    .contact__cta:hover {
+      background: var(--gold-bright);
+    }
+
+    .contact__details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .contact__details a {
+      font-size: clamp(11px, .9vw, 13px);
+      font-weight: 300;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .contact__details a:hover { color: var(--text-muted); }
+
+    /* ─── Footer ───────────────────────────────────────────────────────── */
+    footer {
+      background: #060A14;
+      padding: 28px clamp(20px, 5vw, 64px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-top: 1px solid var(--divider);
+    }
+
+    .footer__logo {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .footer__logo span { color: var(--gold); opacity: .7; }
+
+    .footer__copy {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .1em;
+      color: var(--text-dim);
+    }
+
+    /* ─── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav__links,
+      .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+
+      /* Hero: stack numbers vertically */
+      .hero__numbers {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__numbers .num-col:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+      }
+
+      .num-col {
+        padding: clamp(24px, 5vw, 36px) 0;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 20px;
+      }
+
+      .num-col:first-child { padding-top: 0; }
+
+      .num-col__figure {
+        font-size: clamp(64px, 18vw, 96px);
+        flex-shrink: 0;
+        width: 45vw;
+      }
+
+      .num-col__label {
+        margin-top: 0;
+      }
+
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .founder__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .contact__right {
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .contact__details { align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .num-col {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .num-col__figure {
+        width: auto;
+        font-size: clamp(72px, 22vw, 110px);
+      }
+    }
+
+    /* ─── Scroll-reveal utility ────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav__logo"><span>SUN</span>STONE ADVISORY</a>
+    <ul class="nav__links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Sunstone</a></li>
+      <li><a href="#founder">Founder</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:marine@sunstoneadvisory.fr" class="nav__cta">Get in touch</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav__mobile" id="mobileNav" role="dialog" aria-modal="true">
+    <a href="#services"   onclick="closeMobile()">Services</a>
+    <a href="#why"        onclick="closeMobile()">Why Sunstone</a>
+    <a href="#founder"    onclick="closeMobile()">Founder</a>
+    <a href="#contact"    onclick="closeMobile()">Contact</a>
+    <a href="mailto:marine@sunstoneadvisory.fr" onclick="closeMobile()">Get in touch</a>
+  </div>
+
+  <!-- HERO — The numbers ARE the headline -->
+  <section id="hero">
+    <p class="hero__label">Sunstone Advisory — Independent M&amp;A Advisory</p>
+
+    <div class="hero__numbers">
+
+      <div class="num-col">
+        <div class="num-col__figure">20<span class="plus">+</span></div>
+        <p class="num-col__label">Closed transactions</p>
+      </div>
+
+      <div class="num-col">
+        <div class="num-col__figure">100<span class="plus">+</span></div>
+        <p class="num-col__label">Assessed mandates</p>
+      </div>
+
+      <div class="num-col">
+        <div class="num-col__figure">15<span class="plus">+</span></div>
+        <p class="num-col__label">Years of experience</p>
+      </div>
+
+    </div>
+
+    <p class="hero__tagline">
+      <em>Advisory for high-stakes transactions</em> — M&amp;A, exits, fundraising and ownership transitions.
+    </p>
+  </section>
+
+  <!-- BRIDGE — the 20+ expands into what it means -->
+  <div id="bridge">
+    <div class="bridge__inner reveal">
+      <p class="bridge__intro">Those 20+ transactions span three mandate types</p>
+      <p class="bridge__text">
+        From large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings and fundraisings — with the perspective of someone who has seen deals <strong>from both sides of the table</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- SERVICES — each backed by the track record -->
+  <section id="services">
+    <p class="section__label">Services</p>
+    <div class="services__grid">
+
+      <div class="service-card service-card--primary reveal">
+        <div class="service-card__number">01</div>
+        <h2 class="service-card__title">M&amp;A Advisory<br>Buy &amp; Sell</h2>
+        <ul class="service-card__list">
+          <li>Process preparation and management</li>
+          <li>Due diligence oversight and review</li>
+          <li>Valuation, structuring and financing</li>
+          <li>Negotiation and documentation</li>
+          <li>Closing</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card__number">02</div>
+        <h2 class="service-card__title">Portfolio Work<br>&amp; Exit Support</h2>
+        <ul class="service-card__list">
+          <li>Value creation execution</li>
+          <li>Add-on acquisitions</li>
+          <li>Investor and board interactions</li>
+          <li>Financing &amp; refinancing</li>
+          <li>Equity story and BP refinement</li>
+          <li>Exit preparation and process</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card__number">03</div>
+        <h2 class="service-card__title">Fundraising<br>Advisory</h2>
+        <ul class="service-card__list">
+          <li>Process drive and execution</li>
+          <li>Equity story and materials</li>
+          <li>Q&amp;A preparation and management</li>
+          <li>Investor follow-up and tracking</li>
+          <li>Term sheet and documentation</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY SUNSTONE — four proof points, each grounded in the numbers -->
+  <section id="why">
+    <p class="section__label">Why Sunstone</p>
+    <div class="why__grid">
+
+      <div class="why-card why-card--featured reveal">
+        <div class="why-card__stat">20<span class="plus">+</span></div>
+        <h3 class="why-card__title">Experienced partner</h3>
+        <p class="why-card__body">20+ transactions closed across M&amp;A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings and fundraisings.</p>
+      </div>
+
+      <div class="why-card reveal reveal-delay-1">
+        <h3 class="why-card__title">A critical sounding board</h3>
+        <p class="why-card__body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions and sharpen investment cases — whether assessing an opportunity or preparing for investor scrutiny.</p>
+      </div>
+
+      <div class="why-card reveal reveal-delay-2">
+        <h3 class="why-card__title">Hands-on approach</h3>
+        <p class="why-card__body">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate handled directly — no layers, no dilution.</p>
+      </div>
+
+      <div class="why-card reveal reveal-delay-3">
+        <h3 class="why-card__title">Independent and fully aligned</h3>
+        <p class="why-card__body">No conflicts of interest, no proprietary products to push, no cross-selling agendas — fully aligned with your objectives.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOUNDER — the experience behind the numbers -->
+  <section id="founder">
+    <div class="founder__inner">
+
+      <div class="reveal">
+        <p class="founder__eyebrow">The experience behind the numbers</p>
+        <h2 class="founder__name">Marine Charbonnier</h2>
+        <p class="founder__bio">A decade in investment banking and private equity — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle's European Buyout fund. Over a hundred opportunities assessed and 20+ closed.</p>
+        <p class="founder__bio">Sunstone Advisory is built on that experience, and the conviction that the best transaction support comes from understanding not only how processes work, but how investors really think.</p>
+        <div class="founder__badges">
+          <span class="founder__badge">Deutsche Bank</span>
+          <span class="founder__badge">Carlyle</span>
+          <span class="founder__badge">Dauphine</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="founder__quote-wrap">
+          <p class="founder__quote-label">Philosophy</p>
+          <blockquote class="founder__quote">
+            Rigorous in execution.
+            <span>Pragmatic in approach.</span>
+            <span>Easy to work with.</span>
+          </blockquote>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact__inner">
+      <div class="contact__left reveal">
+        <h2 class="contact__headline">Let's talk.</h2>
+        <p class="contact__sub">Based in Paris, France. Working globally. Reachable in French and English.</p>
+      </div>
+      <div class="contact__right reveal reveal-delay-2">
+        <a href="mailto:marine@sunstoneadvisory.fr" class="contact__cta">Get in touch</a>
+        <div class="contact__details">
+          <a href="mailto:marine@sunstoneadvisory.fr">marine@sunstoneadvisory.fr</a>
+          <a href="https://linkedin.com/in/marinecharbonnier" target="_blank" rel="noopener">linkedin.com/in/marinecharbonnier</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__logo"><span>SUN</span>STONE ADVISORY</div>
+    <div class="footer__copy">Paris, France · © 2026</div>
+  </footer>
+
+  <!-- Version switcher (bottom-right) -->
+  <div id="vsw"><span class="vsw-l">Version</span><a href="version-a-v2.html" class="vsw-a">A</a><a href="version-b-v2.html" class="vsw-a">B</a><a href="version-c-v1.html" class="vsw-a">C</a><a href="version-d-v1.html" class="vsw-a">D</a><a href="version-c-anim.html" class="vsw-a">D✦</a><a href="version-e.html" class="vsw-a">E</a><a href="version-f.html" class="vsw-a">F</a><a href="version-g.html" class="vsw-a">G</a><a href="version-h.html" class="vsw-a">H</a><a href="version-i.html" class="vsw-a">I</a><a href="version-j.html" class="vsw-a">J</a><a href="version-k.html" class="vsw-a">K</a><a href="version-l.html" class="vsw-a">L</a><a href="version-m.html" class="vsw-a">M</a><a href="version-n.html" class="vsw-a">N</a></div>
+  <style>#vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:inherit;}.vsw-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}.vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}.vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}.vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'alt-d.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- Structure switcher (bottom-left) -->
+  <div id="altsw"><span class="altsw-l">Structure</span><a href="alt-a.html" class="altsw-a">a</a><a href="alt-b.html" class="altsw-a">b</a><a href="alt-c.html" class="altsw-a">c</a><a href="alt-d.html" class="altsw-a">d</a><a href="alt-e.html" class="altsw-a">e</a><a href="alt-f.html" class="altsw-a">f</a><a href="alt-g.html" class="altsw-a">g</a><a href="alt-h.html" class="altsw-a">h</a><a href="alt-i.html" class="altsw-a">i</a><a href="alt-j.html" class="altsw-a">j</a></div>
+  <style>#altsw{position:fixed;bottom:24px;left:24px;z-index:99999;display:flex;align-items:center;background:rgba(194,160,82,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(194,160,82,.25);font-family:inherit;}.altsw-l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(194,160,82,.65);padding:0 12px;}.altsw-a{display:inline-block;padding:10px 12px;font-size:10px;letter-spacing:.08em;text-decoration:none;color:rgba(194,160,82,.5);border-left:1px solid rgba(194,160,82,.15);transition:color .2s,background .2s;}.altsw-a:hover{color:#C2A052;background:rgba(194,160,82,.1);}.altsw-a.on{color:#C2A052;background:rgba(194,160,82,.15);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop();document.querySelectorAll('.altsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* Nav scroll behaviour */
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      /* Hamburger */
+      const burger = document.getElementById('burger');
+      const mobileNav = document.getElementById('mobileNav');
+
+      burger.addEventListener('click', function () {
+        const isOpen = mobileNav.classList.toggle('open');
+        burger.classList.toggle('open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      window.closeMobile = function () {
+        mobileNav.classList.remove('open');
+        burger.classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      /* Scroll-reveal via IntersectionObserver */
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        /* Fallback: no JS animation, just show everything */
+        revealEls.forEach(function (el) { el.classList.add('visible'); });
+      }
+    })();
+  </script>
+
+</body>
+</html>

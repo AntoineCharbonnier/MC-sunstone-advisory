@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — M&A, Fundraising &amp; Transaction Advisory</title>
+  <meta name="description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris, working globally.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #FAFAF7;
+      --bg-alt:      #F5F0EA;
+      --primary:     #1C1917;
+      --gold:        #C2A052;
+      --gold-faint:  rgba(194,160,82,.18);
+      --gold-rule:   rgba(194,160,82,.30);
+      --border:      #E5DDD5;
+      --text-body:   #3A3530;
+      --text-muted:  #7A7168;
+      --text-dim:    #A09888;
+
+      --mono: 'IBM Plex Mono', 'Courier New', monospace;
+      --sans: 'IBM Plex Sans', system-ui, sans-serif;
+
+      --page-max:    960px;
+      --page-pad:    clamp(20px, 5vw, 64px);
+
+      --col-label:   200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--primary);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── LAYOUT SHELL ─────────────────────────────────────────── */
+    .doc {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 var(--page-pad);
+    }
+
+    /* ─── STICKY NAV ───────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav__inner {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 var(--page-pad);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav__logo {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav__logo span {
+      color: var(--gold);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0 14px;
+      transition: color .15s;
+    }
+
+    .nav__links a:hover { color: var(--gold); }
+
+    .nav__cta {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 6px 14px;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+
+    .nav__cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    /* Hamburger */
+    .nav__burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__burger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--primary);
+      transition: transform .2s, opacity .2s;
+    }
+
+    .nav__burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .nav__mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 16px var(--page-pad) 20px;
+    }
+
+    .nav__mobile.open { display: flex; }
+
+    .nav__mobile a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav__mobile a:last-child { border-bottom: none; }
+
+    /* ─── CONFIDENTIAL HEADER ──────────────────────────────────── */
+    .doc-header {
+      border-bottom: 2px solid var(--primary);
+      padding: 28px 0 20px;
+    }
+
+    .doc-header__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .doc-header__confidential {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+    }
+
+    .doc-header__meta {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+      color: var(--text-dim);
+      text-align: right;
+    }
+
+    .doc-header__title {
+      margin-top: 16px;
+      font-family: var(--mono);
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .doc-header__title span {
+      color: var(--gold);
+    }
+
+    .doc-header__sub {
+      margin-top: 6px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ─── SECTION BLOCK ────────────────────────────────────────── */
+    .block {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .block--alt {
+      background: var(--bg-alt);
+    }
+
+    .block__inner {
+      padding: 32px 0;
+    }
+
+    /* ─── SECTION LABEL ────────────────────────────────────────── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold-rule);
+    }
+
+    /* ─── TABLE ROWS (term sheet key-value) ────────────────────── */
+    .ts-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .ts-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ts-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .ts-table td {
+      padding: 10px 0;
+      vertical-align: top;
+    }
+
+    .ts-table td:first-child {
+      width: var(--col-label);
+      min-width: 120px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: 9px;
+      color: var(--text-muted);
+      padding-right: 20px;
+      white-space: nowrap;
+    }
+
+    .ts-table td:last-child {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 400;
+      font-family: var(--sans);
+    }
+
+    /* ─── PARTIES SECTION ──────────────────────────────────────── */
+    .parties-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .party-col {
+      padding: 20px 24px 20px 0;
+    }
+
+    .party-col + .party-col {
+      padding-left: 24px;
+      border-left: 1px solid var(--border);
+    }
+
+    .party-col__role {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .party-col__name {
+      font-family: var(--mono);
+      font-size: clamp(14px, 1.8vw, 18px);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .party-col__name span {
+      color: var(--gold);
+    }
+
+    .party-col__detail {
+      margin-top: 6px;
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── MANDATE SECTION ──────────────────────────────────────── */
+    .mandate-statement {
+      padding: 28px 0 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mandate-statement__prefix {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .mandate-statement__tagline {
+      font-family: var(--mono);
+      font-size: clamp(16px, 2.2vw, 24px);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--primary);
+      letter-spacing: .01em;
+    }
+
+    .mandate-statement__tagline em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .mandate-statement__sub {
+      margin-top: 12px;
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ─── TRANSACTION TYPES ────────────────────────────────────── */
+    .tx-types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .tx-type {
+      padding: 24px 20px;
+      border-right: 1px solid var(--border);
+    }
+
+    .tx-type:last-child { border-right: none; }
+
+    .tx-type__code {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .tx-type__title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .tx-type__items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .tx-type__items li {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--text-body);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .tx-type__items li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-family: var(--mono);
+    }
+
+    /* ─── ADVISOR PROFILE ──────────────────────────────────────── */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .profile-col {
+      padding-right: 32px;
+    }
+
+    .profile-col + .profile-col {
+      padding-left: 32px;
+      padding-right: 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .profile-name {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile-bio {
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-body);
+    }
+
+    .profile-bio + .profile-bio {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .profile-badges {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+    }
+
+    .profile-quote {
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .profile-quote p {
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--primary);
+    }
+
+    .profile-quote p + p {
+      margin-top: 4px;
+    }
+
+    /* ─── TRACK RECORD ─────────────────────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .stat-cell {
+      padding: 28px 24px;
+      border-right: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .stat-cell:last-child { border-right: none; }
+
+    .stat-cell__figure {
+      font-family: var(--mono);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      letter-spacing: -.01em;
+    }
+
+    .stat-cell__figure sup {
+      font-size: .45em;
+      color: var(--gold);
+      vertical-align: super;
+    }
+
+    .stat-cell__label {
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 8.5px;
+      font-weight: 400;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .stat-cell__note {
+      margin-top: 6px;
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    /* ─── COMPETITIVE POSITIONING ──────────────────────────────── */
+    .positioning-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .pos-item {
+      padding: 20px 24px 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pos-item:nth-child(even) {
+      padding-left: 24px;
+      padding-right: 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .pos-item:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .pos-item__code {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .pos-item__title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .pos-item__copy {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* ─── NEXT STEPS / ENGAGEMENT ──────────────────────────────── */
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: start;
+    }
+
+    .engagement-left {
+      padding-right: 40px;
+    }
+
+    .engagement-left h2 {
+      font-family: var(--mono);
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .engagement-left p {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .engagement-right {
+      border-left: 1px solid var(--border);
+      padding-left: 40px;
+    }
+
+    .contact-line {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .contact-line:last-child { border-bottom: none; }
+
+    .contact-line__key {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      min-width: 80px;
+    }
+
+    .contact-line__val {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--primary);
+    }
+
+    .contact-line__val a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-line__val a:hover {
+      color: var(--gold);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 24px;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 12px 28px;
+      text-decoration: none;
+      transition: background .15s, color .15s;
+    }
+
+    .cta-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--bg);
+    }
+
+    /* ─── APPROACH BLOCK ───────────────────────────────────────── */
+    .approach-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .approach-cell {
+      padding: 28px 28px;
+      border-right: 1px solid var(--border);
+    }
+
+    .approach-cell:last-child { border-right: none; }
+
+    .approach-cell__ref {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    .approach-cell__brand {
+      font-family: var(--mono);
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .approach-cell__brand span {
+      color: var(--gold);
+    }
+
+    .approach-cell__attrs {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .approach-cell__attrs span {
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .approach-cell__attrs span::after {
+      content: '·';
+      margin-left: 8px;
+      color: var(--gold);
+    }
+
+    .approach-cell__attrs span:last-child::after { content: ''; }
+
+    /* ─── FOOTER ───────────────────────────────────────────────── */
+    .footer {
+      border-top: 2px solid var(--primary);
+    }
+
+    .footer__main {
+      padding: 24px 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__logo {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .footer__logo span { color: var(--gold); }
+
+    .footer__right {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+      color: var(--text-muted);
+    }
+
+    .footer__disclaimer {
+      border-top: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .footer__disclaimer p {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .06em;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* ─── HORIZONTAL RULE ACCENT ───────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--gold-rule);
+      margin: 0;
+    }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      :root { --col-label: 100px; }
+
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+
+      .parties-grid,
+      .profile-grid,
+      .engagement-grid,
+      .approach-split,
+      .positioning-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tx-types {
+        grid-template-columns: 1fr;
+      }
+
+      .tx-type {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .tx-type:last-child { border-bottom: none; }
+
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat-cell:last-child { border-bottom: none; }
+
+      .party-col + .party-col {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+      }
+
+      .profile-col {
+        padding-right: 0;
+      }
+
+      .profile-col + .profile-col {
+        padding-left: 0;
+        padding-right: 0;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-top: 24px;
+        margin-top: 8px;
+      }
+
+      .engagement-left {
+        padding-right: 0;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .engagement-right {
+        border-left: none;
+        padding-left: 0;
+        padding-top: 28px;
+      }
+
+      .approach-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .approach-cell:last-child { border-bottom: none; }
+
+      .pos-item {
+        border-bottom: 1px solid var(--border);
+        padding: 18px 0;
+      }
+
+      .pos-item:nth-child(even) {
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .pos-item:nth-last-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .pos-item:last-child {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── STICKY NAV ─────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">SUN<span>STONE</span> ADVISORY</a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#positioning">Why Sunstone</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="mailto:marine@sunstoneadvisory.fr" class="nav__cta">Get in Touch</a>
+      <button class="nav__burger" id="navBurger" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile" role="navigation">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#positioning">Why Sunstone</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:marine@sunstoneadvisory.fr" style="color: var(--gold); margin-top: 4px;">Get in Touch</a>
+    </div>
+  </nav>
+
+  <!-- ── DOCUMENT SHELL ─────────────────────────────────────── -->
+  <main class="doc">
+
+    <!-- CONFIDENTIAL HEADER -->
+    <header class="doc-header">
+      <div class="doc-header__top">
+        <div class="doc-header__confidential">Confidential</div>
+        <div class="doc-header__meta">
+          Advisory Engagement Overview<br>
+          Paris, France &nbsp;·&nbsp; May 2026
+        </div>
+      </div>
+      <h1 class="doc-header__title"><span>SUN</span>STONE ADVISORY<br>Advisory Engagement Overview</h1>
+      <p class="doc-header__sub">Independent Transaction Advisory &nbsp;·&nbsp; M&amp;A · Exits · Fundraising</p>
+    </header>
+
+    <!-- 01 — PARTIES -->
+    <section id="about" class="block">
+      <div class="block__inner">
+        <div class="section-label">01 &nbsp;/&nbsp; Parties</div>
+        <div class="parties-grid">
+          <div class="party-col">
+            <div class="party-col__role">Advisor</div>
+            <div class="party-col__name">SUN<span>STONE</span> ADVISORY</div>
+            <div class="party-col__detail">
+              Independent transaction advisory firm.<br>
+              Based in Paris, France. Working globally.
+            </div>
+          </div>
+          <div class="party-col">
+            <div class="party-col__role">Founded By</div>
+            <div class="party-col__name">Marine Charbonnier</div>
+            <div class="party-col__detail">
+              Former Senior Associate, Carlyle European Buyout<br>
+              Former Associate, Deutsche Bank Investment Banking
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 28px;">
+          <table class="ts-table">
+            <tr>
+              <td>Jurisdiction</td>
+              <td>Paris, France</td>
+            </tr>
+            <tr>
+              <td>Coverage</td>
+              <td>Global — working in French and English</td>
+            </tr>
+            <tr>
+              <td>Mandate scope</td>
+              <td>Buy-side and sell-side M&amp;A, portfolio work &amp; exit support, fundraising advisory</td>
+            </tr>
+            <tr>
+              <td>Contact</td>
+              <td><a href="mailto:marine@sunstoneadvisory.fr" style="color:var(--primary);font-family:var(--mono);">marine@sunstoneadvisory.fr</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — MANDATE -->
+    <section class="block block--alt">
+      <div class="block__inner">
+        <div class="section-label">02 &nbsp;/&nbsp; Mandate Description</div>
+
+        <div class="mandate-statement">
+          <div class="mandate-statement__prefix">Formal Mandate Statement</div>
+          <p class="mandate-statement__tagline">
+            Advisory for <em>high-stakes transactions</em> —<br>
+            M&amp;A, exits, fundraising<br>
+            and ownership transitions.
+          </p>
+          <p class="mandate-statement__sub">With the perspective of an investor.</p>
+        </div>
+
+        <div style="margin-top: 28px;">
+          <table class="ts-table">
+            <tr>
+              <td>Mandate type</td>
+              <td>Transaction advisory — full process mandate or specific workstream</td>
+            </tr>
+            <tr>
+              <td>Client profile</td>
+              <td>Companies, founders, family businesses and investors in situations where ownership, leadership and capital intersect</td>
+            </tr>
+            <tr>
+              <td>Involvement</td>
+              <td>Embedded transaction partner — hands-on, direct counterpart to management throughout the process. No layers, no dilution.</td>
+            </tr>
+            <tr>
+              <td>Conflicts</td>
+              <td>None — independent, no proprietary products, no cross-selling agenda</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — TRANSACTION TYPES / SERVICES -->
+    <section id="services" class="block">
+      <div class="block__inner">
+        <div class="section-label">03 &nbsp;/&nbsp; Transaction Types &amp; Services</div>
+        <div class="tx-types">
+          <div class="tx-type">
+            <div class="tx-type__code">TYPE — 01</div>
+            <div class="tx-type__title">M&amp;A Advisory<br>(Buy &amp; Sell)</div>
+            <ul class="tx-type__items">
+              <li>Process preparation and management</li>
+              <li>Due diligence oversight and review</li>
+              <li>Valuation, structuring and financing</li>
+              <li>Negotiation and documentation</li>
+              <li>Closing</li>
+            </ul>
+          </div>
+          <div class="tx-type">
+            <div class="tx-type__code">TYPE — 02</div>
+            <div class="tx-type__title">Portfolio Work<br>&amp; Exit Support</div>
+            <ul class="tx-type__items">
+              <li>Value creation execution</li>
+              <li>Add-on acquisitions</li>
+              <li>Investor and board interactions</li>
+              <li>Financing &amp; refinancing</li>
+              <li>Equity story and BP refinement</li>
+              <li>Exit preparation and process</li>
+            </ul>
+          </div>
+          <div class="tx-type">
+            <div class="tx-type__code">TYPE — 03</div>
+            <div class="tx-type__title">Fundraising<br>Advisory</div>
+            <ul class="tx-type__items">
+              <li>Process drive and execution</li>
+              <li>Equity story and materials</li>
+              <li>Q&amp;A preparation and management</li>
+              <li>Investor follow-up and tracking</li>
+              <li>Term sheet and documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — ADVISOR PROFILE -->
+    <section class="block block--alt">
+      <div class="block__inner">
+        <div class="section-label">04 &nbsp;/&nbsp; Advisor Profile — Relevant Experience</div>
+        <div class="profile-grid">
+          <div class="profile-col">
+            <div class="profile-name">Marine Charbonnier</div>
+            <p class="profile-bio">A decade in investment banking and private equity — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle's European Buyout fund. Over a hundred opportunities assessed and 20+ closed.</p>
+            <p class="profile-bio">Sunstone Advisory is built on that experience, and the conviction that the best transaction support comes from understanding not only how processes work, but how investors really think.</p>
+            <div class="profile-badges">
+              <span class="badge">Deutsche Bank</span>
+              <span class="badge">Carlyle</span>
+              <span class="badge">Dauphine</span>
+            </div>
+          </div>
+          <div class="profile-col">
+            <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 8px 0 8px 0;">
+              <div class="profile-quote">
+                <p>Rigorous in execution.</p>
+                <p>Pragmatic in approach.</p>
+                <p>Easy to work with.</p>
+              </div>
+              <div style="margin-top: 28px;">
+                <table class="ts-table">
+                  <tr>
+                    <td>IB experience</td>
+                    <td>Deutsche Bank — structuring and executing deals</td>
+                  </tr>
+                  <tr>
+                    <td>PE experience</td>
+                    <td>Carlyle European Buyout — investor, deal execution, ownership</td>
+                  </tr>
+                  <tr>
+                    <td>Education</td>
+                    <td>Université Paris Dauphine</td>
+                  </tr>
+                  <tr>
+                    <td>Languages</td>
+                    <td>French &amp; English</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — TRACK RECORD -->
+    <section class="block">
+      <div class="block__inner">
+        <div class="section-label">05 &nbsp;/&nbsp; Track Record Summary</div>
+        <div class="stats-row">
+          <div class="stat-cell">
+            <div class="stat-cell__figure">20<sup>+</sup></div>
+            <div class="stat-cell__label">Transactions<br>Closed</div>
+            <div class="stat-cell__note">M&amp;A advisory and private equity — large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings and fundraisings.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-cell__figure">100<sup>+</sup></div>
+            <div class="stat-cell__label">Opportunities<br>Assessed</div>
+            <div class="stat-cell__note">Full opportunity review including IB and PE perspectives — deal origination through to negotiation and closure.</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-cell__figure">10<sup>+</sup></div>
+            <div class="stat-cell__label">Years of<br>Experience</div>
+            <div class="stat-cell__note">Combining investment banking execution at Deutsche Bank with private equity deal ownership at Carlyle European Buyout.</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <table class="ts-table">
+            <tr>
+              <td>Coverage</td>
+              <td>Buy-side, sell-side, add-ons, financings, fundraisings, portfolio work</td>
+            </tr>
+            <tr>
+              <td>Size range</td>
+              <td>Mid-market to large-cap — European and global mandates</td>
+            </tr>
+            <tr>
+              <td>Perspective</td>
+              <td>Dual IB + PE — advisor and investor, across the full deal lifecycle</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — APPROACH -->
+    <section class="block block--alt">
+      <div class="block__inner">
+        <div class="section-label">06 &nbsp;/&nbsp; Approach &amp; Operating Model</div>
+        <div class="approach-split">
+          <div class="approach-cell">
+            <div class="approach-cell__ref">STONE</div>
+            <div class="approach-cell__brand">SUN<span>STONE</span></div>
+            <div class="approach-cell__attrs">
+              <span>Rigorous</span>
+              <span>Structured</span>
+              <span>Reliable</span>
+            </div>
+          </div>
+          <div class="approach-cell">
+            <div class="approach-cell__ref">SUN</div>
+            <div class="approach-cell__brand"><span>SUN</span>STONE</div>
+            <div class="approach-cell__attrs">
+              <span>Clear</span>
+              <span>Pragmatic</span>
+              <span>Easy to work with</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <table class="ts-table">
+            <tr>
+              <td>Model</td>
+              <td>Direct engagement — no junior delegation, no account management layer. Every mandate handled personally.</td>
+            </tr>
+            <tr>
+              <td>Integration</td>
+              <td>Embedded in your team as a direct counterpart to management, acting with full mandate visibility throughout the process.</td>
+            </tr>
+            <tr>
+              <td>Independence</td>
+              <td>No conflicts of interest, no proprietary products to push, no cross-selling agenda — fully aligned with your objectives.</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — COMPETITIVE POSITIONING -->
+    <section id="positioning" class="block">
+      <div class="block__inner">
+        <div class="section-label">07 &nbsp;/&nbsp; Competitive Positioning — Value Proposition</div>
+        <div class="positioning-grid">
+          <div class="pos-item">
+            <div class="pos-item__code">VP — 01</div>
+            <div class="pos-item__title">Experienced Partner</div>
+            <p class="pos-item__copy">20+ transactions closed across M&amp;A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings and fundraisings.</p>
+          </div>
+          <div class="pos-item">
+            <div class="pos-item__code">VP — 02</div>
+            <div class="pos-item__title">A Critical Sounding Board</div>
+            <p class="pos-item__copy">Beyond process and deliverables, we challenge analysis, pressure-test assumptions and sharpen investment cases — whether assessing an opportunity or preparing for investor scrutiny.</p>
+          </div>
+          <div class="pos-item">
+            <div class="pos-item__code">VP — 03</div>
+            <div class="pos-item__title">Hands-On Approach</div>
+            <p class="pos-item__copy">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate handled directly — no layers, no dilution.</p>
+          </div>
+          <div class="pos-item">
+            <div class="pos-item__code">VP — 04</div>
+            <div class="pos-item__title">Independent and Fully Aligned</div>
+            <p class="pos-item__copy">No conflicts of interest, no proprietary products to push, no cross-selling agendas — fully aligned with your objectives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 — NEXT STEPS / CONTACT -->
+    <section id="contact" class="block block--alt">
+      <div class="block__inner">
+        <div class="section-label">08 &nbsp;/&nbsp; Next Steps — Initiate Engagement</div>
+        <div class="engagement-grid">
+          <div class="engagement-left">
+            <h2>Let's talk.</h2>
+            <p>To discuss a potential transaction or mandate, contact Sunstone Advisory directly. Initial conversations are strictly confidential and without obligation.</p>
+            <p style="margin-top: 10px;">Based in Paris, France. Working globally. Reachable in French and English.</p>
+            <a href="mailto:marine@sunstoneadvisory.fr" class="cta-btn">Get in Touch</a>
+          </div>
+          <div class="engagement-right">
+            <div class="contact-line">
+              <span class="contact-line__key">Contact</span>
+              <span class="contact-line__val">Marine Charbonnier</span>
+            </div>
+            <div class="contact-line">
+              <span class="contact-line__key">Email</span>
+              <span class="contact-line__val"><a href="mailto:marine@sunstoneadvisory.fr">marine@sunstoneadvisory.fr</a></span>
+            </div>
+            <div class="contact-line">
+              <span class="contact-line__key">LinkedIn</span>
+              <span class="contact-line__val"><a href="https://linkedin.com/in/marinecharbonnier" target="_blank" rel="noopener">linkedin.com/in/marinecharbonnier</a></span>
+            </div>
+            <div class="contact-line">
+              <span class="contact-line__key">Location</span>
+              <span class="contact-line__val">Paris, France</span>
+            </div>
+            <div class="contact-line">
+              <span class="contact-line__key">Languages</span>
+              <span class="contact-line__val">French &amp; English</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="doc">
+      <div class="footer__main">
+        <div class="footer__logo">SUN<span>STONE</span> ADVISORY</div>
+        <div class="footer__right">Paris, France &nbsp;·&nbsp; &copy; 2026</div>
+      </div>
+      <div class="footer__disclaimer">
+        <p>This document is not an offer of services. All information contained herein is provided for indicative purposes only and is subject to change without notice. Sunstone Advisory is an independent advisory firm. Confidential — not for distribution.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── VERSION SWITCHER (bottom-right) ────────────────────── -->
+  <div id="vsw"><span class="vsw-l">Version</span><a href="version-a-v2.html" class="vsw-a">A</a><a href="version-b-v2.html" class="vsw-a">B</a><a href="version-c-v1.html" class="vsw-a">C</a><a href="version-d-v1.html" class="vsw-a">D</a><a href="version-c-anim.html" class="vsw-a">D✦</a><a href="version-e.html" class="vsw-a">E</a><a href="version-f.html" class="vsw-a">F</a><a href="version-g.html" class="vsw-a">G</a><a href="version-h.html" class="vsw-a">H</a><a href="version-i.html" class="vsw-a">I</a><a href="version-j.html" class="vsw-a">J</a><a href="version-k.html" class="vsw-a">K</a><a href="version-l.html" class="vsw-a">L</a><a href="version-m.html" class="vsw-a">M</a><a href="version-n.html" class="vsw-a">N</a></div>
+  <style>#vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:inherit;}.vsw-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}.vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}.vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}.vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'alt-b.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- ── STRUCTURE SWITCHER (bottom-left) ───────────────────── -->
+  <div id="altsw"><span class="altsw-l">Structure</span><a href="alt-a.html" class="altsw-a">a</a><a href="alt-b.html" class="altsw-a">b</a><a href="alt-c.html" class="altsw-a">c</a><a href="alt-d.html" class="altsw-a">d</a><a href="alt-e.html" class="altsw-a">e</a><a href="alt-f.html" class="altsw-a">f</a><a href="alt-g.html" class="altsw-a">g</a><a href="alt-h.html" class="altsw-a">h</a><a href="alt-i.html" class="altsw-a">i</a><a href="alt-j.html" class="altsw-a">j</a></div>
+  <style>#altsw{position:fixed;bottom:24px;left:24px;z-index:99999;display:flex;align-items:center;background:rgba(194,160,82,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(194,160,82,.25);font-family:inherit;}.altsw-l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(194,160,82,.65);padding:0 12px;}.altsw-a{display:inline-block;padding:10px 12px;font-size:10px;letter-spacing:.08em;text-decoration:none;color:rgba(194,160,82,.5);border-left:1px solid rgba(194,160,82,.15);transition:color .2s,background .2s;}.altsw-a:hover{color:#C2A052;background:rgba(194,160,82,.1);}.altsw-a.on{color:#C2A052;background:rgba(194,160,82,.15);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop();document.querySelectorAll('.altsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- ── HAMBURGER SCRIPT ────────────────────────────────────── -->
+  <script>
+    (function() {
+      const burger = document.getElementById('navBurger');
+      const mobile = document.getElementById('navMobile');
+      burger.addEventListener('click', function() {
+        const isOpen = mobile.classList.toggle('open');
+        burger.classList.toggle('open', isOpen);
+        burger.setAttribute('aria-expanded', isOpen);
+      });
+      mobile.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobile.classList.remove('open');
+          burger.classList.remove('open');
+          burger.setAttribute('aria-expanded', false);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marine Charbonnier — Sunstone Advisory</title>
+  <meta name="description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris, working globally.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #FAFAF7;
+      --bg-section:   #F0EBE3;
+      --text:         #1C1917;
+      --text-mid:     #4A4540;
+      --text-gray:    #8A847D;
+      --gold:         #C2A052;
+      --gold-light:   #D4B878;
+      --border:       #E4DDD0;
+      --navy:         #0F1A2E;
+      --white:        #FAFAF7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: clamp(15px, 1.1vw, 18px);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ─── Nav ───────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 72px);
+      height: 64px;
+      transition: background 0.35s ease, box-shadow 0.35s ease, border-bottom-color 0.35s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(250, 250, 247, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 1px 24px rgba(28, 25, 23, 0.06);
+    }
+
+    .nav-logo {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--bg);
+      background: var(--text);
+      padding: 10px 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--gold); }
+
+    /* Hamburger */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 32px clamp(24px, 5vw, 48px);
+      z-index: 999;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 64px clamp(24px, 5vw, 72px) 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grain texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 60% 40% at 50% 50%, rgba(194, 160, 82, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(52px, 8vw, 120px);
+      line-height: 1.05;
+      color: var(--gold);
+      letter-spacing: -0.01em;
+      margin-bottom: 0;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 1s ease 0.4s forwards;
+    }
+
+    /* Monogram circle placeholder — shown when there's no photo */
+    .hero-monogram {
+      width: clamp(80px, 10vw, 120px);
+      height: clamp(80px, 10vw, 120px);
+      border: 1px solid rgba(194, 160, 82, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 48px auto 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.9s forwards;
+    }
+
+    .hero-monogram span {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.5vw, 32px);
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.2s forwards;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out 1.8s infinite;
+    }
+
+    .hero-scroll-label {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+
+    /* ─── Section shared ────────────────────────────────────────────── */
+    section {
+      padding: clamp(72px, 8vw, 120px) clamp(24px, 5vw, 72px);
+    }
+
+    .section-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 40px;
+    }
+
+    /* ─── Who She Is ────────────────────────────────────────────────── */
+    .who {
+      border-top: 1px solid var(--border);
+    }
+
+    .who-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
+    }
+
+    .who-left {
+      padding-top: 8px;
+    }
+
+    .who-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(22px, 2.5vw, 32px);
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .who-title {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .who-body p {
+      font-size: clamp(16px, 1.3vw, 20px);
+      line-height: 1.8;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    .who-body p + p {
+      margin-top: 24px;
+    }
+
+    .who-institution-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .badge {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+    }
+
+    /* ─── The Moment / Why she founded ─────────────────────────────── */
+    .founding {
+      background: var(--bg-section);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .founding-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .founding-quote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(22px, 2.8vw, 40px);
+      line-height: 1.45;
+      color: var(--text);
+      margin-bottom: 40px;
+    }
+
+    .founding-quote em {
+      color: var(--gold);
+      font-style: inherit;
+    }
+
+    .founding-body {
+      font-size: clamp(15px, 1.1vw, 17px);
+      line-height: 1.85;
+      color: var(--text-mid);
+      font-weight: 300;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ─── Services ──────────────────────────────────────────────────── */
+    .services {
+      border-top: 1px solid var(--border);
+    }
+
+    .services-intro {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(18px, 1.8vw, 26px);
+      line-height: 1.55;
+      color: var(--text-mid);
+      max-width: 640px;
+      margin-bottom: 64px;
+      font-weight: 400;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .service-card {
+      background: var(--bg);
+      padding: clamp(28px, 3vw, 44px);
+    }
+
+    .service-card-title {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-list {
+      list-style: none;
+    }
+
+    .service-list li {
+      font-size: clamp(13px, 1vw, 15px);
+      line-height: 1.7;
+      color: var(--text-mid);
+      padding: 5px 0;
+      font-weight: 300;
+    }
+
+    .service-list li::before {
+      content: '—';
+      color: var(--gold);
+      margin-right: 10px;
+    }
+
+    /* ─── Proof / Stats ─────────────────────────────────────────────── */
+    .proof {
+      background: var(--navy);
+      border-top: 1px solid rgba(194, 160, 82, 0.15);
+    }
+
+    .proof .section-label {
+      color: rgba(194, 160, 82, 0.6);
+    }
+
+    .proof-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+    }
+
+    .proof-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .stat-item {}
+
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(52px, 6vw, 88px);
+      line-height: 1;
+      color: var(--gold);
+      font-weight: 400;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 247, 0.45);
+      margin-top: 8px;
+      display: block;
+    }
+
+    .proof-text {
+      color: rgba(250, 250, 247, 0.7);
+    }
+
+    .proof-text p {
+      font-size: clamp(15px, 1.3vw, 19px);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .proof-text p:last-child { margin-bottom: 0; }
+
+    /* ─── Why Work With Me ──────────────────────────────────────────── */
+    .why {
+      border-top: 1px solid var(--border);
+    }
+
+    .why-intro {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(18px, 1.8vw, 26px);
+      line-height: 1.55;
+      color: var(--text-mid);
+      max-width: 580px;
+      margin-bottom: 64px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .why-card {
+      padding: clamp(28px, 3vw, 44px);
+      border-right: 1px solid var(--border);
+    }
+
+    .why-card:last-child { border-right: none; }
+
+    .why-card-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 11px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+      font-style: italic;
+    }
+
+    .why-card-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(16px, 1.4vw, 22px);
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .why-card-body {
+      font-size: clamp(13px, 0.95vw, 15px);
+      line-height: 1.8;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    /* ─── Contact ───────────────────────────────────────────────────── */
+    .contact {
+      background: var(--navy);
+      border-top: 1px solid rgba(194, 160, 82, 0.15);
+    }
+
+    .contact-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .contact-left {}
+
+    .contact-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(36px, 5vw, 72px);
+      line-height: 1.1;
+      color: #FAFAF7;
+      margin-bottom: 20px;
+    }
+
+    .contact-sub {
+      font-size: clamp(13px, 1vw, 15px);
+      color: rgba(250, 250, 247, 0.5);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-cta {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--navy);
+      background: var(--gold);
+      padding: 14px 32px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .contact-cta:hover { background: var(--gold-light); }
+
+    .contact-details {
+      text-align: right;
+    }
+
+    .contact-details a {
+      display: block;
+      font-size: 12px;
+      color: rgba(250, 250, 247, 0.4);
+      text-decoration: none;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .contact-details a:hover { color: var(--gold); }
+
+    /* ─── Footer ────────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 28px clamp(24px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 247, 0.4);
+    }
+
+    .footer-logo span { color: rgba(194, 160, 82, 0.6); }
+
+    .footer-right {
+      font-size: 11px;
+      color: rgba(250, 250, 247, 0.25);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Animations ────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
+    }
+
+    /* Scroll-triggered reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─── Responsive ────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .why-card {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .why-card:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-cta { display: none; }
+
+      .nav-burger { display: flex; }
+
+      .who-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .proof-stats {
+        flex-direction: row;
+        gap: 40px;
+      }
+
+      .contact-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .contact-right {
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .contact-details { text-align: left; }
+
+      footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .proof-stats {
+        flex-direction: column;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ─────────────────────────────────────────────────────────── -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Sun<span>stone</span> Advisory</a>
+
+    <ul class="nav-links">
+      <li><a href="#who">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Marine</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="mailto:marine@sunstoneadvisory.fr" class="nav-cta">Get in touch</a>
+
+    <button class="nav-burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#who">About</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why Marine</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:marine@sunstoneadvisory.fr">marine@sunstoneadvisory.fr</a>
+  </div>
+
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <p class="hero-eyebrow">Sunstone Advisory</p>
+    <h1 class="hero-name">Marine<br>Charbonnier</h1>
+    <div class="hero-monogram">
+      <span>MC</span>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-label">Scroll</span>
+    </div>
+  </section>
+
+
+  <!-- ── Who She Is ────────────────────────────────────────────────────── -->
+  <section class="who" id="who">
+    <div class="section-inner">
+      <p class="section-label reveal">Independent M&amp;A Advisor</p>
+      <div class="who-content">
+        <div class="who-left reveal reveal-delay-1">
+          <h2 class="who-name">Marine<br>Charbonnier</h2>
+          <p class="who-title">Founder</p>
+          <div class="who-institution-badges" style="margin-top: 32px;">
+            <span class="badge">Deutsche Bank</span>
+            <span class="badge">Carlyle</span>
+            <span class="badge">Dauphine</span>
+          </div>
+        </div>
+        <div class="who-body reveal reveal-delay-2">
+          <p>A decade in investment banking and private equity — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle's European Buyout fund. Over a hundred opportunities assessed and 20+ closed.</p>
+          <p>Most advisors have seen deals from one side of the table — as banker or investor. Marine has worked both sides, which means understanding not only how processes are run, but how the people across the table actually think.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── The Moment ────────────────────────────────────────────────────── -->
+  <section class="founding" id="founding">
+    <div class="section-inner">
+      <div class="founding-inner">
+        <p class="section-label reveal" style="text-align: center;">Why Sunstone</p>
+        <blockquote class="founding-quote reveal reveal-delay-1">
+          "The best transaction support comes from understanding not only how processes work, but how <em>investors really think.</em>"
+        </blockquote>
+        <p class="founding-body reveal reveal-delay-2">Sunstone Advisory is built on that conviction. Founded to bring both sides of the table — the banker's discipline and the investor's perspective — to founders, boards and sponsors navigating the moments that change ownership, capital structure and direction.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Services ──────────────────────────────────────────────────────── -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <p class="section-label reveal">What I do</p>
+      <p class="services-intro reveal reveal-delay-1">Three areas of engagement — each a direct extension of the experience built across Deutsche Bank and Carlyle.</p>
+      <div class="services-grid reveal reveal-delay-2">
+
+        <div class="service-card">
+          <h3 class="service-card-title">M&amp;A Advisory<br>(Buy &amp; Sell)</h3>
+          <ul class="service-list">
+            <li>Process preparation and management</li>
+            <li>Due diligence oversight and review</li>
+            <li>Valuation, structuring and financing</li>
+            <li>Negotiation and documentation</li>
+            <li>Closing</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-card-title">Portfolio Work<br>&amp; Exit Support</h3>
+          <ul class="service-list">
+            <li>Value creation execution</li>
+            <li>Add-on acquisitions</li>
+            <li>Investor and board interactions</li>
+            <li>Financing &amp; refinancing</li>
+            <li>Equity story and BP refinement</li>
+            <li>Exit preparation and process</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-card-title">Fundraising<br>Advisory</h3>
+          <ul class="service-list">
+            <li>Process drive and execution</li>
+            <li>Equity story and materials</li>
+            <li>Q&amp;A preparation and management</li>
+            <li>Investor follow-up and tracking</li>
+            <li>Term sheet and documentation</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Proof ─────────────────────────────────────────────────────────── -->
+  <section class="proof" id="proof">
+    <div class="section-inner">
+      <p class="section-label reveal">Track record</p>
+      <div class="proof-content">
+        <div class="proof-stats">
+          <div class="stat-item reveal reveal-delay-1">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Transactions closed</span>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">Opportunities assessed</span>
+          </div>
+        </div>
+        <div class="proof-text reveal reveal-delay-1">
+          <p>20+ transactions closed alongside founders, boards, and sponsors — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings and fundraisings.</p>
+          <p>Every mandate handled directly. No layers, no dilution. A transaction partner embedded in your team, acting as a direct counterpart to management throughout the process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Why Work With Me ──────────────────────────────────────────────── -->
+  <section class="why" id="why">
+    <div class="section-inner">
+      <p class="section-label reveal">Why work with me</p>
+      <p class="why-intro reveal reveal-delay-1">Not a firm. A partner. Here is what that means in practice.</p>
+      <div class="why-grid">
+
+        <div class="why-card reveal">
+          <span class="why-card-number">i.</span>
+          <h3 class="why-card-title">Both sides of the table</h3>
+          <p class="why-card-body">Years spent structuring deals at Deutsche Bank, then sitting on the other side at Carlyle — assessing, negotiating, owning and selling. That dual vantage point is rare and consequential.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-1">
+          <span class="why-card-number">ii.</span>
+          <h3 class="why-card-title">A critical sounding board</h3>
+          <p class="why-card-body">Beyond process and deliverables, I challenge analysis, pressure-test assumptions and sharpen investment cases — whether assessing an opportunity or preparing for investor scrutiny.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-2">
+          <span class="why-card-number">iii.</span>
+          <h3 class="why-card-title">Fully independent, fully aligned</h3>
+          <p class="why-card-body">No conflicts of interest, no proprietary products to push, no cross-selling agendas. Independent and fully aligned with your objectives — nothing else.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Contact ───────────────────────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <h2 class="contact-heading">Let's speak.</h2>
+        <p class="contact-sub">Based in Paris, France. Working globally. Reachable in French and English.</p>
+      </div>
+      <div class="contact-right reveal reveal-delay-1">
+        <a href="mailto:marine@sunstoneadvisory.fr" class="contact-cta">Get in touch</a>
+        <div class="contact-details">
+          <a href="mailto:marine@sunstoneadvisory.fr">marine@sunstoneadvisory.fr</a>
+          <a href="https://linkedin.com/in/marinecharbonnier" target="_blank" rel="noopener">linkedin.com/in/marinecharbonnier</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── Footer ────────────────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-logo">Sun<span>stone</span> Advisory</span>
+    <span class="footer-right">Paris, France &middot; &copy; 2026</span>
+  </footer>
+
+
+  <!-- ── Scripts ───────────────────────────────────────────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* Nav scroll behaviour */
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Hamburger */
+    const burger = document.getElementById('burger');
+    const navMobile = document.getElementById('nav-mobile');
+    burger.addEventListener('click', () => {
+      const open = navMobile.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+
+    /* Close mobile nav on link click */
+    navMobile.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navMobile.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* Scroll-triggered reveals */
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('visible'));
+    }
+  })();
+  </script>
+
+
+  <!-- ── Version Switcher (bottom-right) ──────────────────────────────── -->
+  <div id="vsw"><span class="vsw-l">Version</span><a href="version-a-v2.html" class="vsw-a">A</a><a href="version-b-v2.html" class="vsw-a">B</a><a href="version-c-v1.html" class="vsw-a">C</a><a href="version-d-v1.html" class="vsw-a">D</a><a href="version-c-anim.html" class="vsw-a">D✦</a><a href="version-e.html" class="vsw-a">E</a><a href="version-f.html" class="vsw-a">F</a><a href="version-g.html" class="vsw-a">G</a><a href="version-h.html" class="vsw-a">H</a><a href="version-i.html" class="vsw-a">I</a><a href="version-j.html" class="vsw-a">J</a><a href="version-k.html" class="vsw-a">K</a><a href="version-l.html" class="vsw-a">L</a><a href="version-m.html" class="vsw-a">M</a><a href="version-n.html" class="vsw-a">N</a></div>
+  <style>#vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:inherit;}.vsw-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}.vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}.vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}.vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'alt-a.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- ── Structure Switcher (bottom-left) ─────────────────────────────── -->
+  <div id="altsw"><span class="altsw-l">Structure</span><a href="alt-a.html" class="altsw-a">a</a><a href="alt-b.html" class="altsw-a">b</a><a href="alt-c.html" class="altsw-a">c</a><a href="alt-d.html" class="altsw-a">d</a><a href="alt-e.html" class="altsw-a">e</a><a href="alt-f.html" class="altsw-a">f</a><a href="alt-g.html" class="altsw-a">g</a><a href="alt-h.html" class="altsw-a">h</a><a href="alt-i.html" class="altsw-a">i</a><a href="alt-j.html" class="altsw-a">j</a></div>
+  <style>#altsw{position:fixed;bottom:24px;left:24px;z-index:99999;display:flex;align-items:center;background:rgba(194,160,82,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(194,160,82,.25);font-family:inherit;}.altsw-l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(194,160,82,.65);padding:0 12px;}.altsw-a{display:inline-block;padding:10px 12px;font-size:10px;letter-spacing:.08em;text-decoration:none;color:rgba(194,160,82,.5);border-left:1px solid rgba(194,160,82,.15);transition:color .2s,background .2s;}.altsw-a:hover{color:#C2A052;background:rgba(194,160,82,.1);}.altsw-a.on{color:#C2A052;background:rgba(194,160,82,.15);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop();document.querySelectorAll('.altsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+</body>
+</html>

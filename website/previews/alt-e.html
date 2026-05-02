@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — M&A, Fundraising &amp; Transaction Advisory</title>
+  <meta name="description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris, working globally.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #FAFAF7;
+      --text: #1C1917;
+      --text-mid: #4A4540;
+      --text-muted: #8A7A6A;
+      --rule: #C2A052;
+      --rule-light: #D9C99A;
+      --rule-faint: #E8E0D4;
+      --pull-bg: #F0EBE3;
+      --section-label: #8A7A6A;
+      --col-gap: 2.5rem;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────────── */
+
+    .page-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .page-wrap--wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── MASTHEAD ────────────────────────────────────────────── */
+
+    .masthead {
+      padding: 2.5rem 0 0;
+      text-align: center;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .masthead__eyebrow {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .masthead__name {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.05;
+    }
+
+    .masthead__tagline {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(12px, 1.2vw, 15px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      margin-top: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .masthead__rule {
+      width: 60px;
+      height: 2px;
+      background: var(--rule);
+      margin: 0 auto 1.25rem;
+    }
+
+    /* ── DATE BAR ────────────────────────────────────────────── */
+
+    .datebar {
+      border-top: 1px solid var(--text);
+      border-bottom: 1px solid var(--text);
+      padding: 0.45rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .datebar__left {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--text-mid);
+    }
+
+    .datebar__right {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .datebar__divider {
+      color: var(--rule);
+      margin: 0 0.4rem;
+      font-weight: 400;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────── */
+
+    .edition-nav {
+      border-bottom: 1px solid var(--rule-faint);
+      padding: 0.55rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .edition-nav__item {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      padding: 0.2rem 1rem 0.2rem 0;
+      margin-right: 1rem;
+      border-right: 1px solid var(--rule-faint);
+      transition: color 0.15s;
+    }
+
+    .edition-nav__item:last-child {
+      border-right: none;
+      margin-left: auto;
+      padding-right: 0;
+      color: var(--rule);
+    }
+
+    .edition-nav__item:hover {
+      color: var(--text);
+    }
+
+    /* ── SECTION LABEL ───────────────────────────────────────── */
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-label__text {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--section-label);
+    }
+
+    .section-label__line {
+      flex: 1;
+      height: 1px;
+      background: var(--rule-faint);
+    }
+
+    /* ── THREE-COLUMN GRID ───────────────────────────────────── */
+
+    .tri-grid {
+      display: grid;
+      grid-template-columns: 5fr 3fr 2.5fr;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      margin-top: 2rem;
+    }
+
+    .tri-col {
+      padding: 1.75rem 0;
+    }
+
+    .tri-col + .tri-col {
+      padding-left: var(--col-gap);
+      border-left: 1px solid var(--rule-faint);
+      margin-left: 0;
+    }
+
+    /* pad right for middle col */
+    .tri-col:nth-child(2) {
+      padding-right: var(--col-gap);
+    }
+
+    .tri-col__running-head {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rule);
+      border-bottom: 1px solid var(--rule-faint);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .tri-col__title {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 0.9rem;
+    }
+
+    .tri-col__body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+
+    .tri-col__body p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* ── SERVICES WITHIN FIRST COLUMN ───────────────────────── */
+
+    .service-block {
+      margin-top: 1.5rem;
+    }
+
+    .service-block + .service-block {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--rule-faint);
+    }
+
+    .service-block__name {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-block__list {
+      list-style: none;
+    }
+
+    .service-block__list li {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-mid);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .service-block__list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rule);
+      font-weight: 400;
+    }
+
+    /* ── TRACK RECORD ────────────────────────────────────────── */
+
+    .stat-block {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.4rem;
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid var(--rule-faint);
+    }
+
+    .stat-block:last-of-type {
+      border-bottom: none;
+    }
+
+    .stat-block__number {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-block__label {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rule);
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-block__desc {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    /* ── ADVISOR COLUMN ──────────────────────────────────────── */
+
+    .advisor-name {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .advisor-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rule);
+      margin-bottom: 1rem;
+    }
+
+    .advisor-bio {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text-mid);
+    }
+
+    .advisor-bio p + p {
+      margin-top: 0.7rem;
+    }
+
+    .logo-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .logo-badge {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--rule-faint);
+      padding: 3px 8px;
+    }
+
+    /* ── PULL QUOTE ──────────────────────────────────────────── */
+
+    .pull-quote {
+      background: var(--pull-bg);
+      border-top: 2px solid var(--rule);
+      border-bottom: 1px solid var(--rule-faint);
+      padding: 2.5rem 0;
+      margin-top: 0;
+    }
+
+    .pull-quote__inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .pull-quote__text {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(18px, 2.4vw, 28px);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .pull-quote__attribution {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rule);
+      margin-top: 1.2rem;
+    }
+
+    /* ── ANALYSIS SECTION ────────────────────────────────────── */
+
+    .section {
+      padding: 2.25rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section--analysis {
+      background: var(--bg);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--col-gap);
+      margin-top: 1.5rem;
+    }
+
+    .analysis-card {
+      padding: 1.5rem;
+      border: 1px solid var(--rule-faint);
+      border-top: 2px solid var(--rule);
+    }
+
+    .analysis-card__heading {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .analysis-card__body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+
+    /* ── APPROACH STRIP ──────────────────────────────────────── */
+
+    .approach-strip {
+      background: #1C1917;
+      padding: 2.5rem 0;
+      border-top: 2px solid var(--rule);
+    }
+
+    .approach-strip__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--col-gap);
+    }
+
+    .approach-card {
+      padding: 1.75rem;
+      border: 1px solid rgba(194, 160, 82, 0.2);
+      border-top: 2px solid var(--rule);
+    }
+
+    .approach-card__eyebrow {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(194, 160, 82, 0.6);
+      margin-bottom: 0.75rem;
+    }
+
+    .approach-card__title {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #FAFAF7;
+      margin-bottom: 0.75rem;
+    }
+
+    .approach-card__title span {
+      color: #C2A052;
+    }
+
+    .approach-card__descriptors {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(250, 250, 247, 0.55);
+    }
+
+    /* ── CONTACT SECTION ─────────────────────────────────────── */
+
+    .contact-section {
+      border-top: 2px solid var(--rule);
+      padding: 2.25rem 0 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-running-head {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--rule);
+      border-bottom: 1px solid var(--rule-faint);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .contact-heading {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: clamp(22px, 2.8vw, 36px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-subtext {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .contact-right {
+      text-align: right;
+    }
+
+    .contact-cta {
+      display: inline-block;
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FAFAF7;
+      background: #1C1917;
+      text-decoration: none;
+      padding: 0.75rem 1.75rem;
+      border: 1px solid #1C1917;
+      transition: background 0.2s, color 0.2s;
+      margin-bottom: 1.1rem;
+    }
+
+    .contact-cta:hover {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .contact-details {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .contact-details a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-details a:hover {
+      color: var(--rule);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+
+    .footer {
+      background: #1C1917;
+      padding: 1.25rem 0;
+      border-top: 2px solid var(--rule);
+    }
+
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer__logo {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 247, 0.7);
+    }
+
+    .footer__logo span {
+      color: var(--rule);
+    }
+
+    .footer__meta {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 11px;
+      color: rgba(250, 250, 247, 0.35);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── UTILITY ─────────────────────────────────────────────── */
+
+    .gold {
+      color: var(--rule);
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+
+    @media (max-width: 1023px) {
+      .tri-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .tri-col:nth-child(3) {
+        grid-column: 1 / -1;
+        border-left: none;
+        border-top: 1px solid var(--rule-faint);
+        padding-left: 0;
+        padding-top: 1.5rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --col-gap: 1.5rem;
+      }
+
+      .page-wrap,
+      .page-wrap--wide {
+        padding: 0 1.25rem;
+      }
+
+      .tri-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tri-col + .tri-col {
+        border-left: none;
+        border-top: 1px solid var(--rule-faint);
+        padding-left: 0;
+        padding-top: 1.5rem;
+      }
+
+      .tri-col:nth-child(2) {
+        padding-right: 0;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .approach-strip__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-right {
+        text-align: left;
+      }
+
+      .datebar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+      }
+
+      .edition-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .edition-nav__item {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0.5rem;
+      }
+    }
+
+    @media (max-width: 319px) {
+      .masthead__name {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MASTHEAD
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="page-wrap">
+    <header class="masthead">
+      <p class="masthead__eyebrow">Independent M&amp;A Advisory &nbsp;·&nbsp; Est. 2024 &nbsp;·&nbsp; Paris</p>
+      <h1 class="masthead__name">Sunstone Advisory</h1>
+      <p class="masthead__tagline">Vol. I &nbsp;—&nbsp; Advisory for high-stakes transactions</p>
+      <div class="masthead__rule"></div>
+    </header>
+
+    <!-- DATE / STATS BAR -->
+    <div class="datebar">
+      <span class="datebar__left">
+        Founded 2024
+        <span class="datebar__divider">·</span>
+        20+ Transactions Closed
+        <span class="datebar__divider">·</span>
+        100+ Opportunities Assessed
+        <span class="datebar__divider">·</span>
+        15+ Years Combined Experience
+      </span>
+      <span class="datebar__right">
+        <a href="mailto:marine@sunstoneadvisory.fr" style="color: inherit; text-decoration: none;">marine@sunstoneadvisory.fr</a>
+      </span>
+    </div>
+
+    <!-- EDITION NAV -->
+    <nav class="edition-nav" aria-label="Section navigation">
+      <a href="#mandate" class="edition-nav__item">The Mandate</a>
+      <a href="#analysis" class="edition-nav__item">Analysis</a>
+      <a href="#profile" class="edition-nav__item">Profile</a>
+      <a href="#markets" class="edition-nav__item">Markets</a>
+      <a href="#contact" class="edition-nav__item">Contact</a>
+    </nav>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       THREE-COLUMN GRID
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="page-wrap">
+    <div class="tri-grid" id="mandate">
+
+      <!-- COLUMN 1 — THE MANDATE (SERVICES) -->
+      <div class="tri-col">
+        <p class="tri-col__running-head">The Mandate</p>
+        <h2 class="tri-col__title">Advisory at the intersection of capital, ownership and leadership.</h2>
+        <div class="tri-col__body">
+          <p>Sunstone Advisory works with companies, founders, family businesses and investors in situations where ownership, leadership and capital intersect — providing the structured, independent support that high-stakes transactions demand.</p>
+          <p>With the perspective of an investor.</p>
+        </div>
+
+        <div class="service-block">
+          <p class="service-block__name">M&amp;A Advisory (Buy &amp; Sell)</p>
+          <ul class="service-block__list">
+            <li>Process preparation and management</li>
+            <li>Due diligence oversight and review</li>
+            <li>Valuation, structuring and financing</li>
+            <li>Negotiation and documentation</li>
+            <li>Closing</li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <p class="service-block__name">Portfolio Work &amp; Exit Support</p>
+          <ul class="service-block__list">
+            <li>Value creation execution</li>
+            <li>Add-on acquisitions</li>
+            <li>Investor and board interactions</li>
+            <li>Financing &amp; refinancing</li>
+            <li>Equity story and BP refinement</li>
+            <li>Exit preparation and process</li>
+          </ul>
+        </div>
+
+        <div class="service-block">
+          <p class="service-block__name">Fundraising Advisory</p>
+          <ul class="service-block__list">
+            <li>Process drive and execution</li>
+            <li>Equity story and materials</li>
+            <li>Q&amp;A preparation and management</li>
+            <li>Investor follow-up and tracking</li>
+            <li>Term sheet and documentation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- COLUMN 2 — TRACK RECORD -->
+      <div class="tri-col" id="markets">
+        <p class="tri-col__running-head">Track Record</p>
+
+        <div class="stat-block">
+          <span class="stat-block__number">20+</span>
+          <span class="stat-block__label">Transactions Closed</span>
+          <span class="stat-block__desc">Across M&A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings and fundraisings.</span>
+        </div>
+
+        <div class="stat-block">
+          <span class="stat-block__number">100+</span>
+          <span class="stat-block__label">Opportunities Assessed</span>
+          <span class="stat-block__desc">Deal flow evaluated across sectors, geographies and ownership structures, building a pattern recognition that no single-side advisory can replicate.</span>
+        </div>
+
+        <div class="stat-block">
+          <span class="stat-block__number">15+</span>
+          <span class="stat-block__label">Years of Experience</span>
+          <span class="stat-block__desc">Investment banking at Deutsche Bank and private equity at Carlyle's European Buyout fund — structuring, executing, owning and selling companies.</span>
+        </div>
+
+        <div class="stat-block" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
+          <span class="stat-block__label">Coverage</span>
+          <span class="stat-block__desc">Based in Paris, France. Working globally. Reachable in French and English.</span>
+        </div>
+      </div>
+
+      <!-- COLUMN 3 — THE ADVISOR -->
+      <div class="tri-col" id="profile">
+        <p class="tri-col__running-head">The Advisor</p>
+
+        <p class="advisor-name">Marine Charbonnier</p>
+        <p class="advisor-title">Founder &amp; Managing Director</p>
+
+        <div class="advisor-bio">
+          <p>A decade in investment banking and private equity — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle's European Buyout fund.</p>
+          <p>Over a hundred opportunities assessed and 20+ closed.</p>
+          <p>Sunstone Advisory is built on that experience, and the conviction that the best transaction support comes from understanding not only how processes work, but how investors really think.</p>
+        </div>
+
+        <div class="logo-badges">
+          <span class="logo-badge">Deutsche Bank</span>
+          <span class="logo-badge">Carlyle</span>
+          <span class="logo-badge">Dauphine</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       APPROACH STRIP (dark)
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="approach-strip" id="approach">
+    <div class="page-wrap">
+      <div class="approach-strip__inner">
+        <div class="approach-card">
+          <p class="approach-card__eyebrow">Our Approach — Stone</p>
+          <p class="approach-card__title"><span>SUN</span>STONE</p>
+          <p class="approach-card__descriptors">Rigorous.&nbsp; Structured.&nbsp; Reliable.</p>
+        </div>
+        <div class="approach-card">
+          <p class="approach-card__eyebrow">Our Approach — Sun</p>
+          <p class="approach-card__title"><span>SUN</span></p>
+          <p class="approach-card__descriptors">Clear.&nbsp; Pragmatic.&nbsp; Easy to work with.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       PULL QUOTE
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="pull-quote">
+    <div class="pull-quote__inner">
+      <p class="pull-quote__text">"Most advisors have seen deals from one side of the table — as banker or investor. Sunstone Advisory brings both perspectives, combining years of deal execution with private equity experience in assessing, negotiating, owning and selling companies."</p>
+      <p class="pull-quote__attribution">Founding Principle &nbsp;—&nbsp; Sunstone Advisory</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ANALYSIS — WHY SUNSTONE
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="page-wrap">
+    <section class="section section--analysis" id="analysis">
+      <div class="section-label">
+        <span class="section-label__text">Analysis</span>
+        <span class="section-label__line"></span>
+      </div>
+
+      <div class="two-col">
+        <div class="analysis-card">
+          <h3 class="analysis-card__heading">Experienced partner</h3>
+          <p class="analysis-card__body">20+ transactions closed across M&A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings and fundraisings. Not a firm building its track record on your transaction.</p>
+        </div>
+
+        <div class="analysis-card">
+          <h3 class="analysis-card__heading">A critical sounding board</h3>
+          <p class="analysis-card__body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions and sharpen investment cases — whether assessing an opportunity or preparing for investor scrutiny. This is where the PE perspective becomes structural.</p>
+        </div>
+
+        <div class="analysis-card">
+          <h3 class="analysis-card__heading">Hands-on approach</h3>
+          <p class="analysis-card__body">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate handled directly — no layers, no dilution. The partner you meet at the first call is the partner on your process through closing.</p>
+        </div>
+
+        <div class="analysis-card">
+          <h3 class="analysis-card__heading">Independent and fully aligned</h3>
+          <p class="analysis-card__body">No conflicts of interest, no proprietary products to push, no cross-selling agendas — fully aligned with your objectives. Independence is not a marketing claim here; it is the structural reality of a single-principal advisory firm.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="page-wrap">
+    <section class="contact-section" id="contact">
+      <div class="contact-running-head">Contact</div>
+      <div class="contact-grid">
+        <div>
+          <h2 class="contact-heading">Let's talk.</h2>
+          <p class="contact-subtext">Based in Paris, France. Working globally.<br>Reachable in French and English.</p>
+        </div>
+        <div class="contact-right">
+          <a href="mailto:marine@sunstoneadvisory.fr" class="contact-cta">Get in Touch</a>
+          <div class="contact-details">
+            <a href="mailto:marine@sunstoneadvisory.fr">marine@sunstoneadvisory.fr</a><br>
+            <a href="https://linkedin.com/in/marinecharbonnier" target="_blank" rel="noopener">linkedin.com/in/marinecharbonnier</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="page-wrap">
+      <div class="footer__inner">
+        <span class="footer__logo">Sun<span>stone</span> Advisory</span>
+        <span class="footer__meta">Paris, France &nbsp;·&nbsp; &copy; 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════
+       VERSION SWITCHER (bottom-right)
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="vsw"><span class="vsw-l">Version</span><a href="version-a-v2.html" class="vsw-a">A</a><a href="version-b-v2.html" class="vsw-a">B</a><a href="version-c-v1.html" class="vsw-a">C</a><a href="version-d-v1.html" class="vsw-a">D</a><a href="version-c-anim.html" class="vsw-a">D✦</a><a href="version-e.html" class="vsw-a">E</a><a href="version-f.html" class="vsw-a">F</a><a href="version-g.html" class="vsw-a">G</a><a href="version-h.html" class="vsw-a">H</a><a href="version-i.html" class="vsw-a">I</a><a href="version-j.html" class="vsw-a">J</a><a href="version-k.html" class="vsw-a">K</a><a href="version-l.html" class="vsw-a">L</a><a href="version-m.html" class="vsw-a">M</a><a href="version-n.html" class="vsw-a">N</a></div>
+  <style>#vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:inherit;}.vsw-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}.vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}.vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}.vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'alt-e.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STRUCTURE SWITCHER (bottom-left)
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="altsw"><span class="altsw-l">Structure</span><a href="alt-a.html" class="altsw-a">a</a><a href="alt-b.html" class="altsw-a">b</a><a href="alt-c.html" class="altsw-a">c</a><a href="alt-d.html" class="altsw-a">d</a><a href="alt-e.html" class="altsw-a">e</a><a href="alt-f.html" class="altsw-a">f</a><a href="alt-g.html" class="altsw-a">g</a><a href="alt-h.html" class="altsw-a">h</a><a href="alt-i.html" class="altsw-a">i</a><a href="alt-j.html" class="altsw-a">j</a></div>
+  <style>#altsw{position:fixed;bottom:24px;left:24px;z-index:99999;display:flex;align-items:center;background:rgba(194,160,82,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(194,160,82,.25);font-family:inherit;}.altsw-l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(194,160,82,.65);padding:0 12px;}.altsw-a{display:inline-block;padding:10px 12px;font-size:10px;letter-spacing:.08em;text-decoration:none;color:rgba(194,160,82,.5);border-left:1px solid rgba(194,160,82,.15);transition:color .2s,background .2s;}.altsw-a:hover{color:#C2A052;background:rgba(194,160,82,.1);}.altsw-a.on{color:#C2A052;background:rgba(194,160,82,.15);}</style>
+  <script>(function(){var p=window.location.pathname.split('/').pop();document.querySelectorAll('.altsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+</body>
+</html>
