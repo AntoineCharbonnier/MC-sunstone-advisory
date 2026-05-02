@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21.05 21.05'%3E%3Cpolyline fill='%231c1917' points='9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97'/%3E%3Cpolygon fill='%23c2a052' fill-rule='evenodd' points='11.22 0 21.05 9.79 21.05 0 11.22 0'/%3E%3C/svg%3E">
-  <title>Sunstone Advisory — Version G · Space Grotesk</title>
+  <title>Sunstone Advisory — Version K · Cabinet Grotesk</title>
   <meta name="description" content="Advisory for high-stakes transactions — M&A, exits, fundraising and ownership transitions. Independent advisory based in Paris.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400,300&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -24,7 +24,7 @@
       --border: #E4DDD0;
       --border-gold-faint: rgba(200,160,96,0.12);
       --ease: cubic-bezier(0.33,1,0.68,1);
-      --font: 'Space Grotesk', sans-serif;
+      --font: 'Cabinet Grotesk', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,8 +40,7 @@
     }
 
     body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 999; pointer-events: none;
+      content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none;
       opacity: 0.03;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-size: 300px 300px;
@@ -51,42 +50,39 @@
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
 
-    h1, h2, h3 { font-family: var(--font); font-weight: 300; }
-
+    /* Cabinet Grotesk — wide proportions, weight 500 for display */
     h1 {
-      font-size: clamp(52px, 8vw, 100px);
-      line-height: 0.97;
-      letter-spacing: -0.02em;
+      font-family: var(--font);
+      font-weight: 500;
+      font-size: clamp(44px, 6.5vw, 88px);
+      line-height: 0.93;
+      letter-spacing: -0.03em;
     }
 
     h2 {
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.1;
-      letter-spacing: -0.015em;
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: clamp(26px, 3.5vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
     }
 
-    /* Reveal */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* Nav */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 18px 48px;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease);
-    }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease); }
     .nav.scrolled-sun { background: rgba(250,250,247,0.92); backdrop-filter: blur(16px); padding: 12px 48px; border-bottom: 1px solid var(--border); }
     .nav.on-stone { background: rgba(10,15,30,0.92); backdrop-filter: blur(16px); padding: 12px 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
 
     .wordmark { display: flex; align-items: center; gap: 10px; }
     .wordmark svg .wm-square { transition: fill 0.4s; }
-    .wm-text { font-family: var(--font); font-size: 12.5px; font-weight: 400; letter-spacing: 0.05em; color: var(--navy); transition: color 0.4s; }
-    .wm-sun { font-weight: 500; }
-    .wm-stone { font-weight: 400; }
+    /* Cabinet Grotesk wordmark — uppercase, weight 500 */
+    .wm-text { font-family: var(--font); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); transition: color 0.4s; }
+    .wm-sun { font-weight: 800; }
+    .wm-stone { font-weight: 500; }
     .wm-advisory { font-weight: 300; color: var(--text-gray); transition: color 0.4s; }
     .nav.on-stone .wm-text { color: var(--cream); }
     .nav.on-stone .wm-advisory { color: rgba(245,240,232,0.55); }
@@ -94,12 +90,11 @@
     .nav.on-stone .wm-triangle { fill: var(--gold-digital) !important; }
 
     .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a { font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-gray); transition: color 0.3s; }
+    .nav-links a { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-gray); transition: color 0.3s; }
     .nav-links a:hover { color: var(--navy); }
     .nav.on-stone .nav-links a { color: rgba(245,240,232,0.6); }
     .nav.on-stone .nav-links a:hover { color: var(--cream); }
-
-    .nav-cta { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 20px; background: var(--navy); color: var(--cream) !important; border: 1px solid var(--navy); transition: background 0.3s, color 0.3s, border-color 0.3s !important; }
+    .nav-cta { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 20px; background: var(--navy); color: var(--cream) !important; border: 1px solid var(--navy); transition: background 0.3s, color 0.3s, border-color 0.3s !important; }
     .nav-cta:hover { background: transparent; color: var(--navy) !important; }
     .nav.on-stone .nav-cta { background: transparent; color: var(--gold-digital) !important; border-color: var(--gold-digital); }
     .nav.on-stone .nav-cta:hover { background: var(--gold-digital); color: var(--navy) !important; }
@@ -113,41 +108,37 @@
 
     .mobile-menu { display: none; position: fixed; inset: 0; z-index: 105; background: var(--navy-deep); flex-direction: column; align-items: center; justify-content: center; gap: 40px; opacity: 0; transform: translateY(-16px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); pointer-events: none; }
     .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); pointer-events: all; }
-    .mobile-menu a { font-family: var(--font); font-size: 26px; font-weight: 300; letter-spacing: 0.02em; color: var(--cream); transition: color 0.3s; }
+    .mobile-menu a { font-family: var(--font); font-size: 28px; font-weight: 400; letter-spacing: -0.01em; color: var(--cream); transition: color 0.3s; }
     .mobile-menu a:hover { color: var(--gold-digital); }
-    .mobile-menu .mobile-cta { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 32px; border: 1px solid var(--gold-digital); color: var(--gold-digital); margin-top: 16px; }
+    .mobile-menu .mobile-cta { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 32px; border: 1px solid var(--gold-digital); color: var(--gold-digital); margin-top: 16px; }
 
-    /* Layout */
     section { position: relative; }
     .section-inner { max-width: 1200px; margin: 0 auto; padding: 120px 48px; }
     .stone-bg { background-color: var(--navy-deep); }
 
-    .section-label { font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 28px; }
+    /* Weight 700 labels — Cabinet Grotesk's strong point */
+    .section-label { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 28px; }
     .stone-bg .section-label { color: var(--gold-digital); }
 
-    /* Hero */
     #hero { background-color: var(--warm-white); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
     #hero::before, #hero::after { content: ''; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--border); opacity: 0.4; }
     #hero::before { left: 15%; }
     #hero::after { right: 15%; }
 
     .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; width: 100%; position: relative; z-index: 1; }
-
-    .hero-label { font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
-
+    .hero-label { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
     .hero-title { margin-bottom: 32px; overflow: hidden; }
     .hero-title .word { display: inline-block; opacity: 0; transform: translateY(40px); }
     .hero-title .word:nth-child(1) { animation: wordUp 0.7s var(--ease) 0.4s forwards; }
     .hero-title .word:nth-child(2) { animation: wordUp 0.7s var(--ease) 0.52s forwards; }
     .hero-title .word:nth-child(3) { animation: wordUp 0.7s var(--ease) 0.64s forwards; }
     .hero-title .word:nth-child(4) { animation: wordUp 0.7s var(--ease) 0.76s forwards; }
-
     .hero-subtitle { font-size: 15px; font-weight: 300; color: var(--text-gray); margin-bottom: 48px; opacity: 0; animation: fadeUp 0.8s var(--ease) 1.0s forwards; }
     .hero-cta { opacity: 0; animation: fadeUp 0.8s var(--ease) 1.15s forwards; }
 
-    .btn-primary { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: var(--navy); color: var(--cream); border: 1px solid var(--navy); transition: background 0.3s, color 0.3s; }
+    .btn-primary { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: var(--navy); color: var(--cream); border: 1px solid var(--navy); transition: background 0.3s, color 0.3s; }
     .btn-primary:hover { background: transparent; color: var(--navy); }
-    .btn-outline-gold { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--gold-digital); border: 1px solid var(--gold-digital); transition: background 0.3s, color 0.3s; }
+    .btn-outline-gold { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--gold-digital); border: 1px solid var(--gold-digital); transition: background 0.3s, color 0.3s; }
     .btn-outline-gold:hover { background: var(--gold-digital); color: var(--navy); }
 
     .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s var(--ease) 1.5s forwards; }
@@ -160,78 +151,74 @@
     @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
     @keyframes scrollBounce { 0%, 100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(4px); } }
 
-    /* Approach */
     .approach-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: center; }
     .approach-separator { background: var(--border-gold-faint); height: 120px; align-self: center; }
     .approach-col { padding: 60px 64px; }
     .approach-col:first-child { padding-left: 0; }
     .approach-col:last-child { padding-right: 0; }
 
+    /* Weight 700 uppercase — wide proportions + bold = monumental */
     .approach-label {
       font-family: var(--font);
-      font-size: clamp(36px, 4.5vw, 50px);
-      font-weight: 300;
-      letter-spacing: 0.06em;
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       margin-bottom: 16px;
     }
     .approach-col--stone .approach-label { color: #FAFAF7; }
     .approach-col--sun .approach-label { color: var(--gold-digital); }
-    .approach-desc { font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.55); }
+    .approach-desc { font-size: 13px; font-weight: 300; letter-spacing: 0.01em; color: rgba(245,240,232,0.55); }
 
-    /* Services */
     .services-header { margin-bottom: 64px; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .service-card { padding: 40px; border: 1px solid var(--border); background: #fff; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.08); }
-    .service-number { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; color: var(--gold-print); margin-bottom: 20px; }
-    .service-title { font-family: var(--font); font-size: 17px; font-weight: 400; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 6px; }
-    .service-subtitle { font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 24px; }
+    /* Weight 800 for the service numbers — very bold small caps feel */
+    .service-number { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; color: var(--gold-print); margin-bottom: 20px; }
+    .service-title { font-family: var(--font); font-size: 18px; font-weight: 500; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 6px; }
+    .service-subtitle { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 24px; }
     .service-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
     .service-list { display: flex; flex-direction: column; gap: 10px; }
-    .service-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; color: var(--text-gray); line-height: 1.5; }
+    .service-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; font-weight: 300; color: var(--text-gray); line-height: 1.5; }
     .service-list li::before { content: ''; display: block; width: 5px; height: 1px; background: var(--gold-print); margin-top: 10px; flex-shrink: 0; }
 
-    /* Why */
     #why { background-color: var(--cream); }
     .why-header { margin-bottom: 64px; }
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 80px; }
     .why-line { width: 32px; height: 1.5px; background: var(--gold-print); margin-bottom: 20px; transform-origin: left; transform: scaleX(0); transition: transform 0.6s var(--ease); }
     .why-item.visible .why-line { transform: scaleX(1); }
-    .why-label { font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 10px; letter-spacing: 0.01em; }
-    .why-body { font-size: 13px; color: var(--text-gray); line-height: 1.75; }
+    .why-label { font-size: 13px; font-weight: 500; color: var(--navy); margin-bottom: 10px; }
+    .why-body { font-size: 13px; font-weight: 300; color: var(--text-gray); line-height: 1.75; }
 
-    /* Stats + About */
     .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-bottom: 96px; }
     .stat-item { padding: 0 40px; text-align: center; }
     .stat-item:not(:last-child) { border-right: 1px solid var(--border); }
-    .stat-value { font-family: var(--font); font-size: clamp(44px, 5vw, 72px); font-weight: 300; letter-spacing: -0.03em; color: var(--navy); line-height: 1; margin-bottom: 10px; }
-    .stat-label { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-gray); }
+    /* Weight 300 at large size — Cabinet Grotesk hairline is extremely clean */
+    .stat-value { font-family: var(--font); font-size: clamp(48px, 5.5vw, 76px); font-weight: 300; letter-spacing: -0.035em; color: var(--navy); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-gray); }
 
     .about-grid { display: grid; grid-template-columns: 1fr 160px; gap: 80px; align-items: start; }
-    .about-col-label { font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 16px; }
-    .about-name { font-family: var(--font); font-size: clamp(26px, 3.5vw, 40px); font-weight: 300; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 28px; }
-    .about-bio { font-size: 14px; color: var(--text-body); margin-bottom: 16px; line-height: 1.8; }
+    .about-col-label { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 16px; }
+    .about-name { font-family: var(--font); font-size: clamp(26px, 3.5vw, 40px); font-weight: 500; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 28px; }
+    .about-bio { font-size: 14px; font-weight: 300; color: var(--text-body); margin-bottom: 16px; line-height: 1.8; }
     .about-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 32px; }
     .badge { font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--border); color: var(--text-gray); }
     .about-glyph { display: flex; align-items: flex-start; justify-content: center; padding-top: 8px; }
 
-    /* Contact */
     #contact .section-inner { padding: 120px 48px; text-align: center; max-width: 800px; }
     #contact::before { content: ''; position: absolute; inset: 0; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px 200px; pointer-events: none; }
     #contact .section-inner { position: relative; z-index: 1; }
-    .contact-title { font-family: var(--font); font-size: clamp(26px, 3.5vw, 40px); font-weight: 300; letter-spacing: -0.015em; color: var(--cream); margin-bottom: 28px; }
+    .contact-title { font-family: var(--font); font-size: clamp(26px, 3.5vw, 40px); font-weight: 400; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 28px; }
     .contact-body { font-size: 15px; font-weight: 300; color: rgba(245,240,232,0.65); margin-bottom: 16px; line-height: 1.8; }
-    .contact-location { font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 48px; }
+    .contact-location { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 48px; }
 
-    /* Footer */
     footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.06); }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
     .footer-right { font-size: 10px; font-weight: 400; letter-spacing: 0.1em; color: rgba(245,240,232,0.3); }
     footer .wordmark .wm-text { color: var(--cream); }
     footer .wordmark .wm-advisory { color: rgba(245,240,232,0.45); }
 
-    /* Responsive */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
       .approach-col { padding: 40px 40px; }
@@ -264,7 +251,7 @@
 
   <nav class="nav" id="mainNav" aria-label="Main navigation">
     <a href="#hero" class="wordmark" aria-label="Sunstone Advisory">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
         <polygon class="wm-square" points="18,2 2,2 2,26 26,26 26,18" fill="#0F1A2E"/>
         <polygon class="wm-triangle" points="18,2 26,2 26,18" fill="#C2A052"/>
       </svg>
@@ -331,40 +318,21 @@
           <h3 class="service-title">M&amp;A Advisory</h3>
           <p class="service-subtitle">Buy &amp; Sell</p>
           <div class="service-divider"></div>
-          <ul class="service-list">
-            <li>Process preparation and management</li>
-            <li>Due diligence oversight and review</li>
-            <li>Valuation, structuring and financing</li>
-            <li>Negotiation and documentation</li>
-            <li>Closing</li>
-          </ul>
+          <ul class="service-list"><li>Process preparation and management</li><li>Due diligence oversight and review</li><li>Valuation, structuring and financing</li><li>Negotiation and documentation</li><li>Closing</li></ul>
         </article>
         <article class="service-card reveal reveal-delay-2">
           <p class="service-number">02</p>
           <h3 class="service-title">Portfolio Work</h3>
           <p class="service-subtitle">Exit Support</p>
           <div class="service-divider"></div>
-          <ul class="service-list">
-            <li>Value creation execution</li>
-            <li>Add-on acquisitions</li>
-            <li>Investor and board interactions</li>
-            <li>Financing &amp; refinancing</li>
-            <li>Equity story and business plan refinement</li>
-            <li>Exit preparation and process</li>
-          </ul>
+          <ul class="service-list"><li>Value creation execution</li><li>Add-on acquisitions</li><li>Investor and board interactions</li><li>Financing &amp; refinancing</li><li>Equity story and business plan refinement</li><li>Exit preparation and process</li></ul>
         </article>
         <article class="service-card reveal reveal-delay-3">
           <p class="service-number">03</p>
           <h3 class="service-title">Fundraising Advisory</h3>
           <p class="service-subtitle">Capital &amp; Growth</p>
           <div class="service-divider"></div>
-          <ul class="service-list">
-            <li>Process drive and execution</li>
-            <li>Equity story and materials development</li>
-            <li>Q&amp;A preparation and management</li>
-            <li>Investor follow-up and tracking</li>
-            <li>Term sheet and documentation support</li>
-          </ul>
+          <ul class="service-list"><li>Process drive and execution</li><li>Equity story and materials development</li><li>Q&amp;A preparation and management</li><li>Investor follow-up and tracking</li><li>Term sheet and documentation support</li></ul>
         </article>
       </div>
     </div>
@@ -434,31 +402,13 @@
   <script>
   (function(){
     'use strict';
-    const nav = document.getElementById('mainNav');
-    const stones = document.querySelectorAll('.stone-bg');
-    let scrolled = false;
-
-    function updateNav() {
-      const s = window.scrollY > 60;
-      if (s !== scrolled) { scrolled = s; nav.classList.toggle('scrolled-sun', s && !nav.classList.contains('on-stone')); }
-    }
-
-    new IntersectionObserver((entries) => {
-      entries.forEach(() => {
-        const any = Array.from(stones).some(el => { const r = el.getBoundingClientRect(); return r.top < 80 && r.bottom > 80; });
-        nav.classList.toggle('on-stone', any);
-        if (any) nav.classList.remove('scrolled-sun');
-      });
-    }, { threshold: 0, rootMargin: '-64px 0px 0px 0px' }).observe(document.querySelector('#approach'));
-
-    window.addEventListener('scroll', updateNav, { passive: true });
-    stones.forEach(s => new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){nav.classList.add('on-stone');nav.classList.remove('scrolled-sun');}else{const any=Array.from(stones).some(el=>{const r=el.getBoundingClientRect();return r.top<80&&r.bottom>80;});if(!any)nav.classList.remove('on-stone');} }), { threshold:0, rootMargin:'-64px 0px 0px 0px' }}).observe(s));
-
-    new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');} }); }, { threshold: 0.15 }).observe;
-    document.querySelectorAll('.reveal').forEach(el => new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');} }); }, { threshold: 0.15 }).observe(el));
-
-    document.querySelectorAll('.stat-item').forEach(el => new IntersectionObserver((entries) => { entries.forEach(e => { if(!e.isIntersecting) return; const v=e.target.querySelector('.stat-value[data-target]'); if(!v) return; const t=+v.dataset.target,suf=v.dataset.suffix||'',d=1200,st=performance.now(); (function tick(n){const p=Math.min((n-st)/d,1),ea=1-Math.pow(1-p,3);v.textContent=Math.round(ea*t)+suf;if(p<1)requestAnimationFrame(tick);})(performance.now()); }); }, { threshold: 0.5 }).observe(el));
-
+    const nav=document.getElementById('mainNav'),stones=document.querySelectorAll('.stone-bg');
+    let scrolled=false;
+    function updateNav(){const s=window.scrollY>60;if(s!==scrolled){scrolled=s;nav.classList.toggle('scrolled-sun',s&&!nav.classList.contains('on-stone'));}}
+    stones.forEach(s=>new IntersectionObserver((entries)=>{entries.forEach(()=>{const any=Array.from(stones).some(el=>{const r=el.getBoundingClientRect();return r.top<80&&r.bottom>80;});nav.classList.toggle('on-stone',any);if(any)nav.classList.remove('scrolled-sun');});},{threshold:0,rootMargin:'-64px 0px 0px 0px'}).observe(s));
+    window.addEventListener('scroll',updateNav,{passive:true});
+    document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.15}).observe(el));
+    document.querySelectorAll('.stat-item').forEach(el=>new IntersectionObserver((entries)=>{entries.forEach(e=>{if(!e.isIntersecting)return;const v=e.target.querySelector('.stat-value[data-target]');if(!v)return;const t=+v.dataset.target,suf=v.dataset.suffix||'',d=1200,st=performance.now();(function tick(n){const p=Math.min((n-st)/d,1),ea=1-Math.pow(1-p,3);v.textContent=Math.round(ea*t)+suf;if(p<1)requestAnimationFrame(tick);})(performance.now());});},{threshold:0.5}).observe(el));
     const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
     let open=false;
     ham.addEventListener('click',()=>{open=!open;ham.classList.toggle('open',open);ham.setAttribute('aria-expanded',open);mob.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';});
@@ -487,13 +437,13 @@
     <a href="version-n.html" class="vsw-a">N</a>
   </div>
   <style>
-    #vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:'Space Grotesk',sans-serif;}
+    #vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:'Cabinet Grotesk',sans-serif;}
     .vsw-l{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}
     .vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}
     .vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}
     .vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}
   </style>
-  <script>(function(){var p=window.location.pathname.split('/').pop()||'version-g.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'version-k.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
 
 </body>
 </html>
