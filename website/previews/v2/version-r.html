@@ -172,29 +172,31 @@
     .approach-desc { font-size: 14px; font-weight: 200; color: rgba(245,240,232,0.6); letter-spacing: 0.02em; }
 
     .about-header { margin-bottom: 48px; }
-    /* Two-column "case" layout inspired by the reference: stacked gray boxes on the
-       left, a notched-corner statement panel + dark CTA on the right. The chamfered
-       top-right corner deliberately echoes the Sunstone logo mark. */
-    .about-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items: start; }
-    .about-points { display: flex; flex-direction: column; gap: 16px; }
-    .about-point { background: var(--box-gray); padding: 28px 32px; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
-    .about-point:hover { transform: translateX(6px); box-shadow: 0 16px 36px rgba(15,26,46,0.07); }
-    .about-point__label { display: flex; align-items: baseline; gap: 12px; font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 8px; line-height: 1.2; }
+    /* Bento composition — drawn from the reference's "case" system but recomposed as an
+       asymmetric grid rather than a literal copy: gray point boxes of mixed widths plus
+       one navy statement box whose chamfered corner echoes the Sunstone logo mark. */
+    .about-bento { display: grid; grid-template-columns: 1.15fr 1fr 0.95fr; grid-auto-rows: 1fr; gap: 16px;
+      grid-template-areas: "p1 p1 feat" "p2 p3 feat"; }
+    .about-point { background: var(--box-gray); padding: 32px 34px; display: flex; flex-direction: column; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    .about-point:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(15,26,46,0.08); }
+    .about-point--p1 { grid-area: p1; }
+    .about-point--p2 { grid-area: p2; }
+    .about-point--p3 { grid-area: p3; }
+    .about-point__label { display: flex; align-items: baseline; gap: 12px; font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 10px; line-height: 1.2; }
     .about-point__label::before { content: '\2192'; color: var(--gold-print); font-weight: 800; flex-shrink: 0; }
     .about-point__body { font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.8; }
 
-    .about-feature { display: flex; flex-direction: column; gap: 20px; }
-    /* Notched panel built as two clipped layers: outer navy = the border (covers every
-       edge incl. the diagonal cut), inner light layer inset by the padding = the fill. */
-    .about-feature__quote { --notch: 34px; background: var(--navy); padding: 3px;
+    /* Navy statement box — single clipped layer, the chamfer is the whole point (no border
+       needed since it's filled). Spans both rows on the right of the bento. */
+    .about-statement { grid-area: feat; position: relative; overflow: hidden; background: var(--navy-deep);
+      padding: 44px 38px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; --notch: 38px;
       clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%); }
-    .about-feature__quote-inner { background: var(--warm-white); padding: 50px 38px; --notch: 32px;
-      clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%); }
-    .about-feature__quote p { font-family: var(--font); font-size: clamp(22px, 2.1vw, 28px); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; color: var(--navy); }
-    .about-feature__cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; background: var(--navy-deep); padding: 26px 32px; transition: background 0.3s; }
-    .about-feature__cta:hover { background: var(--navy); }
-    .about-feature__cta span { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); }
-    .about-feature__cta .cta-arrow { color: var(--gold-digital); font-weight: 800; font-size: 18px; line-height: 1; }
+    .about-statement__mark { position: absolute; right: -28px; bottom: -28px; width: 150px; opacity: 0.06; }
+    .about-statement__mark .sm-ink { fill: var(--warm-white); }
+    .about-statement__mark .sm-gold { fill: var(--gold-digital); }
+    .about-statement p { position: relative; font-family: var(--font); font-size: clamp(22px, 2vw, 27px); font-weight: 800; line-height: 1.18; letter-spacing: -0.03em; color: var(--cream); }
+    .about-statement__cta { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-digital); transition: gap 0.3s; }
+    .about-statement__cta:hover { gap: 16px; }
 
     .services-header { margin-bottom: 64px; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -259,7 +261,8 @@
 
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
-      .about-layout { grid-template-columns: 1fr; gap: 24px; }
+      .about-bento { grid-template-columns: 1fr 1fr; grid-template-areas: "p1 p1" "p2 p3" "feat feat"; }
+      .about-statement { min-height: 220px; }
       .approach-col { padding: 40px 40px; }
       .why-grid { gap: 40px 48px; }
     }
@@ -270,6 +273,7 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .hero-inner { padding: 0 24px; }
+      .about-bento { grid-template-columns: 1fr; grid-template-areas: "p1" "p2" "p3" "feat"; }
       .approach-grid { grid-template-columns: 1fr; }
       .approach-separator { display: none; }
       .approach-col { padding: 40px 0; border-bottom: 1px solid var(--border-gold-faint); }
@@ -334,31 +338,26 @@
       <header class="about-header reveal">
         <p class="section-label">About</p>
       </header>
-      <div class="about-layout">
-        <div class="about-points">
-          <article class="about-point reveal reveal-delay-1">
-            <p class="about-point__label">Critical transaction support</p>
-            <p class="about-point__body">Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses, investors and boards.</p>
-          </article>
-          <article class="about-point reveal reveal-delay-2">
-            <p class="about-point__label">The investor's perspective</p>
-            <p class="about-point__body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p>
-          </article>
-          <article class="about-point reveal reveal-delay-3">
-            <p class="about-point__label">Hands-on involvement</p>
-            <p class="about-point__body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p>
-          </article>
-        </div>
-        <div class="about-feature reveal reveal-delay-2">
-          <div class="about-feature__quote">
-            <div class="about-feature__quote-inner">
-              <p>Where ownership, leadership and capital intersect.</p>
-            </div>
-          </div>
-          <a href="#contact" class="about-feature__cta">
-            <span>Discuss your situation</span>
-            <span class="cta-arrow" aria-hidden="true">&#8594;</span>
-          </a>
+      <div class="about-bento">
+        <article class="about-point about-point--p1 reveal reveal-delay-1">
+          <p class="about-point__label">The investor's perspective</p>
+          <p class="about-point__body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p>
+        </article>
+        <article class="about-point about-point--p2 reveal reveal-delay-2">
+          <p class="about-point__label">Critical transaction support</p>
+          <p class="about-point__body">An independent transaction advisory firm working with companies, founders, family businesses, investors and boards.</p>
+        </article>
+        <article class="about-point about-point--p3 reveal reveal-delay-3">
+          <p class="about-point__label">Hands-on involvement</p>
+          <p class="about-point__body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p>
+        </article>
+        <div class="about-statement reveal reveal-delay-2">
+          <svg class="about-statement__mark" viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polyline class="sm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/>
+            <polygon class="sm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/>
+          </svg>
+          <p>Where ownership, leadership and capital intersect.</p>
+          <a href="#contact" class="about-statement__cta">Discuss your situation&#32;<span aria-hidden="true">&#8594;</span></a>
         </div>
       </div>
     </div>
@@ -432,7 +431,7 @@
       <div class="stats-row">
         <div class="stat-item reveal"><div class="stat-value" data-target="20" data-suffix="+">20+</div><p class="stat-label">Transactions closed</p></div>
         <div class="stat-item reveal reveal-delay-1"><div class="stat-value" data-target="100" data-suffix="+">100+</div><p class="stat-label">Opportunities assessed</p></div>
-        <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="2" data-suffix="">2</div><p class="stat-label">Sides of the table</p></div>
+        <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="8" data-suffix="">8</div><p class="stat-label">Years of experience</p></div>
       </div>
       <div class="about-grid">
         <div class="reveal">
