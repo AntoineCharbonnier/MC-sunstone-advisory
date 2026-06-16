@@ -172,13 +172,29 @@
     .approach-desc { font-size: 14px; font-weight: 200; color: rgba(245,240,232,0.6); letter-spacing: 0.02em; }
 
     .about-header { margin-bottom: 48px; }
-    /* Gray cards that lift off the warm-white background — inspired by the reference layout */
-    .about-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-    .about-card { background: var(--box-gray); padding: 40px 34px; display: flex; flex-direction: column; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
-    .about-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.08); }
-    .about-card__label { display: flex; align-items: baseline; gap: 12px; font-size: 17px; font-weight: 700; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
-    .about-card__label::before { content: '\2192'; color: var(--gold-print); font-weight: 800; flex-shrink: 0; }
-    .about-card__body { font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.85; }
+    /* Two-column "case" layout inspired by the reference: stacked gray boxes on the
+       left, a notched-corner statement panel + dark CTA on the right. The chamfered
+       top-right corner deliberately echoes the Sunstone logo mark. */
+    .about-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items: start; }
+    .about-points { display: flex; flex-direction: column; gap: 16px; }
+    .about-point { background: var(--box-gray); padding: 28px 32px; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    .about-point:hover { transform: translateX(6px); box-shadow: 0 16px 36px rgba(15,26,46,0.07); }
+    .about-point__label { display: flex; align-items: baseline; gap: 12px; font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 8px; line-height: 1.2; }
+    .about-point__label::before { content: '\2192'; color: var(--gold-print); font-weight: 800; flex-shrink: 0; }
+    .about-point__body { font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.8; }
+
+    .about-feature { display: flex; flex-direction: column; gap: 20px; }
+    /* Notched panel built as two clipped layers: outer navy = the border (covers every
+       edge incl. the diagonal cut), inner light layer inset by the padding = the fill. */
+    .about-feature__quote { --notch: 34px; background: var(--navy); padding: 3px;
+      clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%); }
+    .about-feature__quote-inner { background: var(--warm-white); padding: 50px 38px; --notch: 32px;
+      clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%); }
+    .about-feature__quote p { font-family: var(--font); font-size: clamp(22px, 2.1vw, 28px); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; color: var(--navy); }
+    .about-feature__cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; background: var(--navy-deep); padding: 26px 32px; transition: background 0.3s; }
+    .about-feature__cta:hover { background: var(--navy); }
+    .about-feature__cta span { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); }
+    .about-feature__cta .cta-arrow { color: var(--gold-digital); font-weight: 800; font-size: 18px; line-height: 1; }
 
     .services-header { margin-bottom: 64px; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -243,7 +259,7 @@
 
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
-      .about-cards { grid-template-columns: 1fr; max-width: 720px; }
+      .about-layout { grid-template-columns: 1fr; gap: 24px; }
       .approach-col { padding: 40px 40px; }
       .why-grid { gap: 40px 48px; }
     }
@@ -318,19 +334,32 @@
       <header class="about-header reveal">
         <p class="section-label">About</p>
       </header>
-      <div class="about-cards">
-        <article class="about-card reveal reveal-delay-1">
-          <p class="about-card__label">Critical transaction support</p>
-          <p class="about-card__body">Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses, investors and boards, in situations where ownership, leadership and capital intersect.</p>
-        </article>
-        <article class="about-card reveal reveal-delay-2">
-          <p class="about-card__label">The investor's perspective</p>
-          <p class="about-card__body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p>
-        </article>
-        <article class="about-card reveal reveal-delay-3">
-          <p class="about-card__label">Hands-on involvement</p>
-          <p class="about-card__body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p>
-        </article>
+      <div class="about-layout">
+        <div class="about-points">
+          <article class="about-point reveal reveal-delay-1">
+            <p class="about-point__label">Critical transaction support</p>
+            <p class="about-point__body">Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses, investors and boards.</p>
+          </article>
+          <article class="about-point reveal reveal-delay-2">
+            <p class="about-point__label">The investor's perspective</p>
+            <p class="about-point__body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p>
+          </article>
+          <article class="about-point reveal reveal-delay-3">
+            <p class="about-point__label">Hands-on involvement</p>
+            <p class="about-point__body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p>
+          </article>
+        </div>
+        <div class="about-feature reveal reveal-delay-2">
+          <div class="about-feature__quote">
+            <div class="about-feature__quote-inner">
+              <p>Where ownership, leadership and capital intersect.</p>
+            </div>
+          </div>
+          <a href="#contact" class="about-feature__cta">
+            <span>Discuss your situation</span>
+            <span class="cta-arrow" aria-hidden="true">&#8594;</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
