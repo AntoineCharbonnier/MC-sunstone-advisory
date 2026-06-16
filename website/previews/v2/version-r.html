@@ -31,6 +31,7 @@
       --text-body: #3A3A3A;
       --text-gray: #7A7A7A;
       --border: #E4DDD0;
+      --box-gray: #F1F0EC;
       --border-gold-faint: rgba(200,160,96,0.12);
       --ease: cubic-bezier(0.33,1,0.68,1);
       --font: 'Plus Jakarta Sans', sans-serif;
@@ -170,16 +171,14 @@
     /* Weight 200 desc — the extreme contrast with the label above */
     .approach-desc { font-size: 14px; font-weight: 200; color: rgba(245,240,232,0.6); letter-spacing: 0.02em; }
 
-    .about-intro-header { max-width: 760px; margin-bottom: 56px; }
-    .about-intro-header h2 { margin-bottom: 24px; }
-    .about-intro-lead { font-size: 14px; font-weight: 200; color: var(--text-body); line-height: 1.85; }
-
-    /* Embedded section photos — faint, sit behind the content layer */
-    #services, #contact { overflow: hidden; }
-    .section-photo { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; pointer-events: none; z-index: 0; }
-    #services .section-inner, #contact .section-inner { position: relative; z-index: 1; }
-    .section-photo--services { opacity: 0.09; background-image: url('../../assets/photos/services-b.jpg'); }
-    .section-photo--contact { opacity: 0.20; mix-blend-mode: luminosity; background-image: url('../../assets/photos/contact.jpg'); }
+    .about-header { margin-bottom: 48px; }
+    /* Gray cards that lift off the warm-white background — inspired by the reference layout */
+    .about-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+    .about-card { background: var(--box-gray); padding: 40px 34px; display: flex; flex-direction: column; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    .about-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.08); }
+    .about-card__label { display: flex; align-items: baseline; gap: 12px; font-size: 17px; font-weight: 700; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+    .about-card__label::before { content: '\2192'; color: var(--gold-print); font-weight: 800; flex-shrink: 0; }
+    .about-card__body { font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.85; }
 
     .services-header { margin-bottom: 64px; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -244,6 +243,7 @@
 
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
+      .about-cards { grid-template-columns: 1fr; max-width: 720px; }
       .approach-col { padding: 40px 40px; }
       .why-grid { gap: 40px 48px; }
     }
@@ -315,20 +315,27 @@
 
   <section id="about">
     <div class="section-inner">
-      <header class="about-intro-header reveal">
+      <header class="about-header reveal">
         <p class="section-label">About</p>
-        <h2>Critical transaction support.</h2>
-        <p class="about-intro-lead">Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses, investors and boards, in situations where ownership, leadership and capital intersect.</p>
       </header>
-      <div class="why-grid">
-        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">The investor's perspective</p><p class="why-body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p></div>
-        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Hands-on involvement</p><p class="why-body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p></div>
+      <div class="about-cards">
+        <article class="about-card reveal reveal-delay-1">
+          <p class="about-card__label">Critical transaction support</p>
+          <p class="about-card__body">Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses, investors and boards, in situations where ownership, leadership and capital intersect.</p>
+        </article>
+        <article class="about-card reveal reveal-delay-2">
+          <p class="about-card__label">The investor's perspective</p>
+          <p class="about-card__body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p>
+        </article>
+        <article class="about-card reveal reveal-delay-3">
+          <p class="about-card__label">Hands-on involvement</p>
+          <p class="about-card__body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <section id="services">
-    <div class="section-photo section-photo--services" aria-hidden="true"></div>
     <div class="section-inner">
       <header class="services-header reveal">
         <p class="section-label">What we do</p>
@@ -421,7 +428,6 @@
   </section>
 
   <section id="contact" class="stone-bg">
-    <div class="section-photo section-photo--contact" aria-hidden="true"></div>
     <div class="section-inner">
       <p class="section-label reveal">Get in touch</p>
       <h2 class="contact-title reveal reveal-delay-1">Let's discuss your project.</h2>
