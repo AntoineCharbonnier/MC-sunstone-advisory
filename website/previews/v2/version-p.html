@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+  new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+  "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,"script","dataLayer","GTM-55D89GB5");</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21.05 21.05'%3E%3Cpolyline fill='%231c1917' points='9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97'/%3E%3Cpolygon fill='%23c2a052' fill-rule='evenodd' points='11.22 0 21.05 9.79 21.05 0 11.22 0'/%3E%3C/svg%3E">
+  <title>Sunstone Advisory — V2 · Preview</title>
+  <meta name="description" content="Advisory for high-stakes transactions — M&A, exits, fundraising and ownership transitions. Independent advisory based in Paris.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Plus Jakarta Sans: extreme weight contrast — 200 body vs 800 headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --warm-white: #FAFAF7;
+      --cream: #F5F0E8;
+      --cream-soft: #F0E6D6;
+      --navy: #0F1A2E;
+      --navy-deep: #0A0F1E;
+      --gold-print: #C2A052;
+      --gold-digital: #FFDF90;
+      --text-body: #3A3A3A;
+      --text-gray: #7A7A7A;
+      --border: #E4DDD0;
+      --border-gold-faint: rgba(200,160,96,0.12);
+      --ease: cubic-bezier(0.33,1,0.68,1);
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 14px; }
+
+    body {
+      font-family: var(--font);
+      font-weight: 200;
+      line-height: 1.8;
+      color: var(--text-body);
+      background-color: var(--warm-white);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+    }
+
+    img, svg { display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* The defining characteristic: weight 800 headlines vs weight 200 body */
+    h1 {
+      font-family: var(--font);
+      font-weight: 800;
+      font-size: clamp(44px, 7vw, 96px);
+      line-height: 0.9;
+      letter-spacing: -0.045em;
+    }
+
+    h2 {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: clamp(24px, 3.5vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s var(--ease), transform 0.75s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease); }
+    .nav.scrolled-sun { background: rgba(250,250,247,0.92); backdrop-filter: blur(16px); padding: 12px 48px; border-bottom: 1px solid var(--border); }
+    .nav.on-stone { background: rgba(10,15,30,0.92); backdrop-filter: blur(16px); padding: 12px 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+    .wordmark { display: flex; align-items: center; }
+    .wm-logo { display: block; width: auto; }
+    .wm-logo .wm-ink { fill: #1c1917; transition: fill 0.4s; }
+    .wm-logo .wm-gold { fill: #c2a052; }
+    .nav .wm-logo { height: 22px; }
+    .nav.on-stone .wm-logo .wm-ink { fill: var(--warm-white); }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-gray); transition: color 0.3s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav.on-stone .nav-links a { color: rgba(245,240,232,0.6); }
+    .nav.on-stone .nav-links a:hover { color: var(--cream); }
+    .nav-cta { font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 20px; background: var(--navy); color: var(--cream) !important; border: 1px solid var(--navy); transition: background 0.3s, color 0.3s, border-color 0.3s !important; }
+    .nav-cta:hover { background: transparent; color: var(--navy) !important; }
+    .nav.on-stone .nav-cta { background: transparent; color: var(--gold-digital) !important; border-color: var(--gold-digital); }
+    .nav.on-stone .nav-cta:hover { background: var(--gold-digital); color: var(--navy) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 110; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); transition: transform 0.35s var(--ease), opacity 0.35s, background 0.35s; transform-origin: center; }
+    .nav.on-stone .hamburger span { background: var(--cream); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 105; background: var(--navy-deep); flex-direction: column; align-items: center; justify-content: center; gap: 40px; opacity: 0; transform: translateY(-16px); transition: opacity 0.4s var(--ease), transform 0.4s var(--ease); pointer-events: none; }
+    .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); pointer-events: all; }
+    .mobile-menu a { font-family: var(--font); font-size: 32px; font-weight: 800; letter-spacing: -0.03em; color: var(--cream); transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--gold-digital); }
+    .mobile-menu .mobile-cta { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 32px; border: 1px solid var(--gold-digital); color: var(--gold-digital); margin-top: 16px; }
+
+    section { position: relative; }
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 120px 48px; }
+    .stone-bg { background-color: var(--navy-deep); }
+
+    /* Weight 800 labels — very punchy */
+    .section-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 28px; }
+    .stone-bg .section-label { color: var(--gold-digital); }
+
+    #hero { background-color: var(--warm-white); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+
+    .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; width: 100%; position: relative; z-index: 1; }
+    .hero-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
+    .hero-title { margin-bottom: 32px; overflow: hidden; }
+    .hero-title .word { display: inline-block; opacity: 0; transform: translateY(60px); }
+    .hero-title .word:nth-child(1) { animation: wordUp 0.7s var(--ease) 0.4s forwards; }
+    .hero-title .word:nth-child(2) { animation: wordUp 0.7s var(--ease) 0.52s forwards; }
+    .hero-title .word:nth-child(3) { animation: wordUp 0.7s var(--ease) 0.64s forwards; }
+    .hero-title .word:nth-child(4) { animation: wordUp 0.7s var(--ease) 0.76s forwards; }
+    /* Weight 200 subtitle — the critical contrast with the 800-weight title above */
+    .hero-subtitle { font-size: 16px; font-weight: 200; color: var(--text-gray); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s var(--ease) 1.0s forwards; letter-spacing: 0.01em; }
+
+    .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s var(--ease) 1.7s forwards; }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--gold-print)); animation: scrollPulse 2s ease-in-out infinite; }
+    .scroll-chevron { width: 8px; height: 8px; border-right: 2px solid var(--gold-print); border-bottom: 2px solid var(--gold-print); transform: translateY(0) rotate(45deg); animation: scrollBounce 2s ease-in-out infinite; }
+
+    @keyframes wordUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+    /* Translate BEFORE rotate — rotating first would bounce the chevron along its own
+       tilted axis instead of straight down, which read as a glitchy diagonal jump. */
+    @keyframes scrollBounce { 0%, 100% { transform: translateY(0) rotate(45deg); } 50% { transform: translateY(4px) rotate(45deg); } }
+
+    .approach-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: center; }
+    .approach-separator { background: var(--border-gold-faint); height: 120px; align-self: center; }
+    .approach-col { padding: 60px 64px; }
+    .approach-col:first-child { padding-left: 0; }
+    .approach-col:last-child { padding-right: 0; }
+
+    /* Weight 800 uppercase approach labels — the maximum punch */
+    .approach-label {
+      font-family: var(--font);
+      font-size: clamp(40px, 5.5vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      line-height: 0.9;
+    }
+    .approach-col--stone .approach-label { color: #FAFAF7; }
+    .approach-col--sun .approach-label { color: var(--gold-digital); }
+    /* Weight 200 desc — the extreme contrast with the label above */
+    .approach-desc { font-size: 14px; font-weight: 200; color: rgba(245,240,232,0.6); letter-spacing: 0.02em; }
+
+    .about-intro-header { max-width: 760px; margin-bottom: 56px; }
+    .about-intro-header h2 { margin-bottom: 24px; }
+    .about-intro-lead { font-size: 14px; font-weight: 200; color: var(--text-body); line-height: 1.85; }
+
+    /* Embedded section photos — faint, sit behind the content layer */
+    #services, #contact { overflow: hidden; }
+    .section-photo { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; pointer-events: none; z-index: 0; }
+    #services .section-inner, #contact .section-inner { position: relative; z-index: 1; }
+    .section-photo--services { opacity: 0.09; background-image: url('../../assets/photos/services-a.jpg'); }
+    .section-photo--contact { opacity: 0.20; mix-blend-mode: luminosity; background-image: url('../../assets/photos/contact.jpg'); }
+
+    .services-header { margin-bottom: 64px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card { padding: 40px; border: 1px solid var(--border); background: #fff; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.08); }
+    /* Weight 200 number — tiny hairline numeral */
+    .service-number { font-size: 11px; font-weight: 200; letter-spacing: 0.18em; color: var(--gold-print); margin-bottom: 20px; }
+    /* Weight 800 title — immediate impact */
+    .service-title { font-family: var(--font); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: var(--navy); margin-bottom: 6px; }
+    .service-subtitle { font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-gray); margin-bottom: 24px; }
+    .service-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+    .service-list { display: flex; flex-direction: column; gap: 10px; }
+    /* Weight 200 list items — airy and light */
+    .service-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.6; }
+    .service-list li::before { content: ''; display: block; width: 5px; height: 1px; background: var(--gold-print); margin-top: 11px; flex-shrink: 0; }
+
+    #why { background-color: var(--cream); }
+    .why-header { margin-bottom: 64px; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 80px; }
+    .why-line { width: 32px; height: 2px; background: var(--gold-print); margin-bottom: 20px; transform-origin: left; transform: scaleX(0); transition: transform 0.6s var(--ease); }
+    .why-item.visible .why-line { transform: scaleX(1); }
+    .why-label { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 10px; }
+    .why-body { font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.85; }
+
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-bottom: 96px; }
+    .stat-item { padding: 0 40px; text-align: center; }
+    .stat-item:not(:last-child) { border-right: 1px solid var(--border); }
+    /* Weight 200 stats — hairline huge numbers = extremely elegant */
+    .stat-value { font-family: var(--font); font-size: clamp(52px, 6.5vw, 84px); font-weight: 200; letter-spacing: -0.04em; color: var(--navy); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-gray); }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 160px; gap: 80px; align-items: start; }
+    .about-col-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 16px; }
+    .about-name { font-family: var(--font); font-size: clamp(26px, 3.5vw, 44px); font-weight: 800; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 28px; }
+    .about-bio { font-size: 14px; font-weight: 200; color: var(--text-body); margin-bottom: 16px; line-height: 1.85; }
+    /* Founder section dropped the decorative glyph column — single-column, no right rail */
+    #founder .about-grid { grid-template-columns: 1fr 200px; gap: 64px; align-items: center; }
+    .founder-watermark { display: flex; align-items: center; justify-content: center; }
+    .founder-watermark svg { width: 160px; height: auto; }
+    .founder-watermark .fw-ink { fill: var(--navy); opacity: 0.05; }
+    .founder-watermark .fw-gold { fill: var(--gold-print); opacity: 0.22; }
+    .partner-logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; margin-top: 36px; }
+    .partner-logos img { height: 26px; width: auto; filter: grayscale(100%); opacity: 0.65; transition: opacity 0.3s, filter 0.3s; }
+    .partner-logos img:hover { filter: grayscale(0%); opacity: 1; }
+
+    #contact .section-inner { padding: 120px 48px; text-align: center; max-width: 800px; }
+    #contact::before { content: ''; position: absolute; inset: 0; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px 200px; pointer-events: none; }
+    #contact .section-inner { position: relative; z-index: 1; }
+    .contact-title { font-family: var(--font); font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.025em; color: var(--cream); margin-bottom: 28px; }
+    .contact-body { font-size: 15px; font-weight: 200; color: rgba(245,240,232,0.65); margin-bottom: 16px; line-height: 1.85; }
+    .contact-location { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 48px; }
+    .btn-outline-gold { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--gold-digital); border: 1px solid var(--gold-digital); transition: background 0.3s, color 0.3s; }
+    .btn-outline-gold:hover { background: var(--gold-digital); color: var(--navy); }
+    /* Email assembled via CSS, href entity-encoded — keeps the address out of plain-text source for scrapers */
+    .contact-email::before { content: attr(data-user) "\0040" attr(data-domain); }
+
+    footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-right { font-size: 10px; font-weight: 200; letter-spacing: 0.06em; color: rgba(245,240,232,0.3); }
+    footer .wm-logo { height: 18px; }
+    footer .wm-logo .wm-ink { fill: var(--warm-white); }
+
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .approach-col { padding: 40px 40px; }
+      .why-grid { gap: 40px 48px; }
+    }
+    @media (max-width: 768px) {
+      .section-inner { padding: 80px 24px; }
+      .nav { padding: 16px 24px; }
+      .nav.scrolled-sun, .nav.on-stone { padding: 12px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { padding: 0 24px; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .approach-separator { display: none; }
+      .approach-col { padding: 40px 0; border-bottom: 1px solid var(--border-gold-faint); }
+      .approach-col:last-child { border-bottom: none; }
+      .services-grid { grid-template-columns: 1fr; gap: 16px; }
+      .why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .stats-row { grid-template-columns: 1fr; }
+      .stat-item { padding: 32px 0; border-right: none !important; border-bottom: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      #contact .section-inner { padding: 80px 24px; text-align: left; }
+      .footer-inner { padding: 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55D89GB5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <nav class="nav" id="mainNav" aria-label="Main navigation">
+    <a href="#hero" class="wordmark" aria-label="Sunstone Advisory">
+      <svg class="wm-logo" viewBox="0 0 85.89 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><path class="wm-gold" d="M27.49,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-gold" d="M34.98,9.97c-.47-.26-.82-.63-1.04-1.09s-.33-1-.33-1.62V2.31h1.08v4.83c0,.8.17,1.39.52,1.77s.86.56,1.56.56,1.21-.19,1.56-.56.52-.96.52-1.76V2.31h1.08v4.95c0,.62-.11,1.16-.33,1.62s-.57.83-1.04,1.09-1.07.4-1.79.4-1.31-.13-1.78-.4Z"/><path class="wm-gold" d="M42.09,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/></g><g><path class="wm-ink" d="M51.73,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-ink" d="M58.92,3.2h-2.24v-.89h5.54v.89h-2.23v7h-1.07V3.2Z"/><path class="wm-ink" d="M64.56,9.79c-.57-.34-.99-.81-1.28-1.42s-.43-1.31-.43-2.12.14-1.51.43-2.12.71-1.08,1.28-1.42,1.25-.51,2.06-.51,1.49.17,2.05.51.98.81,1.27,1.42.43,1.32.43,2.12-.14,1.51-.43,2.12-.71,1.08-1.27,1.42-1.24.51-2.05.51-1.5-.17-2.06-.51ZM68.12,9.01c.39-.28.68-.65.87-1.13s.28-1.02.28-1.63-.09-1.16-.28-1.63-.48-.85-.87-1.13-.89-.42-1.5-.42-1.11.14-1.51.42-.69.65-.87,1.13-.28,1.02-.28,1.63.09,1.15.28,1.63.47.85.87,1.13.9.42,1.51.42,1.11-.14,1.5-.42Z"/><path class="wm-ink" d="M72.11,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/><path class="wm-ink" d="M80.86,2.31h5.03v.89h-3.97v2.5h3.66v.87h-3.66v2.73h3.97v.89h-5.03V2.31Z"/></g><g><path class="wm-ink" d="M27.35,14.02h.66l1.69,4.57h-.64l-.43-1.28h-1.89l-.46,1.28h-.64l1.71-4.57ZM28.44,16.79l-.77-2.16-.78,2.16h1.55Z"/><path class="wm-ink" d="M31.6,14.02c.48,0,.88.09,1.22.27s.6.44.77.78c.18.34.27.75.27,1.23s-.09.9-.27,1.24c-.18.34-.44.6-.77.78s-.75.27-1.22.27h-1.54v-4.57h1.54ZM32.79,17.64c.29-.29.43-.73.43-1.34s-.15-1.04-.44-1.33c-.29-.29-.73-.44-1.32-.44h-.79v3.54h.79c.6,0,1.04-.14,1.33-.43Z"/><path class="wm-ink" d="M34.04,14.02h.66l1.35,3.92,1.36-3.92h.66l-1.66,4.57h-.72l-1.64-4.57Z"/><path class="wm-ink" d="M38.46,14.02h.62v4.57h-.62v-4.57Z"/><path class="wm-ink" d="M40.51,18.5c-.27-.1-.48-.26-.63-.48s-.22-.49-.21-.81h.62c0,.34.1.58.31.73.21.15.49.22.83.22.31,0,.56-.07.76-.2.2-.13.3-.32.3-.58,0-.16-.04-.3-.12-.4s-.2-.2-.37-.28-.4-.16-.7-.23c-.36-.09-.65-.19-.86-.29-.22-.11-.38-.24-.48-.4-.11-.16-.16-.36-.16-.61,0-.26.06-.48.18-.66.12-.18.3-.32.53-.41s.5-.14.82-.14.57.05.82.15c.24.1.44.24.58.44.14.19.22.43.22.7h-.62c0-.17-.04-.31-.12-.43s-.2-.21-.36-.27-.32-.09-.51-.09c-.29,0-.52.06-.68.18-.16.12-.24.29-.24.51,0,.14.04.25.11.34.07.09.19.17.35.24.17.07.41.15.72.23.38.1.67.2.88.31s.37.25.47.42c.1.17.15.39.15.66s-.07.51-.22.71c-.14.2-.34.34-.6.45-.25.1-.55.15-.87.15s-.65-.05-.91-.15Z"/><path class="wm-ink" d="M44.5,18.36c-.33-.2-.58-.47-.74-.82-.17-.35-.25-.76-.25-1.23s.08-.88.25-1.23c.17-.35.41-.63.74-.83.33-.2.73-.3,1.19-.3s.86.1,1.19.3c.33.2.57.47.74.83.17.35.25.76.25,1.23s-.08.88-.25,1.23c-.17.35-.41.63-.74.82-.32.2-.72.29-1.19.29s-.87-.1-1.2-.29ZM46.57,17.91c.23-.16.4-.38.5-.65.11-.27.16-.59.16-.94s-.05-.67-.16-.95c-.11-.28-.28-.5-.5-.66-.23-.16-.52-.24-.87-.24s-.65.08-.88.24c-.23.16-.4.38-.51.66s-.16.59-.16.95.05.67.16.94c.11.28.28.49.51.65.23.16.52.24.88.24s.64-.08.87-.24Z"/><path class="wm-ink" d="M50.28,14.02c.27,0,.52.04.73.13.22.09.39.22.51.4.13.18.19.41.19.69,0,.29-.08.54-.25.74s-.4.34-.71.41c.17.02.3.08.41.16.11.08.2.19.28.34.07.14.14.33.2.56l.3,1.15h-.63l-.26-1.05c-.05-.21-.12-.39-.19-.51-.07-.13-.15-.22-.26-.28-.1-.06-.23-.09-.38-.09h-1.08v1.93h-.62v-4.57h1.73ZM50.66,16.04c.14-.06.24-.16.32-.28s.12-.26.12-.43c0-.26-.08-.45-.23-.59-.15-.14-.37-.21-.65-.21h-1.05v1.61h1.03c.17,0,.32-.03.46-.1Z"/><path class="wm-ink" d="M53.48,16.77l-1.57-2.75h.66l1.22,2.22,1.22-2.22h.66l-1.57,2.75v1.82h-.62v-1.82Z"/></g><polyline class="wm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/><polygon class="wm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/></svg>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#why" class="mobile-link">Why</a>
+    <a href="#founder" class="mobile-link">Founder</a>
+    <a href="#contact" class="mobile-cta mobile-link">Get in touch</a>
+  </div>
+
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <p class="hero-label">Independent Advisory</p>
+      <h1 class="hero-title" id="hero-title">
+        <span class="word">Advisory</span>&#32;<span class="word">for</span>&#32;<span class="word">high-stakes</span>&#32;<span class="word">transactions</span>
+      </h1>
+      <p class="hero-subtitle">M&amp;A, exits, fundraising and ownership transitions.</p>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <div class="scroll-chevron"></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-inner">
+      <header class="about-intro-header reveal">
+        <p class="section-label">About</p>
+        <h2>Critical transaction support.</h2>
+        <p class="about-intro-lead">Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses, investors and boards, in situations where ownership, leadership and capital intersect.</p>
+      </header>
+      <div class="why-grid">
+        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">The investor's perspective</p><p class="why-body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p></div>
+        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Hands-on involvement</p><p class="why-body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-photo section-photo--services" aria-hidden="true"></div>
+    <div class="section-inner">
+      <header class="services-header reveal">
+        <p class="section-label">What we do</p>
+        <h2>How can we help (and more).</h2>
+      </header>
+      <div class="services-grid">
+        <article class="service-card reveal reveal-delay-1">
+          <p class="service-number">01</p>
+          <h3 class="service-title">M&amp;A Advisory</h3>
+          <p class="service-subtitle">Buy &amp; Sell</p>
+          <div class="service-divider"></div>
+          <ul class="service-list"><li>Process preparation and management</li><li>Due diligence oversight and review</li><li>Valuation, structuring and financing</li><li>Negotiation and documentation</li><li>Closing</li></ul>
+        </article>
+        <article class="service-card reveal reveal-delay-2">
+          <p class="service-number">02</p>
+          <h3 class="service-title">Portfolio Work</h3>
+          <p class="service-subtitle">Exit Support</p>
+          <div class="service-divider"></div>
+          <ul class="service-list"><li>Value creation execution</li><li>Add-on acquisitions</li><li>Investor and board interactions</li><li>Financing &amp; refinancing</li><li>Equity story and business plan refinement</li><li>Exit preparation and process</li></ul>
+        </article>
+        <article class="service-card reveal reveal-delay-3">
+          <p class="service-number">03</p>
+          <h3 class="service-title">Fundraising Advisory</h3>
+          <p class="service-subtitle">Capital &amp; Growth</p>
+          <div class="service-divider"></div>
+          <ul class="service-list"><li>Process drive and execution</li><li>Equity story and materials development</li><li>Q&amp;A preparation and management</li><li>Investor follow-up and tracking</li><li>Term sheet and documentation support</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="section-inner" style="background: var(--cream);">
+      <header class="why-header reveal">
+        <p class="section-label">Why Sunstone</p>
+        <h2>What makes the difference.</h2>
+      </header>
+      <div class="why-grid">
+        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Experienced partner</p><p class="why-body">20+ transactions closed across M&A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings, fundraisings.</p></div>
+        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">A critical sounding board</p><p class="why-body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions, sharpen investment cases, to help clients take well-informed decisions.</p></div>
+        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Hands-on approach</p><p class="why-body">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate is handled directly with no layers or dilution.</p></div>
+        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Alignment</p><p class="why-body">No conflicts of interest, no proprietary products to push, no cross-selling agendas — independent and fully aligned with your objectives.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="frieze" class="stone-bg">
+    <div class="section-inner">
+      <div class="approach-grid">
+        <div class="approach-col approach-col--sun reveal">
+          <div class="approach-label">Sun</div>
+          <p class="approach-desc">Clear. Pragmatic. Easy to work with.</p>
+        </div>
+        <div class="approach-separator" aria-hidden="true"></div>
+        <div class="approach-col approach-col--stone reveal reveal-delay-1">
+          <div class="approach-label">Stone</div>
+          <p class="approach-desc">Rigorous. Structured. Reliable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="section-inner">
+      <div class="stats-row">
+        <div class="stat-item reveal"><div class="stat-value" data-target="20" data-suffix="+">20+</div><p class="stat-label">Transactions closed</p></div>
+        <div class="stat-item reveal reveal-delay-1"><div class="stat-value" data-target="100" data-suffix="+">100+</div><p class="stat-label">Opportunities assessed</p></div>
+        <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="2" data-suffix="">2</div><p class="stat-label">Sides of the table</p></div>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p class="about-col-label">The founder</p>
+          <h2 class="about-name">Marine Charbonnier</h2>
+          <p class="about-bio">Marine has been working across investment banking and private equity since 2017 — first structuring and executing deals at Deutsche Bank, then assessing, negotiating, owning and selling them as an investor at Carlyle within their European Buyout fund.</p>
+          <p class="about-bio">Sunstone Advisory is built on her experience, and the conviction that the best transaction support comes from not only understanding how processes work, but also how investors really think.</p>
+          <div class="partner-logos">
+            <img src="../../assets/partners/carlyle.png" alt="Carlyle" loading="lazy">
+            <img src="../../assets/partners/deutsche-bank.png" alt="Deutsche Bank" loading="lazy">
+            <img src="../../assets/partners/dauphine.png" alt="Université Paris-Dauphine — Master 225" loading="lazy">
+          </div>
+        </div>
+        <div class="founder-watermark reveal reveal-delay-2" aria-hidden="true">
+          <svg viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg">
+            <polyline class="fw-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/>
+            <polygon class="fw-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="stone-bg">
+    <div class="section-photo section-photo--contact" aria-hidden="true"></div>
+    <div class="section-inner">
+      <p class="section-label reveal">Get in touch</p>
+      <h2 class="contact-title reveal reveal-delay-1">Let's discuss your project.</h2>
+      <p class="contact-body reveal reveal-delay-2">Whether you are considering a sale, acquisition, or fundraising process, we are available for a first confidential conversation — in French or English.</p>
+      <p class="contact-location reveal reveal-delay-3">Based in Paris, France. Working globally.</p>
+      <div class="reveal reveal-delay-3">
+        <a class="btn-outline-gold contact-email"
+           href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#105;&#110;&#101;&#64;&#115;&#117;&#110;&#115;&#116;&#111;&#110;&#101;&#97;&#100;&#118;&#105;&#115;&#111;&#114;&#121;&#46;&#102;&#114;"
+           data-user="marine"
+           data-domain="sunstoneadvisory.fr"
+           aria-label="Email Marine at Sunstone Advisory"></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="#hero" class="wordmark">
+        <svg class="wm-logo" viewBox="0 0 85.89 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><path class="wm-gold" d="M27.49,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-gold" d="M34.98,9.97c-.47-.26-.82-.63-1.04-1.09s-.33-1-.33-1.62V2.31h1.08v4.83c0,.8.17,1.39.52,1.77s.86.56,1.56.56,1.21-.19,1.56-.56.52-.96.52-1.76V2.31h1.08v4.95c0,.62-.11,1.16-.33,1.62s-.57.83-1.04,1.09-1.07.4-1.79.4-1.31-.13-1.78-.4Z"/><path class="wm-gold" d="M42.09,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/></g><g><path class="wm-ink" d="M51.73,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-ink" d="M58.92,3.2h-2.24v-.89h5.54v.89h-2.23v7h-1.07V3.2Z"/><path class="wm-ink" d="M64.56,9.79c-.57-.34-.99-.81-1.28-1.42s-.43-1.31-.43-2.12.14-1.51.43-2.12.71-1.08,1.28-1.42,1.25-.51,2.06-.51,1.49.17,2.05.51.98.81,1.27,1.42.43,1.32.43,2.12-.14,1.51-.43,2.12-.71,1.08-1.27,1.42-1.24.51-2.05.51-1.5-.17-2.06-.51ZM68.12,9.01c.39-.28.68-.65.87-1.13s.28-1.02.28-1.63-.09-1.16-.28-1.63-.48-.85-.87-1.13-.89-.42-1.5-.42-1.11.14-1.51.42-.69.65-.87,1.13-.28,1.02-.28,1.63.09,1.15.28,1.63.47.85.87,1.13.9.42,1.51.42,1.11-.14,1.5-.42Z"/><path class="wm-ink" d="M72.11,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/><path class="wm-ink" d="M80.86,2.31h5.03v.89h-3.97v2.5h3.66v.87h-3.66v2.73h3.97v.89h-5.03V2.31Z"/></g><g><path class="wm-ink" d="M27.35,14.02h.66l1.69,4.57h-.64l-.43-1.28h-1.89l-.46,1.28h-.64l1.71-4.57ZM28.44,16.79l-.77-2.16-.78,2.16h1.55Z"/><path class="wm-ink" d="M31.6,14.02c.48,0,.88.09,1.22.27s.6.44.77.78c.18.34.27.75.27,1.23s-.09.9-.27,1.24c-.18.34-.44.6-.77.78s-.75.27-1.22.27h-1.54v-4.57h1.54ZM32.79,17.64c.29-.29.43-.73.43-1.34s-.15-1.04-.44-1.33c-.29-.29-.73-.44-1.32-.44h-.79v3.54h.79c.6,0,1.04-.14,1.33-.43Z"/><path class="wm-ink" d="M34.04,14.02h.66l1.35,3.92,1.36-3.92h.66l-1.66,4.57h-.72l-1.64-4.57Z"/><path class="wm-ink" d="M38.46,14.02h.62v4.57h-.62v-4.57Z"/><path class="wm-ink" d="M40.51,18.5c-.27-.1-.48-.26-.63-.48s-.22-.49-.21-.81h.62c0,.34.1.58.31.73.21.15.49.22.83.22.31,0,.56-.07.76-.2.2-.13.3-.32.3-.58,0-.16-.04-.3-.12-.4s-.2-.2-.37-.28-.4-.16-.7-.23c-.36-.09-.65-.19-.86-.29-.22-.11-.38-.24-.48-.4-.11-.16-.16-.36-.16-.61,0-.26.06-.48.18-.66.12-.18.3-.32.53-.41s.5-.14.82-.14.57.05.82.15c.24.1.44.24.58.44.14.19.22.43.22.7h-.62c0-.17-.04-.31-.12-.43s-.2-.21-.36-.27-.32-.09-.51-.09c-.29,0-.52.06-.68.18-.16.12-.24.29-.24.51,0,.14.04.25.11.34.07.09.19.17.35.24.17.07.41.15.72.23.38.1.67.2.88.31s.37.25.47.42c.1.17.15.39.15.66s-.07.51-.22.71c-.14.2-.34.34-.6.45-.25.1-.55.15-.87.15s-.65-.05-.91-.15Z"/><path class="wm-ink" d="M44.5,18.36c-.33-.2-.58-.47-.74-.82-.17-.35-.25-.76-.25-1.23s.08-.88.25-1.23c.17-.35.41-.63.74-.83.33-.2.73-.3,1.19-.3s.86.1,1.19.3c.33.2.57.47.74.83.17.35.25.76.25,1.23s-.08.88-.25,1.23c-.17.35-.41.63-.74.82-.32.2-.72.29-1.19.29s-.87-.1-1.2-.29ZM46.57,17.91c.23-.16.4-.38.5-.65.11-.27.16-.59.16-.94s-.05-.67-.16-.95c-.11-.28-.28-.5-.5-.66-.23-.16-.52-.24-.87-.24s-.65.08-.88.24c-.23.16-.4.38-.51.66s-.16.59-.16.95.05.67.16.94c.11.28.28.49.51.65.23.16.52.24.88.24s.64-.08.87-.24Z"/><path class="wm-ink" d="M50.28,14.02c.27,0,.52.04.73.13.22.09.39.22.51.4.13.18.19.41.19.69,0,.29-.08.54-.25.74s-.4.34-.71.41c.17.02.3.08.41.16.11.08.2.19.28.34.07.14.14.33.2.56l.3,1.15h-.63l-.26-1.05c-.05-.21-.12-.39-.19-.51-.07-.13-.15-.22-.26-.28-.1-.06-.23-.09-.38-.09h-1.08v1.93h-.62v-4.57h1.73ZM50.66,16.04c.14-.06.24-.16.32-.28s.12-.26.12-.43c0-.26-.08-.45-.23-.59-.15-.14-.37-.21-.65-.21h-1.05v1.61h1.03c.17,0,.32-.03.46-.1Z"/><path class="wm-ink" d="M53.48,16.77l-1.57-2.75h.66l1.22,2.22,1.22-2.22h.66l-1.57,2.75v1.82h-.62v-1.82Z"/></g><polyline class="wm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/><polygon class="wm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/></svg>
+      </a>
+      <p class="footer-right">Paris · Independent M&amp;A Advisory</p>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    'use strict';
+    const nav=document.getElementById('mainNav'),stones=document.querySelectorAll('.stone-bg');
+    let scrolled=false;
+    function updateNav(){const s=window.scrollY>60;if(s!==scrolled){scrolled=s;nav.classList.toggle('scrolled-sun',s&&!nav.classList.contains('on-stone'));}}
+    stones.forEach(s=>new IntersectionObserver((entries)=>{entries.forEach(()=>{const any=Array.from(stones).some(el=>{const r=el.getBoundingClientRect();return r.top<80&&r.bottom>80;});nav.classList.toggle('on-stone',any);if(any)nav.classList.remove('scrolled-sun');});},{threshold:0,rootMargin:'-64px 0px 0px 0px'}).observe(s));
+    window.addEventListener('scroll',updateNav,{passive:true});
+    document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.15}).observe(el));
+    document.querySelectorAll('.stat-item').forEach(el=>new IntersectionObserver((entries)=>{entries.forEach(e=>{if(!e.isIntersecting)return;const v=e.target.querySelector('.stat-value[data-target]');if(!v)return;const t=+v.dataset.target,suf=v.dataset.suffix||'',d=1200,st=performance.now();(function tick(n){const p=Math.min((n-st)/d,1),ea=1-Math.pow(1-p,3);v.textContent=Math.round(ea*t)+suf;if(p<1)requestAnimationFrame(tick);})(performance.now());});},{threshold:0.5}).observe(el));
+    const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
+    let open=false;
+    ham.addEventListener('click',()=>{open=!open;ham.classList.toggle('open',open);ham.setAttribute('aria-expanded',open);mob.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';});
+    mob.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{open=false;ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open){open=false;ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}});
+    updateNav();
+  })();
+  </script>
+
+  <div id="vsw">
+    <span class="vsw-l">V2 · Version</span>
+    <a href="version-n.html" class="vsw-a">Originale</a>
+    <a href="version-o.html" class="vsw-a">A</a>
+    <a href="version-p.html" class="vsw-a">B</a>
+    <a href="version-q.html" class="vsw-a">C</a>
+  </div>
+  <style>
+    #vsw{position:fixed;bottom:24px;right:24px;z-index:99999;display:flex;align-items:center;background:rgba(10,15,30,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,160,96,.22);font-family:'Plus Jakarta Sans',sans-serif;}
+    .vsw-l{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,250,247,.3);padding:0 12px;}
+    .vsw-a{display:inline-block;padding:10px 14px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(250,250,247,.45);border-left:1px solid rgba(200,160,96,.15);transition:color .2s,background .2s;}
+    .vsw-a:hover{color:#FFDF90;background:rgba(200,160,96,.08);}
+    .vsw-a.on{color:#C2A052;background:rgba(200,160,96,.13);}
+  </style>
+  <script>(function(){var p=window.location.pathname.split('/').pop()||'version-n.html';document.querySelectorAll('.vsw-a').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('on');});})();</script>
+
+</body>
+</html>
