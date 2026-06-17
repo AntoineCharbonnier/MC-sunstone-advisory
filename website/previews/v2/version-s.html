@@ -176,7 +176,7 @@
     /* Bento composition, reordered per Antoine's mockup: lead statement spans the top of
        the left block, the two point cards sit below it, the navy card keeps its full-height
        column on the right. */
-    .about-bento { display: grid; grid-template-columns: 1.15fr 1fr 0.95fr; grid-auto-rows: 1fr; gap: 16px;
+    .about-bento { display: grid; grid-template-columns: 1.15fr 1fr 0.95fr; grid-template-rows: auto auto; gap: 16px;
       grid-template-areas: "head head feat" "p1 p3 feat"; }
     .about-intro { grid-area: head; padding: 4px 8px 28px; border-bottom: 1px solid var(--border); }
     .about-intro p { font-size: 20px; font-weight: 300; line-height: 1.5; color: var(--text-body); letter-spacing: -0.005em; }
