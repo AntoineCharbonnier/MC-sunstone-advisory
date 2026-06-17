@@ -31,6 +31,7 @@
       --text-body: #3A3A3A;
       --text-gray: #7A7A7A;
       --border: #E4DDD0;
+      --box-gray: #F1F0EC;
       --border-gold-faint: rgba(200,160,96,0.12);
       --ease: cubic-bezier(0.33,1,0.68,1);
       --font: 'Plus Jakarta Sans', sans-serif;
@@ -117,25 +118,30 @@
     .mobile-menu .mobile-cta { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 32px; border: 1px solid var(--gold-digital); color: var(--gold-digital); margin-top: 16px; }
 
     section { position: relative; }
-    .section-inner { max-width: 1200px; margin: 0 auto; padding: 120px 48px; }
+    /* Trimmed from 120px — Antoine felt the original rhythm ran long across 9 sections */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 96px 48px; }
     .stone-bg { background-color: var(--navy-deep); }
 
     /* Weight 800 labels — very punchy */
     .section-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 28px; }
     .stone-bg .section-label { color: var(--gold-digital); }
 
-    #hero { background-color: var(--warm-white); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    /* Full-bleed photo behind the headline, dark gradient on top so the hero reads as a
+       dark/"stone" section — reuses the existing nav color-switch logic via .stone-bg. */
+    #hero { background-color: var(--navy-deep); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    #hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background-image: url('../../assets/photos/hero.jpg'); background-size: cover; background-position: center; opacity: 0.55; }
+    #hero::after { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(10,15,30,.5) 0%, rgba(10,15,30,.72) 55%, rgba(10,15,30,.92) 100%); }
 
     .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; width: 100%; position: relative; z-index: 1; }
-    .hero-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
-    .hero-title { margin-bottom: 32px; overflow: hidden; }
+    .hero-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-digital); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
+    .hero-title { margin-bottom: 32px; overflow: hidden; color: var(--warm-white); }
     .hero-title .word { display: inline-block; opacity: 0; transform: translateY(60px); }
     .hero-title .word:nth-child(1) { animation: wordUp 0.7s var(--ease) 0.4s forwards; }
     .hero-title .word:nth-child(2) { animation: wordUp 0.7s var(--ease) 0.52s forwards; }
     .hero-title .word:nth-child(3) { animation: wordUp 0.7s var(--ease) 0.64s forwards; }
     .hero-title .word:nth-child(4) { animation: wordUp 0.7s var(--ease) 0.76s forwards; }
     /* Weight 200 subtitle — the critical contrast with the 800-weight title above */
-    .hero-subtitle { font-size: 16px; font-weight: 200; color: var(--text-gray); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s var(--ease) 1.0s forwards; letter-spacing: 0.01em; }
+    .hero-subtitle { font-size: 17px; font-weight: 200; color: rgba(245,240,232,0.75); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s var(--ease) 1.0s forwards; letter-spacing: 0.01em; }
 
     .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s var(--ease) 1.7s forwards; }
     .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--gold-print)); animation: scrollPulse 2s ease-in-out infinite; }
@@ -168,20 +174,47 @@
     .approach-col--stone .approach-label { color: #FAFAF7; }
     .approach-col--sun .approach-label { color: var(--gold-digital); }
     /* Weight 200 desc — the extreme contrast with the label above */
-    .approach-desc { font-size: 14px; font-weight: 200; color: rgba(245,240,232,0.6); letter-spacing: 0.02em; }
+    .approach-desc { font-size: 15px; font-weight: 200; color: rgba(245,240,232,0.6); letter-spacing: 0.02em; }
 
-    .about-intro-header { max-width: 760px; margin-bottom: 56px; }
-    .about-intro-header h2 { margin-bottom: 24px; }
-    .about-intro-lead { font-size: 14px; font-weight: 200; color: var(--text-body); line-height: 1.85; }
+    .about-header { margin-bottom: 48px; }
+    /* Bento composition, reordered per Antoine's mockup: lead statement spans the top of
+       the left block, the two point cards sit below it, the navy card keeps its full-height
+       column on the right. */
+    .about-bento { display: grid; grid-template-columns: 1.15fr 1fr 0.95fr; grid-auto-rows: 1fr; gap: 16px;
+      grid-template-areas: "head head feat" "p1 p3 feat"; }
+    .about-intro { grid-area: head; padding: 4px 8px 28px; border-bottom: 1px solid var(--border); }
+    .about-intro p { font-size: 20px; font-weight: 300; line-height: 1.5; color: var(--text-body); letter-spacing: -0.005em; }
+    .about-intro strong { font-weight: 700; color: var(--navy); }
+    .about-point { background: var(--box-gray); padding: 32px 34px; display: flex; flex-direction: column; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+    .about-point:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(15,26,46,0.08); }
+    .about-point--p1 { grid-area: p1; }
+    .about-point--p3 { grid-area: p3; }
+    .about-point__label { display: flex; align-items: baseline; gap: 12px; font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--navy); margin-bottom: 10px; line-height: 1.2; }
+    /* Triangle accent, matching the small gold mark in the wordmark — replaces the plain
+       arrow glyph used in earlier drafts. */
+    .about-point__label::before { content: ''; flex-shrink: 0; width: 9px; height: 9px; background: var(--gold-print); clip-path: polygon(0 0, 100% 50%, 0 100%); align-self: center; }
+    .about-point__body { font-size: 15px; font-weight: 200; color: var(--text-gray); line-height: 1.8; }
 
-    /* Embedded section photos — faint, sit behind the content layer */
-    #services, #contact { overflow: hidden; }
-    .section-photo { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; pointer-events: none; z-index: 0; }
-    #services .section-inner, #contact .section-inner { position: relative; z-index: 1; }
-    .section-photo--services { opacity: 0.09; background-image: url('../../assets/photos/services-a.jpg'); }
-    .section-photo--contact { opacity: 0.20; mix-blend-mode: luminosity; background-image: url('../../assets/photos/contact.jpg'); }
+    /* Navy statement box — single clipped layer, the chamfer is the whole point (no border
+       needed since it's filled). Spans both rows on the right of the bento. */
+    .about-statement { grid-area: feat; position: relative; overflow: hidden; background: var(--navy-deep);
+      padding: 44px 38px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; --notch: 38px;
+      clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%); }
+    .about-statement__mark { position: absolute; right: -28px; bottom: -28px; width: 150px; opacity: 0.06; }
+    .about-statement__mark .sm-ink { fill: var(--warm-white); }
+    .about-statement__mark .sm-gold { fill: var(--gold-digital); }
+    .about-statement p { position: relative; font-family: var(--font); font-size: clamp(22px, 2vw, 27px); font-weight: 800; line-height: 1.18; letter-spacing: -0.03em; color: var(--cream); }
+    .about-statement__cta { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-digital); transition: gap 0.3s; }
+    .about-statement__cta:hover { gap: 16px; }
+    .tri { display: inline-block; width: 8px; height: 8px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); }
 
     .services-header { margin-bottom: 64px; }
+    /* Section photo sits behind the cards — kept visible enough to actually read as a photo,
+       unlike the 0.09-opacity treatment tried earlier which all but disappeared. */
+    #services { overflow: hidden; }
+    .section-photo { position: absolute; inset: 0; background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
+    #services .section-inner { position: relative; z-index: 1; }
+    .section-photo--services { opacity: 0.14; background-image: url('../../assets/photos/services-c.jpg'); }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .service-card { padding: 40px; border: 1px solid var(--border); background: #fff; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.08); }
@@ -193,8 +226,8 @@
     .service-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
     .service-list { display: flex; flex-direction: column; gap: 10px; }
     /* Weight 200 list items — airy and light */
-    .service-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.6; }
-    .service-list li::before { content: ''; display: block; width: 5px; height: 1px; background: var(--gold-print); margin-top: 11px; flex-shrink: 0; }
+    .service-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; font-weight: 200; color: var(--text-gray); line-height: 1.6; }
+    .service-list li::before { content: ''; display: block; width: 5px; height: 1px; background: var(--gold-print); margin-top: 13px; flex-shrink: 0; }
 
     #why { background-color: var(--cream); }
     .why-header { margin-bottom: 64px; }
@@ -202,7 +235,7 @@
     .why-line { width: 32px; height: 2px; background: var(--gold-print); margin-bottom: 20px; transform-origin: left; transform: scaleX(0); transition: transform 0.6s var(--ease); }
     .why-item.visible .why-line { transform: scaleX(1); }
     .why-label { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 10px; }
-    .why-body { font-size: 13px; font-weight: 200; color: var(--text-gray); line-height: 1.85; }
+    .why-body { font-size: 15px; font-weight: 200; color: var(--text-gray); line-height: 1.85; }
 
     .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-bottom: 96px; }
     .stat-item { padding: 0 40px; text-align: center; }
@@ -214,7 +247,7 @@
     .about-grid { display: grid; grid-template-columns: 1fr 160px; gap: 80px; align-items: start; }
     .about-col-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 16px; }
     .about-name { font-family: var(--font); font-size: clamp(26px, 3.5vw, 44px); font-weight: 800; letter-spacing: -0.03em; color: var(--navy); margin-bottom: 28px; }
-    .about-bio { font-size: 14px; font-weight: 200; color: var(--text-body); margin-bottom: 16px; line-height: 1.85; }
+    .about-bio { font-size: 16px; font-weight: 200; color: var(--text-body); margin-bottom: 16px; line-height: 1.85; }
     /* Founder section dropped the decorative glyph column — single-column, no right rail */
     #founder .about-grid { grid-template-columns: 1fr 200px; gap: 64px; align-items: center; }
     .founder-watermark { display: flex; align-items: center; justify-content: center; }
@@ -225,11 +258,11 @@
     .partner-logos img { height: 26px; width: auto; filter: grayscale(100%); opacity: 0.65; transition: opacity 0.3s, filter 0.3s; }
     .partner-logos img:hover { filter: grayscale(0%); opacity: 1; }
 
-    #contact .section-inner { padding: 120px 48px; text-align: center; max-width: 800px; }
+    #contact .section-inner { padding: 96px 48px; text-align: center; max-width: 800px; }
     #contact::before { content: ''; position: absolute; inset: 0; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px 200px; pointer-events: none; }
     #contact .section-inner { position: relative; z-index: 1; }
     .contact-title { font-family: var(--font); font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.025em; color: var(--cream); margin-bottom: 28px; }
-    .contact-body { font-size: 15px; font-weight: 200; color: rgba(245,240,232,0.65); margin-bottom: 16px; line-height: 1.85; }
+    .contact-body { font-size: 16px; font-weight: 200; color: rgba(245,240,232,0.65); margin-bottom: 16px; line-height: 1.85; }
     .contact-location { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 48px; }
     .btn-outline-gold { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--gold-digital); border: 1px solid var(--gold-digital); transition: background 0.3s, color 0.3s; }
     .btn-outline-gold:hover { background: var(--gold-digital); color: var(--navy); }
@@ -244,16 +277,19 @@
 
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: 1fr 1fr; }
+      .about-bento { grid-template-columns: 1fr 1fr; grid-template-areas: "head head" "p1 p3" "feat feat"; }
+      .about-statement { min-height: 220px; }
       .approach-col { padding: 40px 40px; }
       .why-grid { gap: 40px 48px; }
     }
     @media (max-width: 768px) {
-      .section-inner { padding: 80px 24px; }
+      .section-inner { padding: 64px 24px; }
       .nav { padding: 16px 24px; }
       .nav.scrolled-sun, .nav.on-stone { padding: 12px 24px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .hero-inner { padding: 0 24px; }
+      .about-bento { grid-template-columns: 1fr; grid-template-areas: "head" "p1" "p3" "feat"; }
       .approach-grid { grid-template-columns: 1fr; }
       .approach-separator { display: none; }
       .approach-col { padding: 40px 0; border-bottom: 1px solid var(--border-gold-faint); }
@@ -264,7 +300,7 @@
       .stat-item { padding: 32px 0; border-right: none !important; border-bottom: 1px solid var(--border); }
       .stat-item:last-child { border-bottom: none; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      #contact .section-inner { padding: 80px 24px; text-align: left; }
+      #contact .section-inner { padding: 64px 24px; text-align: left; }
       .footer-inner { padding: 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
     }
   </style>
@@ -273,7 +309,7 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55D89GB5"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- End Google Tag Manager -->
 
   <nav class="nav" id="mainNav" aria-label="Main navigation">
     <a href="#hero" class="wordmark" aria-label="Sunstone Advisory">
@@ -299,7 +335,7 @@
     <a href="#contact" class="mobile-cta mobile-link">Get in touch</a>
   </div>
 
-  <section id="hero" aria-labelledby="hero-title">
+  <section id="hero" class="stone-bg" aria-labelledby="hero-title">
     <div class="hero-inner">
       <p class="hero-label">Independent Advisory</p>
       <h1 class="hero-title" id="hero-title">
@@ -315,14 +351,29 @@
 
   <section id="about">
     <div class="section-inner">
-      <header class="about-intro-header reveal">
+      <header class="about-header reveal">
         <p class="section-label">About</p>
-        <h2>Critical transaction support.</h2>
-        <p class="about-intro-lead">Sunstone Advisory is an independent transaction advisory firm working with companies, founders, family businesses, investors and boards, in situations where ownership, leadership and capital intersect.</p>
       </header>
-      <div class="why-grid">
-        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">The investor's perspective</p><p class="why-body">Most advisors have seen deals from one side of the table — as a banker who has usually never deployed capital as a principal, or an investor who may have never run a competitive process. We bring both perspectives, combining years of deal execution and private equity experience.</p></div>
-        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Hands-on involvement</p><p class="why-body">A transaction partner embedded in your team — not a distant intermediary, but a direct counterpart supporting you throughout the process.</p></div>
+      <div class="about-bento">
+        <div class="about-intro reveal">
+          <p>Sunstone Advisory is an independent advisory firm providing <strong>critical transaction support</strong> to companies, founders, family businesses, investors and boards.</p>
+        </div>
+        <article class="about-point about-point--p1 reveal reveal-delay-1">
+          <p class="about-point__label">The investor's perspective</p>
+          <p class="about-point__body">Most transaction advisors have seen deals from one angle — bankers who have never deployed capital, or investors with limited experience in running competitive processes. We've done both, combining years of deal execution and private equity experience. Which means we understand what's happening on the other side of the table — and how to use it to your advantage.</p>
+        </article>
+        <article class="about-point about-point--p3 reveal reveal-delay-2">
+          <p class="about-point__label">Hands-on involvement</p>
+          <p class="about-point__body">We act as a transaction partner embedded in your team — not a distant intermediary handing off deliverables, but a direct counterpart supporting you throughout every decision in the process.</p>
+        </article>
+        <div class="about-statement reveal reveal-delay-2">
+          <svg class="about-statement__mark" viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polyline class="sm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/>
+            <polygon class="sm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/>
+          </svg>
+          <p>We are here to support in any situation where ownership, leadership and capital intersect.</p>
+          <a href="#contact" class="about-statement__cta">Let's discuss your needs&#32;<span class="tri" aria-hidden="true"></span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -421,7 +472,6 @@
   </section>
 
   <section id="contact" class="stone-bg">
-    <div class="section-photo section-photo--contact" aria-hidden="true"></div>
     <div class="section-inner">
       <p class="section-label reveal">Get in touch</p>
       <h2 class="contact-title reveal reveal-delay-1">Let's discuss your project.</h2>
