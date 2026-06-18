@@ -211,10 +211,12 @@
     .services-header { margin-bottom: 64px; }
     /* Section photo sits behind the cards — kept visible enough to actually read as a photo,
        unlike the 0.09-opacity treatment tried earlier which all but disappeared. */
-    #services { overflow: hidden; }
+    #services, #contact { overflow: hidden; }
     .section-photo { position: absolute; inset: 0; background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
     #services .section-inner { position: relative; z-index: 1; }
     .section-photo--services { opacity: 0.14; background-image: url('../../assets/photos/services-c.jpg'); }
+    /* Ported from version C's contact treatment */
+    .section-photo--contact { opacity: 0.20; mix-blend-mode: luminosity; background-image: url('../../assets/photos/contact.jpg'); }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .service-card { padding: 40px; border: 1px solid var(--border); background: #fff; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.08); }
@@ -472,6 +474,7 @@
   </section>
 
   <section id="contact" class="stone-bg">
+    <div class="section-photo section-photo--contact" aria-hidden="true"></div>
     <div class="section-inner">
       <p class="section-label reveal">Get in touch</p>
       <h2 class="contact-title reveal reveal-delay-1">Let's discuss your project.</h2>
