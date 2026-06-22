@@ -240,8 +240,10 @@
     .partner-logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; margin-top: 36px; }
     .partner-logos img { height: 26px; width: auto; filter: grayscale(100%); opacity: 0.65; transition: opacity 0.3s, filter 0.3s; }
     .partner-logos img:hover { filter: grayscale(0%); opacity: 1; }
-    .founder-linkedin { display: inline-block; margin-top: 28px; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-print); transition: color 0.3s; }
-    .founder-linkedin:hover { color: var(--navy); }
+    /* Same shape as .btn-outline-gold, recolored for a light section — gold-digital
+       on navy text barely registers against the cream background. */
+    .founder-linkedin { display: inline-block; margin-top: 28px; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--navy); border: 1px solid var(--navy); transition: background 0.3s, color 0.3s; }
+    .founder-linkedin:hover { background: var(--navy); color: var(--warm-white); }
 
     #contact .section-inner { padding: 96px 48px; text-align: center; max-width: 800px; }
     #contact::before { content: ''; position: absolute; inset: 0; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px 200px; pointer-events: none; }
