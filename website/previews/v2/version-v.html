@@ -253,8 +253,6 @@
     .contact-location { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 48px; }
     .btn-outline-gold { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--gold-digital); border: 1px solid var(--gold-digital); transition: background 0.3s, color 0.3s; }
     .btn-outline-gold:hover { background: var(--gold-digital); color: var(--navy); }
-    /* Email assembled via CSS, href entity-encoded — keeps the address out of plain-text source for scrapers */
-    .contact-email::before { content: attr(data-user) "\0040" attr(data-domain); }
 
     footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.06); }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
@@ -457,9 +455,9 @@
       <p class="contact-location reveal reveal-delay-3">Based in Paris, France. Working globally.</p>
       <div class="reveal reveal-delay-3">
         <a class="btn-outline-gold contact-email"
-           href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#105;&#110;&#101;&#64;&#115;&#117;&#110;&#115;&#116;&#111;&#110;&#101;&#97;&#100;&#118;&#105;&#115;&#111;&#114;&#121;&#46;&#102;&#114;"
-           data-user="marine"
-           data-domain="sunstoneadvisory.fr"
+           href="#"
+           data-mail="bWFpbHRvOm1hcmluZUBzdW5zdG9uZWFkdmlzb3J5LmZy"
+           rel="nofollow noopener"
            aria-label="Email Marine at Sunstone Advisory"></a>
       </div>
     </div>
@@ -490,6 +488,11 @@
     mob.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{open=false;ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open){open=false;ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}});
     updateNav();
+    // Mail link built entirely at runtime from a base64 blob — no URI scheme literal and
+    // no email address anywhere in the delivered HTML/CSS/JS for harvesters to regex.
+    // No-JS visitors get no link here; the LinkedIn button stays as a working fallback.
+    const mailLink=document.querySelector('.contact-email');
+    if(mailLink&&mailLink.dataset.mail){const decoded=atob(mailLink.dataset.mail);mailLink.href=decoded;mailLink.textContent=decoded.slice(decoded.indexOf(':')+1);}
   })();
   </script>
 
