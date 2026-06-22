@@ -86,7 +86,7 @@
     /* Parallax layers — JS writes translateY(); will-change keeps it on the GPU.
        Disabled entirely under prefers-reduced-motion (see script). */
     .parallax { will-change: transform; }
-    .parallax-bg { position: absolute; left: 0; right: 0; top: -20%; height: 140%; }
+    .parallax-bg { position: absolute; left: 0; right: 0; top: -30%; height: 160%; }
 
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 110; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease); }
     .nav.scrolled-sun { padding: 12px 48px; }
@@ -332,8 +332,8 @@
   </div>
 
   <section id="hero" class="stone-bg" aria-labelledby="hero-title">
-    <div class="hero-bg parallax parallax-bg" data-speed="0.18" aria-hidden="true"></div>
-    <div class="hero-inner parallax" data-speed="0.08">
+    <div class="hero-bg parallax parallax-bg" data-speed="0.3" aria-hidden="true"></div>
+    <div class="hero-inner parallax" data-speed="0.14">
       <p class="hero-label">Independent Advisory</p>
       <h1 class="hero-title" id="hero-title">
         <span class="word">Advisory</span>&#32;<span class="word">for</span>&#32;<span class="word">high-stakes</span>&#32;<span class="word">transactions</span>
@@ -351,7 +351,7 @@
       <header class="about-header reveal">
         <p class="section-label">About</p>
       </header>
-      <div class="about-bento parallax" data-speed="0.07">
+      <div class="about-bento parallax" data-speed="0.12">
         <div class="about-intro reveal">
           <p>Sunstone Advisory is an independent advisory firm providing <strong>critical transaction support</strong> to companies, founders, family businesses, investors and boards.</p>
         </div>
@@ -364,7 +364,7 @@
           <p class="about-point__body">We act as a transaction partner embedded in your team — not a distant intermediary handing off deliverables, but a direct counterpart supporting you throughout every decision in the process.</p>
         </article>
         <div class="about-statement reveal reveal-delay-2">
-          <svg class="about-statement__mark parallax" data-speed="0.1" viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <svg class="about-statement__mark parallax" data-speed="0.16" viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <polyline class="sm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/>
             <polygon class="sm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/>
           </svg>
@@ -376,13 +376,13 @@
   </section>
 
   <section id="services">
-    <div class="section-photo section-photo--services parallax parallax-bg" data-speed="0.12" aria-hidden="true"></div>
+    <div class="section-photo section-photo--services parallax parallax-bg" data-speed="0.2" aria-hidden="true"></div>
     <div class="section-inner">
       <header class="services-header reveal">
         <p class="section-label">What we do</p>
         <h2>How can we help (and more).</h2>
       </header>
-      <div class="services-grid parallax" data-speed="0.07">
+      <div class="services-grid parallax" data-speed="0.12">
         <article class="service-card reveal reveal-delay-1">
           <p class="service-number">01</p>
           <h3 class="service-title">M&amp;A Advisory</h3>
@@ -414,7 +414,7 @@
         <p class="section-label">Why Sunstone</p>
         <h2>What makes the difference.</h2>
       </header>
-      <div class="why-grid parallax" data-speed="0.07">
+      <div class="why-grid parallax" data-speed="0.12">
         <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Experienced advisor</p><p class="why-body">20+ transactions closed across M&A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings, fundraisings.</p></div>
         <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">A sparring &amp; pragmatic partner</p><p class="why-body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions, sharpen investment cases, to help clients take well-informed decisions.</p></div>
         <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Direct involvement</p><p class="why-body">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate is handled directly with no layers or dilution.</p></div>
@@ -425,7 +425,7 @@
 
   <section id="stats" class="stone-bg">
     <div class="section-inner">
-      <div class="stats-row parallax" data-speed="0.08">
+      <div class="stats-row parallax" data-speed="0.14">
         <div class="stat-item reveal"><div class="stat-value" data-target="20" data-suffix="+">20+</div><p class="stat-label">Transactions closed</p></div>
         <div class="stat-item reveal reveal-delay-1"><div class="stat-value" data-target="100" data-suffix="+">100+</div><p class="stat-label">Opportunities assessed</p></div>
         <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="8" data-suffix="">8</div><p class="stat-label">Years of experience</p></div>
@@ -435,7 +435,7 @@
 
   <section id="founder">
     <div class="section-inner">
-      <div class="about-grid parallax" data-speed="0.07">
+      <div class="about-grid parallax" data-speed="0.12">
         <div class="reveal">
           <p class="about-col-label">The founder</p>
           <h2 class="about-name">Marine Charbonnier</h2>
@@ -459,7 +459,7 @@
   </section>
 
   <section id="contact" class="stone-bg">
-    <div class="section-photo section-photo--contact parallax parallax-bg" data-speed="0.12" aria-hidden="true"></div>
+    <div class="section-photo section-photo--contact parallax parallax-bg" data-speed="0.2" aria-hidden="true"></div>
     <div class="section-inner">
       <p class="section-label reveal">Get in touch</p>
       <h2 class="contact-title reveal reveal-delay-1">Let's discuss your project.</h2>
