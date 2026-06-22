@@ -83,9 +83,14 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease); }
-    .nav.scrolled-sun { background: rgba(250,250,247,0.92); backdrop-filter: blur(16px); padding: 12px 48px; border-bottom: 1px solid var(--border); }
-    .nav.on-stone { background: rgba(10,15,30,0.92); backdrop-filter: blur(16px); padding: 12px 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    /* Parallax layers — JS writes translateY(); will-change keeps it on the GPU.
+       Disabled entirely under prefers-reduced-motion (see script). */
+    .parallax { will-change: transform; }
+    .parallax-bg { position: absolute; left: 0; right: 0; top: -15%; height: 130%; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 110; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; transition: padding 0.4s var(--ease), background 0.4s var(--ease), backdrop-filter 0.4s var(--ease); }
+    .nav.scrolled-sun { padding: 12px 48px; }
+    .nav.on-stone { padding: 12px 48px; }
 
     .wordmark { display: flex; align-items: center; }
     .wm-logo { display: block; width: auto; }
@@ -126,18 +131,22 @@
     .section-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 28px; }
     .stone-bg .section-label { color: var(--gold-digital); }
 
-    #hero { background-color: var(--warm-white); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    /* Full-bleed photo behind the headline, no gradient overlay — reuses the existing
+       nav color-switch logic via .stone-bg. Was a ::before; promoted to a real element
+       so the parallax script has a node to transform. */
+    #hero { background-color: var(--navy-deep); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-bg { z-index: 0; background-image: url('../../assets/photos/hero.jpg'); background-size: cover; background-position: center; opacity: 0.75; }
 
     .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; width: 100%; position: relative; z-index: 1; }
-    .hero-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
-    .hero-title { margin-bottom: 32px; overflow: hidden; }
+    .hero-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-digital); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
+    .hero-title { margin-bottom: 32px; overflow: hidden; color: var(--warm-white); }
     .hero-title .word { display: inline-block; opacity: 0; transform: translateY(60px); }
     .hero-title .word:nth-child(1) { animation: wordUp 0.7s var(--ease) 0.4s forwards; }
     .hero-title .word:nth-child(2) { animation: wordUp 0.7s var(--ease) 0.52s forwards; }
     .hero-title .word:nth-child(3) { animation: wordUp 0.7s var(--ease) 0.64s forwards; }
     .hero-title .word:nth-child(4) { animation: wordUp 0.7s var(--ease) 0.76s forwards; }
     /* Weight 200 subtitle — the critical contrast with the 800-weight title above */
-    .hero-subtitle { font-size: 17px; font-weight: 200; color: var(--text-gray); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s var(--ease) 1.0s forwards; letter-spacing: 0.01em; }
+    .hero-subtitle { font-size: 17px; font-weight: 200; color: rgba(245,240,232,0.75); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.8s var(--ease) 1.0s forwards; letter-spacing: 0.01em; }
 
     .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s var(--ease) 1.7s forwards; }
     .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--gold-print)); animation: scrollPulse 2s ease-in-out infinite; }
@@ -150,27 +159,6 @@
     /* Translate BEFORE rotate — rotating first would bounce the chevron along its own
        tilted axis instead of straight down, which read as a glitchy diagonal jump. */
     @keyframes scrollBounce { 0%, 100% { transform: translateY(0) rotate(45deg); } 50% { transform: translateY(4px) rotate(45deg); } }
-
-    .approach-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0; align-items: center; }
-    .approach-separator { background: var(--border-gold-faint); height: 120px; align-self: center; }
-    .approach-col { padding: 60px 64px; }
-    .approach-col:first-child { padding-left: 0; }
-    .approach-col:last-child { padding-right: 0; }
-
-    /* Weight 800 uppercase approach labels — the maximum punch */
-    .approach-label {
-      font-family: var(--font);
-      font-size: clamp(40px, 5.5vw, 72px);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      line-height: 0.9;
-    }
-    .approach-col--stone .approach-label { color: #FAFAF7; }
-    .approach-col--sun .approach-label { color: var(--gold-digital); }
-    /* Weight 200 desc — the extreme contrast with the label above */
-    .approach-desc { font-size: 15px; font-weight: 200; color: rgba(245,240,232,0.6); letter-spacing: 0.02em; }
 
     .about-header { margin-bottom: 48px; }
     /* Bento composition, reordered per Antoine's mockup: lead statement spans the top of
@@ -207,10 +195,12 @@
     .services-header { margin-bottom: 64px; }
     /* Section photo sits behind the cards — kept visible enough to actually read as a photo,
        unlike the 0.09-opacity treatment tried earlier which all but disappeared. */
-    #services { overflow: hidden; }
-    .section-photo { position: absolute; inset: 0; background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
+    #services, #contact { overflow: hidden; }
+    .section-photo { background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
     #services .section-inner { position: relative; z-index: 1; }
     .section-photo--services { opacity: 0.14; background-image: url('../../assets/photos/services-c.jpg'); }
+    /* Ported from version C's contact treatment */
+    .section-photo--contact { opacity: 0.70; mix-blend-mode: luminosity; background-image: url('../../assets/photos/contact.jpg'); }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .service-card { padding: 40px; border: 1px solid var(--border); background: #fff; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.08); }
@@ -233,12 +223,15 @@
     .why-label { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 10px; }
     .why-body { font-size: 15px; font-weight: 200; color: var(--text-gray); line-height: 1.85; }
 
-    .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; margin-bottom: 96px; }
+    /* Moved off the retired Sun/Stone frieze — this is now the section's navy background,
+       numbers alternating white/gold instead of the frieze's two labels. */
+    .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; }
     .stat-item { padding: 0 40px; text-align: center; }
-    .stat-item:not(:last-child) { border-right: 1px solid var(--border); }
+    .stat-item:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.12); }
     /* Weight 200 stats — hairline huge numbers = extremely elegant */
-    .stat-value { font-family: var(--font); font-size: clamp(52px, 6.5vw, 84px); font-weight: 200; letter-spacing: -0.04em; color: var(--navy); line-height: 1; margin-bottom: 10px; }
-    .stat-label { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-gray); }
+    .stat-value { font-family: var(--font); font-size: clamp(52px, 6.5vw, 84px); font-weight: 200; letter-spacing: -0.04em; color: var(--cream); line-height: 1; margin-bottom: 10px; }
+    .stat-item:nth-child(2) .stat-value { color: var(--gold-digital); }
+    .stat-label { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.5); }
 
     .about-grid { display: grid; grid-template-columns: 1fr 160px; gap: 80px; align-items: start; }
     .about-col-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-print); margin-bottom: 16px; }
@@ -253,6 +246,10 @@
     .partner-logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; margin-top: 36px; }
     .partner-logos img { height: 26px; width: auto; filter: grayscale(100%); opacity: 0.65; transition: opacity 0.3s, filter 0.3s; }
     .partner-logos img:hover { filter: grayscale(0%); opacity: 1; }
+    /* Same shape as .btn-outline-gold, recolored for a light section — gold-digital
+       on navy text barely registers against the cream background. */
+    .founder-linkedin { display: inline-block; margin-top: 28px; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--navy); border: 1px solid var(--navy); transition: background 0.3s, color 0.3s; }
+    .founder-linkedin:hover { background: var(--navy); color: var(--warm-white); }
 
     #contact .section-inner { padding: 96px 48px; text-align: center; max-width: 800px; }
     #contact::before { content: ''; position: absolute; inset: 0; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px 200px; pointer-events: none; }
@@ -262,8 +259,6 @@
     .contact-location { font-size: 10px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-bottom: 48px; }
     .btn-outline-gold { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--gold-digital); border: 1px solid var(--gold-digital); transition: background 0.3s, color 0.3s; }
     .btn-outline-gold:hover { background: var(--gold-digital); color: var(--navy); }
-    /* Email assembled via CSS, href entity-encoded — keeps the address out of plain-text source for scrapers */
-    .contact-email::before { content: attr(data-user) "\0040" attr(data-domain); }
 
     footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.06); }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
@@ -275,7 +270,6 @@
       .services-grid { grid-template-columns: 1fr 1fr; }
       .about-bento { grid-template-columns: 1fr 1fr; grid-template-areas: "head head" "p1 p3" "feat feat"; }
       .about-statement { min-height: 220px; }
-      .approach-col { padding: 40px 40px; }
       .why-grid { gap: 40px 48px; }
     }
     @media (max-width: 768px) {
@@ -286,18 +280,24 @@
       .hamburger { display: flex; }
       .hero-inner { padding: 0 24px; }
       .about-bento { grid-template-columns: 1fr; grid-template-areas: "head" "p1" "p3" "feat"; }
-      .approach-grid { grid-template-columns: 1fr; }
-      .approach-separator { display: none; }
-      .approach-col { padding: 40px 0; border-bottom: 1px solid var(--border-gold-faint); }
-      .approach-col:last-child { border-bottom: none; }
       .services-grid { grid-template-columns: 1fr; gap: 16px; }
       .why-grid { grid-template-columns: 1fr; gap: 40px; }
       .stats-row { grid-template-columns: 1fr; }
-      .stat-item { padding: 32px 0; border-right: none !important; border-bottom: 1px solid var(--border); }
+      .stat-item { padding: 32px 0; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.12); }
       .stat-item:last-child { border-bottom: none; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      /* #founder's ID-scoped 1fr-200px rule outranks the generic override above on
+         specificity alone — without this, the watermark column survives on mobile and
+         floats mid-paragraph over the bio text. */
+      #founder .about-grid { grid-template-columns: 1fr; }
+      .founder-watermark { display: none; }
       #contact .section-inner { padding: 64px 24px; text-align: left; }
       .footer-inner { padding: 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+    /* Parallax is a depth enhancement, not a vestibular hazard — drop it for anyone
+       who's said they don't want motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .parallax { transform: none !important; }
     }
   </style>
 </head>
@@ -331,8 +331,9 @@
     <a href="#contact" class="mobile-cta mobile-link">Get in touch</a>
   </div>
 
-  <section id="hero" aria-labelledby="hero-title">
-    <div class="hero-inner">
+  <section id="hero" class="stone-bg" aria-labelledby="hero-title">
+    <div class="hero-bg parallax parallax-bg" data-speed="0.1" aria-hidden="true"></div>
+    <div class="hero-inner parallax" data-speed="0.05">
       <p class="hero-label">Independent Advisory</p>
       <h1 class="hero-title" id="hero-title">
         <span class="word">Advisory</span>&#32;<span class="word">for</span>&#32;<span class="word">high-stakes</span>&#32;<span class="word">transactions</span>
@@ -350,20 +351,20 @@
       <header class="about-header reveal">
         <p class="section-label">About</p>
       </header>
-      <div class="about-bento">
+      <div class="about-bento parallax" data-speed="0.04">
         <div class="about-intro reveal">
           <p>Sunstone Advisory is an independent advisory firm providing <strong>critical transaction support</strong> to companies, founders, family businesses, investors and boards.</p>
         </div>
         <article class="about-point about-point--p1 reveal reveal-delay-1">
           <p class="about-point__label">The investor's perspective</p>
-          <p class="about-point__body">Most transaction advisors have seen deals from one angle — bankers who have never deployed capital, or investors with limited experience in running competitive processes. We've done both, combining years of deal execution and private equity experience. Which means we understand what's happening on the other side of the table — and how to use it to your advantage.</p>
+          <p class="about-point__body">At Sunstone, we have seen deals from different angles — as M&amp;A banker and private equity investor. We understand all perspectives around a deal and know how to defend your interests.</p>
         </article>
         <article class="about-point about-point--p3 reveal reveal-delay-2">
           <p class="about-point__label">Hands-on involvement</p>
           <p class="about-point__body">We act as a transaction partner embedded in your team — not a distant intermediary handing off deliverables, but a direct counterpart supporting you throughout every decision in the process.</p>
         </article>
         <div class="about-statement reveal reveal-delay-2">
-          <svg class="about-statement__mark" viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <svg class="about-statement__mark parallax" data-speed="0.06" viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <polyline class="sm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/>
             <polygon class="sm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/>
           </svg>
@@ -375,13 +376,13 @@
   </section>
 
   <section id="services">
-    <div class="section-photo section-photo--services" aria-hidden="true"></div>
+    <div class="section-photo section-photo--services parallax parallax-bg" data-speed="0.06" aria-hidden="true"></div>
     <div class="section-inner">
       <header class="services-header reveal">
         <p class="section-label">What we do</p>
         <h2>How can we help (and more).</h2>
       </header>
-      <div class="services-grid">
+      <div class="services-grid parallax" data-speed="0.04">
         <article class="service-card reveal reveal-delay-1">
           <p class="service-number">01</p>
           <h3 class="service-title">M&amp;A Advisory</h3>
@@ -392,7 +393,7 @@
         <article class="service-card reveal reveal-delay-2">
           <p class="service-number">02</p>
           <h3 class="service-title">Portfolio Work</h3>
-          <p class="service-subtitle">Exit Support</p>
+          <p class="service-subtitle">Active Support</p>
           <div class="service-divider"></div>
           <ul class="service-list"><li>Value creation execution</li><li>Add-on acquisitions</li><li>Investor and board interactions</li><li>Financing &amp; refinancing</li><li>Equity story and business plan refinement</li><li>Exit preparation and process</li></ul>
         </article>
@@ -413,39 +414,28 @@
         <p class="section-label">Why Sunstone</p>
         <h2>What makes the difference.</h2>
       </header>
-      <div class="why-grid">
-        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Experienced partner</p><p class="why-body">20+ transactions closed across M&A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings, fundraisings.</p></div>
-        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">A critical sounding board</p><p class="why-body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions, sharpen investment cases, to help clients take well-informed decisions.</p></div>
-        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Hands-on approach</p><p class="why-body">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate is handled directly with no layers or dilution.</p></div>
+      <div class="why-grid parallax" data-speed="0.04">
+        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Experienced advisor</p><p class="why-body">20+ transactions closed across M&A advisory and private equity — from large-cap flagship investments to mid-market acquisitions, disposals, add-ons, financings, fundraisings.</p></div>
+        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">A sparring &amp; pragmatic partner</p><p class="why-body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions, sharpen investment cases, to help clients take well-informed decisions.</p></div>
+        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Direct involvement</p><p class="why-body">Not just advising, but actively involved. We structure, negotiate, drive and decide together. Every mandate is handled directly with no layers or dilution.</p></div>
         <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Alignment</p><p class="why-body">No conflicts of interest, no proprietary products to push, no cross-selling agendas — independent and fully aligned with your objectives.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="frieze" class="stone-bg">
+  <section id="stats" class="stone-bg">
     <div class="section-inner">
-      <div class="approach-grid">
-        <div class="approach-col approach-col--sun reveal">
-          <div class="approach-label">Sun</div>
-          <p class="approach-desc">Clear. Pragmatic. Easy to work with.</p>
-        </div>
-        <div class="approach-separator" aria-hidden="true"></div>
-        <div class="approach-col approach-col--stone reveal reveal-delay-1">
-          <div class="approach-label">Stone</div>
-          <p class="approach-desc">Rigorous. Structured. Reliable.</p>
-        </div>
+      <div class="stats-row parallax" data-speed="0.05">
+        <div class="stat-item reveal"><div class="stat-value" data-target="20" data-suffix="+">20+</div><p class="stat-label">Transactions closed</p></div>
+        <div class="stat-item reveal reveal-delay-1"><div class="stat-value" data-target="100" data-suffix="+">100+</div><p class="stat-label">Opportunities assessed</p></div>
+        <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="8" data-suffix="">8</div><p class="stat-label">Years of experience</p></div>
       </div>
     </div>
   </section>
 
   <section id="founder">
     <div class="section-inner">
-      <div class="stats-row">
-        <div class="stat-item reveal"><div class="stat-value" data-target="20" data-suffix="+">20+</div><p class="stat-label">Transactions closed</p></div>
-        <div class="stat-item reveal reveal-delay-1"><div class="stat-value" data-target="100" data-suffix="+">100+</div><p class="stat-label">Opportunities assessed</p></div>
-        <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="8" data-suffix="">8</div><p class="stat-label">Years of experience</p></div>
-      </div>
-      <div class="about-grid">
+      <div class="about-grid parallax" data-speed="0.04">
         <div class="reveal">
           <p class="about-col-label">The founder</p>
           <h2 class="about-name">Marine Charbonnier</h2>
@@ -456,6 +446,7 @@
             <img src="../../assets/partners/deutsche-bank.png" alt="Deutsche Bank" loading="lazy">
             <img src="../../assets/partners/dauphine.png" alt="Université Paris-Dauphine — Master 225" loading="lazy">
           </div>
+          <a class="founder-linkedin" href="https://www.linkedin.com/in/marinecharbonnier/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <div class="founder-watermark reveal reveal-delay-2" aria-hidden="true">
           <svg viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg">
@@ -468,16 +459,17 @@
   </section>
 
   <section id="contact" class="stone-bg">
+    <div class="section-photo section-photo--contact parallax parallax-bg" data-speed="0.06" aria-hidden="true"></div>
     <div class="section-inner">
       <p class="section-label reveal">Get in touch</p>
       <h2 class="contact-title reveal reveal-delay-1">Let's discuss your project.</h2>
-      <p class="contact-body reveal reveal-delay-2">Whether you are considering a sale, acquisition, or fundraising process, we are available for a first confidential conversation — in French or English.</p>
+      <p class="contact-body reveal reveal-delay-2">We are available for a first confidential conversation — in French or English.</p>
       <p class="contact-location reveal reveal-delay-3">Based in Paris, France. Working globally.</p>
       <div class="reveal reveal-delay-3">
         <a class="btn-outline-gold contact-email"
-           href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#105;&#110;&#101;&#64;&#115;&#117;&#110;&#115;&#116;&#111;&#110;&#101;&#97;&#100;&#118;&#105;&#115;&#111;&#114;&#121;&#46;&#102;&#114;"
-           data-user="marine"
-           data-domain="sunstoneadvisory.fr"
+           href="#"
+           data-mail="bWFpbHRvOm1hcmluZUBzdW5zdG9uZWFkdmlzb3J5LmZy"
+           rel="nofollow noopener"
            aria-label="Email Marine at Sunstone Advisory"></a>
       </div>
     </div>
@@ -508,6 +500,28 @@
     mob.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{open=false;ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}));
     document.addEventListener('keydown',e=>{if(e.key==='Escape'&&open){open=false;ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow='';}});
     updateNav();
+    // Mail link built entirely at runtime from a base64 blob — no URI scheme literal and
+    // no email address anywhere in the delivered HTML/CSS/JS for harvesters to regex.
+    // No-JS visitors get no link here; the LinkedIn button stays as a working fallback.
+    const mailLink=document.querySelector('.contact-email');
+    if(mailLink&&mailLink.dataset.mail){const decoded=atob(mailLink.dataset.mail);mailLink.href=decoded;mailLink.textContent=decoded.slice(decoded.indexOf(':')+1);}
+
+    // Subtle scroll parallax — offset is proportional to each element's own viewport
+    // position (getBoundingClientRect().top), so it settles back to 0 at natural
+    // position and needs no absolute-scroll bookkeeping. Skipped under reduced motion.
+    const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){
+      const players=Array.from(document.querySelectorAll('.parallax')).map(el=>({el,speed:parseFloat(el.dataset.speed)||0.05}));
+      let ticking=false;
+      function applyParallax(){
+        players.forEach(({el,speed})=>{el.style.transform=`translate3d(0, ${(el.getBoundingClientRect().top*speed).toFixed(2)}px, 0)`;});
+        ticking=false;
+      }
+      function onScroll(){if(!ticking){requestAnimationFrame(applyParallax);ticking=true;}}
+      window.addEventListener('scroll',onScroll,{passive:true});
+      window.addEventListener('resize',onScroll);
+      applyParallax();
+    }
   })();
   </script>
 
