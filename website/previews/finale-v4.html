@@ -250,6 +250,9 @@
     .partner-logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; margin-top: 36px; }
     .partner-logos img { height: 26px; width: auto; filter: grayscale(100%); opacity: 0.65; transition: opacity 0.3s, filter 0.3s; }
     .partner-logos img:hover { filter: grayscale(0%); opacity: 1; }
+    /* Le logo DB est presque carré : à hauteur égale il paraît plus petit que les
+       wordmarks larges (Carlyle, Dauphine) — compensation optique. */
+    .partner-logos img[alt="Deutsche Bank"] { height: 32px; }
     /* Same shape as .btn-outline-gold, recolored for a light section — gold-digital
        on navy text barely registers against the cream background. */
     .founder-linkedin { display: inline-block; margin-top: 28px; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 32px; background: transparent; color: var(--navy); border: 1px solid var(--navy); transition: background 0.3s, color 0.3s; }
