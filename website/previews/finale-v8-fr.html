@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
@@ -11,9 +11,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21.05 21.05'%3E%3Cpolyline fill='%231c1917' points='9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97'/%3E%3Cpolygon fill='%23c2a052' fill-rule='evenodd' points='11.22 0 21.05 9.79 21.05 0 11.22 0'/%3E%3C/svg%3E">
-  <title>Sunstone Advisory</title>
-  <meta name="description" content="Advisory for high-stakes transactions — M&A, exits, fundraising and ownership transitions. Independent advisory based in Paris.">
+  <title>Sunstone Advisory — Conseil indépendant en transactions | Paris</title>
+  <meta name="description" content="Conseil pour transactions à forts enjeux — M&A, cessions, levées de fonds et transmissions d'entreprise. Cabinet indépendant basé à Paris.">
+  <!-- Preview only — remove the noindex line when this version ships as the production homepage -->
   <meta name="robots" content="noindex, nofollow">
+
+  <!-- URLs below point to the production domain: this file is the prod candidate,
+       social crawlers need absolute URLs, and previews are noindex anyway. -->
+  <link rel="canonical" href="https://www.sunstoneadvisory.fr/fr/">
+  <link rel="alternate" hreflang="en" href="https://www.sunstoneadvisory.fr/">
+  <link rel="alternate" hreflang="fr" href="https://www.sunstoneadvisory.fr/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://www.sunstoneadvisory.fr/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sunstone Advisory">
+  <meta property="og:title" content="Sunstone Advisory — Conseil indépendant en transactions">
+  <meta property="og:description" content="Conseil pour transactions à forts enjeux — M&A, cessions, levées de fonds et transmissions d'entreprise. Cabinet indépendant basé à Paris.">
+  <meta property="og:url" content="https://www.sunstoneadvisory.fr/fr/">
+  <meta property="og:image" content="https://www.sunstoneadvisory.fr/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sunstone Advisory — Conseil indépendant en transactions">
+  <meta name="twitter:description" content="Conseil pour transactions à forts enjeux — M&A, cessions, levées de fonds et transmissions d'entreprise. Cabinet indépendant basé à Paris.">
+  <meta name="twitter:image" content="https://www.sunstoneadvisory.fr/assets/og-image.jpg">
+
+  <!-- No email address here on purpose — the anti-harvesting decision (base64-only
+       contact link) applies to structured data too. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Sunstone Advisory",
+    "legalName": "Sunstone Advisory SASU",
+    "description": "Conseil pour transactions à forts enjeux — M&A, cessions, levées de fonds et transmissions d'entreprise. Cabinet indépendant basé à Paris.",
+    "url": "https://www.sunstoneadvisory.fr/fr/",
+    "logo": "https://www.sunstoneadvisory.fr/assets/logo-final.svg",
+    "image": "https://www.sunstoneadvisory.fr/assets/og-image.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+    "areaServed": "Worldwide",
+    "knowsAbout": ["M&A advisory", "Private equity", "Fundraising advisory", "Exit preparation", "Ownership transitions"],
+    "founder": {
+      "@type": "Person",
+      "name": "Marine Charbonnier",
+      "jobTitle": "Founder",
+      "sameAs": "https://www.linkedin.com/in/marinecharbonnier/"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Plus Jakarta Sans: extreme weight contrast — 200 body vs 800 headings -->
@@ -116,6 +163,12 @@
     .mobile-menu a { font-family: var(--font); font-size: 32px; font-weight: 800; letter-spacing: -0.03em; color: var(--cream); transition: color 0.3s; }
     .mobile-menu a:hover { color: var(--gold-digital); }
     .mobile-menu .mobile-cta { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 32px; border: 1px solid var(--gold-digital); color: var(--gold-digital); margin-top: 16px; }
+    /* Language link intentionally quieter than the 32px section links — utility, not destination */
+    .mobile-menu .mobile-lang { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+    .mobile-menu .mobile-lang:hover { color: var(--gold-digital); }
+
+    .nav-lang { border: 1px solid currentColor; padding: 4px 9px; opacity: 0.75; }
+    .nav-lang:hover { opacity: 1; }
 
     section { position: relative; }
     /* Trimmed from 120px — Antoine felt the original rhythm ran long across 9 sections */
@@ -129,7 +182,10 @@
     /* Full-bleed photo behind the headline, no gradient overlay — reuses the existing
        nav color-switch logic via .stone-bg. */
     #hero { background-color: var(--navy-deep); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
-    #hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background-image: url('../../assets/photos/hero.jpg'); background-size: cover; background-position: center; opacity: 0.75; }
+    /* Essai photo façade/soleil (Marine, 10/07) — photo pleine opacité, lisibilité du titre
+       assurée par un dégradé sombre côté gauche où le ciel est le plus clair. */
+    #hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background-image: url('../../assets/photos/hero-b.jpg'); background-size: cover; background-position: center; opacity: 1; }
+    #hero::after { content: ''; position: absolute; inset: 0; z-index: 0; background: linear-gradient(100deg, rgba(10,15,30,0.78) 0%, rgba(10,15,30,0.45) 55%, rgba(10,15,30,0.18) 100%); }
 
     .hero-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; width: 100%; position: relative; z-index: 1; }
     .hero-label { font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-digital); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards; }
@@ -193,11 +249,28 @@
     #services, #contact { overflow: hidden; }
     .section-photo { position: absolute; inset: 0; background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
     #services .section-inner { position: relative; z-index: 1; }
-    /* Raised from 0.14 per Marine's feedback — photo should actually read as a photo,
-       cards get a resting shadow so they detach from it. */
-    .section-photo--services { opacity: 0.32; background-image: url('../../assets/photos/services-c.jpg'); }
-    /* Ported from version C's contact treatment */
-    .section-photo--contact { opacity: 0.70; mix-blend-mode: luminosity; background-image: url('../../assets/photos/contact.jpg'); }
+    /* V4 (Marine, 10/07) : l'ancienne photo hero (buildings vers le ciel) déplacée
+       derrière les services, sans filtre — pleine opacité comme en haut du site à l'origine. */
+    .section-photo--services { opacity: 1; background-image: url('../../assets/photos/hero.jpg'); }
+    /* Photo sombre plein cadre → header en clair + section traitée comme stone
+       pour que la nav bascule en blanc au survol de la section. */
+    #services h2 { color: var(--warm-white); }
+    #services .services-intro { color: rgba(245,240,232,0.8); }
+    /* V5 (Marine, 10/07) : fini le filtre bleu (luminosity blend sur navy). Photo chaude
+       (silhouette/ville au crépuscule) floutée en couleurs naturelles ; le voile sombre
+       neutre — noir chaud, pas navy — reste indispensable pour le contraste du texte.
+       scale(1.08) masque le liseré clair que le blur crée sur les bords. */
+    .section-photo--contact { opacity: 1; background-image: url('../../assets/photos/services-a.jpg');
+      filter: blur(9px); transform: scale(1.08);
+      box-shadow: inset 0 0 0 9999px rgba(16,12,8,0.52); }
+    #contact { background-color: #16110D; }
+    #contact .contact-title { font-size: clamp(30px, 4.5vw, 54px); color: var(--warm-white); }
+    #contact .btn-outline-gold { background: var(--gold-digital); color: var(--navy); border-color: var(--gold-digital); }
+    #contact .btn-outline-gold:hover { background: transparent; color: var(--gold-digital); }
+    /* Photo plus claire que l'ancien fond navy — textes secondaires remontés en opacité
+       pour garder un contraste AA sur les zones lumineuses du flou. */
+    #contact .contact-body { color: rgba(245,240,232,0.9); }
+    #contact .contact-location { color: rgba(245,240,232,0.62); }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .service-card { padding: 40px; border: 1px solid var(--border); background: #fff; box-shadow: 0 12px 32px rgba(15,26,46,0.10); transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease); }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(15,26,46,0.14); }
@@ -265,7 +338,13 @@
     .version-switcher a:hover { color: var(--cream); }
     .version-switcher a.active { background: var(--gold-digital); color: var(--navy); }
 
-    footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.06); }
+    /* V7 : footer en fondu — pas de filet, la photo s'assombrit progressivement vers
+       le bas de page (dégradé sur toute la moitié basse de la section) et le footer
+       repose sur cette zone éteinte. */
+    footer { background: transparent; border: none; position: relative; z-index: 1; }
+    #contact .section-inner { padding-bottom: 56px; }
+    .contact-fade { position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: linear-gradient(to bottom, transparent 55%, rgba(12,9,6,0.85) 100%); }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
     .footer-right { font-size: 10px; font-weight: 200; letter-spacing: 0.06em; color: rgba(245,240,232,0.3); text-align: right; line-height: 1.9; }
     footer .wm-logo { height: 18px; }
@@ -345,37 +424,39 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager -->
 
-  <nav class="nav" id="mainNav" aria-label="Main navigation">
+  <nav class="nav" id="mainNav" aria-label="Navigation principale">
     <a href="#hero" class="wordmark" aria-label="Sunstone Advisory">
       <svg class="wm-logo" viewBox="0 0 85.89 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><path class="wm-gold" d="M27.49,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-gold" d="M34.98,9.97c-.47-.26-.82-.63-1.04-1.09s-.33-1-.33-1.62V2.31h1.08v4.83c0,.8.17,1.39.52,1.77s.86.56,1.56.56,1.21-.19,1.56-.56.52-.96.52-1.76V2.31h1.08v4.95c0,.62-.11,1.16-.33,1.62s-.57.83-1.04,1.09-1.07.4-1.79.4-1.31-.13-1.78-.4Z"/><path class="wm-gold" d="M42.09,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/></g><g><path class="wm-ink" d="M51.73,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-ink" d="M58.92,3.2h-2.24v-.89h5.54v.89h-2.23v7h-1.07V3.2Z"/><path class="wm-ink" d="M64.56,9.79c-.57-.34-.99-.81-1.28-1.42s-.43-1.31-.43-2.12.14-1.51.43-2.12.71-1.08,1.28-1.42,1.25-.51,2.06-.51,1.49.17,2.05.51.98.81,1.27,1.42.43,1.32.43,2.12-.14,1.51-.43,2.12-.71,1.08-1.27,1.42-1.24.51-2.05.51-1.5-.17-2.06-.51ZM68.12,9.01c.39-.28.68-.65.87-1.13s.28-1.02.28-1.63-.09-1.16-.28-1.63-.48-.85-.87-1.13-.89-.42-1.5-.42-1.11.14-1.51.42-.69.65-.87,1.13-.28,1.02-.28,1.63.09,1.15.28,1.63.47.85.87,1.13.9.42,1.51.42,1.11-.14,1.5-.42Z"/><path class="wm-ink" d="M72.11,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/><path class="wm-ink" d="M80.86,2.31h5.03v.89h-3.97v2.5h3.66v.87h-3.66v2.73h3.97v.89h-5.03V2.31Z"/></g><g><path class="wm-ink" d="M27.35,14.02h.66l1.69,4.57h-.64l-.43-1.28h-1.89l-.46,1.28h-.64l1.71-4.57ZM28.44,16.79l-.77-2.16-.78,2.16h1.55Z"/><path class="wm-ink" d="M31.6,14.02c.48,0,.88.09,1.22.27s.6.44.77.78c.18.34.27.75.27,1.23s-.09.9-.27,1.24c-.18.34-.44.6-.77.78s-.75.27-1.22.27h-1.54v-4.57h1.54ZM32.79,17.64c.29-.29.43-.73.43-1.34s-.15-1.04-.44-1.33c-.29-.29-.73-.44-1.32-.44h-.79v3.54h.79c.6,0,1.04-.14,1.33-.43Z"/><path class="wm-ink" d="M34.04,14.02h.66l1.35,3.92,1.36-3.92h.66l-1.66,4.57h-.72l-1.64-4.57Z"/><path class="wm-ink" d="M38.46,14.02h.62v4.57h-.62v-4.57Z"/><path class="wm-ink" d="M40.51,18.5c-.27-.1-.48-.26-.63-.48s-.22-.49-.21-.81h.62c0,.34.1.58.31.73.21.15.49.22.83.22.31,0,.56-.07.76-.2.2-.13.3-.32.3-.58,0-.16-.04-.3-.12-.4s-.2-.2-.37-.28-.4-.16-.7-.23c-.36-.09-.65-.19-.86-.29-.22-.11-.38-.24-.48-.4-.11-.16-.16-.36-.16-.61,0-.26.06-.48.18-.66.12-.18.3-.32.53-.41s.5-.14.82-.14.57.05.82.15c.24.1.44.24.58.44.14.19.22.43.22.7h-.62c0-.17-.04-.31-.12-.43s-.2-.21-.36-.27-.32-.09-.51-.09c-.29,0-.52.06-.68.18-.16.12-.24.29-.24.51,0,.14.04.25.11.34.07.09.19.17.35.24.17.07.41.15.72.23.38.1.67.2.88.31s.37.25.47.42c.1.17.15.39.15.66s-.07.51-.22.71c-.14.2-.34.34-.6.45-.25.1-.55.15-.87.15s-.65-.05-.91-.15Z"/><path class="wm-ink" d="M44.5,18.36c-.33-.2-.58-.47-.74-.82-.17-.35-.25-.76-.25-1.23s.08-.88.25-1.23c.17-.35.41-.63.74-.83.33-.2.73-.3,1.19-.3s.86.1,1.19.3c.33.2.57.47.74.83.17.35.25.76.25,1.23s-.08.88-.25,1.23c-.17.35-.41.63-.74.82-.32.2-.72.29-1.19.29s-.87-.1-1.2-.29ZM46.57,17.91c.23-.16.4-.38.5-.65.11-.27.16-.59.16-.94s-.05-.67-.16-.95c-.11-.28-.28-.5-.5-.66-.23-.16-.52-.24-.87-.24s-.65.08-.88.24c-.23.16-.4.38-.51.66s-.16.59-.16.95.05.67.16.94c.11.28.28.49.51.65.23.16.52.24.88.24s.64-.08.87-.24Z"/><path class="wm-ink" d="M50.28,14.02c.27,0,.52.04.73.13.22.09.39.22.51.4.13.18.19.41.19.69,0,.29-.08.54-.25.74s-.4.34-.71.41c.17.02.3.08.41.16.11.08.2.19.28.34.07.14.14.33.2.56l.3,1.15h-.63l-.26-1.05c-.05-.21-.12-.39-.19-.51-.07-.13-.15-.22-.26-.28-.1-.06-.23-.09-.38-.09h-1.08v1.93h-.62v-4.57h1.73ZM50.66,16.04c.14-.06.24-.16.32-.28s.12-.26.12-.43c0-.26-.08-.45-.23-.59-.15-.14-.37-.21-.65-.21h-1.05v1.61h1.03c.17,0,.32-.03.46-.1Z"/><path class="wm-ink" d="M53.48,16.77l-1.57-2.75h.66l1.22,2.22,1.22-2.22h.66l-1.57,2.75v1.82h-.62v-1.82Z"/></g><polyline class="wm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/><polygon class="wm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/></svg>
     </a>
     <nav class="nav-links">
-      <a href="#about">About</a>
+      <a href="#about">À propos</a>
       <a href="#services">Services</a>
-      <a href="#why">Why</a>
-      <a href="#founder">Founder</a>
-      <a href="#contact" class="nav-cta">Get in touch</a>
+      <a href="#why">Pourquoi</a>
+      <a href="#founder">Fondatrice</a>
+      <a href="./finale-v8.html" class="nav-lang" lang="en" hreflang="en" aria-label="English version">EN</a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
-    <a href="#about" class="mobile-link">About</a>
+    <a href="#about" class="mobile-link">À propos</a>
     <a href="#services" class="mobile-link">Services</a>
-    <a href="#why" class="mobile-link">Why</a>
-    <a href="#founder" class="mobile-link">Founder</a>
-    <a href="#contact" class="mobile-cta mobile-link">Get in touch</a>
+    <a href="#why" class="mobile-link">Pourquoi</a>
+    <a href="#founder" class="mobile-link">Fondatrice</a>
+    <a href="#contact" class="mobile-cta mobile-link">Contact</a>
+    <a href="./finale-v8.html" class="mobile-lang" lang="en" hreflang="en" aria-label="English version">EN — English version</a>
   </div>
 
   <section id="hero" class="stone-bg" aria-labelledby="hero-title">
     <div class="hero-inner">
-      <p class="hero-label">Independent Advisory</p>
+      <p class="hero-label">Conseil indépendant</p>
       <h1 class="hero-title" id="hero-title">
-        <span class="word">Advisory</span>&#32;<span class="word">for</span>&#32;<span class="word">high-stakes</span>&#32;<span class="word">transactions</span>
+        <span class="word">Le conseil</span>&#32;<span class="word">des</span>&#32;<span class="word">transactions</span>&#32;<span class="word">à forts enjeux</span>
       </h1>
-      <p class="hero-subtitle">Supporting M&amp;A, exits, fundraising and ownership transitions.</p>
+      <p class="hero-subtitle">Accompagnement M&amp;A, cessions, levées de fonds et transmissions d'entreprise.</p>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
       <div class="scroll-line"></div>
@@ -386,61 +467,61 @@
   <section id="about">
     <div class="section-inner">
       <header class="about-header reveal">
-        <p class="section-label">About</p>
+        <p class="section-label">À propos</p>
       </header>
       <div class="about-bento">
         <div class="about-intro reveal">
-          <p>Sunstone Advisory is an independent advisory firm providing <strong>critical transaction support</strong> to management teams, founders and investors.</p>
+          <p>Sunstone Advisory est un cabinet de conseil indépendant qui apporte un <strong>appui transactionnel décisif</strong> aux équipes dirigeantes, fondateurs et investisseurs.</p>
         </div>
         <article class="about-point about-point--p1 reveal reveal-delay-1">
-          <p class="about-point__label">The investor's perspective</p>
-          <p class="about-point__body">At Sunstone, we have seen deals from different angles — as M&amp;A banker and private equity investor. Having seen transactions from both sides of the table allows us to anticipate, challenge and better advise our clients.</p>
+          <p class="about-point__label">Le regard de l'investisseur</p>
+          <p class="about-point__body">Chez Sunstone, nous avons vécu les deals sous différents angles — comme banquier M&amp;A et comme investisseur en private equity. Avoir vu les transactions des deux côtés de la table nous permet d'anticiper, de challenger et de mieux conseiller nos clients.</p>
         </article>
         <article class="about-point about-point--p3 reveal reveal-delay-2">
-          <p class="about-point__label">Hands-on involvement</p>
-          <p class="about-point__body">We act as a transaction partner embedded in your team — not a distant intermediary handing off deliverables, but a direct counterpart supporting you throughout the process.</p>
+          <p class="about-point__label">Implication opérationnelle</p>
+          <p class="about-point__body">Nous agissons comme un partenaire de transaction intégré à votre équipe — non pas un intermédiaire distant qui remet des livrables, mais un interlocuteur direct qui vous accompagne tout au long du processus.</p>
         </article>
         <div class="about-statement reveal reveal-delay-2">
           <svg class="about-statement__mark" viewBox="0 0 21.05 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <polyline class="sm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/>
             <polygon class="sm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/>
           </svg>
-          <p>We are here to support in any situation where ownership, leadership and capital intersect.</p>
-          <a href="#contact" class="about-statement__cta">Let's discuss your needs&#32;<span class="tri" aria-hidden="true"></span></a>
+          <p>Nous intervenons dans toutes les situations où actionnariat, direction et capital se rencontrent.</p>
+          <a href="#contact" class="about-statement__cta">Parlons de vos enjeux&#32;<span class="tri" aria-hidden="true"></span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="services">
+  <section id="services" class="stone-bg">
     <div class="section-photo section-photo--services" aria-hidden="true"></div>
     <div class="section-inner">
       <header class="services-header reveal">
-        <p class="section-label">What we do</p>
-        <h2>How can we help.</h2>
-        <p class="services-intro">We typically support management teams when additional transaction experience, execution capacity and critical reviews are needed.</p>
+        <p class="section-label">Notre métier</p>
+        <h2>Comment pouvons-nous vous aider.</h2>
+        <p class="services-intro">Nous intervenons généralement auprès des équipes dirigeantes lorsqu'une expérience transactionnelle supplémentaire, une capacité d'exécution et un regard critique sont nécessaires.</p>
       </header>
       <div class="services-grid">
         <article class="service-card reveal reveal-delay-1">
           <p class="service-number">01</p>
-          <h3 class="service-title">M&amp;A Advisory</h3>
-          <p class="service-subtitle">Buy &amp; Sell</p>
+          <h3 class="service-title">Conseil M&amp;A</h3>
+          <p class="service-subtitle">Acquisition &amp; Cession</p>
           <div class="service-divider"></div>
-          <ul class="service-list"><li>Process preparation and management</li><li>Due diligence oversight and review</li><li>Valuation, structuring and financing</li><li>Negotiation and documentation</li><li>Closing</li></ul>
+          <ul class="service-list"><li>Préparation et pilotage du processus</li><li>Supervision et revue des due diligences</li><li>Valorisation, structuration et financement</li><li>Négociation et documentation</li><li>Closing</li></ul>
         </article>
         <article class="service-card reveal reveal-delay-2">
           <p class="service-number">02</p>
-          <h3 class="service-title">Portfolio &amp; Value Creation</h3>
-          <p class="service-subtitle">Active Support</p>
+          <h3 class="service-title">Portefeuille &amp; Création de valeur</h3>
+          <p class="service-subtitle">Accompagnement actif</p>
           <div class="service-divider"></div>
-          <ul class="service-list"><li>Value creation execution</li><li>Add-on acquisitions</li><li>Investor and board interactions</li><li>Financing &amp; refinancing</li><li>Equity story and business plan refinement</li><li>Exit preparation and process</li></ul>
+          <ul class="service-list"><li>Exécution des plans de création de valeur</li><li>Acquisitions build-up</li><li>Relations investisseurs et conseils d'administration</li><li>Financement &amp; refinancement</li><li>Affinage de l'equity story et du business plan</li><li>Préparation et pilotage de l'exit</li></ul>
         </article>
         <article class="service-card reveal reveal-delay-3">
           <p class="service-number">03</p>
-          <h3 class="service-title">Fundraising Advisory</h3>
-          <p class="service-subtitle">Capital &amp; Growth</p>
+          <h3 class="service-title">Conseil en levée de fonds</h3>
+          <p class="service-subtitle">Capital &amp; Croissance</p>
           <div class="service-divider"></div>
-          <ul class="service-list"><li>Process drive and execution</li><li>Equity story and materials development</li><li>Q&amp;A preparation and management</li><li>Investor follow-up and tracking</li><li>Term sheet and documentation support</li></ul>
+          <ul class="service-list"><li>Pilotage et exécution du processus</li><li>Construction de l'equity story et des supports</li><li>Préparation et gestion des Q&amp;A</li><li>Suivi et relance des investisseurs</li><li>Appui sur term sheet et documentation</li></ul>
         </article>
       </div>
     </div>
@@ -449,14 +530,14 @@
   <section id="why">
     <div class="section-inner" style="background: var(--cream);">
       <header class="why-header reveal">
-        <p class="section-label">Why Sunstone</p>
-        <h2>What makes the difference.</h2>
+        <p class="section-label">Pourquoi Sunstone</p>
+        <h2>Ce qui fait la différence.</h2>
       </header>
       <div class="why-grid">
-        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Transaction experience</p><p class="why-body">20+ transactions closed across M&A advisory and private equity — from large-cap flagship investments to mid-market and small acquisitions, disposals, add-ons, financings, fundraisings.</p></div>
-        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">A pragmatic sparring partner</p><p class="why-body">Beyond process and deliverables, we challenge analysis, pressure-test assumptions, sharpen investment cases, to help clients take well-informed decisions.</p></div>
-        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Direct involvement</p><p class="why-body">Not just advising, but actively involved. We structure, negotiate, challenge and drive the process together. Every mandate is handled directly with no layers or dilution.</p></div>
-        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Alignment</p><p class="why-body">No conflicts of interest, no proprietary products to push, no cross-selling agendas — independent and fully aligned with your objectives.</p></div>
+        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Expérience transactionnelle</p><p class="why-body">Plus de 20 transactions closées en conseil M&A et private equity — des investissements large-cap emblématiques aux acquisitions mid-market et small-cap, cessions, build-ups, financements, levées de fonds.</p></div>
+        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Un sparring partner pragmatique</p><p class="why-body">Au-delà du processus et des livrables, nous challengeons les analyses, testons les hypothèses et affûtons les cas d'investissement pour aider nos clients à décider en pleine connaissance de cause.</p></div>
+        <div class="why-item reveal reveal-delay-1"><div class="why-line"></div><p class="why-label">Implication directe</p><p class="why-body">Pas seulement du conseil : une implication active. Nous structurons, négocions, challengeons et pilotons le processus ensemble. Chaque mandat est traité en direct, sans intermédiaire ni dilution.</p></div>
+        <div class="why-item reveal reveal-delay-2"><div class="why-line"></div><p class="why-label">Alignement</p><p class="why-body">Aucun conflit d'intérêts, aucun produit maison à placer, aucune logique de cross-selling — indépendants et pleinement alignés avec vos objectifs.</p></div>
       </div>
     </div>
   </section>
@@ -464,9 +545,9 @@
   <section id="stats" class="stone-bg">
     <div class="section-inner">
       <div class="stats-row">
-        <div class="stat-item reveal"><div class="stat-value" data-target="20" data-suffix="+">20+</div><p class="stat-label">Transactions closed</p></div>
-        <div class="stat-item reveal reveal-delay-1"><div class="stat-value" data-target="100" data-suffix="+">100+</div><p class="stat-label">Opportunities assessed</p></div>
-        <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="8" data-suffix="">8</div><p class="stat-label">Years of experience</p></div>
+        <div class="stat-item reveal"><div class="stat-value" data-target="20" data-suffix="+">20+</div><p class="stat-label">Transactions closées</p></div>
+        <div class="stat-item reveal reveal-delay-1"><div class="stat-value" data-target="100" data-suffix="+">100+</div><p class="stat-label">Opportunités analysées</p></div>
+        <div class="stat-item reveal reveal-delay-2"><div class="stat-value" data-target="8" data-suffix="">8</div><p class="stat-label">Années d'expérience</p></div>
       </div>
     </div>
   </section>
@@ -475,10 +556,10 @@
     <div class="section-inner">
       <div class="about-grid">
         <div class="reveal">
-          <p class="about-col-label">Founder</p>
+          <p class="about-col-label">Fondatrice</p>
           <h2 class="about-name">Marine Charbonnier</h2>
-          <p class="about-bio">Marine has been working across investment banking and private equity since 2017. She started in the M&amp;A team at Deutsche Bank in Paris, where she worked on structuring and executing transactions across a wide range of industries. She then joined Carlyle's European Buyout team as private equity investor, assessing investment opportunities, executing acquisitions, supporting portfolio companies and management teams through exits.</p>
-          <p class="about-bio">Sunstone Advisory is built on her experience, with a simple objective: provide companies, founders and investors with experienced, hands-on transaction support, combining rigorous execution with an investor's judgment.</p>
+          <p class="about-bio">Marine travaille en banque d'affaires et en private equity depuis 2017. Elle a débuté au sein de l'équipe M&amp;A de Deutsche Bank à Paris, où elle a structuré et exécuté des transactions dans des secteurs très variés. Elle a ensuite rejoint l'équipe European Buyout de Carlyle comme investisseur en private equity : analyse d'opportunités d'investissement, exécution d'acquisitions, accompagnement des participations et de leurs équipes dirigeantes jusqu'à l'exit.</p>
+          <p class="about-bio">Sunstone Advisory est bâti sur cette expérience, avec un objectif simple : apporter aux entreprises, fondateurs et investisseurs un appui transactionnel expérimenté et opérationnel, combinant rigueur d'exécution et regard d'investisseur.</p>
           <div class="partner-logos">
             <img src="../../assets/partners/carlyle.png" alt="Carlyle" loading="lazy">
             <img src="../../assets/partners/deutsche-bank.png" alt="Deutsche Bank" loading="lazy">
@@ -487,7 +568,7 @@
           <a class="founder-linkedin" href="https://www.linkedin.com/in/marinecharbonnier/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <figure class="founder-photo reveal reveal-delay-2">
-          <img src="../../assets/photos/marine.jpg" alt="Marine Charbonnier, founder of Sunstone Advisory" loading="lazy">
+          <img src="../../assets/photos/marine.jpg" alt="Marine Charbonnier, fondatrice de Sunstone Advisory" loading="lazy">
         </figure>
       </div>
     </div>
@@ -495,33 +576,34 @@
 
   <section id="contact" class="stone-bg">
     <div class="section-photo section-photo--contact" aria-hidden="true"></div>
+    <div class="contact-fade" aria-hidden="true"></div>
     <div class="section-inner">
-      <p class="section-label reveal">Get in touch</p>
-      <h2 class="contact-title reveal reveal-delay-1">Let's discuss your project.</h2>
-      <p class="contact-body reveal reveal-delay-2">Reach out for a first confidential conversation — in French or English.</p>
-      <p class="contact-location reveal reveal-delay-3">Based in Paris, France. Working globally.</p>
+      <p class="section-label reveal">Contact</p>
+      <h2 class="contact-title reveal reveal-delay-1">Parlons de votre projet.</h2>
+      <p class="contact-body reveal reveal-delay-2">Contactez-nous pour un premier échange confidentiel — en français ou en anglais.</p>
+      <p class="contact-location reveal reveal-delay-3">Basés à Paris. Missions à l'international.</p>
       <div class="reveal reveal-delay-3">
         <a class="btn-outline-gold contact-email"
            href="#"
            data-mail="bWFpbHRvOm1hcmluZUBzdW5zdG9uZWFkdmlzb3J5LmZy"
            rel="nofollow noopener"
-           aria-label="Email Marine at Sunstone Advisory"></a>
+           aria-label="Écrire à Marine — Sunstone Advisory"></a>
       </div>
     </div>
-  </section>
 
-  <footer>
+    <footer>
     <div class="footer-inner">
       <a href="#hero" class="wordmark">
         <svg class="wm-logo" viewBox="0 0 85.89 21.05" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><path class="wm-gold" d="M27.49,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-gold" d="M34.98,9.97c-.47-.26-.82-.63-1.04-1.09s-.33-1-.33-1.62V2.31h1.08v4.83c0,.8.17,1.39.52,1.77s.86.56,1.56.56,1.21-.19,1.56-.56.52-.96.52-1.76V2.31h1.08v4.95c0,.62-.11,1.16-.33,1.62s-.57.83-1.04,1.09-1.07.4-1.79.4-1.31-.13-1.78-.4Z"/><path class="wm-gold" d="M42.09,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/></g><g><path class="wm-ink" d="M51.73,10.03c-.46-.18-.82-.45-1.08-.83s-.38-.84-.35-1.4h1.07c0,.58.17,1,.54,1.26s.84.38,1.44.38c.53,0,.97-.11,1.31-.34s.51-.56.51-1c0-.28-.07-.51-.2-.7s-.35-.35-.64-.49-.7-.27-1.21-.4c-.62-.15-1.12-.32-1.49-.5s-.65-.41-.83-.69-.28-.62-.28-1.05c0-.45.11-.82.32-1.13s.51-.55.91-.71.87-.24,1.41-.24.99.08,1.41.25.76.42,1,.75.37.73.37,1.21h-1.07c0-.29-.07-.53-.21-.74s-.35-.35-.61-.46-.56-.16-.88-.16c-.5,0-.89.1-1.17.3s-.42.49-.42.87c0,.23.06.43.18.58s.33.29.61.42.7.26,1.24.4c.65.17,1.16.35,1.52.54s.64.43.81.72.26.67.26,1.15-.12.88-.37,1.22-.59.59-1.03.77-.94.26-1.5.26-1.12-.09-1.58-.27Z"/><path class="wm-ink" d="M58.92,3.2h-2.24v-.89h5.54v.89h-2.23v7h-1.07V3.2Z"/><path class="wm-ink" d="M64.56,9.79c-.57-.34-.99-.81-1.28-1.42s-.43-1.31-.43-2.12.14-1.51.43-2.12.71-1.08,1.28-1.42,1.25-.51,2.06-.51,1.49.17,2.05.51.98.81,1.27,1.42.43,1.32.43,2.12-.14,1.51-.43,2.12-.71,1.08-1.27,1.42-1.24.51-2.05.51-1.5-.17-2.06-.51ZM68.12,9.01c.39-.28.68-.65.87-1.13s.28-1.02.28-1.63-.09-1.16-.28-1.63-.48-.85-.87-1.13-.89-.42-1.5-.42-1.11.14-1.51.42-.69.65-.87,1.13-.28,1.02-.28,1.63.09,1.15.28,1.63.47.85.87,1.13.9.42,1.51.42,1.11-.14,1.5-.42Z"/><path class="wm-ink" d="M72.11,2.31h1.09l4.31,6.25V2.31h1.01v7.89h-1.08l-4.32-6.27v6.27h-1.01V2.31Z"/><path class="wm-ink" d="M80.86,2.31h5.03v.89h-3.97v2.5h3.66v.87h-3.66v2.73h3.97v.89h-5.03V2.31Z"/></g><g><path class="wm-ink" d="M27.35,14.02h.66l1.69,4.57h-.64l-.43-1.28h-1.89l-.46,1.28h-.64l1.71-4.57ZM28.44,16.79l-.77-2.16-.78,2.16h1.55Z"/><path class="wm-ink" d="M31.6,14.02c.48,0,.88.09,1.22.27s.6.44.77.78c.18.34.27.75.27,1.23s-.09.9-.27,1.24c-.18.34-.44.6-.77.78s-.75.27-1.22.27h-1.54v-4.57h1.54ZM32.79,17.64c.29-.29.43-.73.43-1.34s-.15-1.04-.44-1.33c-.29-.29-.73-.44-1.32-.44h-.79v3.54h.79c.6,0,1.04-.14,1.33-.43Z"/><path class="wm-ink" d="M34.04,14.02h.66l1.35,3.92,1.36-3.92h.66l-1.66,4.57h-.72l-1.64-4.57Z"/><path class="wm-ink" d="M38.46,14.02h.62v4.57h-.62v-4.57Z"/><path class="wm-ink" d="M40.51,18.5c-.27-.1-.48-.26-.63-.48s-.22-.49-.21-.81h.62c0,.34.1.58.31.73.21.15.49.22.83.22.31,0,.56-.07.76-.2.2-.13.3-.32.3-.58,0-.16-.04-.3-.12-.4s-.2-.2-.37-.28-.4-.16-.7-.23c-.36-.09-.65-.19-.86-.29-.22-.11-.38-.24-.48-.4-.11-.16-.16-.36-.16-.61,0-.26.06-.48.18-.66.12-.18.3-.32.53-.41s.5-.14.82-.14.57.05.82.15c.24.1.44.24.58.44.14.19.22.43.22.7h-.62c0-.17-.04-.31-.12-.43s-.2-.21-.36-.27-.32-.09-.51-.09c-.29,0-.52.06-.68.18-.16.12-.24.29-.24.51,0,.14.04.25.11.34.07.09.19.17.35.24.17.07.41.15.72.23.38.1.67.2.88.31s.37.25.47.42c.1.17.15.39.15.66s-.07.51-.22.71c-.14.2-.34.34-.6.45-.25.1-.55.15-.87.15s-.65-.05-.91-.15Z"/><path class="wm-ink" d="M44.5,18.36c-.33-.2-.58-.47-.74-.82-.17-.35-.25-.76-.25-1.23s.08-.88.25-1.23c.17-.35.41-.63.74-.83.33-.2.73-.3,1.19-.3s.86.1,1.19.3c.33.2.57.47.74.83.17.35.25.76.25,1.23s-.08.88-.25,1.23c-.17.35-.41.63-.74.82-.32.2-.72.29-1.19.29s-.87-.1-1.2-.29ZM46.57,17.91c.23-.16.4-.38.5-.65.11-.27.16-.59.16-.94s-.05-.67-.16-.95c-.11-.28-.28-.5-.5-.66-.23-.16-.52-.24-.87-.24s-.65.08-.88.24c-.23.16-.4.38-.51.66s-.16.59-.16.95.05.67.16.94c.11.28.28.49.51.65.23.16.52.24.88.24s.64-.08.87-.24Z"/><path class="wm-ink" d="M50.28,14.02c.27,0,.52.04.73.13.22.09.39.22.51.4.13.18.19.41.19.69,0,.29-.08.54-.25.74s-.4.34-.71.41c.17.02.3.08.41.16.11.08.2.19.28.34.07.14.14.33.2.56l.3,1.15h-.63l-.26-1.05c-.05-.21-.12-.39-.19-.51-.07-.13-.15-.22-.26-.28-.1-.06-.23-.09-.38-.09h-1.08v1.93h-.62v-4.57h1.73ZM50.66,16.04c.14-.06.24-.16.32-.28s.12-.26.12-.43c0-.26-.08-.45-.23-.59-.15-.14-.37-.21-.65-.21h-1.05v1.61h1.03c.17,0,.32-.03.46-.1Z"/><path class="wm-ink" d="M53.48,16.77l-1.57-2.75h.66l1.22,2.22,1.22-2.22h.66l-1.57,2.75v1.82h-.62v-1.82Z"/></g><polyline class="wm-ink" points="9.06 0 0 0 0 21.05 21.05 21.05 21.05 11.97"/><polygon class="wm-gold" points="11.22 0 21.05 9.79 21.05 0 11.22 0"/></svg>
       </a>
       <div class="footer-right">
-        <p>Independent Transaction Advisory</p>
+        <p>Conseil indépendant en transactions</p>
         <p>Sunstone Advisory SASU — SIREN 102 964 418 — RCS Paris.</p>
         <p>© 2026 Sunstone Advisory. All rights reserved.</p>
       </div>
     </div>
-  </footer>
+    </footer>
+  </section>
 
   <script>
   (function(){
@@ -549,13 +631,13 @@
 
   <nav class="version-switcher" aria-label="Version switcher">
     <a href="./finale.html">V1</a>
-    <a href="./finale-v2.html" class="active" aria-current="page">V2</a>
+    <a href="./finale-v2.html">V2</a>
     <a href="./finale-v3.html">V3 · Photo</a>
     <a href="./finale-v4.html">V4 · Services</a>
     <a href="./finale-v5.html">V5 · Contact</a>
     <a href="./finale-v6.html">V6 · Footer</a>
     <a href="./finale-v7.html">V7 · Fondu</a>
-    <a href="./finale-v8.html">V8 · SEO/FR</a>
+    <a href="./finale-v8.html" class="active" aria-current="page">V8 · SEO/FR</a>
   </nav>
 
 </body>
