@@ -285,7 +285,10 @@
     .version-switcher a:hover { color: var(--cream); }
     .version-switcher a.active { background: var(--gold-digital); color: var(--navy); }
 
-    footer { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,0.06); }
+    /* V5 : le contact est passé en brun chaud — un footer navy jurait juste en dessous.
+       Même famille chromatique, un cran plus sombre que le fond du contact (#16110D)
+       pour garder la hiérarchie de clôture de page. */
+    footer { background: #100C08; border-top: 1px solid rgba(245,240,232,0.08); }
     .footer-inner { max-width: 1200px; margin: 0 auto; padding: 28px 48px; display: flex; align-items: center; justify-content: space-between; }
     .footer-right { font-size: 10px; font-weight: 200; letter-spacing: 0.06em; color: rgba(245,240,232,0.3); }
     footer .wm-logo { height: 18px; }
