@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Consent Mode v2 — default denied, must run before GTM loads -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
   new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
@@ -230,6 +243,80 @@
         margin-top: 64px;
       }
     }
+
+    /* ─── Cookie consent banner ─────────────────────────── */
+    .consent-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 100;
+      background-color: var(--navy);
+      color: var(--warm-white);
+      padding: 20px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 32px;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .consent-banner.visible {
+      transform: translateY(0);
+    }
+
+    .consent-banner__text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--warm-white);
+      max-width: 480px;
+      opacity: 0.85;
+    }
+
+    .consent-banner__actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .consent-banner__btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: 1px solid var(--warm-white);
+      background: transparent;
+      color: var(--warm-white);
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .consent-banner__btn:hover {
+      background-color: var(--warm-white);
+      color: var(--navy);
+    }
+
+    .consent-banner__btn--accept {
+      background-color: var(--gold-print);
+      border-color: var(--gold-print);
+      color: var(--navy);
+    }
+
+    .consent-banner__btn--accept:hover {
+      background-color: var(--gold-digital);
+      border-color: var(--gold-digital);
+    }
+
+    @media (max-width: 480px) {
+      .consent-banner {
+        justify-content: flex-start;
+        text-align: left;
+        padding: 20px;
+      }
+    }
   </style>
 
   <script>
@@ -398,6 +485,47 @@
   </main>
 
   <footer>Paris · Sunstone Advisory</footer>
+
+  <div class="consent-banner" id="consent-banner" role="dialog" aria-label="Cookie consent">
+    <p class="consent-banner__text">We use analytics cookies to understand site traffic. No data is sold or shared with third parties.</p>
+    <div class="consent-banner__actions">
+      <button type="button" class="consent-banner__btn consent-banner__btn--decline" id="consent-decline">Decline</button>
+      <button type="button" class="consent-banner__btn consent-banner__btn--accept" id="consent-accept">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    // ── Consent Mode v2 — banner + persisted choice ─────────────────
+    (function () {
+      const STORAGE_KEY = 'sunstone_consent';
+      const banner = document.getElementById('consent-banner');
+      const stored = localStorage.getItem(STORAGE_KEY);
+
+      function updateConsent(granted) {
+        gtag('consent', 'update', {
+          'analytics_storage': granted ? 'granted' : 'denied'
+        });
+      }
+
+      if (stored === 'granted' || stored === 'denied') {
+        updateConsent(stored === 'granted');
+      } else {
+        banner.classList.add('visible');
+      }
+
+      document.getElementById('consent-accept').addEventListener('click', function () {
+        localStorage.setItem(STORAGE_KEY, 'granted');
+        updateConsent(true);
+        banner.classList.remove('visible');
+      });
+
+      document.getElementById('consent-decline').addEventListener('click', function () {
+        localStorage.setItem(STORAGE_KEY, 'denied');
+        updateConsent(false);
+        banner.classList.remove('visible');
+      });
+    })();
+  </script>
 
   <script>
     (function () {
