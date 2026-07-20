@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /waiting-page
+
+Sitemap: https://sunstoneadvisory.fr/sitemap.xml

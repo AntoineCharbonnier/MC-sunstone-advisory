@@ -1,5 +1,9 @@
 # Sunstone Advisory — Mémoire Projet Claude
 
+**Langue** : toujours répondre en français à Antoine sur ce projet.
+
+**Autonomie** : si tu détectes une amélioration technique évidente sur ce projet (bug, incohérence, fix SEO/robots/URL...), l'appliquer directement sans demander confirmation, sauf action risquée (destructrice, irréversible, visible publiquement sans retour arrière facile).
+
 > **Dernière mise à jour** : Mars 2026 — Trame Website v7 (version finale)
 > **Client** : Marine Charbonnier
 > **Projet** : Création du site web vitrine de Sunstone Advisory, cabinet M&A advisory indépendant basé à Paris

@@ -11,3 +11,9 @@
 <Files ".htpasswd">
     Require all denied
 </Files>
+
+# Force trailing slash sur /waiting-page (indépendant du réglage DirectorySlash du serveur)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^waiting-page$ /waiting-page/ [R=301,L]
+</IfModule>

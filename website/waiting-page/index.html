@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Consent Mode v2 — default denied, must run before GTM loads -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+  new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+  "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,"script","dataLayer","GTM-55D89GB5");</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunstone Advisory — Coming Soon</title>
+  <meta name="description" content="Sunstone Advisory — Independent M&A advisory. Advisory for high-stakes transactions.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="../previews/favicon.svg">
+  <link rel="canonical" href="https://sunstoneadvisory.fr/waiting-page/">
+
+  <!-- Open Graph / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sunstoneadvisory.fr/waiting-page/">
+  <meta property="og:site_name" content="Sunstone Advisory">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Sunstone Advisory — M&A, Fundraising & Transaction Advisory">
+  <meta property="og:description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris.">
+  <meta property="og:image" content="https://sunstoneadvisory.fr/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sunstone Advisory — Advisory for high-stakes transactions.">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sunstone Advisory — M&A, Fundraising & Transaction Advisory">
+  <meta name="twitter:description" content="Independent transaction advisory firm. M&A advisory, fundraising and portfolio work, combining investment banking and private equity experience. Based in Paris.">
+  <meta name="twitter:image" content="https://sunstoneadvisory.fr/assets/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:         #0F1A2E;
+      --navy-mid:     #1A2744;
+      --gold-print:   #C8A060;
+      --gold-digital: #FFDF90;
+      --cream:        #F5F0E8;
+      --warm-white:   #FAFAF7;
+      --border-light: #E4DDD0;
+      --text-body:    #3A3A3A;
+      --text-gray:    #7A7A7A;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--navy);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding: 48px 32px;
+    }
+
+    /* ─── Logo ─────────────────────────────────────────── */
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 72px;
+    }
+
+    .logo__sun {
+      color: var(--gold-print);
+    }
+
+    .logo__stone {
+      color: var(--navy);
+    }
+
+    /* ─── Main ──────────────────────────────────────────── */
+    .main {
+      text-align: center;
+      max-width: 560px;
+    }
+
+    /* Gold horizontal rule */
+    .main::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background-color: var(--gold-print);
+      margin: 0 auto 40px;
+    }
+
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-print);
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 24px;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-gray);
+      max-width: 420px;
+      margin: 0 auto 48px;
+    }
+
+    /* ─── Contact ───────────────────────────────────────── */
+    .contact {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact__label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+
+    .contact__link {
+      font-size: 13px;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .contact__link:hover {
+      color: var(--gold-print);
+      border-color: var(--gold-print);
+    }
+
+    /* Email assembled via CSS — never plain text in source */
+    .contact__link::before {
+      content: attr(data-user) "\0040" attr(data-domain);
+    }
+
+    /* ─── Hidden links ─────────────────────────────────── */
+    .hidden-links {
+      width: 100%;
+      max-width: 560px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s ease, opacity 0.4s ease;
+    }
+
+    .hidden-links.visible {
+      max-height: 1000px;
+      opacity: 1;
+    }
+
+    .hidden-links__inner {
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid var(--border-light);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 28px 32px;
+    }
+
+    .hl-section__label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-print);
+      margin-bottom: 10px;
+    }
+
+    .hl-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .hl-list a {
+      font-size: 12px;
+      color: var(--text-body);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+      word-break: break-word;
+    }
+
+    .hl-list a:hover {
+      color: var(--gold-print);
+      border-color: var(--border-light);
+    }
+
+    /* ─── Footer ────────────────────────────────────────── */
+    footer {
+      position: fixed;
+      bottom: 32px;
+      font-size: 11px;
+      color: var(--border-light);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Responsive ────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .logo {
+        margin-bottom: 56px;
+      }
+
+      .main::before {
+        margin-bottom: 32px;
+      }
+
+      footer {
+        position: static;
+        margin-top: 64px;
+      }
+    }
+
+    /* ─── Cookie consent banner ─────────────────────────── */
+    .consent-banner {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 100;
+      background-color: var(--navy);
+      color: var(--warm-white);
+      padding: 20px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px 32px;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .consent-banner.visible {
+      transform: translateY(0);
+    }
+
+    .consent-banner__text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--warm-white);
+      max-width: 480px;
+      opacity: 0.85;
+    }
+
+    .consent-banner__actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .consent-banner__btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border: 1px solid var(--warm-white);
+      background: transparent;
+      color: var(--warm-white);
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .consent-banner__btn:hover {
+      background-color: var(--warm-white);
+      color: var(--navy);
+    }
+
+    .consent-banner__btn--accept {
+      background-color: var(--gold-print);
+      border-color: var(--gold-print);
+      color: var(--navy);
+    }
+
+    .consent-banner__btn--accept:hover {
+      background-color: var(--gold-digital);
+      border-color: var(--gold-digital);
+    }
+
+    @media (max-width: 480px) {
+      .consent-banner {
+        justify-content: flex-start;
+        text-align: left;
+        padding: 20px;
+      }
+    }
+  </style>
+
+  <script>
+    // ── Console easter egg ───────────────────────────────────────────
+    (function () {
+      const gold  = 'color:#C8A060;font-family:monospace;line-height:1.3;font-size:11px;';
+      const name  = 'color:#FAFAF7;font-weight:700;font-size:13px;background:#0F1A2E;padding:2px 6px;';
+      const navy  = 'color:#FAFAF7;font-size:12px;background:#1A2744;padding:2px 6px;';
+
+      console.log('%c' + `
+                        ░░░░░░▒
+                      ▓░▒     ░░▒
+                    ▓░█        ▒░░▒
+                  ▒░█  ·······  ▒░░
+                 ░░    ════════   ▒░▒
+
+             ░░▒        ▒░░░░░▒       ▓░█
+           ░░▒    █▓  ░░▒      ▓█        ░░▒
+         ▓░▒     ▓░ ▒░▒                    ░░▒
+       ▓░█       ░▒ ▒░▒                       ░░
+      ▒░▒       ▒░ █░                         ▓░
+      ▒░▒        ░ █░                         ▓░
+       ▓░█       ░▒ ░█                       ░░
+         ▓░▒     ▒░▒ ░░          █▒        ░░▒
+           ░░▒    ▒░█ ▒░░░▒  ▒▓░░▒ █▓    ░░▒
+             ░░▒    ▓░░▒  ▓█▓▒▒ ▒▓░▓   ▓░█
+               ░░      ▓░░░░░░░░░    ▒░█
+                ▒░░                ▒░░
+                  ▒░░            ▒░░
+                    ▓░█        ▒░░▒
+                      ▓░▒     ░░▒
+                        ▓░░░░░▒
+
+`, gold);
+      console.log('%c Antoine Charbonnier ', name);
+      console.log('%c Développeur web · Paris %c antoinecharbonnier.fr ', navy, navy);
+    })();
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55D89GB5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="logo" id="logo-trigger" aria-label="Sunstone Advisory" style="cursor:default;user-select:none;">
+    <span class="logo__sun">Sun</span><span class="logo__stone">stone Advisory</span>
+  </div>
+
+  <main class="main">
+    <p class="label">Independent Advisory</p>
+    <h1>Advisory for high-stakes transactions — M&A, exits, fundraising and ownership transitions.</h1>
+    <p class="subtitle">Our website is on its way. In the meantime, we are available to discuss your project.</p>
+
+    <div class="contact">
+      <span class="contact__label">Get in touch</span>
+      <!-- href entity-encoded, text assembled by CSS — not readable by scrapers -->
+      <a class="contact__link"
+         href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#114;&#105;&#110;&#101;&#64;&#115;&#117;&#110;&#115;&#116;&#111;&#110;&#101;&#97;&#100;&#118;&#105;&#115;&#111;&#114;&#121;&#46;&#102;&#114;"
+         data-user="marine"
+         data-domain="sunstoneadvisory.fr"
+         aria-label="Email Marine at sunstone advisory"></a>
+    </div>
+
+    <div class="hidden-links" id="hidden-links" aria-hidden="true">
+      <div class="hidden-links__inner">
+
+        <div class="hl-section">
+          <span class="hl-section__label">Founder</span>
+          <ul class="hl-list">
+            <li><a href="../../founder/marine-charbonnier.md">marine-charbonnier</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Logos</span>
+          <ul class="hl-list">
+            <li><a href="../../logos/logo-propositions.html">logo-propositions</a></li>
+            <li><a href="../../logos/logo-propositions-v2.html">logo-propositions-v2</a></li>
+            <li><a href="../../logos/logo-circulaire.html">logo-circulaire</a></li>
+            <li><a href="../../logos/logo-all-propositions.html">logo-all-propositions</a></li>
+            <li><a href="../../logos/logo-cercle-barre-variants.html">logo-cercle-barre-variants</a></li>
+            <li><a href="../../logos/logo-monogramme-S-exact.html">logo-monogramme-S-exact</a></li>
+            <li><a href="../../logos/logo-inspirations-v3.html">logo-inspirations-v3</a></li>
+            <li><a href="../../logos/sunstone_advisory-aura-build.html">sunstone_advisory-aura-build</a></li>
+            <li><a href="../../logos/sunstone_advisory_logos.html">sunstone_advisory_logos</a></li>
+            <li><a href="../../logos/sunstone_charbon_ambre_variants.html">sunstone_charbon_ambre_variants</a></li>
+            <li><a href="../../logos/sunstone_logo_D_colors_weights.html">sunstone_logo_D_colors_weights</a></li>
+            <li><a href="../../logos/sunstone_logo_D_variations.html">sunstone_logo_D_variations</a></li>
+            <li><a href="../../logos/sunstone_logo_circle_variants.html">sunstone_logo_circle_variants</a></li>
+            <li><a href="../../logos/sunstone_logo_color_explorations.html">sunstone_logo_color_explorations</a></li>
+            <li><a href="../../logos/sunstone_logo_explorations_v2.html">sunstone_logo_explorations_v2</a></li>
+            <li><a href="../../logos/sunstone_logo_oval_variants.html">sunstone_logo_oval_variants</a></li>
+            <li><a href="../../logos/sunstone_logo_refined.html">sunstone_logo_refined</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Logos Recraft</span>
+          <ul class="hl-list">
+            <li><a href="../../logos-recraft/concept-split-circle.html">concept-split-circle</a></li>
+            <li><a href="../../logos-recraft/concept-s-form.html">concept-s-form</a></li>
+            <li><a href="../../logos-recraft/concept-gem-horizon.html">concept-gem-horizon</a></li>
+            <li><a href="../../logos-recraft/concept-s-circle-stone.html">concept-s-circle-stone</a></li>
+            <li><a href="../../logos-recraft/concept-circle-line-dots.html">concept-circle-line-dots</a></li>
+            <li><a href="../../logos-recraft/concept-square-s-arch.html">concept-square-s-arch</a></li>
+            <li><a href="../../logos-recraft/concept-square-s-v2-refined.html">concept-square-s-v2-refined</a></li>
+            <li><a href="../../logos-recraft/prompt-generation.html">prompt-generation</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Wording Review</span>
+          <ul class="hl-list">
+            <li><a href="../../wording-review/README.md">README</a></li>
+            <li><a href="../../wording-review/diff-mockup-vs-v7.md">diff-mockup-vs-v7</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Strategy</span>
+          <ul class="hl-list">
+            <li><a href="../../strategy/arbitrages.md">arbitrages</a></li>
+            <li><a href="../../strategy/competitive-landscape.md">competitive-landscape</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Claude Design</span>
+          <ul class="hl-list">
+            <li><a href="../../ressources-from-humans/claude-design/Sunstone Advisory.html">Sunstone Advisory v1</a></li>
+            <li><a href="../../ressources-from-humans/claude-design/Sunstone Advisory-v2.html">Sunstone Advisory v2</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Previews</span>
+          <ul class="hl-list">
+            <li><a href="../previews/version-n.html">Sunstone Advisory — 15 versions · 10 structures</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Preview V2</span>
+          <ul class="hl-list">
+            <li><a href="../previews/v2/version-o.html">Sunstone Advisory V2 — O, based on N</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Finale</span>
+          <ul class="hl-list">
+            <li><a href="../previews/finale-v9.html">Sunstone Advisory — version finale</a></li>
+          </ul>
+        </div>
+
+        <div class="hl-section">
+          <span class="hl-section__label">Claude Code</span>
+          <ul class="hl-list">
+            <li><a href="../claude-clode/index.html">Sunstone Advisory v3 — React + Motion</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>Paris · Sunstone Advisory</footer>
+
+  <div class="consent-banner" id="consent-banner" role="dialog" aria-label="Cookie consent">
+    <p class="consent-banner__text">We use analytics cookies to understand site traffic. No data is sold or shared with third parties.</p>
+    <div class="consent-banner__actions">
+      <button type="button" class="consent-banner__btn consent-banner__btn--decline" id="consent-decline">Decline</button>
+      <button type="button" class="consent-banner__btn consent-banner__btn--accept" id="consent-accept">Accept</button>
+    </div>
+  </div>
+
+  <script>
+    // ── Consent Mode v2 — banner + persisted choice ─────────────────
+    (function () {
+      const STORAGE_KEY = 'sunstone_consent';
+      const banner = document.getElementById('consent-banner');
+      const stored = localStorage.getItem(STORAGE_KEY);
+
+      function updateConsent(granted) {
+        gtag('consent', 'update', {
+          'analytics_storage': granted ? 'granted' : 'denied'
+        });
+      }
+
+      if (stored === 'granted' || stored === 'denied') {
+        updateConsent(stored === 'granted');
+      } else {
+        banner.classList.add('visible');
+      }
+
+      document.getElementById('consent-accept').addEventListener('click', function () {
+        localStorage.setItem(STORAGE_KEY, 'granted');
+        updateConsent(true);
+        banner.classList.remove('visible');
+      });
+
+      document.getElementById('consent-decline').addEventListener('click', function () {
+        localStorage.setItem(STORAGE_KEY, 'denied');
+        updateConsent(false);
+        banner.classList.remove('visible');
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const CLICKS_REQUIRED = 7;
+      const RESET_DELAY     = 1500; // ms — réinitialise si on arrête de cliquer
+
+      let count   = 0;
+      let timer   = null;
+      const logo  = document.getElementById('logo-trigger');
+      const panel = document.getElementById('hidden-links');
+
+      logo.addEventListener('click', function () {
+        clearTimeout(timer);
+        count++;
+
+        if (count >= CLICKS_REQUIRED) {
+          count = 0;
+          const isVisible = panel.classList.toggle('visible');
+          panel.setAttribute('aria-hidden', String(!isVisible));
+          return;
+        }
+
+        // Réinitialise le compteur si on s'arrête trop longtemps
+        timer = setTimeout(() => { count = 0; }, RESET_DELAY);
+      });
+    })();
+  </script>
+
+</body>
+</html>
