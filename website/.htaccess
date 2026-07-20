@@ -15,5 +15,10 @@
 # Force trailing slash sur /waiting-page (indépendant du réglage DirectorySlash du serveur)
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # Canonicalisation www -> non-www (aligné sur meta canonical + sitemap)
+  RewriteCond %{HTTP_HOST} ^www\.sunstoneadvisory\.fr$ [NC]
+  RewriteRule ^(.*)$ https://sunstoneadvisory.fr/$1 [R=301,L]
+
   RewriteRule ^waiting-page$ /waiting-page/ [R=301,L]
 </IfModule>
