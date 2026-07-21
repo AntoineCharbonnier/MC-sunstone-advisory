@@ -1,0 +1,13 @@
+# Auth activée uniquement si le .htpasswd existe dans ce dossier (prod OVH)
+# En local (MAMP), le fichier est absent → aucune auth, pas d'erreur
+<IfFile "/home/sunstob/www/waiting-page/.htpasswd">
+  AuthType Basic
+  AuthName "Sunstone Advisory — Preview"
+  AuthUserFile /home/sunstob/www/waiting-page/.htpasswd
+  Require valid-user
+</IfFile>
+
+# Protect .htpasswd from direct web access
+<Files ".htpasswd">
+    Require all denied
+</Files>
