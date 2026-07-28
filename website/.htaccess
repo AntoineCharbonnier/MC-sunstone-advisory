@@ -11,5 +11,9 @@
   RewriteCond %{HTTP_HOST} ^www\.sunstoneadvisory\.fr$ [NC]
   RewriteRule ^(.*)$ https://sunstoneadvisory.fr/$1 [R=301,L]
 
+  # Force HTTPS (http://sunstoneadvisory.fr servait en clair, cf. audit GSC 2026-07-28)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://sunstoneadvisory.fr/$1 [R=301,L]
+
   RewriteRule ^waiting-page$ /waiting-page/ [R=301,L]
 </IfModule>
